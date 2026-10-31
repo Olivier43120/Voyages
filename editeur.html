@@ -32,6 +32,8 @@ a{color:var(--b)}small,.m{color:var(--m);font-size:14px}[hidden]{display:none!im
  <section><label>Carnet (un dossier par voyage)</label><select id="al"></select> <p><button class="g" id="mig" hidden>Déplacer ce carnet dans un dossier…</button></p></section>
  <section><b>Album</b>
   <label>Titre</label><input data-a="title"><label>Auteur</label><input data-a="author"><label>Sous-titre (page de garde)</label><input data-a="subtitle">
+  <label>Durée du fondu entre photos (secondes, 0 = aucun)</label><input data-a="fade" type="number" min="0" max="2" step="0.05" placeholder="0.64">
+  <p><button class="g" id="upv" hidden>Mettre à jour la visionneuse de tous les carnets</button></p>
   <label>Page de garde (image) <span id="cvn"></span></label><input type="file" id="cv" accept="image/*">
  </section>
  <div id="steps"></div>
@@ -70,21 +72,21 @@ async function init(){$('#err').textContent='Connexion…';
   cover=null;adirty=0;$('#cx').hidden=1;$('#app').hidden=0;$('#bar').hidden=0;
   document.querySelectorAll('[data-a]').forEach(i=>i.value=A[i.dataset.a]||'');
   const cp=[...L.keys()].find(p=>/^(cover|couverture|garde)\.\w+$/i.test(p));$('#cvn').textContent=cp?'(actuelle : '+cp+')':'(aucune)';
-  $('#al').innerHTML=AL.map(p=>`<option value="${esc(p)}"${p===P?' selected':''}>${esc(p?p.slice(0,-1):'(racine)')}</option>`).join('')+'<option value="+">＋ Nouveau carnet…</option>';$('#mig').hidden=P!==''||!T.has('album.json');
+  $('#al').innerHTML=AL.map(p=>`<option value="${esc(p)}"${p===P?' selected':''}>${esc(p?p.slice(0,-1):'(racine)')}</option>`).join('')+'<option value="+">＋ Nouveau carnet…</option>';$('#mig').hidden=P!==''||!T.has('album.json');$('#upv').hidden=!(T.has('viewer.html')&&AL.some(Boolean));
   render();upd()}catch(e){$('#err').textContent='Échec : '+e.message}}
 async function loadStep(s){const[a,...b]=await Promise.all([s.stxt?txt(s.id+'/'+s.stxt):'',...s.media.map(m=>m.txt?txt(s.id+'/'+m.txt):'')]);
  const p=parse(a),L=p.text.split('\n'),i=L.findIndex(x=>x.trim());if(i>=0){s.title=L[i].trim();s.desc=L.slice(i+1).join('\n').trim()}s.mode=p.mode;
  s.media.forEach((m,j)=>Object.assign(m,parse(b[j])));s.loaded=1;render()}
 const md=(v)=>[['','Trajet : automatique'],['droit','Trajet : droit'],['vol','Trajet : vol (avion)']].map(([a,b])=>`<option value="${a}"${a==v?' selected':''}>${b}</option>`).join('');
 const prev=(s,m)=>m.url?(isV(m.name)?`<video src="${m.url}" muted></video>`:`<img src="${m.url}">`):`<img src="${encodeURI(P)}thumbs/${s.id}/${bn(m.name)}.jpg" onerror="this.style.opacity=.2">`;
-function render(){$('#steps').innerHTML=S.map((s,i)=>s.del?'':`<details data-i="${i}"${s.open?' open':''}><summary>${esc(s.title)} <small>${s.id}${s.isNew?' · nouveau':''}</small></summary>${!s.loaded?'<p class="m">Chargement…</p>':`
+function render(){$('#steps').innerHTML=S.map((s,i)=>s.del?'':`<details data-i="${i}"${s.open?' open':''}><summary>${S.filter((x,k)=>!x.del&&k<=i).length}. ${esc(s.title)} <small>${s.id}${s.isNew?' · nouveau':''}</small></summary><p><button class="g" data-x="su">↑ Monter le step</button> <button class="g" data-x="sd">↓ Descendre le step</button></p>${!s.loaded?'<p class="m">Chargement…</p>':`
  <label>Titre (**gras** et *italique* acceptés)</label><input data-f="title" value="${esc(s.title)}">
  <label>Texte du step (affiché sur la 1re photo)</label><textarea data-f="desc">${esc(s.desc)}</textarea>
  <label>Trajet depuis le step précédent</label><select data-f="mode">${md(s.mode)}</select>
  ${s.media.map((m,j)=>m.del?'':`<div class="row" data-j="${j}">${prev(s,m)}<div><b>${esc(m.name)}</b>${m.file?' <small>nouveau</small>':''}<textarea data-m="text" placeholder="Commentaire (Markdown : **gras**, *italique*)">${esc(m.text)}</textarea>
- <div class="grid"><select data-m="mode">${md(m.mode)}</select><input data-m="gps" placeholder="GPS : 40.74, -73.98" value="${esc(m.gps)}"></div><button class="r" data-x="dm">Supprimer</button></div></div>`).join('')}
+ <div class="grid"><select data-m="mode">${md(m.mode)}</select><input data-m="gps" placeholder="GPS : 40.74, -73.98" value="${esc(m.gps)}"></div><button class="g" data-x="mu">↑</button> <button class="g" data-x="md">↓</button> <button class="r" data-x="dm">Supprimer</button></div></div>`).join('')}
  <p><label class="btn g">+ Photos / vidéos<input type="file" multiple accept="image/*,video/*" hidden data-x="add"></label> <button class="r" data-x="ds">Supprimer le step</button></p>`}</details>`).join('')}
-const dirty=()=>(adirty?1:0)+(cover?1:0)+S.filter(s=>s.del||s.dirty||s.isNew).length+S.reduce((n,s)=>n+s.media.filter(m=>m.del||m.dirty||m.file).length,0);
+const dirty=()=>(adirty?1:0)+(cover?1:0)+(S.ord?1:0)+S.filter(s=>s.reord).length+S.filter(s=>s.del||s.dirty||s.isNew).length+S.reduce((n,s)=>n+s.media.filter(m=>m.del||m.dirty||m.file).length,0);
 function upd(){const n=dirty();$('#sv').disabled=busy||!n;$('#sv').textContent=n?`Enregistrer (${n})`:'Enregistrer';if(!busy)$('#st').textContent=n?'Modifications non enregistrées':''}
 onbeforeunload=e=>dirty()&&!busy?(e.preventDefault(),''):undefined;
 document.addEventListener('input',e=>{const t=e.target,d=t.closest('details');
@@ -94,6 +96,8 @@ $('#cv').onchange=e=>{cover=e.target.files[0]||null;upd()};
 $('#steps').addEventListener('toggle',e=>{const s=S[+e.target.dataset.i];if(s){s.open=e.target.open;if(s.open&&!s.loaded)loadStep(s)}},true);
 $('#steps').addEventListener('click',e=>{const x=e.target.dataset.x,d=e.target.closest('details'),s=d&&S[+d.dataset.i];
  if(x==='ds'&&confirm('Supprimer ce step et toutes ses photos ?')){s.del=1;render();upd()}
+ if(x==='su'||x==='sd'){const i=+d.dataset.i,dir=x==='su'?-1:1;let k=i+dir;while(S[k]&&S[k].del)k+=dir;if(S[k]){[S[i],S[k]]=[S[k],S[i]];S.ord=1;render();upd()}}
+ if(x==='mu'||x==='md'){const j=+e.target.closest('.row').dataset.j,dir=x==='mu'?-1:1;let k=j+dir;while(s.media[k]&&s.media[k].del)k+=dir;if(s.media[k]){[s.media[j],s.media[k]]=[s.media[k],s.media[j]];s.reord=1;render();upd()}}
  if(x==='dm'){s.media[+e.target.closest('.row').dataset.j].del=1;render();upd()}});
 $('#steps').addEventListener('change',e=>{if(e.target.dataset.x!=='add')return;const s=S[+e.target.closest('details').dataset.i];
  let n=Math.max(0,...s.media.map(m=>+(m.name.match(/(\d+)/)||[0,0])[1]));
@@ -106,12 +110,25 @@ $('#sv').onclick=async()=>{const E=[],del=p=>L.has(p)&&E.push({path:p,del:1});bu
  if(cover){[...L.keys()].filter(p=>/^(cover|couverture|garde)\.\w+$/i.test(p)).forEach(del);E.push({path:'cover.'+cover.name.split('.').pop().toLowerCase(),file:cover})}
  for(const s of S){if(s.del){[...L.keys()].filter(p=>p.startsWith(s.id+'/')).forEach(del);continue}
   if(s.loaded&&(s.dirty||s.isNew))E.push({path:`${s.id}/${s.stxt||'nom.txt'}`,text:ttl(s)});
-  for(const m of s.media){const tp=`${s.id}/${m.txt||bn(m.name)+'.txt'}`;
+  if(s.reord){const fin=new Map(),old=[];
+   s.media.forEach(m=>{if(!m.file){old.push(`${s.id}/${m.name}`);m.txt&&old.push(`${s.id}/${m.txt}`)}});
+   s.media.filter(m=>!m.del).forEach((m,i)=>{const nn=`img${String(i+1).padStart(3,'0')}.${m.name.split('.').pop().toLowerCase()}`,tp=`${s.id}/${bn(nn)}.txt`;
+    fin.set(`${s.id}/${nn}`,m.file?{file:m.file}:{sha:L.get(`${s.id}/${m.name}`)});
+    if(m.dirty||m.file){const c=ser(m.mode,m.gps.trim())+m.text;if(c.trim())fin.set(tp,{text:c})}
+    else if(m.txt)fin.set(tp,{sha:L.get(`${s.id}/${m.txt}`)})});
+   old.forEach(p=>fin.has(p)||del(p));fin.forEach((v,path)=>E.push({path,...v}))}
+  else for(const m of s.media){const tp=`${s.id}/${m.txt||bn(m.name)+'.txt'}`;
    if(m.del){if(!m.file){del(`${s.id}/${m.name}`);del(tp)}continue}
    if(m.file)E.push({path:`${s.id}/${m.name}`,file:m.file});
    if(m.dirty||m.file){const c=ser(m.mode,m.gps.trim())+m.text;c.trim()?E.push({path:tp,text:c}):del(tp)}}}
- try{await commit(E,'Édition via l’éditeur d’album');busy=0;await init();$('#st').textContent='Enregistré. L’album se met à jour dans 1 à 3 minutes.'}
+ try{if(E.length)await commit(E,'Édition via l’éditeur d’album');if(S.ord)await reorderSteps();busy=0;await init();$('#st').textContent='Enregistré. L’album se met à jour dans 1 à 3 minutes.'}
  catch(e){busy=0;upd();$('#st').textContent='Échec : '+e.message}};
+async function reorderSteps(){const ref=await api('/git/ref/heads/'+B),cm=await api('/git/commits/'+ref.object.sha);
+ let tr=await api('/git/trees/'+cm.tree.sha);if(P){const d=tr.tree.find(x=>x.path===P.slice(0,-1));tr=await api('/git/trees/'+d.sha)}
+ const dir=Object.fromEntries(tr.tree.filter(x=>x.type==='tree').map(x=>[x.path,x.sha])),act=S.filter(s=>!s.del),E=[],to=new Set();
+ act.forEach((s,k)=>{const nid='Step'+(k+1);to.add(nid);if(nid!==s.id&&dir[s.id])E.push({path:nid,sha:dir[s.id],tree:1})});
+ act.forEach(s=>{if(!to.has(s.id)&&dir[s.id])E.push({path:s.id,del:1,tree:1})});
+ if(E.length)await commit(E,'Réorganisation des steps')}
 async function commit(E,msg,abs){let k=0;const tree=[],pre=abs?'':P;
  for(const e of E){$('#st').textContent=`Envoi ${++k}/${E.length}…`;const T0=e.tree?{mode:'040000',type:'tree'}:{mode:'100644',type:'blob'};
   if(e.del){tree.push({path:pre+e.path,...T0,sha:null});continue}
@@ -131,53 +148,19 @@ async function newCarnet(){const n=dirName('Nom du dossier du nouveau carnet (ex
  const v=viewerSha();if(!v){alert('Visionneuse introuvable (index.html ou viewer.html).');return}
  try{await commit([{path:n+'/index.html',sha:v},{path:n+'/album.json',text:JSON.stringify({title:n,author:A.author||'',subtitle:''},null,1)}],'Nouveau carnet '+n,1);P=n+'/';S=[];await init();$('#st').textContent='Carnet créé. Ajoutez vos steps, puis enregistrez.'}
  catch(e){$('#st').textContent='Échec : '+e.message}}
-async function migrate(){
-  const n = dirName('Dossier de destination pour ce carnet (ex. NewYork) :');
-  if(!n) return;
-  if(!confirm('Déplacer tout le carnet actuel dans « '+n+' » ? La page d’accueil du site deviendra la liste des carnets.')) return;
-  try {
-    $('#st').textContent = 'Préparation…';
-    const ref = await api('/git/ref/heads/' + B);
-    const cm = await api('/git/commits/' + ref.object.sha);
-    
-    // Récupération de la racine uniquement (sans ?recursive=1) pour éviter de saturer la requête
-    const rt = await api('/git/trees/' + cm.tree.sha);
-    
-    const keep = x => /^(Step\d+|thumbs|medium)$/i.test(x) || /^(album|manifest)\.json$|^index\.html$|^(cover|couverture|garde)\.\w+$/i.test(x);
-    const E = [];
-    
-    if (rt.tree.some(x => x.path === n)) {
-      alert('Ce dossier existe déjà.');
-      return;
-    }
-    
-    for (const x of rt.tree) {
-      if (!keep(x.path)) continue;
-      const t = x.type === 'tree';
-      // Déplacement dans le nouveau dossier NewYork/
-      E.push({ path: n + '/' + x.path, sha: x.sha, tree: t });
-      // Suppression de l'élément d'origine à la racine (sauf index.html)
-      if (x.path !== 'index.html') {
-        E.push({ path: x.path, del: 1, tree: t });
-      }
-    }
-    
-    const ix = rt.tree.find(x => x.path === 'index.html');
-    if (ix) E.push({ path: 'viewer.html', sha: ix.sha });
-    E.push({ path: 'index.html', text: HOME });
-    
-    await commit(E, 'Déplacement du carnet dans ' + n, 1);
-    P = n + '/';
-    S = [];
-    await init();
-    $('#st').textContent = 'Carnet déplacé avec succès ! Patientez 1 à 3 minutes.';
-  } catch(e) {
-    busy = 0;
-    upd();
-    $('#st').textContent = 'Échec : ' + e.message;
-  }
-}
+async function migrate(){const n=dirName('Dossier de destination pour ce carnet (ex. NewYork) :');if(!n)return;
+ if(!confirm('Déplacer tout le carnet actuel dans « '+n+' » ? La page d’accueil du site deviendra la liste des carnets.'))return;
+ try{$('#st').textContent='Préparation…';
+  const ref=await api('/git/ref/heads/'+B),cm=await api('/git/commits/'+ref.object.sha),rt=await api('/git/trees/'+cm.tree.sha);
+  const keep=x=>/^(Step\d+|thumbs|medium)$/i.test(x)||/^(album|manifest)\.json$|^index\.html$|^(cover|couverture|garde)\.\w+$/i.test(x),E=[];
+  if(rt.tree.some(x=>x.path===n)){alert('Ce dossier existe déjà.');return}
+  for(const x of rt.tree){if(!keep(x.path))continue;const t=x.type==='tree';E.push({path:n+'/'+x.path,sha:x.sha,tree:t});if(x.path!=='index.html')E.push({path:x.path,del:1,tree:t})}
+  const ix=rt.tree.find(x=>x.path==='index.html');if(ix)E.push({path:'viewer.html',sha:ix.sha});E.push({path:'index.html',text:HOME});
+  await commit(E,'Déplacement du carnet dans '+n,1);P=n+'/';S=[];await init();$('#st').textContent='Carnet déplacé. Patientez 1 à 3 minutes.'}
+ catch(e){$('#st').textContent='Échec : '+e.message}}
 $('#mig').onclick=migrate;
+$('#upv').onclick=async()=>{if(!confirm('Remplacer l’index.html de chaque carnet par viewer.html ?'))return;
+ try{await commit(AL.filter(Boolean).map(p=>({path:p+'index.html',sha:T.get('viewer.html')})),'Mise à jour de la visionneuse',1);$('#st').textContent='Visionneuse mise à jour. Patientez 1 à 3 minutes.'}catch(e){$('#st').textContent='Échec : '+e.message}};
 $('#al').onchange=async e=>{if(e.target.value==='+'){e.target.value=P;return newCarnet()}
  if(dirty()&&!confirm('Abandonner les modifications non enregistrées ?')){e.target.value=P;return}P=e.target.value;S=[];await init()};
 if(C.t&&C.o&&C.r)init();

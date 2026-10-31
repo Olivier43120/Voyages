@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutoriel – Album de voyage</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1a2b;--panel:#12293d;--line:#24465f;--ink:#f2f6fa;--mut:#aebccb;--blue:#3d95e6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Outfit,system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 20px 80px}
+h1{font-size:36px;line-height:1.15;margin:0 0 6px}
+h2{font-size:25px;margin:48px 0 10px;padding-top:10px;border-top:1px solid var(--line)}
+p,li{max-width:68ch}
+.lead{color:var(--mut);font-size:19px}
+a{color:var(--blue)}
+code{background:var(--panel);padding:2px 7px;border-radius:7px;font-size:.92em}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 18px;overflow-x:auto;line-height:1.5}
+pre code{background:none;padding:0}
+table{border-collapse:collapse;width:100%;margin:12px 0}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mut);font-weight:500}
+.note{background:var(--panel);border-left:4px solid var(--blue);border-radius:10px;padding:12px 16px;margin:16px 0}
+nav{background:var(--panel);border-radius:16px;padding:14px 22px;margin:26px 0}
+nav a{display:block;text-decoration:none;padding:3px 0}
+</style>
+</head>
+<body>
+<main>
+<h1>Votre album de voyage : mode d’emploi</h1>
+<p class="lead">Comment préparer vos dossiers, écrire vos textes, mettre l’album en ligne sur GitHub et corriger les petits soucis.</p>
+<div class="note"><b>Nouveautés :</b> page de garde (section 2), réglage des trajets (section 4), miniatures automatiques (section 5), vidéos (section 6). Ce tutoriel remplace la version précédente.</div>
+<nav>
+<a href="#dossiers">1. Organiser les dossiers</a>
+<a href="#garde">2. La page de garde</a>
+<a href="#textes">3. Écrire les textes</a>
+<a href="#trajets">4. Régler les trajets (vol ou trait droit)</a>
+<a href="#miniatures">5. Les miniatures</a>
+<a href="#videos">6. Les vidéos</a>
+<a href="#github">7. Mettre en ligne sur GitHub</a>
+<a href="#ajouter">8. Ajouter ou modifier un step</a>
+<a href="#usage">9. Naviguer dans l’album</a>
+<a href="#depannage">10. Dépannage</a>
+</nav>
+
+<h2 id="dossiers">1. Organiser les dossiers</h2>
+<p>À la racine du dépôt, un dossier par étape (<code>Step1</code>, <code>Step2</code>, …). Les photos sont affichées dans l’ordre de leur nom, donc gardez des numéros à trois chiffres.</p>
+<pre><code>index.html
+tuto.html
+album.json              titre, auteur, sous-titre de l’album
+cover.jpg               page de garde (facultatif)
+manifest.json           généré automatiquement, n’y touchez pas
+thumbs/                 miniatures générées automatiquement
+tools/  .github/        la mécanique de génération (ne pas supprimer)
+Step1/
+  nom.txt               titre du step (+ description, facultatif)
+  img001.jpg
+  img001.txt            commentaire de la photo 1 (facultatif)
+  img002.jpg
+  img003.png
+  img004.mp4            une vidéo se nomme comme une photo
+  img004.txt            et se commente de la même façon
+Step2/
+  ...</code></pre>
+<p>Le dossier <code>Step10</code> est bien placé après <code>Step9</code>. Formats acceptés : photos en jpg, png, webp, heic ; vidéos en mp4, m4v, mov, webm (voir section 6).</p>
+<p><code>album.json</code> contient simplement :</p>
+<pre><code>{
+  "title": "New York",
+  "author": "Olivier SOLEILLANT",
+  "subtitle": "Octobre 2026"     (facultatif)
+}</code></pre>
+
+<h2 id="garde">2. La page de garde</h2>
+<p>Déposez une image à la <b>racine</b> du dépôt (à côté de <code>index.html</code>), nommée <code>cover.jpg</code>. Les noms <code>couverture</code> et <code>garde</code> fonctionnent aussi, en jpg, png ou webp.</p>
+<ul>
+<li>Elle s’affiche en plein écran <b>avant le Step1</b>, avec le titre, l’auteur et le sous-titre définis dans <code>album.json</code>. Elle n’est pas géolocalisée et n’apparaît pas sur la carte.</li>
+<li>Pour entrer dans l’album : toucher ou cliquer n’importe où, glisser vers le haut, ou appuyer sur Entrée. La carte s’envole alors vers le premier step.</li>
+<li>Sans fichier <code>cover</code>, l’album s’ouvre directement sur la carte.</li>
+<li>La page de garde réapparaît à chaque rechargement de la page.</li>
+</ul>
+<div class="note"><b>Conseils :</b> une image en portrait (environ 1 600 px de haut, moins de 1 Mo) convient le mieux au smartphone. Elle est recadrée pour remplir l’écran : gardez le sujet au centre et évitez d’y mettre du texte, le titre se place en bas.</div>
+
+<h2 id="textes">3. Écrire les textes</h2>
+<p><b>Le titre du step.</b> Dans le fichier <code>.txt</code> du dossier (le nom importe peu, du moment qu’il ne porte pas le nom d’une photo) : la première ligne est le titre, le reste est une description affichée sur la première photo.</p>
+<pre><code>Arrivée à bon port, enfin !!
+L’Empire State Building, visible de la rue
+et même depuis notre chambre.</code></pre>
+<p><b>Le commentaire d’une photo.</b> Un fichier du même nom que la photo : <code>img001.txt</code> pour <code>img001.jpg</code>. Il s’affiche sous la photo concernée. Si une photo n’a pas de fichier texte, elle n’affiche rien (sauf la première, qui reprend la description du step).</p>
+<table>
+<tr><th>Vous écrivez</th><th>Résultat</th></tr>
+<tr><td><code>**gras**</code></td><td><b>gras</b></td></tr>
+<tr><td><code>*italique*</code></td><td><i>italique</i></td></tr>
+<tr><td>une ligne vide</td><td>nouveau paragraphe</td></tr>
+<tr><td>un simple retour à la ligne</td><td>saut de ligne</td></tr>
+</table>
+<p>Les emojis fonctionnent. Les liens ne sont pas gérés. Restez concis : le texte se superpose à la photo.</p>
+
+<h2 id="trajets">4. Régler les trajets (vol ou trait droit)</h2>
+<p>Entre deux points distants de plus de <b>500 km</b>, l’album dessine un arc courbe avec des avions. En dessous, il trace un trait droit en pointillés. Pour changer ce comportement, ajoutez une ligne dans un fichier texte :</p>
+<table>
+<tr><th>Ligne</th><th>Effet</th></tr>
+<tr><td><code>trajet: droit</code> (ou <code>vol: non</code>)</td><td>trait droit, même au-delà de 500 km (train, voiture, bateau…)</td></tr>
+<tr><td><code>trajet: vol</code> (ou <code>vol: oui</code>)</td><td>arc avec avions, même en dessous de 500 km</td></tr>
+</table>
+<ul>
+<li>Dans le <b>fichier du step</b> : le réglage s’applique au trajet qui arrive à ce step sur la vue d’ensemble, ainsi qu’aux trajets entre ses photos.</li>
+<li>Dans le <b>fichier d’une photo</b> (<code>img004.txt</code>) : le réglage ne s’applique qu’au trajet qui arrive à cette photo, et l’emporte sur celui du step.</li>
+</ul>
+<pre><code>Train pour Boston
+trajet: droit
+Quatre heures de voyage, vue sur l’Hudson.</code></pre>
+<p>La ligne de réglage n’apparaît pas à l’écran. Les seuils (500 km, un avion tous les 1 800 km) se modifient en haut du bloc « Trajets » de <code>index.html</code> : <code>FLIGHT_KM</code> et <code>PLANE_EVERY</code>.</p>
+
+<h2 id="miniatures">5. Les miniatures</h2>
+<p>Les pastilles de la carte, les cartes du carrousel et la liste de l’ordinateur utilisent des <b>miniatures</b> (480 px maximum), bien plus légères que vos photos. Les photos en taille réelle ne sont chargées que dans la visionneuse, et la suivante est préchargée pour un défilement fluide.</p>
+<ul>
+<li>Elles sont créées <b>automatiquement</b> par l’action GitHub, dans le dossier <code>thumbs/</code> (même arborescence que vos steps). Vous n’avez rien à faire et il ne faut pas y toucher.</li>
+<li>La première exécution est plus longue (quelques minutes pour un gros album) : les suivantes ne créent que les miniatures manquantes.</li>
+<li>Si vous <b>modifiez ou remplacez une photo ou une vidéo</b> (même en gardant son nom), sa miniature est <b>recréée automatiquement</b> : l’action compare le contenu de chaque fichier avec celui de la dernière fois (mémorisé dans <code>thumbs/cache.json</code>). Les adresses des images portent aussi un numéro de version, ce qui évite que le navigateur affiche l’ancienne.</li>
+<li>Pour <b>forcer la recréation de toutes les miniatures</b> : supprimez les dossiers <code>thumbs/</code> et <code>medium/</code> (ou seulement <code>thumbs/cache.json</code>) dans GitHub, puis lancez l’action à la main : onglet <i>Actions</i> → <i>Générer le manifeste et les miniatures</i> → <i>Run workflow</i>. Une suppression dans <code>thumbs/</code> ne déclenche pas l’action toute seule.</li>
+<li>L’action crée aussi, dans <code>medium/</code>, une <b>version allégée</b> de chaque grande photo (2 000 px au maximum, environ 10 fois plus légère que l’original). C’est elle que la visionneuse charge : le passage d’une photo à l’autre est ainsi bien plus fluide sur téléphone. Vos originaux restent intacts dans les dossiers des steps. Les photos déjà petites (moins de 700 Ko) sont utilisées telles quelles.</li>
+<li>Les photos au format HEIC n’ont pas de miniature : l’album utilise alors l’original. Préférez le jpg.</li>
+</ul>
+
+<h2 id="videos">6. Les vidéos</h2>
+<p>Une vidéo se traite <b>exactement comme une photo</b> : même dossier de step, même numérotation (<code>img004.mp4</code> s’intercale entre <code>img003</code> et <code>img005</code>), et son commentaire se met dans <code>img004.txt</code> (Markdown, ligne <code>trajet:</code>, comme pour une photo).</p>
+<table>
+<tr><th>Point</th><th>Ce qu’il faut savoir</th></tr>
+<tr><td>Lecture</td><td>La vidéo démarre dès qu’on arrive dessus, avec le son si le navigateur l’autorise, sinon en silence (boutons pause et haut-parleur en haut à droite de la vidéo). Elle se joue une fois, sans enchaîner automatiquement. <b>Toucher le centre</b> de l’écran la met en pause ou la relance (ou le bouton ❚❚ / ▶) ; les bords gauche et droit servent toujours à reculer et avancer.</td></tr>
+<tr><td>Aperçu</td><td>La carte, le carrousel et la liste montrent une image extraite de la vidéo, avec un symbole ▶ sur les pastilles de la carte. Elle est créée par l’action GitHub dans <code>thumbs/</code>, comme les miniatures de photos.</td></tr>
+<tr><td>Position et date</td><td>Lues dans les métadonnées de la vidéo quand elles existent (iPhone et beaucoup d’Android). Sinon, la vidéo reprend la position de la photo précédente. Pour imposer un lieu, ajoutez dans <code>img004.txt</code> une ligne <code>gps: 40.7484, -73.9857</code> (degrés décimaux). Cette ligne fonctionne aussi pour les photos et n’apparaît pas à l’écran.</td></tr>
+</table>
+<div class="note"><b>Format :</b> choisissez du <b>mp4 (H.264 + AAC)</b>, lu partout. Les fichiers .mov de l’iPhone sont souvent en HEVC : ils passent sur iPhone et Mac mais pas toujours sous Windows ou Chrome. Pour convertir et alléger : HandBrake (préréglage « Fast 720p30 »), ou la commande<br><code>ffmpeg -i entree.mov -vf scale=-2:720 -c:v libx264 -crf 26 -preset slow -c:a aac -movflags +faststart img004.mp4</code></div>
+<div class="note"><b>Poids :</b> GitHub refuse à ma connaissance les fichiers de plus de 25 Mo envoyés par le navigateur, et de plus de 100 Mo avec Git. Le site publié est aussi limité en taille totale (environ 1 Go). Visez des extraits de 10 à 30 secondes en 720p, soit quelques Mo à une vingtaine de Mo chacun.</div>
+
+<h2 id="github">7. Mettre en ligne sur GitHub</h2>
+<p>Les pages GitHub sont en https, ce qui permet d’afficher la géolocalisation des photos.</p>
+<ol>
+<li>Créez un compte sur <a href="https://github.com">github.com</a>, puis un <b>nouveau dépôt public</b> (par exemple <code>album-ny</code>).</li>
+<li>Envoyez-y tout le contenu : bouton <i>Add file → Upload files</i>, puis glissez vos dossiers et fichiers (y compris le dossier caché <code>.github</code>). Via le navigateur, le nombre de fichiers par envoi est limité (une centaine) : envoyez en plusieurs fois, ou utilisez l’application GitHub Desktop pour un gros album.</li>
+<li><i>Settings → Pages</i> : <i>Deploy from a branch</i>, branche <code>main</code>, dossier <code>/ (root)</code>. Enregistrez.</li>
+<li><i>Settings → Actions → General → Workflow permissions</i> : choisissez <b>Read and write permissions</b>, puis enregistrez.</li>
+<li>Patientez 1 à 2 minutes. Dans l’onglet <i>Actions</i>, l’exécution « Générer le manifeste » doit passer au vert : elle lit vos photos et crée <code>manifest.json</code>.</li>
+<li>L’album est à l’adresse <code>https://VOTRE-PSEUDO.github.io/album-ny/</code>.</li>
+</ol>
+<div class="note"><b>Important :</b> la position GPS est lue dans les métadonnées des photos. Exportez-les avec leur localisation. Beaucoup d’applications la suppriment à l’envoi (réglage « Options → Position » sur iPhone, certains messageries, captures d’écran).</div>
+
+<h2 id="ajouter">8. Ajouter ou modifier un step</h2>
+<p>Ajoutez le dossier <code>Step8</code> (ou modifiez un texte) dans le dépôt. À chaque modification, l’action se relance et met à jour <code>manifest.json</code> toute seule. Si l’album ne montre pas le changement, vérifiez qu’elle est passée au vert, puis rechargez la page (sur smartphone, fermez et rouvrez l’onglet pour vider le cache).</p>
+<p>Si vous travaillez avec Git sur votre ordinateur, faites un <code>git pull</code> avant votre prochain envoi, car c’est le robot GitHub qui modifie <code>manifest.json</code>.</p>
+<p>Pour régénérer le manifeste sur votre machine : <code>npm i exifr sharp</code> (et installez ffmpeg pour les vidéos) puis <code>node tools/build-manifest.mjs .</code></p>
+
+<h2 id="usage">9. Naviguer dans l’album</h2>
+<table>
+<tr><th>Action</th><th>Smartphone</th><th>Ordinateur</th></tr>
+<tr><td>Ouvrir un step</td><td>toucher sa carte ou sa pastille sur la carte</td><td>cliquer dans la liste, sur une carte ou une pastille</td></tr>
+<tr><td>Photo suivante ou précédente</td><td>balayer à gauche ou à droite, ou toucher le bord de l’image</td><td>flèches du clavier, clic sur le bord gauche ou droit de la photo, ou flèches ‹ › qui apparaissent au survol</td></tr>
+<tr><td>Aller à une photo précise</td><td>toucher sa pastille sur la carte du haut</td><td>cliquer sur sa pastille</td></tr>
+<tr><td>Passer la photo en plein écran</td><td>balayer vers le haut ; pour revenir à la taille normale, balayer vers le bas</td><td>–</td></tr>
+<tr><td>Quitter le step</td><td>tirer la photo vers le bas (depuis le plein écran, un premier balayage ramène à la taille normale), ou flèche de retour</td><td>touche Échap, ou flèche de retour</td></tr>
+<tr><td>Régler la largeur du panneau de gauche</td><td>–</td><td>glisser le séparateur vertical entre les deux parties (la largeur est mémorisée) ; double-clic pour revenir à la valeur d’origine</td></tr>
+<tr><td>Vidéo</td><td>lecture automatique ; toucher le centre = pause ou lecture</td><td>clic au centre, ou boutons ❚❚ et haut-parleur (en haut à droite de la photo)</td></tr>
+<tr><td>Fond satellite ou plan</td><td colspan="2">bouton rond en forme de carte, en haut à droite</td></tr>
+</table>
+
+<h2 id="depannage">10. Dépannage</h2>
+<table>
+<tr><th>Symptôme</th><th>À vérifier</th></tr>
+<tr><td>Page vide, « manifest.json introuvable »</td><td>L’action a-t-elle tourné et réussi (onglet <i>Actions</i>) ? Les permissions « Read and write » sont-elles activées (étape 4) ? Les dossiers s’appellent-ils bien <code>Step1</code>, <code>Step2</code>… ?</td></tr>
+<tr><td>Une photo n’apparaît pas sur la carte</td><td>Elle n’a probablement pas de position GPS. Elle reprend alors celle de la photo précédente du même step. Si toutes les photos du step en manquent, le step n’apparaît pas sur la carte.</td></tr>
+<tr><td>Le step est dans le mauvais ordre</td><td>Les steps sont triés par numéro de dossier, les photos par nom de fichier. Renommez en <code>img001</code>, <code>img002</code>…</td></tr>
+<tr><td>Le commentaire ne s’affiche pas</td><td>Le fichier doit porter exactement le nom de la photo : <code>img001.txt</code> pour <code>img001.jpg</code>. Attention aux extensions cachées (<code>img001.txt.txt</code>).</td></tr>
+<tr><td>La vidéo ne se lit pas (écran noir)</td><td>Format non pris en charge par le navigateur, souvent un .mov en HEVC. Convertissez-la en mp4 H.264 (voir section 6).</td></tr>
+<tr><td>GitHub refuse l’envoi de la vidéo</td><td>Fichier trop lourd. Réduisez-le (720p, quelques dizaines de secondes) avant de l’envoyer.</td></tr>
+<tr><td>La vidéo est placée au mauvais endroit sur la carte</td><td>Elle n’a pas de position propre et reprend celle de la photo précédente. Ajoutez une ligne <code>gps: latitude, longitude</code> dans son fichier texte.</td></tr>
+<tr><td>Photo modifiée, mais l’ancienne s’affiche</td><td>Attendez que l’action soit terminée (onglet <i>Actions</i>, coche verte), puis rechargez la page. Si rien ne change, forcez la recréation des miniatures (voir section 5).</td></tr>
+<tr><td>Ancien contenu après une mise à jour</td><td>Attendez la fin de l’action, puis rechargez sans cache.</td></tr>
+<tr><td>Le passage d’une photo à l’autre saccade</td><td>Vérifiez que le dossier <code>medium/</code> existe et se remplit (l’action le crée). Sans lui, la visionneuse charge vos photos d’origine, très lourdes. Le fondu entre photos se règle dans <code>index.html</code> : champ « Durée du fondu » de l’éditeur (0,64 s par défaut, 0 pour le supprimer).</td></tr>
+<tr><td>Chargement lent</td><td>Vérifiez que le dossier <code>thumbs/</code> existe (l’action l’a créé). Pour les photos elles-mêmes, 1 600 à 2 000 px de large suffisent : réduisez-les avant l’envoi.</td></tr>
+<tr><td>La page de garde ne s’affiche pas</td><td>L’image doit être à la racine et s’appeler <code>cover</code>, <code>couverture</code> ou <code>garde</code> (jpg, png ou webp), puis l’action doit avoir tourné. Contrôlez que <code>manifest.json</code> contient une ligne <code>"cover"</code>.</td></tr>
+<tr><td>Une photo n’a pas de miniature sur la carte</td><td>Elle est probablement au format HEIC, ou n’a pas été traitée : relancez l’action (onglet <i>Actions → Run workflow</i>).</td></tr>
+</table>
+<h2 id="editeur">11. L’éditeur en ligne (sans passer par GitHub)</h2>
+<p>La page <code>editeur.html</code>, à côté de <code>index.html</code>, permet de créer des steps, ajouter des photos et vidéos, écrire les commentaires, changer la page de garde et le titre de l’album depuis un téléphone ou un ordinateur. Adresse : <code>https://VOTRE-PSEUDO.github.io/NOM-DU-DEPOT/editeur.html</code> (à la racine du dépôt).</p>
+<h3>Plusieurs carnets : un dossier par voyage</h3>
+<p>Le dépôt peut contenir plusieurs carnets, chacun dans son propre dossier. L’éditeur reste à la racine, comme la page d’accueil qui liste les carnets.</p>
+<pre><code>editeur.html   index.html (liste des carnets)   viewer.html (modèle de visionneuse)
+tuto.html      albums.json (généré)             tools/  .github/
+NewYork/   index.html  album.json  manifest.json  cover.jpeg  Step1/  Step2/  thumbs/  medium/
+Japon2027/ index.html  album.json  ...</code></pre>
+<ul>
+<li><b>Déplacer votre carnet actuel</b> (une seule fois) : dans l’éditeur, le bouton « Déplacer ce carnet dans un dossier… » (visible tant que le carnet est à la racine) demande un nom, par exemple <code>NewYork</code>, puis y range tout : steps, miniatures, page de garde, <code>album.json</code>. La racine devient la liste des carnets. Son adresse devient <code>https://VOTRE-PSEUDO.github.io/NOM-DU-DEPOT/NewYork/</code>.</li>
+<li><b>Nouveau voyage</b> : dans le menu « Carnet », choisissez « ＋ Nouveau carnet… », donnez un nom de dossier (par exemple <code>Japon2027</code>) : il est créé avec la visionneuse et un <code>album.json</code>. Ajoutez ensuite vos steps comme d’habitude.</li>
+<li>Le menu « Carnet » permet de passer d’un voyage à l’autre. Les miniatures et versions allégées de chaque carnet sont créées dans son dossier.</li>
+</ul>
+<div class="note"><b>Mises à jour de la visionneuse :</b> chaque carnet contient sa propre copie de <code>index.html</code>. Quand je vous donne une nouvelle version, envoyez-la à la racine sous le nom <code>viewer.html</code>, puis, dans l’éditeur, cliquez sur « Mettre à jour la visionneuse de tous les carnets » (cadre « Album ») : chaque carnet reçoit la nouvelle version en une fois.</div>
+<h3>Première connexion : créer un jeton</h3>
+<ol>
+<li>Sur GitHub, cliquez sur votre photo de profil (en haut à droite) puis <i>Settings</i> : c’est le menu du compte, pas l’onglet <i>Settings</i> du dépôt. Tout en bas du menu de gauche : <i>Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</i>. Un seul jeton sert pour tous les carnets du dépôt.</li>
+<li><i>Repository access</i> : <b>Only select repositories</b>, puis votre dépôt d’album uniquement.</li>
+<li><i>Permissions → Repository permissions → Contents</i> : <b>Read and write</b>. Choisissez une durée de validité (par exemple 90 jours).</li>
+<li>Copiez le jeton (il ne s’affiche qu’une fois) et collez-le dans l’éditeur, puis <i>Se connecter</i>.</li>
+</ol>
+<div class="note"><b>Sécurité :</b> le jeton est conservé uniquement dans votre navigateur et n’est envoyé qu’à GitHub. Il ne donne accès qu’à ce dépôt. Ne le partagez pas. Si vous le perdez, supprimez-le sur GitHub et recréez-en un. Décochez « Mémoriser sur cet appareil » sur un ordinateur partagé.</div>
+<h3>Utilisation</h3>
+<ul>
+<li><b>Ouvrir un step</b> : touchez son titre. Modifiez le titre, le texte et le type de trajet. Chaque photo a son commentaire (Markdown), son réglage de trajet et un champ GPS facultatif.</li>
+<li><b>Ajouter des photos ou vidéos</b> : « + Photos / vidéos ». Elles sont numérotées à la suite (<code>img012.jpg</code>…). Les fichiers sont envoyés tels quels, avec leur position GPS d’origine.</li>
+<li><b>Nouveau step</b> : « + Nouveau step » crée le dossier suivant (<code>Step11</code>…).</li>
+<li><b>Page de garde</b> : choisissez une image dans le cadre « Album », qui remplace l’ancienne.</li>
+<li><b>Changer l’ordre</b> : les boutons ↑ ↓ d’une photo la montent ou la descendent dans son step. Dans un step ouvert, « ↑ Monter le step » et « ↓ Descendre le step » le déplacent dans l’album. À l’enregistrement, les photos sont renumérotées (<code>img001</code>, <code>img002</code>…, avec leurs commentaires) et les dossiers renommés <code>Step1</code>, <code>Step2</code>… dans le nouvel ordre. Les miniatures sont recalculées par l’action, donc la mise à jour est un peu plus longue.</li>
+<li><b>Fondu entre les photos</b> : le champ « Durée du fondu » du cadre « Album » règle ce carnet (0,64 seconde par défaut ; 0 supprime le fondu).</li>
+<li><b>Supprimer</b> une photo ou un step : le bouton rouge. Rien n’est effacé avant l’enregistrement.</li>
+<li><b>Enregistrer</b> (barre du bas) : toutes vos modifications partent en une seule fois. L’album se met à jour 1 à 3 minutes plus tard, le temps de l’action GitHub.</li>
+</ul>
+<p>Limites : un gros envoi depuis un téléphone consomme des données (photos d’origine), et chaque fichier doit faire moins de 100 Mo. </p>
+</main>
+</body>
+</html>
