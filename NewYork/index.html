@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Album de voyage : New York 🇺🇸</title>
+<title>Album de voyage</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -24,10 +24,10 @@ html,body{height:100%;background:var(--night);color:var(--ink);font-family:Outfi
 /* en-tête & boutons */
 #top{position:fixed;top:max(14px,env(safe-area-inset-top));left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;padding:0 16px;pointer-events:none;z-index:500}
 #top>*{pointer-events:auto}
-.rb{width:46px;height:46px;border-radius:50%;border:0;display:grid;place-items:center;background:var(--btn);color:#fff;cursor:pointer;font-size:20px;box-shadow:0 2px 10px #0006}
+.rb{flex:none;width:46px;height:46px;border-radius:50%;border:0;display:grid;place-items:center;background:var(--btn);color:#fff;cursor:pointer;font-size:20px;box-shadow:0 2px 10px #0006}
 #back{background:#fff;color:var(--night);visibility:hidden}
 body.inview #back{visibility:visible}
-#ttl{text-align:center;text-shadow:0 1px 8px #000}
+#ttl{flex:1;min-width:0;padding:0 6px;text-align:center;text-shadow:0 1px 8px #000}
 #ttl small{display:block;font-size:13px;font-weight:500;opacity:.9}
 #ttl b{font-size:24px;font-weight:500}
 /* rail de steps */
@@ -174,7 +174,7 @@ fetch('manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('man
 function init(m){
  steps=m.steps.filter(s=>s.photos.length);
  steps.forEach(s=>{let last=s.photos.find(loc);last=last&&loc(last);s.photos.forEach(p=>{if(p.lat==null&&last)[p.lat,p.lng]=last;else if(p.lat!=null)last=[p.lat,p.lng]});s.loc=s.photos.find(loc)&&loc(s.photos.find(loc))});
- document.title=m.title||'Album';$('#h1').textContent=$('#place').textContent=m.title||'Mon voyage';
+ document.title=m.title||'Album';if(m.fade!==undefined&&m.fade!==''&&m.fade!==null&&isFinite(+m.fade))document.documentElement.style.setProperty('--fade',(+m.fade)+'s');$('#h1').textContent=$('#place').textContent=m.title||'Mon voyage';
  $('#by').textContent=m.author||'';$('#who').textContent=m.author||'';
  // statistiques
  const all=steps.flatMap(s=>s.photos),pts=all.filter(loc).map(loc);let d=0;for(let i=1;i<pts.length;i++)d+=km(pts[i-1],pts[i]);
@@ -232,8 +232,9 @@ function pre(p){if(!p||p.type==='video')return;const u=p.med||p.src;if(keep.some
 function resetSlides(){SL.forEach(S=>{S.className='sl';S.querySelectorAll('img').forEach(i=>i.removeAttribute('src'))})}
 function showSlide(src,bgsrc){
  const t=tok,n=1-si,S=SL[n],img=S.querySelector('.ph'),bg=S.querySelector('.bg');
+ if(S.className!=='sl'){S.style.transition='none';S.className='sl';void S.offsetWidth;S.style.transition=''}
  const go=()=>{if(t!==tok)return;fit(img,img.naturalWidth,img.naturalHeight);bg.style.visibility=img.style.objectFit==='contain'?'visible':'hidden';
-  const old=SL[si];old.className='sl old';S.className='sl on';si=n;setTimeout(()=>{if(old.className==='sl old')old.className='sl'},300)};
+  const old=SL[si];old.className='sl old';S.className='sl on';si=n;setTimeout(()=>{if(old.className==='sl old')old.className='sl'},(parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--fade'))||0)*1000+80)};
  bgsrc?bg.src=bgsrc:bg.removeAttribute('src');
  if(!src){img.removeAttribute('src');go();return}
  img.src=src;(img.decode?img.decode():Promise.reject()).then(go,go)
