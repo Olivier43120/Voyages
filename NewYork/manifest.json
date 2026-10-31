@@ -1784,7 +1784,74 @@
    "name": "Quatrième jour : nous flânons à Central Park avant une balade vers Roosevelt Island.",
    "desc": "",
    "mode": null,
-   "photos": []
+   "photos": [
+    {
+     "src": "Step15/img001.jpeg?v=248fe3fe",
+     "type": "image",
+     "thumb": "thumbs/Step15/img001.jpg?v=248fe3fe",
+     "med": "medium/Step15/img001.jpg?v=248fe3fe",
+     "text": "",
+     "mode": null,
+     "lat": 40.76649444444445,
+     "lng": -73.97292222222222,
+     "date": "2026-10-24T13:21:26.000Z"
+    },
+    {
+     "src": "Step15/img002.jpeg?v=f7ab8b40",
+     "type": "image",
+     "thumb": "thumbs/Step15/img002.jpg?v=f7ab8b40",
+     "med": "medium/Step15/img002.jpg?v=f7ab8b40",
+     "text": "",
+     "mode": null,
+     "lat": 40.77226944444444,
+     "lng": -73.97164166666667,
+     "date": "2026-10-24T14:45:43.000Z"
+    },
+    {
+     "src": "Step15/img003.jpeg?v=3b9e9cf2",
+     "type": "image",
+     "thumb": "thumbs/Step15/img003.jpg?v=3b9e9cf2",
+     "med": "medium/Step15/img003.jpg?v=3b9e9cf2",
+     "text": "",
+     "mode": null,
+     "lat": 40.77236944444444,
+     "lng": -73.97196111111111,
+     "date": "2026-10-24T14:46:27.000Z"
+    },
+    {
+     "src": "Step15/img004.jpeg?v=9c2756ae",
+     "type": "image",
+     "thumb": "thumbs/Step15/img004.jpg?v=9c2756ae",
+     "med": "medium/Step15/img004.jpg?v=9c2756ae",
+     "text": "",
+     "mode": null,
+     "lat": 40.771902777777775,
+     "lng": -73.97328888888889,
+     "date": "2026-10-24T14:49:00.000Z"
+    },
+    {
+     "src": "Step15/img005.jpeg?v=2e77c36a",
+     "type": "image",
+     "thumb": "thumbs/Step15/img005.jpg?v=2e77c36a",
+     "med": "medium/Step15/img005.jpg?v=2e77c36a",
+     "text": "",
+     "mode": null,
+     "lat": 40.778733333333335,
+     "lng": -73.97171111111112,
+     "date": "2026-10-24T16:10:08.000Z"
+    },
+    {
+     "src": "Step15/img006.jpeg?v=8bfb1dba",
+     "type": "image",
+     "thumb": "thumbs/Step15/img006.jpg?v=8bfb1dba",
+     "med": "medium/Step15/img006.jpg?v=8bfb1dba",
+     "text": "",
+     "mode": null,
+     "lat": 40.77555833333333,
+     "lng": -73.97168611111111,
+     "date": "2026-10-24T16:21:57.000Z"
+    }
+   ]
   },
   {
    "id": "Step16",
