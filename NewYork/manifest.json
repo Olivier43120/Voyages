@@ -2635,6 +2635,61 @@
      "lat": 40.742533333333334,
      "lng": -74.00760555555556,
      "date": "2026-10-26T16:32:09.000Z"
+    },
+    {
+     "src": "Step21/img006.jpeg?v=31ea18fc",
+     "type": "image",
+     "thumb": "thumbs/Step21/img006.jpg?v=31ea18fc",
+     "med": "medium/Step21/img006.jpg?v=31ea18fc",
+     "text": "",
+     "mode": null,
+     "lat": 40.74931388888889,
+     "lng": -74.00344166666666,
+     "date": "2026-10-26T17:01:23.000Z"
+    },
+    {
+     "src": "Step21/img007.jpeg?v=c9d06eeb",
+     "type": "image",
+     "thumb": "thumbs/Step21/img007.jpg?v=c9d06eeb",
+     "med": "medium/Step21/img007.jpg?v=c9d06eeb",
+     "text": "",
+     "mode": null,
+     "lat": 40.744933333333336,
+     "lng": -74.00702777777778,
+     "date": "2026-10-26T16:48:59.000Z"
+    },
+    {
+     "src": "Step21/img008.jpeg?v=f8714950",
+     "type": "image",
+     "thumb": "thumbs/Step21/img008.jpg?v=f8714950",
+     "med": "medium/Step21/img008.jpg?v=f8714950",
+     "text": "",
+     "mode": null,
+     "lat": 40.74491944444445,
+     "lng": -74.00702777777778,
+     "date": "2026-10-26T16:49:03.000Z"
+    },
+    {
+     "src": "Step21/img009.jpeg?v=bf027bdf",
+     "type": "image",
+     "thumb": "thumbs/Step21/img009.jpg?v=bf027bdf",
+     "med": "medium/Step21/img009.jpg?v=bf027bdf",
+     "text": "",
+     "mode": null,
+     "lat": 40.74622222222222,
+     "lng": -74.00609722222222,
+     "date": "2026-10-26T16:52:10.000Z"
+    },
+    {
+     "src": "Step21/img010.jpeg?v=0631d755",
+     "type": "image",
+     "thumb": "thumbs/Step21/img010.jpg?v=0631d755",
+     "med": "medium/Step21/img010.jpg?v=0631d755",
+     "text": "",
+     "mode": null,
+     "lat": 40.74796388888889,
+     "lng": -74.00464722222222,
+     "date": "2026-10-26T16:57:29.000Z"
     }
    ]
   },
