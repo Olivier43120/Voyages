@@ -2168,10 +2168,44 @@
   },
   {
    "id": "Step18",
-   "name": "Step18",
+   "name": "Soirée du cinquième jour : match des Brooklyn Nets au Barclay Center",
    "desc": "",
    "mode": null,
-   "photos": []
+   "photos": [
+    {
+     "src": "Step18/img001.jpeg?v=377c9fbc",
+     "type": "image",
+     "thumb": "thumbs/Step18/img001.jpg?v=377c9fbc",
+     "med": "medium/Step18/img001.jpg?v=377c9fbc",
+     "text": "",
+     "mode": null,
+     "lat": null,
+     "lng": null,
+     "date": "2026-10-25T16:56:56.000Z"
+    },
+    {
+     "src": "Step18/img002.jpeg?v=a23113a0",
+     "type": "image",
+     "thumb": "thumbs/Step18/img002.jpg?v=a23113a0",
+     "med": "medium/Step18/img002.jpg?v=a23113a0",
+     "text": "",
+     "mode": null,
+     "lat": 40.683363888888884,
+     "lng": -73.97508333333333,
+     "date": "2026-10-25T17:27:30.000Z"
+    },
+    {
+     "src": "Step18/img003.jpeg?v=85c3edfd",
+     "type": "image",
+     "thumb": "thumbs/Step18/img003.jpg?v=85c3edfd",
+     "med": "medium/Step18/img003.jpg?v=85c3edfd",
+     "text": "",
+     "mode": null,
+     "lat": 40.68364722222222,
+     "lng": -73.97496666666667,
+     "date": "2026-10-25T18:45:59.000Z"
+    }
+   ]
   }
  ]
 }
