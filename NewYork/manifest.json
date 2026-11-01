@@ -2690,6 +2690,17 @@
      "lat": 40.74796388888889,
      "lng": -74.00464722222222,
      "date": "2026-10-26T16:57:29.000Z"
+    },
+    {
+     "src": "Step21/img011.jpeg?v=ac598d9e",
+     "type": "image",
+     "thumb": "thumbs/Step21/img011.jpg?v=ac598d9e",
+     "med": "medium/Step21/img011.jpg?v=ac598d9e",
+     "text": "",
+     "mode": null,
+     "lat": 40.75328888888889,
+     "lng": -74.00219722222222,
+     "date": "2026-10-26T17:13:43.000Z"
     }
    ]
   },
