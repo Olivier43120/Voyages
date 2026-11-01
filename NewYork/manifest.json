@@ -1957,7 +1957,63 @@
    "name": "Fin de la quatrième journée :  balade vers Roosevelt Island en téléphérique, retour en ferry pour profiter du coucher de soleil au dessus de la Sky Line.",
    "desc": "",
    "mode": null,
-   "photos": []
+   "photos": [
+    {
+     "src": "Step16/img001.jpeg?v=6aadcc0b",
+     "type": "image",
+     "thumb": "thumbs/Step16/img001.jpg?v=6aadcc0b",
+     "med": "medium/Step16/img001.jpg?v=6aadcc0b",
+     "text": "",
+     "mode": null,
+     "lat": 40.74590277777778,
+     "lng": -73.96794166666668,
+     "date": "2026-10-24T19:18:08.000Z"
+    },
+    {
+     "src": "Step16/img002.jpeg?v=1197b4da",
+     "type": "image",
+     "thumb": "thumbs/Step16/img002.jpg?v=1197b4da",
+     "med": "medium/Step16/img002.jpg?v=1197b4da",
+     "text": "",
+     "mode": null,
+     "lat": 40.71455,
+     "lng": -73.97113888888889,
+     "date": "2026-10-24T19:28:58.000Z"
+    },
+    {
+     "src": "Step16/img003.jpeg?v=58c56f41",
+     "type": "image",
+     "thumb": "thumbs/Step16/img003.jpg?v=58c56f41",
+     "med": "medium/Step16/img003.jpg?v=58c56f41",
+     "text": "",
+     "mode": null,
+     "lat": 40.74877222222222,
+     "lng": -73.95777222222223,
+     "date": "2026-10-24T19:14:32.000Z"
+    },
+    {
+     "src": "Step16/img004.jpeg?v=6960ef41",
+     "type": "image",
+     "thumb": "thumbs/Step16/img004.jpg?v=6960ef41",
+     "med": "medium/Step16/img004.jpg?v=6960ef41",
+     "text": "",
+     "mode": null,
+     "lat": 40.755177777777774,
+     "lng": -73.95281111111112,
+     "date": "2026-10-24T19:09:06.000Z"
+    },
+    {
+     "src": "Step16/img005.jpeg?v=5514c830",
+     "type": "image",
+     "thumb": "thumbs/Step16/img005.jpg?v=5514c830",
+     "med": "medium/Step16/img005.jpg?v=5514c830",
+     "text": "",
+     "mode": null,
+     "lat": 40.740769444444446,
+     "lng": -73.96638611111112,
+     "date": "2026-10-24T19:23:20.000Z"
+    }
+   ]
   }
  ]
 }
