@@ -154,7 +154,7 @@ if (sharp) {
 for (const k of Object.keys(cache)) if (!fs.existsSync(path.join(root, k.replace(/^m:/, '')))) delete cache[k];
 if (Object.keys(cache).length) { fs.mkdirSync(path.join(root, 'thumbs'), { recursive: true }); fs.writeFileSync(cachePath, JSON.stringify(cache, null, 1)); }
 fs.writeFileSync(path.join(root, 'manifest.json'), JSON.stringify({
-  title: album.title, author: album.author, subtitle: album.subtitle, fade: album.fade,
+  title: album.title, author: album.author, subtitle: album.subtitle, fade: album.fade, source: /^(non|no|none)$/i.test(album.source || '') ? '' : album.source,
   cover: cover ? { src: cover + '?v=' + vh(cover) } : null, steps }, null, 1));
 return { title: album.title, author: album.author, subtitle: album.subtitle,
   cover: cover || steps.flatMap(st => st.photos).map(p => p.thumb || p.src).find(Boolean)?.split('?')[0] };
