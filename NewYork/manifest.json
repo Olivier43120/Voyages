@@ -2020,7 +2020,96 @@
    "name": "Cinquième journée : match de NBA en soirée à Brooklyn, nous y passons donc l'après midi !",
    "desc": "",
    "mode": null,
-   "photos": []
+   "photos": [
+    {
+     "src": "Step17/img001.jpeg?v=a37116ab",
+     "type": "image",
+     "thumb": "thumbs/Step17/img001.jpg?v=a37116ab",
+     "med": "medium/Step17/img001.jpg?v=a37116ab",
+     "text": "",
+     "mode": null,
+     "lat": 40.673288888888884,
+     "lng": -73.97059722222222,
+     "date": "2026-10-25T12:14:48.000Z"
+    },
+    {
+     "src": "Step17/img002.jpeg?v=736e1fcb",
+     "type": "image",
+     "thumb": "thumbs/Step17/img002.jpg?v=736e1fcb",
+     "med": "medium/Step17/img002.jpg?v=736e1fcb",
+     "text": "",
+     "mode": null,
+     "lat": 40.673630555555555,
+     "lng": -73.97165,
+     "date": "2026-10-25T12:19:32.000Z"
+    },
+    {
+     "src": "Step17/img003.jpeg?v=fc1f41ab",
+     "type": "image",
+     "thumb": "thumbs/Step17/img003.jpg?v=fc1f41ab",
+     "med": "medium/Step17/img003.jpg?v=fc1f41ab",
+     "text": "",
+     "mode": null,
+     "lat": 40.674277777777775,
+     "lng": -73.97158055555556,
+     "date": "2026-10-25T12:24:36.000Z"
+    },
+    {
+     "src": "Step17/img004.jpeg?v=f5117d5e",
+     "type": "image",
+     "thumb": "thumbs/Step17/img004.jpg?v=f5117d5e",
+     "med": "medium/Step17/img004.jpg?v=f5117d5e",
+     "text": "",
+     "mode": null,
+     "lat": null,
+     "lng": null,
+     "date": "2026-10-25T15:35:52.000Z"
+    },
+    {
+     "src": "Step17/img005.jpeg?v=f5a959c5",
+     "type": "image",
+     "thumb": "thumbs/Step17/img005.jpg?v=f5a959c5",
+     "med": "medium/Step17/img005.jpg?v=f5a959c5",
+     "text": "",
+     "mode": null,
+     "lat": 40.67208055555555,
+     "lng": -73.97404444444444,
+     "date": "2026-10-25T15:36:25.000Z"
+    },
+    {
+     "src": "Step17/img006.jpeg?v=223684f7",
+     "type": "image",
+     "thumb": "thumbs/Step17/img006.jpg?v=223684f7",
+     "med": "medium/Step17/img006.jpg?v=223684f7",
+     "text": "",
+     "mode": null,
+     "lat": 40.67199722222222,
+     "lng": -73.97404444444444,
+     "date": "2026-10-25T15:36:30.000Z"
+    },
+    {
+     "src": "Step17/img007.jpeg?v=49ba6963",
+     "type": "image",
+     "thumb": "thumbs/Step17/img007.jpg?v=49ba6963",
+     "med": "medium/Step17/img007.jpg?v=49ba6963",
+     "text": "",
+     "mode": null,
+     "lat": null,
+     "lng": null,
+     "date": "2026-10-25T15:39:39.000Z"
+    },
+    {
+     "src": "Step17/img008.jpeg?v=4497a073",
+     "type": "image",
+     "thumb": "thumbs/Step17/img008.jpg?v=4497a073",
+     "med": "medium/Step17/img008.jpg?v=4497a073",
+     "text": "",
+     "mode": null,
+     "lat": 40.67156666666666,
+     "lng": -73.97338055555555,
+     "date": "2026-10-25T15:39:47.000Z"
+    }
+   ]
   }
  ]
 }
