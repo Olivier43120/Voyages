@@ -2709,7 +2709,129 @@
    "name": "Dernier jour : fin de la journée avec un coucher de soleil sur l'Hudson River, retour par le Manhattan Bridge",
    "desc": "",
    "mode": null,
-   "photos": []
+   "photos": [
+    {
+     "src": "Step22/img001.jpeg?v=402d50af",
+     "type": "image",
+     "thumb": "thumbs/Step22/img001.jpg?v=402d50af",
+     "med": "medium/Step22/img001.jpg?v=402d50af",
+     "text": "",
+     "mode": null,
+     "lat": 40.72184722222222,
+     "lng": -74.01733333333333,
+     "date": "2026-10-26T18:14:36.000Z"
+    },
+    {
+     "src": "Step22/img002.jpeg?v=edc42850",
+     "type": "image",
+     "thumb": "thumbs/Step22/img002.jpg?v=edc42850",
+     "med": "medium/Step22/img002.jpg?v=edc42850",
+     "text": "",
+     "mode": null,
+     "lat": 40.727916666666665,
+     "lng": -74.01632777777778,
+     "date": "2026-10-26T18:13:30.000Z"
+    },
+    {
+     "src": "Step22/img003.jpeg?v=ddb2c744",
+     "type": "image",
+     "thumb": "thumbs/Step22/img003.jpg?v=ddb2c744",
+     "med": "medium/Step22/img003.jpg?v=ddb2c744",
+     "text": "",
+     "mode": null,
+     "lat": 40.71819166666667,
+     "lng": -74.01756944444445,
+     "date": "2026-10-26T18:15:30.000Z"
+    },
+    {
+     "src": "Step22/img004.jpeg?v=c7601ccb",
+     "type": "image",
+     "thumb": "thumbs/Step22/img004.jpg?v=c7601ccb",
+     "med": "medium/Step22/img004.jpg?v=c7601ccb",
+     "text": "",
+     "mode": null,
+     "lat": 40.71707222222222,
+     "lng": -74.01761666666667,
+     "date": "2026-10-26T18:15:55.000Z"
+    },
+    {
+     "src": "Step22/img005.jpeg?v=b196e73b",
+     "type": "image",
+     "thumb": "thumbs/Step22/img005.jpg?v=b196e73b",
+     "med": "medium/Step22/img005.jpg?v=b196e73b",
+     "text": "",
+     "mode": null,
+     "lat": 40.70807222222223,
+     "lng": -74.02396388888889,
+     "date": "2026-10-26T18:25:28.000Z"
+    },
+    {
+     "src": "Step22/img006.jpeg?v=5c9f3ba9",
+     "type": "image",
+     "thumb": "thumbs/Step22/img006.jpg?v=5c9f3ba9",
+     "med": "medium/Step22/img006.jpg?v=5c9f3ba9",
+     "text": "",
+     "mode": null,
+     "lat": 40.724247222222225,
+     "lng": -74.01695277777777,
+     "date": "2026-10-26T18:14:09.000Z"
+    },
+    {
+     "src": "Step22/img007.jpeg?v=f37f90e8",
+     "type": "image",
+     "thumb": "thumbs/Step22/img007.jpg?v=f37f90e8",
+     "med": "medium/Step22/img007.jpg?v=f37f90e8",
+     "text": "",
+     "mode": null,
+     "lat": 40.699755555555555,
+     "lng": -74.02844999999999,
+     "date": "2026-10-26T18:27:10.000Z"
+    },
+    {
+     "src": "Step22/img008.jpeg?v=1c8ead5a",
+     "type": "image",
+     "thumb": "thumbs/Step22/img008.jpg?v=1c8ead5a",
+     "med": "medium/Step22/img008.jpg?v=1c8ead5a",
+     "text": "",
+     "mode": null,
+     "lat": 40.68369722222222,
+     "lng": -74.03737777777778,
+     "date": "2026-10-26T18:30:35.000Z"
+    },
+    {
+     "src": "Step22/img009.jpeg?v=a4b25724",
+     "type": "image",
+     "thumb": "thumbs/Step22/img009.jpg?v=a4b25724",
+     "med": "medium/Step22/img009.jpg?v=a4b25724",
+     "text": "",
+     "mode": null,
+     "lat": 40.68769722222222,
+     "lng": -74.0350888888889,
+     "date": "2026-10-26T18:29:43.000Z"
+    },
+    {
+     "src": "Step22/img010.jpeg?v=cc536a44",
+     "type": "image",
+     "thumb": "thumbs/Step22/img010.jpg?v=cc536a44",
+     "med": "medium/Step22/img010.jpg?v=cc536a44",
+     "text": "",
+     "mode": null,
+     "lat": 40.709605555555555,
+     "lng": -73.99219444444445,
+     "date": "2026-10-26T20:05:34.000Z"
+    },
+    {
+     "src": "Step22/img011.jpeg?v=5e9e5681",
+     "type": "image",
+     "thumb": "thumbs/Step22/img011.jpg?v=5e9e5681",
+     "med": "medium/Step22/img011.jpg?v=5e9e5681",
+     "text": "",
+     "mode": null,
+     "lat": 40.709586111111115,
+     "lng": -73.99218055555555,
+     "date": "2026-10-26T20:06:55.000Z"
+    }
+   ]
   }
  ]
 }
