@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Éditeur d’album</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a1a2b;--p:#12293d;--l:#24465f;--m:#aebccb;--b:#3d95e6}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#f2f6fa;font:16px/1.5 system-ui,sans-serif;padding:16px 14px 110px}
-main{max-width:760px;margin:auto}h1{font-size:26px;margin:6px 0 4px}
-section,details{background:var(--p);border:1px solid var(--l);border-radius:16px;padding:14px;margin:12px 0}
-summary{cursor:pointer;font-weight:600;font-size:17px}
-label{display:block;color:var(--m);font-size:13px;margin:10px 0 3px}
-input,textarea,select{width:100%;background:var(--bg);color:inherit;border:1px solid var(--l);border-radius:10px;padding:9px 11px;font:inherit}
-textarea{min-height:70px;resize:vertical}
-button,.btn{display:inline-block;background:var(--b);color:#fff;border:0;border-radius:10px;padding:9px 14px;font:inherit;font-weight:600;cursor:pointer;margin:0}
-.g{background:var(--l)}.r{background:#a33}
-.row{display:flex;gap:10px;margin:12px 0 0;padding-top:12px;border-top:1px solid var(--l)}
-.row img,.row video{width:84px;height:84px;object-fit:cover;border-radius:10px;flex:none;background:#000}
-.row>div{flex:1;min-width:0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:6px 0}
-#bar{position:fixed;left:0;right:0;bottom:0;background:#06121f;border-top:1px solid var(--l);padding:12px 14px calc(12px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center;justify-content:center;z-index:5}
-a{color:var(--b)}small,.m{color:var(--m);font-size:14px}[hidden]{display:none!important}
-</style></head><body><main>
-<h1>Éditeur d’album</h1>
-<p class="m">Créez vos steps, commentaires et page de garde sans passer par GitHub. <a href="tuto.html#editeur">Mode d’emploi</a></p>
-<section id="cx">
- <b>Connexion à GitHub</b>
+:root{--bg:#0a1a2b;--btn:#143042;--blue:#3d95e6;--l:#24465f;--m:#aebccb}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,system-ui,sans-serif;overflow:hidden}
+[hidden]{display:none!important}
+#map{position:fixed;inset:0}.leaflet-container{background:var(--bg);font-family:inherit}
+.leaflet-control-attribution{background:rgba(0,0,0,.35)!important;color:#aab!important;font-size:9px}.leaflet-control-attribution a{color:#ccd!important}
+.pin{width:44px;height:44px;border-radius:50%;border:3px solid #fff;overflow:hidden;background:#345;box-shadow:0 2px 8px #0008;transition:transform .25s}
+.pin img{width:100%;height:100%;object-fit:cover;display:block}.pin.on{transform:scale(1.25);border-color:var(--blue);box-shadow:0 0 0 6px #3d95e655}
+#top{position:fixed;top:max(14px,env(safe-area-inset-top));left:14px;right:14px;display:flex;justify-content:space-between;gap:10px;z-index:500}
+#al{max-width:72%;background:rgba(10,26,43,.72);backdrop-filter:blur(8px);color:#fff;border:0;border-radius:23px;padding:0 16px;height:46px;font-family:inherit;font-weight:600;font-size:17px}
+.rb{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--btn);color:#fff;font-size:20px;cursor:pointer;box-shadow:0 2px 10px #0006}
+#rail{position:fixed;left:0;right:0;bottom:calc(76px + env(safe-area-inset-bottom));height:200px;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 calc(50% - 130px);z-index:500;scrollbar-width:none}
+#rail::-webkit-scrollbar{display:none}
+.card{position:relative;flex:0 0 260px;border-radius:30px;overflow:hidden;scroll-snap-align:center;cursor:pointer;background:#234;border:2px solid #ffffff44}
+.card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.card i{position:absolute;inset:0;background:linear-gradient(transparent 40%,#000b)}
+.card div{position:absolute;left:18px;right:18px;bottom:14px}.card b{display:block;font-size:21px;font-weight:500;line-height:1.15}.card b b{font-weight:700}.card small{color:var(--m);font-size:14px}
+.plus{flex:none;align-self:center;width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#0a1a2b;font-size:26px;line-height:1;cursor:pointer;box-shadow:0 2px 8px #0006;scroll-snap-align:center}
+#bar{position:fixed;left:0;right:0;bottom:0;background:#06121f;border-top:1px solid var(--l);padding:12px 14px calc(12px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center;justify-content:center;z-index:600}
+#st{color:var(--m);font-size:14px}
+#bar button,#cx button{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer}#bar button:disabled{opacity:.45}
+#cx{position:fixed;inset:0;z-index:3000;background:var(--bg);overflow:auto;padding:24px 18px}#cx>div{max-width:480px;margin:auto}
+#cx label{display:block;color:var(--m);font-size:13px;margin:12px 0 3px}#cx input:not([type=checkbox]){width:100%;background:#12293d;color:#fff;border:1px solid var(--l);border-radius:10px;padding:10px;font:inherit}
+#cx a{color:var(--blue)}.m{color:var(--m);font-size:14px}
+.sheet{position:fixed;inset:0;z-index:2000;background:#fff;color:#0a1a2b;overflow:auto;transform:translateY(102%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}.sheet.on{transform:none}
+.sh-head{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) 18px 14px;background:#fff;border-bottom:1px solid #e3e8ee;font-size:18px}
+.sh-head button{background:none;border:0;color:var(--blue);font-family:inherit;font-weight:600;font-size:18px;cursor:pointer}
+.sh-body{padding:6px 18px 60px;max-width:640px;margin:auto}
+.sheet label{display:block;color:#6b7a89;font-size:14px;margin:18px 0 2px}
+.sheet input:not([type=file]),.sheet textarea,.sheet select{width:100%;background:#fff;color:#0a1a2b;border:0;border-bottom:1px solid #cdd6df;border-radius:0;padding:8px 0;font-family:inherit;font-size:18px;outline:none}
+.sheet textarea{min-height:90px;resize:vertical}
+.sheet label.addbtn{text-align:center;color:var(--blue);font-weight:600;font-size:19px;padding:18px 0 10px;cursor:pointer;margin:0}
+.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mg>div{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;background:#dde3ea;cursor:pointer}.mg img,.mg video{width:100%;height:100%;object-fit:cover;display:block}
+.mg .n{position:absolute;left:5px;top:5px;background:#000a;color:#fff;border-radius:9px;font-size:12px;padding:0 7px}.mg .v{position:absolute;right:6px;bottom:4px;color:#fff;text-shadow:0 0 4px #000}
+.mg .sel{outline:3px solid var(--blue);outline-offset:-3px}
+.pe{margin-top:14px;padding:12px;border-radius:14px;background:#f3f6f9}.pe img,.pe video{width:100%;max-height:260px;object-fit:contain;background:#000;border-radius:10px;display:block;margin-bottom:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.mv{display:flex;gap:10px;margin:14px 0}.mv button,.btnl{flex:1;background:#eef2f6;color:#0a1a2b;border:0;border-radius:10px;padding:11px;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer}
+.btnl{display:block;width:100%;margin:8px 0}.sheet .r{display:block;width:100%;background:#d33;color:#fff;border:0;border-radius:10px;padding:12px;font-family:inherit;font-weight:600;font-size:16px;margin-top:8px;cursor:pointer}
+.hint{color:#6b7a89;margin:12px 0;font-size:14px}
+</style></head><body>
+<div id="cx"><div>
+ <h2>Éditeur d’album</h2>
+ <p class="m">Créez vos steps, commentaires et page de garde sans passer par GitHub. <a href="tuto.html#editeur">Mode d’emploi</a></p>
  <label>Compte</label><input id="o"><label>Dépôt</label><input id="r"><label>Jeton d’accès (voir le mode d’emploi)</label><input id="t" type="password" autocomplete="off">
  <label><input type="checkbox" id="keep" checked style="width:auto"> Mémoriser sur cet appareil</label>
- <p><button id="go">Se connecter</button> <span id="err" class="m"></span></p>
-</section>
+ <p style="margin-top:14px"><button id="go">Se connecter</button> <span id="err" class="m"></span></p>
+</div></div>
 <div id="app" hidden>
- <section><label>Carnet (un dossier par voyage)</label><select id="al"></select> <p><button class="g" id="mig" hidden>Déplacer ce carnet dans un dossier…</button></p></section>
- <section><b>Album</b>
-  <label>Titre</label><input data-a="title"><label>Auteur</label><input data-a="author"><label>Sous-titre (page de garde)</label><input data-a="subtitle">
-  <label>Durée du fondu entre photos (secondes, 0 = aucun)</label><input data-a="fade" type="number" min="0" max="2" step="0.05" placeholder="0.64">
-  <label>Lien « source » de la page de garde (vide = dépôt GitHub automatique, « non » = masqué)</label><input data-a="source" placeholder="https://github.com/…">
-  <p><button class="g" id="upv" hidden>Mettre à jour la visionneuse de tous les carnets</button></p>
-  <label>Page de garde (image) <span id="cvn"></span></label><input type="file" id="cv" accept="image/*">
- </section>
- <div id="steps"></div>
- <p><button class="g" id="ns">+ Nouveau step</button></p>
+ <div id="map"></div>
+ <header id="top"><select id="al" aria-label="Carnet"></select><button class="rb" id="gear" aria-label="Réglages du carnet">&#9881;</button></header>
+ <section id="rail"></section>
+ <div id="bar"><span id="st"></span><button id="sv" disabled>Enregistrer</button></div>
 </div>
-<div id="bar" hidden><span id="st" class="m"></span><button id="sv" disabled>Enregistrer</button></div>
-</main>
+<div id="sheet" class="sheet"></div>
+<div id="asheet" class="sheet"><div class="sh-head"><span></span><b>Réglages du carnet</b><button id="aclose">Fermer</button></div><div class="sh-body">
+ <label>Titre</label><input data-a="title"><label>Auteur</label><input data-a="author"><label>Sous-titre (page de garde)</label><input data-a="subtitle">
+ <label>Durée du fondu entre photos (secondes, 0 = aucun)</label><input data-a="fade" type="number" min="0" max="2" step="0.05" placeholder="0.64">
+ <label>Lien « source » de la page de garde (vide = dépôt GitHub automatique, « non » = masqué)</label><input data-a="source" placeholder="https://github.com/…">
+ <label>Page de garde (image) <span id="cvn"></span></label><input type="file" id="cv" accept="image/*">
+ <button class="btnl" id="upv" hidden style="margin-top:22px">Mettre à jour la visionneuse de tous les carnets</button>
+ <button class="btnl" id="mig" hidden>Déplacer ce carnet dans un dossier…</button>
+</div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 const $=s=>document.querySelector(s),B='main',nat=(a,b)=>a.localeCompare(b,0,{numeric:true});
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const mdi=t=>esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*(?!\s)(.+?)\*/g,'<i>$1</i>');
 const bn=f=>f.replace(/\.[^.]+$/,'').toLowerCase(),isM=f=>/\.(jpe?g|png|webp|heic|mp4|m4v|mov|webm|ogv)$/i.test(f),isV=f=>/\.(mp4|m4v|mov|webm|ogv)$/i.test(f);
-let C={},T=new Map,L=new Map,P='',AL=[],S=[],A={},man=null,cover=null,adirty=0,busy=0;
+let C={},T=new Map,LM=new Map,P='',AL=[],S=[],A={},man=null,cover=null,adirty=0,busy=0,cur=0,cs=null,sel=-1,snap=null,isNewSheet=0,map,layer,fitted=0;
 const u=location.host.endsWith('.github.io')?[location.host.split('.')[0],location.pathname.split('/')[1]||'']:['',''];
 try{C=JSON.parse(localStorage.ed||sessionStorage.ed||'{}')}catch{}
 $('#o').value=C.o||u[0];$('#r').value=C.r||u[1];$('#t').value=C.t||'';
 async function api(p,o={}){const r=await fetch(`https://api.github.com/repos/${C.o}/${C.r}${p}`,{method:o.method,headers:{Authorization:'Bearer '+C.t,Accept:'application/vnd.github+json'},body:o.body&&JSON.stringify(o.body)}).catch(e=>{throw new Error('réseau sur '+p.split('?')[0]+' – '+e.message)});
  if(!r.ok)throw new Error(r.status+' '+((await r.json().catch(()=>({}))).message||''));return r.json()}
-async function txt(p){const s=L.get(p);if(!s)return'';const b=await api('/git/blobs/'+s);return new TextDecoder().decode(Uint8Array.from(atob(b.content.replace(/\n/g,'')),c=>c.charCodeAt(0)))}
+async function txt(p){const s=LM.get(p);if(!s)return'';const b=await api('/git/blobs/'+s);return new TextDecoder().decode(Uint8Array.from(atob(b.content.replace(/\n/g,'')),c=>c.charCodeAt(0)))}
 function parse(raw){let mode='',gps='';const k=raw.split(/\r?\n/).filter(l=>{const g=l.match(/^\s*(?:gps|position)\s*:\s*(.+)/i);if(g){gps=g[1].trim();return 0}
  const m=l.match(/^\s*(trajet|vol)\s*:\s*(\S+)/i);if(!m)return 1;const v=m[2].toLowerCase();mode=/^(droit|rectiligne|direct|route|non)/.test(v)?'droit':/^(vol|avion|courbe|oui)/.test(v)?'vol':mode;return 0});return{mode,gps,text:k.join('\n').trim()}}
 const ser=(mode,gps)=>(mode?'trajet: '+mode+'\n':'')+(gps?'gps: '+gps+'\n':'');
@@ -62,61 +90,95 @@ async function init(){$('#err').textContent='Connexion…';
  try{const ref=await api('/git/ref/heads/'+B),c=await api('/git/commits/'+ref.object.sha),t=await api('/git/trees/'+c.tree.sha+'?recursive=1');
   T=new Map(t.tree.filter(x=>x.type==='blob').map(x=>[x.path,x.sha]));
   AL=[...new Set([...T.keys()].filter(p=>/^([^/]+\/)?album\.json$/.test(p)).map(p=>p.slice(0,-10)))].sort(nat);if(!AL.includes(P))P=AL[0]??'';
-  L=new Map([...T].filter(([p])=>p.startsWith(P)).map(([p,h])=>[p.slice(P.length),h]));A=JSON.parse(await txt('album.json')||'{}');
+  LM=new Map([...T].filter(([p])=>p.startsWith(P)).map(([p,h])=>[p.slice(P.length),h]));A=JSON.parse(await txt('album.json')||'{}');
   man=await fetch(encodeURI(P)+'manifest.json',{cache:'no-cache'}).then(r=>r.json()).catch(()=>null);
-  const ids=[...new Set([...L.keys()].map(p=>(p.match(/^(Step\d+)\//i)||[])[1]).filter(Boolean))].sort(nat);
-  const old=Object.fromEntries(S.map(s=>[s.id,s.open]));
-  S=ids.map(id=>{const f=[...L.keys()].filter(p=>p.startsWith(id+'/')).map(p=>p.slice(id.length+1)).sort(nat),mb=new Set(f.filter(isM).map(bn));
-   const ms=man?.steps.find(x=>x.id===id);
-   return{id,open:old[id],loaded:0,title:ms?.name||id,desc:'',mode:'',stxt:f.find(x=>/\.txt$/i.test(x)&&!mb.has(bn(x))),
+  const ids=[...new Set([...LM.keys()].map(p=>(p.match(/^(Step\d+)\//i)||[])[1]).filter(Boolean))].sort(nat);
+  S=ids.map(id=>{const f=[...LM.keys()].filter(p=>p.startsWith(id+'/')).map(p=>p.slice(id.length+1)).sort(nat),mb=new Set(f.filter(isM).map(bn));
+   const ms=man?.steps.find(x=>x.id===id),lp=ms?.photos.find(p=>p.lat!=null);
+   return{id,loaded:0,title:ms?.name||id,date:ms?.photos[0]?.date,loc:lp?[lp.lat,lp.lng]:null,desc:'',mode:'',stxt:f.find(x=>/\.txt$/i.test(x)&&!mb.has(bn(x))),
     media:f.filter(isM).map(n=>({name:n,txt:f.find(x=>/\.txt$/i.test(x)&&bn(x)===bn(n)),text:'',mode:'',gps:''}))}});
-  cover=null;adirty=0;$('#cx').hidden=1;$('#app').hidden=0;$('#bar').hidden=0;
+  cover=null;adirty=0;cur=0;fitted=0;$('#cx').hidden=1;$('#app').hidden=0;
   document.querySelectorAll('[data-a]').forEach(i=>i.value=A[i.dataset.a]||'');
-  const cp=[...L.keys()].find(p=>/^(cover|couverture|garde)\.\w+$/i.test(p));$('#cvn').textContent=cp?'(actuelle : '+cp+')':'(aucune)';
-  $('#al').innerHTML=AL.map(p=>`<option value="${esc(p)}"${p===P?' selected':''}>${esc(p?p.slice(0,-1):'(racine)')}</option>`).join('')+'<option value="+">＋ Nouveau carnet…</option>';$('#mig').hidden=P!==''||!T.has('album.json');$('#upv').hidden=!(T.has('viewer.html')&&AL.some(Boolean));
-  render();upd()}catch(e){$('#err').textContent='Échec : '+e.message}}
+  const cp=[...LM.keys()].find(p=>/^(cover|couverture|garde)\.\w+$/i.test(p));$('#cvn').textContent=cp?'(actuelle : '+cp+')':'(aucune)';
+  $('#al').innerHTML=AL.map(p=>`<option value="${esc(p)}"${p===P?' selected':''}>${esc(p?p.slice(0,-1):'(racine)')}</option>`).join('')+'<option value="+">＋ Nouveau carnet…</option>';
+  $('#mig').hidden=P!==''||!T.has('album.json');$('#upv').hidden=!(T.has('viewer.html')&&AL.some(Boolean));
+  initMap();renderRail();upd();setTimeout(()=>map.invalidateSize(),60)}
+ catch(e){$('#err').textContent='Échec : '+e.message;$('#st').textContent='Échec : '+e.message}}
 async function loadStep(s){const[a,...b]=await Promise.all([s.stxt?txt(s.id+'/'+s.stxt):'',...s.media.map(m=>m.txt?txt(s.id+'/'+m.txt):'')]);
- const p=parse(a),L=p.text.split('\n'),i=L.findIndex(x=>x.trim());if(i>=0){s.title=L[i].trim();s.desc=L.slice(i+1).join('\n').trim()}s.mode=p.mode;
- s.media.forEach((m,j)=>Object.assign(m,parse(b[j])));s.loaded=1;render()}
-const md=(v)=>[['','Trajet : automatique'],['droit','Trajet : droit'],['vol','Trajet : vol (avion)']].map(([a,b])=>`<option value="${a}"${a==v?' selected':''}>${b}</option>`).join('');
-const prev=(s,m)=>m.url?(isV(m.name)?`<video src="${m.url}" muted></video>`:`<img src="${m.url}">`):`<img src="${encodeURI(P)}thumbs/${s.id}/${bn(m.name)}.jpg" onerror="this.style.opacity=.2">`;
-function render(){$('#steps').innerHTML=S.map((s,i)=>s.del?'':`<details data-i="${i}"${s.open?' open':''}><summary>${S.filter((x,k)=>!x.del&&k<=i).length}. ${esc(s.title)} <small>${s.id}${s.isNew?' · nouveau':''}</small></summary><p><button class="g" data-x="su">↑ Monter le step</button> <button class="g" data-x="sd">↓ Descendre le step</button></p>${!s.loaded?'<p class="m">Chargement…</p>':`
- <label>Titre (**gras** et *italique* acceptés)</label><input data-f="title" value="${esc(s.title)}">
- <label>Texte du step (affiché sur la 1re photo)</label><textarea data-f="desc">${esc(s.desc)}</textarea>
+ const p=parse(a),ln=p.text.split('\n'),i=ln.findIndex(x=>x.trim());if(i>=0){s.title=ln[i].trim();s.desc=ln.slice(i+1).join('\n').trim()}s.mode=p.mode;
+ s.media.forEach((m,j)=>Object.assign(m,parse(b[j])));s.loaded=1}
+// ---------- affichage : carte + carrousel de steps
+const md=v=>[['','Trajet : automatique'],['droit','Trajet : droit'],['vol','Trajet : vol (avion)']].map(([a,b])=>`<option value="${a}"${a==v?' selected':''}>${b}</option>`).join('');
+const fmt=d=>d?new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}):'';
+const timg=(s,m)=>m.url||`${encodeURI(P)}thumbs/${s.id}/${bn(m.name)}.jpg`;
+const prev=(s,m)=>isV(m.name)&&m.url?`<video src="${m.url}" muted></video>`:`<img src="${timg(s,m)}" onerror="this.style.opacity=.15" alt="">`;
+const live=s=>s.media.filter(m=>!m.del),cardImg=s=>{const m=live(s)[0];return m&&!(isV(m.name)&&m.url)?timg(s,m):''};
+const cnt=s=>{const n=live(s).length;return(s.date?fmt(s.date)+' · ':'')+(s.isNew&&!n?'nouveau':n+' photo'+(n>1?'s':''))};
+function initMap(){if(map)return;map=L.map('map',{zoomControl:false}).setView([30,0],2);map.attributionControl.setPrefix(false);
+ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Imagery © Esri'}).addTo(map);layer=L.layerGroup().addTo(map)}
+function drawMap(){layer.clearLayers();const act=S.filter(s=>!s.del&&s.loc);
+ if(act.length>1)L.polyline(act.map(s=>s.loc),{color:'#fff',weight:2.5,dashArray:'7 8',opacity:.9}).addTo(layer);
+ act.forEach(s=>{const i=S.indexOf(s),im=cardImg(s);L.marker(s.loc,{icon:L.divIcon({className:'',iconSize:[44,44],html:`<div class="pin${i===cur?' on':''}">${im?`<img src="${im}" alt="">`:''}</div>`})}).on('click',()=>openSheet(i)).addTo(layer)});
+ if(!fitted&&act.length){fitted=1;map.fitBounds(act.map(s=>s.loc),{padding:[50,50],paddingBottomRight:[50,300],maxZoom:12})}}
+function renderRail(){$('#rail').innerHTML=S.map((s,i)=>s.del?'':`<button class="plus" data-p="${i}" aria-label="Insérer un step ici">+</button><article class="card" data-i="${i}">${cardImg(s)?`<img src="${cardImg(s)}" alt="">`:''}<i></i><div><b>${mdi(s.title||s.id)}</b><small>${cnt(s)}</small></div></article>`).join('')+`<button class="plus" data-p="${S.length}" aria-label="Ajouter un step à la fin">+</button>`;drawMap()}
+$('#rail').addEventListener('click',e=>{const p=e.target.closest('.plus'),c=e.target.closest('.card');if(p)addStep(+p.dataset.p);else if(c)openSheet(+c.dataset.i)});
+let tm;$('#rail').onscroll=()=>{clearTimeout(tm);tm=setTimeout(()=>{const R=$('#rail').getBoundingClientRect(),mid=R.left+R.width/2;let best=null,bd=1e9;
+ document.querySelectorAll('.card').forEach(c=>{const q=c.getBoundingClientRect(),d=Math.abs(q.left+q.width/2-mid);if(d<bd){bd=d;best=c}});
+ if(best&&+best.dataset.i!==cur){cur=+best.dataset.i;const l=S[cur]&&S[cur].loc;drawMap();if(l)map.flyToBounds(L.latLngBounds([l,l]),{maxZoom:10,paddingBottomRight:[0,300],duration:.8})}},100)};
+$('#gear').onclick=()=>$('#asheet').classList.add('on');$('#aclose').onclick=()=>{$('#asheet').classList.remove('on');upd()};
+// ---------- feuille d'édition d'un step
+function addStep(at){const n=Math.max(0,...S.map(s=>+s.id.slice(4)))+1;S.prevOrd=S.ord;
+ const s={id:'Step'+n,isNew:1,loaded:1,title:'',desc:'',mode:'',media:[],loc:null};S.splice(at,0,s);if(at<S.length-1)S.ord=1;openSheet(at,1)}
+async function openSheet(i,isNew){cs=S[i];if(!cs.loaded){$('#sheet').innerHTML='<div class="sh-body"><p class="hint">Chargement…</p></div>';$('#sheet').classList.add('on');await loadStep(cs)}
+ snap={...cs,media:cs.media.map(m=>({...m}))};sel=-1;isNewSheet=!!isNew;renderSheet();$('#sheet').classList.add('on')}
+function closeSheet(){$('#sheet').classList.remove('on');cs=null;renderRail();upd()}
+function renderSheet(){const s=cs;if(!s)return;const el=$('#sheet'),st=el.scrollTop,ms=s.media.map((m,j)=>[m,j]).filter(([m])=>!m.del),m=sel>=0&&s.media[sel]&&!s.media[sel].del?s.media[sel]:null;
+ const act=S.filter(x=>!x.del);
+ el.innerHTML=`<div class="sh-head"><button data-s="cancel">Annuler</button><b>${isNewSheet?'Nouveau step':'Modifier le step'}</b><button data-s="ok">OK</button></div><div class="sh-body">
+ <label>Nom du step (**gras** et *italique* acceptés)</label><input data-f="title" value="${esc(s.title)}">
  <label>Trajet depuis le step précédent</label><select data-f="mode">${md(s.mode)}</select>
- ${s.media.map((m,j)=>m.del?'':`<div class="row" data-j="${j}">${prev(s,m)}<div><b>${esc(m.name)}</b>${m.file?' <small>nouveau</small>':''}<textarea data-m="text" placeholder="Commentaire (Markdown : **gras**, *italique*)">${esc(m.text)}</textarea>
- <div class="grid"><select data-m="mode">${md(m.mode)}</select><input data-m="gps" placeholder="GPS : 40.74, -73.98" value="${esc(m.gps)}"></div><button class="g" data-x="mu">↑</button> <button class="g" data-x="md">↓</button> <button class="r" data-x="dm">Supprimer</button></div></div>`).join('')}
- <p><label class="btn g">+ Photos / vidéos<input type="file" multiple accept="image/*,video/*" hidden data-x="add"></label> <button class="r" data-x="ds">Supprimer le step</button></p>`}</details>`).join('')}
+ <label class="addbtn">Ajouter des photos ou des vidéos<input type="file" multiple accept="image/*,video/*" hidden data-s="add"></label>
+ <div class="mg">${ms.map(([x,j],k)=>`<div data-j="${j}" class="${j===sel?'sel':''}">${prev(s,x)}<span class="n">${k+1}</span>${isV(x.name)?'<span class="v">▶</span>':''}</div>`).join('')}</div>
+ ${m?`<div class="pe">${prev(s,m)}<b>${esc(m.name)}</b>
+  <label>Commentaire de cette photo (Markdown)</label><textarea data-m="text">${esc(m.text)}</textarea>
+  <div class="two"><select data-m="mode">${md(m.mode)}</select><input data-m="gps" placeholder="GPS : 40.74, -73.98" value="${esc(m.gps)}"></div>
+  <div class="mv"><button data-s="ml">◀ Plus tôt</button><button data-s="mr">Plus tard ▶</button></div><button class="r" data-s="dm" style="margin-top:0">Supprimer cette photo</button></div>`:'<p class="hint">Touchez une photo pour écrire son commentaire, la déplacer ou la supprimer.</p>'}
+ <label>Que faites-vous ? (texte du step, affiché sur la 1re photo)</label><textarea data-f="desc">${esc(s.desc)}</textarea>
+ <label>Position du step dans le carnet : ${act.indexOf(s)+1} sur ${act.length}</label>
+ <div class="mv"><button data-s="sl">◀ Plus tôt</button><button data-s="sr">Plus tard ▶</button></div>
+ ${isNewSheet?'':'<button class="r" data-s="del">Supprimer le step</button>'}</div>`;el.scrollTop=st}
+$('#sheet').addEventListener('click',e=>{const t=e.target.closest('[data-s],.mg>div');if(!t||!cs)return;const s=cs;
+ if(t.dataset.j!==undefined){sel=+t.dataset.j===sel?-1:+t.dataset.j;return renderSheet()}
+ const a=t.dataset.s;
+ if(a==='ok')return closeSheet();
+ if(a==='cancel'){if(isNewSheet){S.splice(S.indexOf(s),1);S.ord=S.prevOrd}else{Object.assign(s,snap);s.media=snap.media}return closeSheet()}
+ if(a==='del'){if(confirm('Supprimer ce step et toutes ses photos ?')){s.del=1;closeSheet()}return}
+ if(a==='sl'||a==='sr'){const i=S.indexOf(s),d=a==='sl'?-1:1;let k=i+d;while(S[k]&&S[k].del)k+=d;if(S[k]){[S[i],S[k]]=[S[k],S[i]];S.ord=1;cur=k}return renderSheet()}
+ if(a==='ml'||a==='mr'){const d=a==='ml'?-1:1;let k=sel+d;while(s.media[k]&&s.media[k].del)k+=d;if(s.media[k]){[s.media[sel],s.media[k]]=[s.media[k],s.media[sel]];s.reord=1;sel=k}return renderSheet()}
+ if(a==='dm'){s.media[sel].del=1;sel=-1;return renderSheet()}});
+$('#sheet').addEventListener('change',e=>{if(e.target.dataset.s!=='add'||!cs)return;const s=cs;let n=Math.max(0,...s.media.map(m=>+(m.name.match(/(\d+)/)||[0,0])[1]));
+ for(const f of e.target.files){const ext=(f.name.split('.').pop()||'jpg').toLowerCase();s.media.push({name:`img${String(++n).padStart(3,'0')}.${ext}`,file:f,url:URL.createObjectURL(f),text:'',mode:'',gps:''})}renderSheet();upd()});
+document.addEventListener('input',e=>{const t=e.target;
+ if(t.dataset.a){A[t.dataset.a]=t.value;adirty=1}else if(cs&&t.dataset.f){cs[t.dataset.f]=t.value;cs.dirty=1}
+ else if(cs&&t.dataset.m&&sel>=0){const m=cs.media[sel];m[t.dataset.m]=t.value;m.dirty=1}upd()});
+$('#cv').onchange=e=>{cover=e.target.files[0]||null;upd()};
 const dirty=()=>(adirty?1:0)+(cover?1:0)+(S.ord?1:0)+S.filter(s=>s.reord).length+S.filter(s=>s.del||s.dirty||s.isNew).length+S.reduce((n,s)=>n+s.media.filter(m=>m.del||m.dirty||m.file).length,0);
 function upd(){const n=dirty();$('#sv').disabled=busy||!n;$('#sv').textContent=n?`Enregistrer (${n})`:'Enregistrer';if(!busy)$('#st').textContent=n?'Modifications non enregistrées':''}
 onbeforeunload=e=>dirty()&&!busy?(e.preventDefault(),''):undefined;
-document.addEventListener('input',e=>{const t=e.target,d=t.closest('details');
- if(t.dataset.a){A[t.dataset.a]=t.value;adirty=1}else if(d&&t.dataset.f){const s=S[+d.dataset.i];s[t.dataset.f]=t.value;s.dirty=1}
- else if(d&&t.dataset.m){const m=S[+d.dataset.i].media[+t.closest('.row').dataset.j];m[t.dataset.m]=t.value;m.dirty=1}upd()});
-$('#cv').onchange=e=>{cover=e.target.files[0]||null;upd()};
-$('#steps').addEventListener('toggle',e=>{const s=S[+e.target.dataset.i];if(s){s.open=e.target.open;if(s.open&&!s.loaded)loadStep(s)}},true);
-$('#steps').addEventListener('click',e=>{const x=e.target.dataset.x,d=e.target.closest('details'),s=d&&S[+d.dataset.i];
- if(x==='ds'&&confirm('Supprimer ce step et toutes ses photos ?')){s.del=1;render();upd()}
- if(x==='su'||x==='sd'){const i=+d.dataset.i,dir=x==='su'?-1:1;let k=i+dir;while(S[k]&&S[k].del)k+=dir;if(S[k]){[S[i],S[k]]=[S[k],S[i]];S.ord=1;render();upd()}}
- if(x==='mu'||x==='md'){const j=+e.target.closest('.row').dataset.j,dir=x==='mu'?-1:1;let k=j+dir;while(s.media[k]&&s.media[k].del)k+=dir;if(s.media[k]){[s.media[j],s.media[k]]=[s.media[k],s.media[j]];s.reord=1;render();upd()}}
- if(x==='dm'){s.media[+e.target.closest('.row').dataset.j].del=1;render();upd()}});
-$('#steps').addEventListener('change',e=>{if(e.target.dataset.x!=='add')return;const s=S[+e.target.closest('details').dataset.i];
- let n=Math.max(0,...s.media.map(m=>+(m.name.match(/(\d+)/)||[0,0])[1]));
- for(const f of e.target.files){const ext=(f.name.split('.').pop()||'jpg').toLowerCase();s.media.push({name:`img${String(++n).padStart(3,'0')}.${ext}`,file:f,url:URL.createObjectURL(f),text:'',mode:'',gps:''})}render();upd()});
-$('#ns').onclick=()=>{const n=Math.max(0,...S.map(s=>+s.id.slice(4)))+1;S.push({id:'Step'+n,isNew:1,loaded:1,open:1,title:'',desc:'',mode:'',media:[]});render();upd();scrollTo(0,1e6)};
+// ---------- enregistrement, carnets
 const b64=f=>new Promise(r=>{const x=new FileReader;x.onload=()=>r(x.result.split(',')[1]);x.readAsDataURL(f)});
-$('#sv').onclick=async()=>{const E=[],del=p=>L.has(p)&&E.push({path:p,del:1});busy=1;upd();
+$('#sv').onclick=async()=>{const E=[],del=p=>LM.has(p)&&E.push({path:p,del:1});busy=1;upd();
  const ttl=(s)=>(s.title||s.id)+'\n'+ser(s.mode)+s.desc;
  if(adirty)E.push({path:'album.json',text:JSON.stringify(A,null,1)});
- if(cover){[...L.keys()].filter(p=>/^(cover|couverture|garde)\.\w+$/i.test(p)).forEach(del);E.push({path:'cover.'+cover.name.split('.').pop().toLowerCase(),file:cover})}
- for(const s of S){if(s.del){[...L.keys()].filter(p=>p.startsWith(s.id+'/')).forEach(del);continue}
+ if(cover){[...LM.keys()].filter(p=>/^(cover|couverture|garde)\.\w+$/i.test(p)).forEach(del);E.push({path:'cover.'+cover.name.split('.').pop().toLowerCase(),file:cover})}
+ for(const s of S){if(s.del){[...LM.keys()].filter(p=>p.startsWith(s.id+'/')).forEach(del);continue}
   if(s.loaded&&(s.dirty||s.isNew))E.push({path:`${s.id}/${s.stxt||'nom.txt'}`,text:ttl(s)});
   if(s.reord){const fin=new Map(),old=[];
    s.media.forEach(m=>{if(!m.file){old.push(`${s.id}/${m.name}`);m.txt&&old.push(`${s.id}/${m.txt}`)}});
    s.media.filter(m=>!m.del).forEach((m,i)=>{const nn=`img${String(i+1).padStart(3,'0')}.${m.name.split('.').pop().toLowerCase()}`,tp=`${s.id}/${bn(nn)}.txt`;
-    fin.set(`${s.id}/${nn}`,m.file?{file:m.file}:{sha:L.get(`${s.id}/${m.name}`)});
+    fin.set(`${s.id}/${nn}`,m.file?{file:m.file}:{sha:LM.get(`${s.id}/${m.name}`)});
     if(m.dirty||m.file){const c=ser(m.mode,m.gps.trim())+m.text;if(c.trim())fin.set(tp,{text:c})}
-    else if(m.txt)fin.set(tp,{sha:L.get(`${s.id}/${m.txt}`)})});
+    else if(m.txt)fin.set(tp,{sha:LM.get(`${s.id}/${m.txt}`)})});
    old.forEach(p=>fin.has(p)||del(p));fin.forEach((v,path)=>E.push({path,...v}))}
   else for(const m of s.media){const tp=`${s.id}/${m.txt||bn(m.name)+'.txt'}`;
    if(m.del){if(!m.file){del(`${s.id}/${m.name}`);del(tp)}continue}
@@ -164,5 +226,6 @@ $('#upv').onclick=async()=>{if(!confirm('Remplacer l’index.html de chaque carn
  try{await commit(AL.filter(Boolean).map(p=>({path:p+'index.html',sha:T.get('viewer.html')})),'Mise à jour de la visionneuse',1);$('#st').textContent='Visionneuse mise à jour. Patientez 1 à 3 minutes.'}catch(e){$('#st').textContent='Échec : '+e.message}};
 $('#al').onchange=async e=>{if(e.target.value==='+'){e.target.value=P;return newCarnet()}
  if(dirty()&&!confirm('Abandonner les modifications non enregistrées ?')){e.target.value=P;return}P=e.target.value;S=[];await init()};
+
 if(C.t&&C.o&&C.r)init();
 </script></body></html>

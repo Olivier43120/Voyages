@@ -203,19 +203,18 @@ Japon2027/ index.html  album.json  ...</code></pre>
 <li>Copiez le jeton (il ne s’affiche qu’une fois) et collez-le dans l’éditeur, puis <i>Se connecter</i>.</li>
 </ol>
 <div class="note"><b>Sécurité :</b> le jeton est conservé uniquement dans votre navigateur et n’est envoyé qu’à GitHub. Il ne donne accès qu’à ce dépôt. Ne le partagez pas. Si vous le perdez, supprimez-le sur GitHub et recréez-en un. Décochez « Mémoriser sur cet appareil » sur un ordinateur partagé.</div>
-<h3>Utilisation</h3>
+<h3>Utilisation (même principe que la visionneuse)</h3>
+<p>L’écran principal ressemble à l’album : la carte avec les pastilles de vos steps, et en bas le carrousel des steps. Faites défiler le carrousel : la carte suit.</p>
 <ul>
-<li><b>Ouvrir un step</b> : touchez son titre. Modifiez le titre, le texte et le type de trajet. Chaque photo a son commentaire (Markdown), son réglage de trajet et un champ GPS facultatif.</li>
-<li><b>Ajouter des photos ou vidéos</b> : « + Photos / vidéos ». Elles sont numérotées à la suite (<code>img012.jpg</code>…). Les fichiers sont envoyés tels quels, avec leur position GPS d’origine.</li>
-<li><b>Nouveau step</b> : « + Nouveau step » crée le dossier suivant (<code>Step11</code>…).</li>
-<li><b>Page de garde</b> : choisissez une image dans le cadre « Album », qui remplace l’ancienne.</li>
-<li><b>Lien « Source sur GitHub »</b> de la page de garde : chaque carnet a le sien. Par défaut, il mène au dépôt GitHub du site ; le champ « Lien source » du cadre « Album » permet d’indiquer une autre adresse pour ce carnet (par exemple son dossier dans le dépôt), ou « non » pour le masquer. À côté, la mention « Réalisé à l’aide de Claude » s’affiche toujours.</li>
-<li><b>Changer l’ordre</b> : les boutons ↑ ↓ d’une photo la montent ou la descendent dans son step. Dans un step ouvert, « ↑ Monter le step » et « ↓ Descendre le step » le déplacent dans l’album. À l’enregistrement, les photos sont renumérotées (<code>img001</code>, <code>img002</code>…, avec leurs commentaires) et les dossiers renommés <code>Step1</code>, <code>Step2</code>… dans le nouvel ordre. Les miniatures sont recalculées par l’action, donc la mise à jour est un peu plus longue.</li>
-<li><b>Fondu entre les photos</b> : le champ « Durée du fondu » du cadre « Album » règle ce carnet (0,64 seconde par défaut ; 0 supprime le fondu).</li>
-<li><b>Supprimer</b> une photo ou un step : le bouton rouge. Rien n’est effacé avant l’enregistrement.</li>
-<li><b>Enregistrer</b> (barre du bas) : toutes vos modifications partent en une seule fois. L’album se met à jour 1 à 3 minutes plus tard, le temps de l’action GitHub.</li>
+<li><b>Insérer un step</b> : touchez un bouton <b>+</b> entre deux cartes (ou aux extrémités). Le nouveau step se glisse à cet endroit, et les dossiers sont renumérotés à l’enregistrement.</li>
+<li><b>Modifier un step</b> : touchez sa carte (ou sa pastille sur la carte). Une feuille s’ouvre, avec « Annuler » et « OK » : nom du step, type de trajet depuis le step précédent, <b>Ajouter des photos ou des vidéos</b> (numérotées automatiquement à la suite, envoyées telles quelles avec leur position GPS), grille des photos, texte du step (« Que faites-vous ? »).</li>
+<li><b>Commenter une photo</b> : touchez-la dans la grille. Un cadre apparaît dessous : commentaire (Markdown : <code>**gras**</code>, <code>*italique*</code>), trajet, GPS facultatif, boutons <b>◀ Plus tôt</b> / <b>Plus tard ▶</b> pour changer son ordre, et suppression.</li>
+<li><b>Changer la position d’un step</b> : en bas de la feuille, « ◀ Plus tôt » / « Plus tard ▶ » (la position, par exemple « 3 sur 12 », est indiquée). « Annuler » défait les modifications du texte et des photos de la feuille, pas le déplacement du step.</li>
+<li><b>Réglages du carnet</b> (roue dentée en haut à droite) : titre, auteur, sous-titre, durée du fondu, lien source, page de garde, mise à jour de la visionneuse, déplacement du carnet dans un dossier.</li>
+<li><b>Changer de carnet ou en créer un</b> : le menu en haut à gauche, puis « ＋ Nouveau carnet… ».</li>
+<li><b>Enregistrer</b> : le bouton en bas de l’écran envoie toutes les modifications d’un coup. L’album se met à jour 1 à 3 minutes plus tard, le temps de l’action GitHub. Rien n’est effacé avant l’enregistrement.</li>
 </ul>
-<p>Limites : un gros envoi depuis un téléphone consomme des données (photos d’origine), et chaque fichier doit faire moins de 100 Mo. </p>
+<p>Limites : un gros envoi depuis un téléphone consomme des données (photos d’origine), et chaque fichier doit faire moins de 100 Mo. La carte de l’éditeur montre les steps déjà enregistrés et traités par l’action : un step tout juste créé n’y a pas encore de pastille. Les trajets y sont tracés en lignes droites.</p>
 </main>
 </body>
 </html>
