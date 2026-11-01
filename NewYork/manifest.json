@@ -2212,7 +2212,107 @@
    "name": "Matin du cinquième jour : observatoire du Summit.",
    "desc": "",
    "mode": null,
-   "photos": []
+   "photos": [
+    {
+     "src": "Step19/img001.jpeg?v=04a98307",
+     "type": "image",
+     "thumb": "thumbs/Step19/img001.jpg?v=04a98307",
+     "med": "medium/Step19/img001.jpg?v=04a98307",
+     "text": "",
+     "mode": null,
+     "lat": 40.751263888888886,
+     "lng": -73.980475,
+     "date": "2026-10-26T08:49:06.000Z"
+    },
+    {
+     "src": "Step19/img002.jpeg?v=4f23fad5",
+     "type": "image",
+     "thumb": "thumbs/Step19/img002.jpg?v=4f23fad5",
+     "med": "medium/Step19/img002.jpg?v=4f23fad5",
+     "text": "",
+     "mode": null,
+     "lat": 40.752627777777775,
+     "lng": -73.9787,
+     "date": "2026-10-26T08:56:35.000Z"
+    },
+    {
+     "src": "Step19/img003.jpeg?v=5d3aac7d",
+     "type": "image",
+     "thumb": "thumbs/Step19/img003.jpg?v=5d3aac7d",
+     "med": "medium/Step19/img003.jpg?v=5d3aac7d",
+     "text": "",
+     "mode": null,
+     "lat": 40.753613888888886,
+     "lng": -73.97865277777778,
+     "date": "2026-10-26T09:17:01.000Z"
+    },
+    {
+     "src": "Step19/img004.jpeg?v=232da43e",
+     "type": "image",
+     "thumb": "thumbs/Step19/img004.jpg?v=232da43e",
+     "med": "medium/Step19/img004.jpg?v=232da43e",
+     "text": "",
+     "mode": null,
+     "lat": 40.753625,
+     "lng": -73.97888055555556,
+     "date": "2026-10-26T09:18:14.000Z"
+    },
+    {
+     "src": "Step19/img005.jpeg?v=ac6c9565",
+     "type": "image",
+     "thumb": "thumbs/Step19/img005.jpg?v=ac6c9565",
+     "med": "medium/Step19/img005.jpg?v=ac6c9565",
+     "text": "",
+     "mode": null,
+     "lat": 40.75371666666667,
+     "lng": -73.97876666666667,
+     "date": "2026-10-26T09:18:45.000Z"
+    },
+    {
+     "src": "Step19/img006.jpeg?v=5187c962",
+     "type": "image",
+     "thumb": "thumbs/Step19/img006.jpg?v=5187c962",
+     "med": "medium/Step19/img006.jpg?v=5187c962",
+     "text": "",
+     "mode": null,
+     "lat": 40.75360277777778,
+     "lng": -73.97861388888889,
+     "date": "2026-10-26T09:22:16.000Z"
+    },
+    {
+     "src": "Step19/img007.jpeg?v=7d5e7214",
+     "type": "image",
+     "thumb": "thumbs/Step19/img007.jpg?v=7d5e7214",
+     "med": "medium/Step19/img007.jpg?v=7d5e7214",
+     "text": "",
+     "mode": null,
+     "lat": 40.75293611111111,
+     "lng": -73.97872222222223,
+     "date": "2026-10-26T09:36:13.000Z"
+    },
+    {
+     "src": "Step19/img009.jpeg?v=91a7f47b",
+     "type": "image",
+     "thumb": "thumbs/Step19/img009.jpg?v=91a7f47b",
+     "med": "medium/Step19/img009.jpg?v=91a7f47b",
+     "text": "",
+     "mode": null,
+     "lat": 40.752827777777775,
+     "lng": -73.97841666666667,
+     "date": "2026-10-26T09:19:57.000Z"
+    },
+    {
+     "src": "Step19/img010.jpeg?v=318ae151",
+     "type": "image",
+     "thumb": "thumbs/Step19/img010.jpg?v=318ae151",
+     "med": "medium/Step19/img010.jpg?v=318ae151",
+     "text": "",
+     "mode": null,
+     "lat": 40.752786111111114,
+     "lng": -73.97869166666666,
+     "date": "2026-10-26T09:36:42.000Z"
+    }
+   ]
   }
  ]
 }
