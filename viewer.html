@@ -31,6 +31,11 @@ body.inview #back{visibility:visible}
 #ttl small{display:block;font-size:13px;font-weight:500;opacity:.9}
 #ttl b{font-size:24px;font-weight:500}
 /* rail de steps */
+#daybar{position:fixed;left:16px;right:16px;bottom:calc(244px + env(safe-area-inset-bottom));height:6px;border-radius:3px;background:rgba(255,255,255,.22);z-index:495;pointer-events:none}
+#dbf{position:absolute;left:0;top:0;height:100%;width:0;border-radius:3px;background:rgba(61,149,230,.88);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+#dbp{position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;gap:6px;align-items:center;padding:6px 13px 6px 10px;border-radius:15px;background:rgba(10,26,43,.52);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-weight:500;font-size:16px;white-space:nowrap;box-shadow:0 1px 8px #0005;transition:left .6s cubic-bezier(.2,.8,.2,1)}
+#dbp svg{width:17px;height:17px;fill:#fff}#dbp svg.pl{transform:rotate(90deg)}
+body.inview #daybar{display:none}
 #rail{position:fixed;left:0;right:0;bottom:calc(28px + env(safe-area-inset-bottom));height:200px;display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 calc(50% - 130px);z-index:500;scrollbar-width:none}
 #rail::-webkit-scrollbar{display:none}
 .card{position:relative;flex:0 0 260px;border-radius:30px;overflow:hidden;scroll-snap-align:center;cursor:pointer;background:#234;border:2px solid transparent;transition:border-color .2s}
@@ -90,6 +95,7 @@ b b,#cap h2 b,#ttl b b{font-weight:700}
  #ttl{visibility:hidden}
  #viewer{top:0;bottom:0;right:auto;width:var(--side);border-radius:0}
  body.inview #side{visibility:hidden}
+ #daybar{left:calc(var(--side) + 16px)}
  #rail{left:var(--side);padding:0 calc(50% - 130px - var(--side)/2)}
  body.inview #map{left:var(--side)}
  #viewer{transform:translateX(-105%)}#viewer.on{transform:none}
@@ -118,6 +124,7 @@ b b,#cap h2 b,#ttl b b{font-weight:700}
  <div id="ttl"><small id="who"></small><b id="place"></b></div>
  <button class="rb" id="lay" aria-label="Changer de fond de carte"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg></button>
 </header>
+<div id="daybar" hidden><i id="dbf"></i><span id="dbp"><svg viewBox="0 0 24 24"></svg><b id="dbt"></b></span></div>
 <section id="rail"></section>
 <div id="err" hidden></div>
 <section id="viewer">
@@ -174,7 +181,7 @@ fetch('manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('man
 function init(m){
  steps=m.steps.filter(s=>s.photos.length);
  steps.forEach(s=>{let last=s.photos.find(loc);last=last&&loc(last);s.photos.forEach(p=>{if(p.lat==null&&last)[p.lat,p.lng]=last;else if(p.lat!=null)last=[p.lat,p.lng]});s.loc=s.photos.find(loc)&&loc(s.photos.find(loc))});
- document.title=m.title||'Album';if(m.fade!==undefined&&m.fade!==''&&m.fade!==null&&isFinite(+m.fade))document.documentElement.style.setProperty('--fade',(+m.fade)+'s');$('#h1').textContent=$('#place').textContent=m.title||'Mon voyage';
+ computeDays();document.title=m.title||'Album';if(m.fade!==undefined&&m.fade!==''&&m.fade!==null&&isFinite(+m.fade))document.documentElement.style.setProperty('--fade',(+m.fade)+'s');$('#h1').textContent=$('#place').textContent=m.title||'Mon voyage';
  $('#by').textContent=m.author||'';$('#who').textContent=m.author||'';
  // statistiques
  const all=steps.flatMap(s=>s.photos),pts=all.filter(loc).map(loc);let d=0;for(let i=1;i<pts.length;i++)d+=km(pts[i-1],pts[i]);
@@ -188,6 +195,21 @@ function init(m){
   document.querySelectorAll('.card').forEach((c,i)=>{const q=c.getBoundingClientRect(),dd=Math.abs(q.left+q.width/2-mid);if(dd<bd){bd=dd;b=i}});if(b!==cur)setActive(b,false)},90)};
  if(!openCover(m))setActive(0,false);
 }
+// Jour du voyage (d'après la date de la 1re photo datée de chaque step) et barre « Jour N » façon Polarsteps
+let tot=1;
+const WALK='<path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z"/>';
+const FLY='<path d="M12 2c.8 0 1.5.7 1.5 1.5V9l8 5v2l-8-2.5V19l2 1.5V22l-3.5-1L8.5 22v-1.5l2-1.5v-5.5L2.5 16v-2l8-5V3.5C10.5 2.7 11.2 2 12 2z"/>';
+function computeDays(){
+ const t=steps.map(s=>{const p=s.photos.find(x=>x.date);return p?Date.UTC(+p.date.slice(0,4),+p.date.slice(5,7)-1,+p.date.slice(8,10))/864e5:null});
+ const d0=Math.min(...t.filter(x=>x!=null));let last=1;
+ steps.forEach((s,i)=>{s.day=t[i]!=null?Math.round(t[i]-d0)+1:(isFinite(d0)?last:0);last=s.day||last});
+ tot=Math.max(1,...steps.map(s=>s.day||0))}
+function showDay(i){const s=steps[i],B=$('#daybar');if(!s||!s.day){B.hidden=true;return}B.hidden=false;
+ $('#dbt').textContent='Jour '+s.day;
+ const pv=steps.slice(0,i).reverse().find(x=>x.loc),fl=pv&&s.loc&&(s.mode==='flight'||(s.mode!=='straight'&&km(pv.loc,s.loc)>=FLIGHT_KM));
+ const ic=$('#dbp svg');ic.innerHTML=fl?FLY:WALK;ic.classList.toggle('pl',!!fl);
+ const x=(tot>1?(s.day-1)/(tot-1):1)*Math.max(0,B.clientWidth-$('#dbp').offsetWidth);$('#dbp').style.left=x+'px';$('#dbf').style.width=x+'px'}
+addEventListener('resize',()=>steps.length&&showDay(cur));
 function openCover(m){
  if(!m.cover)return false;
  const C=$('#cover');let done=false,y0=0;
@@ -207,7 +229,7 @@ function homeMap(fit){
 }
 function setActive(i,scroll){cur=i;
  document.querySelectorAll('.card,.row').forEach(e=>e.classList.toggle('on',+e.dataset.i===i));
- $('#place').innerHTML=mdi(steps[i].name);
+ $('#place').innerHTML=mdi(steps[i].name);showDay(i);
  if(scroll)document.querySelector(`.card[data-i="${i}"]`).scrollIntoView({inline:'center',behavior:'smooth',block:'nearest'});
  homeMap(true);
 }
