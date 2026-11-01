@@ -44,6 +44,7 @@ html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,s
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
 .mv{display:flex;gap:10px;margin:14px 0}.mv button,.btnl{flex:1;background:#eef2f6;color:#0a1a2b;border:0;border-radius:10px;padding:11px;font-family:inherit;font-weight:600;font-size:15px;cursor:pointer}
 .btnl{display:block;width:100%;margin:8px 0}.sheet .r{display:block;width:100%;background:#d33;color:#fff;border:0;border-radius:10px;padding:12px;font-family:inherit;font-weight:600;font-size:16px;margin-top:8px;cursor:pointer}
+.plane{filter:drop-shadow(0 1px 3px #000c)}.plane div{width:26px;height:26px}.plane svg{display:block}
 .hint{color:#6b7a89;margin:12px 0;font-size:14px}
 </style></head><body>
 <div id="cx"><div>
@@ -95,7 +96,7 @@ async function init(){$('#err').textContent='Connexion…';
   const ids=[...new Set([...LM.keys()].map(p=>(p.match(/^(Step\d+)\//i)||[])[1]).filter(Boolean))].sort(nat);
   S=ids.map(id=>{const f=[...LM.keys()].filter(p=>p.startsWith(id+'/')).map(p=>p.slice(id.length+1)).sort(nat),mb=new Set(f.filter(isM).map(bn));
    const ms=man?.steps.find(x=>x.id===id),lp=ms?.photos.find(p=>p.lat!=null);
-   return{id,loaded:0,title:ms?.name||id,date:ms?.photos[0]?.date,loc:lp?[lp.lat,lp.lng]:null,desc:'',mode:'',stxt:f.find(x=>/\.txt$/i.test(x)&&!mb.has(bn(x))),
+   return{id,loaded:0,mode0:ms?.mode==='straight'?'droit':ms?.mode==='flight'?'vol':'',title:ms?.name||id,date:ms?.photos[0]?.date,loc:lp?[lp.lat,lp.lng]:null,desc:'',mode:'',stxt:f.find(x=>/\.txt$/i.test(x)&&!mb.has(bn(x))),
     media:f.filter(isM).map(n=>({name:n,txt:f.find(x=>/\.txt$/i.test(x)&&bn(x)===bn(n)),text:'',mode:'',gps:''}))}});
   cover=null;adirty=0;cur=0;fitted=0;$('#cx').hidden=1;$('#app').hidden=0;
   document.querySelectorAll('[data-a]').forEach(i=>i.value=A[i.dataset.a]||'');
@@ -116,8 +117,21 @@ const live=s=>s.media.filter(m=>!m.del),cardImg=s=>{const m=live(s)[0];return m&
 const cnt=s=>{const n=live(s).length;return(s.date?fmt(s.date)+' · ':'')+(s.isNew&&!n?'nouveau':n+' photo'+(n>1?'s':''))};
 function initMap(){if(map)return;map=L.map('map',{zoomControl:false}).setView([30,0],2);map.attributionControl.setPrefix(false);
  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Imagery © Esri'}).addTo(map);layer=L.layerGroup().addTo(map)}
+// Trajets : trait droit en dessous de 500 km, sinon arc courbe avec avions (comme dans l'album)
+const FLIGHT_KM=500,PM=L.Projection.SphericalMercator,DASH={color:'#fff',weight:2.5,dashArray:'7 8',opacity:.9};
+const kmd=(a,b)=>{const r=x=>x*Math.PI/180,h=Math.sin(r(b[0]-a[0])/2)**2+Math.cos(r(a[0]))*Math.cos(r(b[0]))*Math.sin(r(b[1]-a[1])/2)**2;return 12742*Math.asin(Math.sqrt(h))};
+const PLANE='<svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c.8 0 1.5.7 1.5 1.5V9l8 5v2l-8-2.5V19l2 1.5V22l-3.5-1L8.5 22v-1.5l2-1.5v-5.5L2.5 16v-2l8-5V3.5C10.5 2.7 11.2 2 12 2z"/></svg>';
+function route(act){for(let i=1;i<act.length;i++){const a=act[i-1].loc,b=[act[i].loc[0],act[i].loc[1]],mo=act[i].loaded?act[i].mode:act[i].mode0,d=kmd(a,b);
+  if(mo==='droit'||(mo!=='vol'&&d<FLIGHT_KM)){L.polyline([a,b],DASH).addTo(layer);continue}
+  if(Math.abs(b[1]-a[1])>180)b[1]+=b[1]<a[1]?360:-360;
+  const P0=PM.project(L.latLng(a)),P1=PM.project(L.latLng(b)),dx=P1.x-P0.x,dy=P1.y-P0.y;let nx=-dy,ny=dx;if(ny<0){nx=-nx;ny=-ny}
+  const Cc={x:(P0.x+P1.x)/2+nx*.28,y:(P0.y+P1.y)/2+ny*.28},at=t=>L.point((1-t)**2*P0.x+2*(1-t)*t*Cc.x+t*t*P1.x,(1-t)**2*P0.y+2*(1-t)*t*Cc.y+t*t*P1.y);
+  const arc=[];for(let k=0;k<=48;k++)arc.push(PM.unproject(at(k/48)));L.polyline(arc,DASH).addTo(layer);
+  const n=Math.max(1,Math.round(d/1800));
+  for(let k=0;k<n;k++){const t=(k+.5)/n,A0=at(Math.max(0,t-.01)),B0=at(Math.min(1,t+.01)),rot=90-Math.atan2(B0.y-A0.y,B0.x-A0.x)*180/Math.PI;
+   L.marker(PM.unproject(at(t)),{interactive:false,keyboard:false,zIndexOffset:-500,icon:L.divIcon({className:'plane',iconSize:[26,26],iconAnchor:[13,13],html:`<div style="transform:rotate(${rot}deg)">${PLANE}</div>`})}).addTo(layer)}}}
 function drawMap(){layer.clearLayers();const act=S.filter(s=>!s.del&&s.loc);
- if(act.length>1)L.polyline(act.map(s=>s.loc),{color:'#fff',weight:2.5,dashArray:'7 8',opacity:.9}).addTo(layer);
+ route(act);
  act.forEach(s=>{const i=S.indexOf(s),im=cardImg(s);L.marker(s.loc,{icon:L.divIcon({className:'',iconSize:[44,44],html:`<div class="pin${i===cur?' on':''}">${im?`<img src="${im}" alt="">`:''}</div>`})}).on('click',()=>openSheet(i)).addTo(layer)});
  if(!fitted&&act.length){fitted=1;map.fitBounds(act.map(s=>s.loc),{padding:[50,50],paddingBottomRight:[50,300],maxZoom:12})}}
 function renderRail(){$('#rail').innerHTML=S.map((s,i)=>s.del?'':`<button class="plus" data-p="${i}" aria-label="Insérer un step ici">+</button><article class="card" data-i="${i}">${cardImg(s)?`<img src="${cardImg(s)}" alt="">`:''}<i></i><div><b>${mdi(s.title||s.id)}</b><small>${cnt(s)}</small></div></article>`).join('')+`<button class="plus" data-p="${S.length}" aria-label="Ajouter un step à la fin">+</button>`;drawMap()}
