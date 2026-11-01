@@ -2580,7 +2580,63 @@
    "name": "Fin du sixième jour : balade le long de la High Line, balade en ferry au tomber du jour",
    "desc": "",
    "mode": null,
-   "photos": []
+   "photos": [
+    {
+     "src": "Step21/img001.jpeg?v=1fb0c951",
+     "type": "image",
+     "thumb": "thumbs/Step21/img001.jpg?v=1fb0c951",
+     "med": "medium/Step21/img001.jpg?v=1fb0c951",
+     "text": "",
+     "mode": null,
+     "lat": 40.740969444444445,
+     "lng": -74.0081111111111,
+     "date": "2026-10-26T16:26:10.000Z"
+    },
+    {
+     "src": "Step21/img002.jpeg?v=9a766671",
+     "type": "image",
+     "thumb": "thumbs/Step21/img002.jpg?v=9a766671",
+     "med": "medium/Step21/img002.jpg?v=9a766671",
+     "text": "",
+     "mode": null,
+     "lat": 40.74248055555556,
+     "lng": -74.00756944444444,
+     "date": "2026-10-26T16:30:42.000Z"
+    },
+    {
+     "src": "Step21/img003.jpeg?v=8b1e7714",
+     "type": "image",
+     "thumb": "thumbs/Step21/img003.jpg?v=8b1e7714",
+     "med": "medium/Step21/img003.jpg?v=8b1e7714",
+     "text": "",
+     "mode": null,
+     "lat": 40.744236111111114,
+     "lng": -74.00698055555556,
+     "date": "2026-10-26T16:47:48.000Z"
+    },
+    {
+     "src": "Step21/img004.jpeg?v=6bb96382",
+     "type": "image",
+     "thumb": "thumbs/Step21/img004.jpg?v=6bb96382",
+     "med": "medium/Step21/img004.jpg?v=6bb96382",
+     "text": "",
+     "mode": null,
+     "lat": 40.74258888888889,
+     "lng": -74.00769722222222,
+     "date": "2026-10-26T16:32:09.000Z"
+    },
+    {
+     "src": "Step21/img005.jpeg?v=8ea7c36f",
+     "type": "image",
+     "thumb": "thumbs/Step21/img005.jpg?v=8ea7c36f",
+     "med": "medium/Step21/img005.jpg?v=8ea7c36f",
+     "text": "",
+     "mode": null,
+     "lat": 40.742533333333334,
+     "lng": -74.00760555555556,
+     "date": "2026-10-26T16:32:09.000Z"
+    }
+   ]
   },
   {
    "id": "Step22",
