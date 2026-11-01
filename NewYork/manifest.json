@@ -2871,7 +2871,96 @@
    "name": "Dernière journée : visite du musée de l'Intrepid, ancien porte avion ayant servi lors de la seconde guerre mondiale et lors de la guerre froide",
    "desc": "",
    "mode": null,
-   "photos": []
+   "photos": [
+    {
+     "src": "Step23/img001.jpeg?v=59dc6fc7",
+     "type": "image",
+     "thumb": "thumbs/Step23/img001.jpg?v=59dc6fc7",
+     "med": "medium/Step23/img001.jpg?v=59dc6fc7",
+     "text": "",
+     "mode": null,
+     "lat": 40.764247222222224,
+     "lng": -73.9993361111111,
+     "date": "2026-10-27T15:23:30.000Z"
+    },
+    {
+     "src": "Step23/img002.jpeg?v=7e65c505",
+     "type": "image",
+     "thumb": "thumbs/Step23/img002.jpg?v=7e65c505",
+     "med": "medium/Step23/img002.jpg?v=7e65c505",
+     "text": "",
+     "mode": null,
+     "lat": 40.764244444444444,
+     "lng": -73.99932222222222,
+     "date": "2026-10-27T15:21:58.000Z"
+    },
+    {
+     "src": "Step23/img003.jpeg?v=8aac407c",
+     "type": "image",
+     "thumb": "thumbs/Step23/img003.jpg?v=8aac407c",
+     "med": "medium/Step23/img003.jpg?v=8aac407c",
+     "text": "",
+     "mode": null,
+     "lat": 40.76478888888889,
+     "lng": -73.9999611111111,
+     "date": "2026-10-27T11:40:25.000Z"
+    },
+    {
+     "src": "Step23/img004.jpeg?v=e50dd7d2",
+     "type": "image",
+     "thumb": "thumbs/Step23/img004.jpg?v=e50dd7d2",
+     "med": "medium/Step23/img004.jpg?v=e50dd7d2",
+     "text": "",
+     "mode": null,
+     "lat": 40.764491666666665,
+     "lng": -74.00039722222222,
+     "date": "2026-10-27T11:59:20.000Z"
+    },
+    {
+     "src": "Step23/img005.jpeg?v=6a5be885",
+     "type": "image",
+     "thumb": "thumbs/Step23/img005.jpg?v=6a5be885",
+     "med": "medium/Step23/img005.jpg?v=6a5be885",
+     "text": "",
+     "mode": null,
+     "lat": 40.76487222222222,
+     "lng": -74.001,
+     "date": "2026-10-27T13:45:49.000Z"
+    },
+    {
+     "src": "Step23/img006.jpeg?v=aa4145c5",
+     "type": "image",
+     "thumb": "thumbs/Step23/img006.jpg?v=aa4145c5",
+     "med": "medium/Step23/img006.jpg?v=aa4145c5",
+     "text": "",
+     "mode": null,
+     "lat": 40.76448888888889,
+     "lng": -73.99985555555556,
+     "date": "2026-10-27T13:48:37.000Z"
+    },
+    {
+     "src": "Step23/img007.jpeg?v=74942f6e",
+     "type": "image",
+     "thumb": "thumbs/Step23/img007.jpg?v=74942f6e",
+     "med": "medium/Step23/img007.jpg?v=74942f6e",
+     "text": "",
+     "mode": null,
+     "lat": 40.764361111111114,
+     "lng": -73.99977222222222,
+     "date": "2026-10-27T13:49:55.000Z"
+    },
+    {
+     "src": "Step23/img008.jpeg?v=853811e3",
+     "type": "image",
+     "thumb": "thumbs/Step23/img008.jpg?v=853811e3",
+     "med": "medium/Step23/img008.jpg?v=853811e3",
+     "text": "",
+     "mode": null,
+     "lat": 40.764294444444445,
+     "lng": -73.99984722222223,
+     "date": "2026-10-27T14:01:13.000Z"
+    }
+   ]
   }
  ]
 }
