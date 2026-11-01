@@ -33,6 +33,7 @@ a{color:var(--b)}small,.m{color:var(--m);font-size:14px}[hidden]{display:none!im
  <section><b>Album</b>
   <label>Titre</label><input data-a="title"><label>Auteur</label><input data-a="author"><label>Sous-titre (page de garde)</label><input data-a="subtitle">
   <label>Durée du fondu entre photos (secondes, 0 = aucun)</label><input data-a="fade" type="number" min="0" max="2" step="0.05" placeholder="0.64">
+  <label>Lien « source » de la page de garde (vide = dépôt GitHub automatique, « non » = masqué)</label><input data-a="source" placeholder="https://github.com/…">
   <p><button class="g" id="upv" hidden>Mettre à jour la visionneuse de tous les carnets</button></p>
   <label>Page de garde (image) <span id="cvn"></span></label><input type="file" id="cv" accept="image/*">
  </section>
