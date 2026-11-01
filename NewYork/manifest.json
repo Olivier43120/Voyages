@@ -2429,7 +2429,96 @@
    "name": "Après midi du sixième jour : Time Square, Flatiron Building, Greenwich Village.",
    "desc": "",
    "mode": null,
-   "photos": []
+   "photos": [
+    {
+     "src": "Step20/img001.jpeg?v=27944534",
+     "type": "image",
+     "thumb": "thumbs/Step20/img001.jpg?v=27944534",
+     "med": "medium/Step20/img001.jpg?v=27944534",
+     "text": "",
+     "mode": null,
+     "lat": null,
+     "lng": null,
+     "date": "2026-10-26T11:55:57.000Z"
+    },
+    {
+     "src": "Step20/img002.jpeg?v=564cbc94",
+     "type": "image",
+     "thumb": "thumbs/Step20/img002.jpg?v=564cbc94",
+     "med": "medium/Step20/img002.jpg?v=564cbc94",
+     "text": "",
+     "mode": null,
+     "lat": 40.75753888888889,
+     "lng": -73.98585555555556,
+     "date": "2026-10-26T11:58:25.000Z"
+    },
+    {
+     "src": "Step20/img003.jpeg?v=7fc82601",
+     "type": "image",
+     "thumb": "thumbs/Step20/img003.jpg?v=7fc82601",
+     "med": "medium/Step20/img003.jpg?v=7fc82601",
+     "text": "",
+     "mode": null,
+     "lat": 40.7574,
+     "lng": -73.98598611111112,
+     "date": "2026-10-26T12:02:24.000Z"
+    },
+    {
+     "src": "Step20/img004.jpeg?v=be7ea7f5",
+     "type": "image",
+     "thumb": "thumbs/Step20/img004.jpg?v=be7ea7f5",
+     "med": "medium/Step20/img004.jpg?v=be7ea7f5",
+     "text": "",
+     "mode": null,
+     "lat": 40.75816388888889,
+     "lng": -73.98544444444444,
+     "date": "2026-10-26T12:04:57.000Z"
+    },
+    {
+     "src": "Step20/img005.jpeg?v=09a28565",
+     "type": "image",
+     "thumb": "thumbs/Step20/img005.jpg?v=09a28565",
+     "med": "medium/Step20/img005.jpg?v=09a28565",
+     "text": "",
+     "mode": null,
+     "lat": 40.75819444444444,
+     "lng": -73.98539722222222,
+     "date": "2026-10-26T12:05:05.000Z"
+    },
+    {
+     "src": "Step20/img006.jpeg?v=76c2e386",
+     "type": "image",
+     "thumb": "thumbs/Step20/img006.jpg?v=76c2e386",
+     "med": "medium/Step20/img006.jpg?v=76c2e386",
+     "text": "",
+     "mode": null,
+     "lat": 40.75819444444444,
+     "lng": -73.98538333333333,
+     "date": "2026-10-26T12:05:08.000Z"
+    },
+    {
+     "src": "Step20/img007.jpeg?v=66effcdf",
+     "type": "image",
+     "thumb": "thumbs/Step20/img007.jpg?v=66effcdf",
+     "med": "medium/Step20/img007.jpg?v=66effcdf",
+     "text": "",
+     "mode": null,
+     "lat": 40.75818611111111,
+     "lng": -73.98535833333334,
+     "date": "2026-10-26T12:05:10.000Z"
+    },
+    {
+     "src": "Step20/img008.jpeg?v=2b9dcbaf",
+     "type": "image",
+     "thumb": "thumbs/Step20/img008.jpg?v=2b9dcbaf",
+     "med": "medium/Step20/img008.jpg?v=2b9dcbaf",
+     "text": "",
+     "mode": null,
+     "lat": 40.75883611111111,
+     "lng": -73.98493888888889,
+     "date": "2026-10-26T12:11:44.000Z"
+    }
+   ]
   },
   {
    "id": "Step21",
