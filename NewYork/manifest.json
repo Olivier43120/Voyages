@@ -2868,7 +2868,7 @@
   },
   {
    "id": "Step23",
-   "name": "Dernière journée : visite du musée de l'Intrepid, ancien porte avion ayant servi lors de la seconde guerre mondiale et lors de la guerre froide",
+   "name": "Dernière journée : visite du musée de l'Intrepid.",
    "desc": "",
    "mode": null,
    "photos": [
@@ -2877,7 +2877,7 @@
      "type": "image",
      "thumb": "thumbs/Step23/img001.jpg?v=59dc6fc7",
      "med": "medium/Step23/img001.jpg?v=59dc6fc7",
-     "text": "",
+     "text": "L'Intrepid est un ancien porte avion ayant servi lors de la seconde guerre mondiale et lors de la guerre froide",
      "mode": null,
      "lat": 40.764247222222224,
      "lng": -73.9993361111111,
