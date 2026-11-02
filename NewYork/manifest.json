@@ -48,36 +48,6 @@
    ]
   },
   {
-   "id": "Step2",
-   "name": "Hdfjxhhx",
-   "desc": "",
-   "mode": null,
-   "photos": [
-    {
-     "src": "Step2/img001.png?v=48e54bd9",
-     "type": "image",
-     "thumb": "thumbs/Step2/img001.jpg?v=48e54bd9",
-     "med": "medium/Step2/img001.jpg?v=48e54bd9",
-     "text": "Dhxxjx",
-     "mode": null,
-     "lat": null,
-     "lng": null,
-     "date": "2026-11-02T13:06:10.000Z"
-    },
-    {
-     "src": "Step2/img002.jpeg?v=53af366e",
-     "type": "image",
-     "thumb": "thumbs/Step2/img002.jpg?v=53af366e",
-     "med": "medium/Step2/img002.jpg?v=53af366e",
-     "text": "Bwbxxb",
-     "mode": null,
-     "lat": 45.300291666666666,
-     "lng": 4.168841666666667,
-     "date": "2026-10-30T15:00:55.000Z"
-    }
-   ]
-  },
-  {
    "id": "Step3",
    "name": "Escale à Londres Heathrow",
    "desc": "",
