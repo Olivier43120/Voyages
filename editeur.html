@@ -217,10 +217,13 @@ $('#sv').onclick=async()=>{const E=[],del=p=>LM.has(p)&&E.push({path:p,del:1});b
    if(m.del){if(!m.file){del(`${s.id}/${m.name}`);del(tp)}continue}
    if(m.file)E.push({path:`${s.id}/${m.name}`,file:m.file});
    if(m.dirty||m.file){const c=ser(m.mode,m.gps.trim())+m.text;c.trim()?E.push({path:tp,text:c}):del(tp)}}}
- try{if(E.length)await commit(E,'Édition via l’éditeur d’album');if(S.ord)await reorderSteps();busy=0;await init();$('#st').textContent='Enregistré. L’album se met à jour dans 1 à 3 minutes.'}
- catch(e){busy=0;upd();$('#st').textContent='Échec : '+e.message}};
-async function reorderSteps(){const ref=await api('/git/ref/heads/'+B),cm=await api('/git/commits/'+ref.object.sha);
- let tr=await api('/git/trees/'+cm.tree.sha);if(P){const d=tr.tree.find(x=>x.path===P.slice(0,-1));tr=await api('/git/trees/'+d.sha)}
+ let d1=0;try{if(E.length){await commit(E,'Édition via l’éditeur d’album');d1=1}if(S.ord)await reorderSteps();busy=0;await init();$('#st').textContent='Enregistré. L’album se met à jour dans 1 à 3 minutes.'}
+ catch(e){busy=0;if(d1){await init();$('#st').textContent='Contenu enregistré, mais pas le nouvel ordre des steps ('+e.message+'). Replacez les steps puis enregistrez.'}else{upd();$('#st').textContent='Échec : '+e.message}}};
+let HEAD=null;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function getHead(){if(HEAD&&Date.now()-HEAD.t<30000)return HEAD;const ref=await api('/git/ref/heads/'+B),cm=await api('/git/commits/'+ref.object.sha);return{sha:ref.object.sha,tree:cm.tree.sha}}
+async function reorderSteps(){const h=await getHead();
+ let tr=await api('/git/trees/'+h.tree);if(P){const d=tr.tree.find(x=>x.path===P.slice(0,-1));tr=await api('/git/trees/'+d.sha)}
  const dir=Object.fromEntries(tr.tree.filter(x=>x.type==='tree').map(x=>[x.path,x.sha])),act=S.filter(s=>!s.del),E=[],to=new Set();
  act.forEach((s,k)=>{const nid='Step'+(k+1);to.add(nid);if(nid!==s.id&&dir[s.id])E.push({path:nid,sha:dir[s.id],tree:1})});
  act.forEach(s=>{if(!to.has(s.id)&&dir[s.id])E.push({path:s.id,del:1,tree:1})});
@@ -231,10 +234,11 @@ async function commit(E,msg,abs){let k=0;const tree=[],pre=abs?'':P;
   let sha=e.sha;if(!sha){const c=e.file?await b64(e.file):btoa(String.fromCharCode(...new TextEncoder().encode(e.text)));
    sha=(await api('/git/blobs',{method:'POST',body:{content:c,encoding:'base64'}})).sha}
   tree.push({path:pre+e.path,...T0,sha})}
- const ref=await api('/git/ref/heads/'+B),cm=await api('/git/commits/'+ref.object.sha);
- const nt=await api('/git/trees',{method:'POST',body:{base_tree:cm.tree.sha,tree}});
- const nc=await api('/git/commits',{method:'POST',body:{message:msg,tree:nt.sha,parents:[ref.object.sha]}});
- await api('/git/refs/heads/'+B,{method:'PATCH',body:{sha:nc.sha}})}
+ for(let a=0;;a++){try{const h=await getHead();
+   const nt=await api('/git/trees',{method:'POST',body:{base_tree:h.tree,tree}});
+   const nc=await api('/git/commits',{method:'POST',body:{message:msg,tree:nt.sha,parents:[h.sha]}});
+   await api('/git/refs/heads/'+B,{method:'PATCH',body:{sha:nc.sha}});HEAD={sha:nc.sha,tree:nt.sha,t:Date.now()};return}
+  catch(e){HEAD=null;if(a>=4||!/fast.?forward/i.test(e.message))throw e;await sleep(1200*(a+1))}}}
 // ---- carnets (un dossier par voyage)
 const HOME=`<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mes carnets</title><style>body{margin:0;background:#0a1a2b;color:#fff;font:17px system-ui,sans-serif;padding:28px 18px}main{max-width:720px;margin:auto}a{display:flex;gap:14px;align-items:center;background:#12293d;border:1px solid #24465f;border-radius:18px;padding:12px;margin:12px 0;color:inherit;text-decoration:none}img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#234}small{color:#aebccb}</style></head><body><main><h1>Mes carnets de voyage</h1><div id="l"></div></main><script>const e=t=>String(t||'').replace(/</g,'&lt;');fetch('albums.json',{cache:'no-cache'}).then(r=>r.json()).then(a=>{l.innerHTML=a.map(x=>'<a href="'+encodeURI(x.dir)+'/"><img src="'+encodeURI(x.dir)+'/'+encodeURI(x.cover||'')+'" onerror="this.remove()"><div><b>'+e(x.title||x.dir)+'</b><br><small>'+e(x.subtitle||x.author)+'</small></div></a>').join('')||'Aucun carnet.'}).catch(()=>l.textContent='Aucun carnet.')<\/script></body></html>`;
 const dirName=m=>(prompt(m)||'').trim().replace(/[\\/:*?"<>|]/g,'');
