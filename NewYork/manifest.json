@@ -2964,7 +2964,7 @@
   },
   {
    "id": "Step24",
-   "name": "*blabla*",
+   "name": "Essai",
    "desc": "",
    "mode": null,
    "photos": [
@@ -2980,15 +2980,15 @@
      "date": "2026-10-30T15:00:55.000Z"
     },
     {
-     "src": "Step24/img002.png?v=52359db9",
+     "src": "Step24/img002.png?v=48e54bd9",
      "type": "image",
-     "thumb": "thumbs/Step24/img002.jpg?v=52359db9",
-     "med": "medium/Step24/img002.jpg?v=52359db9",
-     "text": "Essai 2",
+     "thumb": "thumbs/Step24/img002.jpg?v=48e54bd9",
+     "med": "medium/Step24/img002.jpg?v=48e54bd9",
+     "text": "Esai2",
      "mode": null,
      "lat": null,
      "lng": null,
-     "date": "2026-10-28T19:24:07.000Z"
+     "date": "2026-11-02T13:06:10.000Z"
     }
    ]
   }
