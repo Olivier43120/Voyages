@@ -44,6 +44,17 @@
      "lat": null,
      "lng": null,
      "date": "2026-10-20T15:57:41.000Z"
+    },
+    {
+     "src": "Step1/img004.jpeg?v=53af366e",
+     "type": "image",
+     "thumb": "thumbs/Step1/img004.jpg?v=53af366e",
+     "med": "medium/Step1/img004.jpg?v=53af366e",
+     "text": "",
+     "mode": null,
+     "lat": 45.300291666666666,
+     "lng": 4.168841666666667,
+     "date": "2026-10-30T15:00:55.000Z"
     }
    ]
   },
