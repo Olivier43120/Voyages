@@ -186,7 +186,7 @@ fetch('manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('man
 function init(m){
  steps=m.steps.filter(s=>s.photos.length);
  steps.forEach(s=>{let last=s.photos.find(loc);last=last&&loc(last);s.photos.forEach(p=>{if(p.lat==null&&last)[p.lat,p.lng]=last;else if(p.lat!=null)last=[p.lat,p.lng]});s.loc=s.photos.find(loc)&&loc(s.photos.find(loc))});
- computeDays();document.title=m.title||'Album';if(m.fade!==undefined&&m.fade!==''&&m.fade!==null&&isFinite(+m.fade))document.documentElement.style.setProperty('--fade',(+m.fade)+'s');$('#h1').textContent=$('#place').textContent=m.title||'Mon voyage';
+ computeDays();document.title=m.title||'Album';$('#h1').textContent=$('#place').textContent=m.title||'Mon voyage';
  $('#by').textContent=m.author||'';$('#who').textContent=m.author||'';
  // statistiques
  const all=steps.flatMap(s=>s.photos),pts=all.filter(loc).map(loc);let d=0;for(let i=1;i<pts.length;i++)d+=km(pts[i-1],pts[i]);
