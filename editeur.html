@@ -105,12 +105,16 @@ async function init(){$('#err').textContent='Connexion…';
   man=await fetch(encodeURI(P)+'manifest.json',{cache:'no-cache'}).then(r=>r.json()).catch(()=>null);
   const ids=[...new Set([...LM.keys()].map(p=>(p.match(/^(Step\d+)\//i)||[])[1]).filter(Boolean))].sort(nat);
   S=ids.map(id=>{const f=[...LM.keys()].filter(p=>p.startsWith(id+'/')).map(p=>p.slice(id.length+1)).sort(nat),mb=new Set(f.filter(isM).map(bn));
-   const ms=man?.steps.find(x=>x.id===id),lp=ms?.photos.find(p=>p.lat!=null);
-   return{id,ms,loaded:0,mode0:ms?.mode==='straight'?'droit':ms?.mode==='flight'?'vol':'',title:ms?.name||id,date:ms?.photos[0]?.date,loc:lp?[lp.lat,lp.lng]:null,desc:'',mode:'',stxt:f.find(x=>/\.txt$/i.test(x)&&!mb.has(bn(x))),
+   return{id,loaded:0,mode0:'',title:id,date:null,loc:null,desc:'',mode:'',stxt:f.find(x=>/\.txt$/i.test(x)&&!mb.has(bn(x))),
     media:f.filter(isM).map(n=>({name:n,txt:f.find(x=>/\.txt$/i.test(x)&&bn(x)===bn(n)),text:'',mode:'',gps:''}))}});
-  // Titres lus dans les fichiers (le manifeste peut dater d'avant le dernier enregistrement) ; si les deux diffèrent, on masque images/positions douteuses
-  let stale=0;await Promise.all(S.map(async s=>{if(s.stxt){const p=parse(await txt(s.id+'/'+s.stxt)),ln=p.text.split('\n'),i=ln.findIndex(x=>x.trim());if(i>=0)s.title=ln[i].trim();s.mode0=p.mode}
-   if(!s.ms||s.ms.name!==s.title){stale=1;s.loc=null;s.date=null;s.nothumb=1}}));$('#stale').hidden=!stale;
+  // Titres lus dans les fichiers ; chaque step est rattaché à son entrée du manifeste (même id et même nom, sinon même nom et même nombre de médias)
+  // pour retrouver images, dates et positions même si les dossiers viennent d'être renumérotés (le manifeste est alors en retard de 1 à 3 minutes)
+  await Promise.all(S.map(async s=>{if(s.stxt){const p=parse(await txt(s.id+'/'+s.stxt)),ln=p.text.split('\n'),i=ln.findIndex(x=>x.trim());if(i>=0)s.title=ln[i].trim();s.mode0=p.mode}}));
+  const ents=man?.steps||[],used=new Set();let stale=0;
+  S.forEach(s=>{const e=ents.find(x=>x.id===s.id&&x.name===s.title&&x.photos.length===s.media.length);if(e){used.add(e);s.ms=e}});
+  S.forEach(s=>{if(!s.ms){const e=ents.find(x=>!used.has(x)&&x.name===s.title&&x.photos.length===s.media.length);stale=1;if(e){used.add(e);s.ms=e}}
+   const e=s.ms;if(e){const lp=e.photos.find(p=>p.lat!=null);s.loc=lp?[lp.lat,lp.lng]:null;s.date=e.photos[0]?.date;s.media.forEach((m,j)=>m.th=e.photos[j]?.thumb||'')}});
+  $('#stale').hidden=!stale;
   cover=null;adirty=0;cur=0;fitted=0;$('#cx').hidden=1;$('#app').hidden=0;
   document.querySelectorAll('[data-a]').forEach(i=>i.value=A[i.dataset.a]||'');
   const cp=[...LM.keys()].find(p=>/^(cover|couverture|garde)\.\w+$/i.test(p));$('#cvn').textContent=cp?'(actuelle : '+cp+')':'(aucune)';
@@ -124,7 +128,7 @@ async function loadStep(s){const[a,...b]=await Promise.all([s.stxt?txt(s.id+'/'+
 // ---------- affichage : carte + carrousel de steps
 const md=v=>[['','Trajet : automatique'],['droit','Trajet : droit'],['vol','Trajet : vol (avion)']].map(([a,b])=>`<option value="${a}"${a==v?' selected':''}>${b}</option>`).join('');
 const fmt=d=>d?new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}):'';
-const timg=(s,m)=>m.url||`${encodeURI(P)}thumbs/${s.id}/${bn(m.name)}.jpg`;
+const timg=(s,m)=>m.url||(m.th?encodeURI(P)+m.th:'');
 const prev=(s,m)=>isV(m.name)&&m.url?`<video src="${m.url}" muted></video>`:`<img src="${timg(s,m)}" onerror="this.style.opacity=.15" alt="">`;
 const live=s=>s.media.filter(m=>!m.del),cardImg=s=>{if(s.nothumb)return '';const m=live(s)[0];return m&&!(isV(m.name)&&m.url)?timg(s,m):''};
 const cnt=s=>{const n=live(s).length;return(s.date?fmt(s.date)+' · ':'')+(s.isNew&&!n?'nouveau':n+' photo'+(n>1?'s':''))};
@@ -205,34 +209,40 @@ function upd(){const n=dirty();$('#sv').disabled=busy||!n;$('#sv').textContent=n
 onbeforeunload=e=>dirty()&&!busy?(e.preventDefault(),''):undefined;
 // ---------- enregistrement, carnets
 const b64=f=>new Promise(r=>{const x=new FileReader;x.onload=()=>r(x.result.split(',')[1]);x.readAsDataURL(f)});
-$('#sv').onclick=async()=>{const E=[],del=p=>LM.has(p)&&E.push({path:p,del:1});busy=1;upd();
- const ttl=(s)=>(s.title||s.id)+'\n'+ser(s.mode)+s.desc;
- if(adirty)E.push({path:'album.json',text:JSON.stringify(A,null,1)});
- if(cover){[...LM.keys()].filter(p=>/^(cover|couverture|garde)\.\w+$/i.test(p)).forEach(del);E.push({path:'cover.'+cover.name.split('.').pop().toLowerCase(),file:cover})}
- for(const s of S){if(s.del){[...LM.keys()].filter(p=>p.startsWith(s.id+'/')).forEach(del);continue}
-  if(s.loaded&&(s.dirty||s.isNew))E.push({path:`${s.id}/${s.stxt||'nom.txt'}`,text:ttl(s)});
-  if(s.reord){const fin=new Map(),old=[];
-   s.media.forEach(m=>{if(!m.file){old.push(`${s.id}/${m.name}`);m.txt&&old.push(`${s.id}/${m.txt}`)}});
-   s.media.filter(m=>!m.del).forEach((m,i)=>{const nn=`img${String(i+1).padStart(3,'0')}.${m.name.split('.').pop().toLowerCase()}`,tp=`${s.id}/${bn(nn)}.txt`;
-    fin.set(`${s.id}/${nn}`,m.file?{file:m.file}:{sha:LM.get(`${s.id}/${m.name}`)});
-    if(m.dirty||m.file){const c=ser(m.mode,m.gps.trim())+m.text;if(c.trim())fin.set(tp,{text:c})}
-    else if(m.txt)fin.set(tp,{sha:LM.get(`${s.id}/${m.txt}`)})});
-   old.forEach(p=>fin.has(p)||del(p));fin.forEach((v,path)=>E.push({path,...v}))}
-  else for(const m of s.media){const tp=`${s.id}/${m.txt||bn(m.name)+'.txt'}`;
-   if(m.del){if(!m.file){del(`${s.id}/${m.name}`);del(tp)}continue}
-   if(m.file)E.push({path:`${s.id}/${m.name}`,file:m.file});
-   if(m.dirty||m.file){const c=ser(m.mode,m.gps.trim())+m.text;c.trim()?E.push({path:tp,text:c}):del(tp)}}}
- let d1=0;try{if(E.length){await commit(E,'Édition via l’éditeur d’album');d1=1}if(S.ord)await reorderSteps();busy=0;await init();$('#st').textContent='Enregistré. L’album se met à jour dans 1 à 3 minutes.'}
- catch(e){busy=0;if(d1){await init();$('#st').textContent='Contenu enregistré, mais pas le nouvel ordre des steps ('+e.message+'). Replacez les steps puis enregistrez.'}else{upd();$('#st').textContent='Échec : '+e.message}}};
 let HEAD=null;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function getHead(){if(HEAD&&Date.now()-HEAD.t<30000)return HEAD;const ref=await api('/git/ref/heads/'+B),cm=await api('/git/commits/'+ref.object.sha);return{sha:ref.object.sha,tree:cm.tree.sha}}
-async function reorderSteps(){const h=await getHead();
- let tr=await api('/git/trees/'+h.tree);if(P){const d=tr.tree.find(x=>x.path===P.slice(0,-1));tr=await api('/git/trees/'+d.sha)}
- const dir=Object.fromEntries(tr.tree.filter(x=>x.type==='tree').map(x=>[x.path,x.sha])),act=S.filter(s=>!s.del),E=[],to=new Set();
- act.forEach((s,k)=>{const nid='Step'+(k+1);to.add(nid);if(nid!==s.id&&dir[s.id])E.push({path:nid,sha:dir[s.id],tree:1})});
- act.forEach(s=>{if(!to.has(s.id)&&dir[s.id])E.push({path:s.id,del:1,tree:1})});
- if(E.length)await commit(E,'Réorganisation des steps')}
+const blobEntries=async E=>{const r=[];for(const e of E){if(e.del){r.push({path:e.path,mode:'100644',type:'blob',sha:null});continue}
+ let sha=e.sha;if(!sha){const c=e.file?await b64(e.file):btoa(String.fromCharCode(...new TextEncoder().encode(e.text)));sha=(await api('/git/blobs',{method:'POST',body:{content:c,encoding:'base64'}})).sha}
+ r.push({path:e.path,mode:'100644',type:'blob',sha})}return r};
+// Enregistrement en un seul commit : chaque step est reconstruit dans son dossier définitif (Step1…StepN dans l'ordre affiché)
+$('#sv').onclick=async()=>{busy=1;upd();const ttl=s=>(s.title||s.id)+'\n'+ser(s.mode)+s.desc,top=[];
+ try{const h=await getHead();let rt=await api('/git/trees/'+h.tree);
+  if(P){const d=rt.tree.find(x=>x.path===P.slice(0,-1));rt=d?await api('/git/trees/'+d.sha):{tree:[]}}
+  const dir=Object.fromEntries(rt.tree.filter(x=>x.type==='tree').map(x=>[x.path,x.sha]));
+  if(adirty)top.push({path:'album.json',text:JSON.stringify(A,null,1)});
+  if(cover){const np='cover.'+cover.name.split('.').pop().toLowerCase();[...LM.keys()].filter(p=>/^(cover|couverture|garde)\.\w+$/i.test(p)&&p!==np).forEach(p=>top.push({path:p,del:1}));top.push({path:np,file:cover})}
+  const act=S.filter(s=>!s.del),fin=new Set(act.map((s,k)=>'Step'+(k+1)));
+  for(const [k,s] of act.entries()){const F='Step'+(k+1),E=[],del=p=>LM.has(s.id+'/'+p)&&E.push({path:p,del:1});
+   if(s.loaded&&(s.dirty||s.isNew))E.push({path:s.stxt||'nom.txt',text:ttl(s)});
+   if(s.reord){const f2=new Map(),old=[];
+    s.media.forEach(m=>{if(!m.file){old.push(m.name);m.txt&&old.push(m.txt)}});
+    s.media.filter(m=>!m.del).forEach((m,i)=>{const nn=`img${String(i+1).padStart(3,'0')}.${m.name.split('.').pop().toLowerCase()}`,tp=`${bn(nn)}.txt`;
+     f2.set(nn,m.file?{file:m.file}:{sha:LM.get(`${s.id}/${m.name}`)});
+     if(m.dirty||m.file){const c=ser(m.mode,m.gps.trim())+m.text;if(c.trim())f2.set(tp,{text:c})}
+     else if(m.txt)f2.set(tp,{sha:LM.get(`${s.id}/${m.txt}`)})});
+    old.forEach(p=>f2.has(p)||del(p));f2.forEach((v,path)=>E.push({path,...v}))}
+   else for(const m of s.media){const tp=m.txt||bn(m.name)+'.txt';
+    if(m.del){if(!m.file){del(m.name);del(tp)}continue}
+    if(m.file)E.push({path:m.name,file:m.file});
+    if(m.dirty||m.file){const c=ser(m.mode,m.gps.trim())+m.text;c.trim()?E.push({path:tp,text:c}):del(tp)}}
+   let sha=dir[s.id];$('#st').textContent=`Préparation ${k+1}/${act.length}…`;
+   if(E.length){const r=await api('/git/trees',{method:'POST',body:{...(sha?{base_tree:sha}:{}),tree:await blobEntries(E)}});sha=r.sha}
+   if(sha&&(F!==s.id||E.length))top.push({path:F,tree:1,sha})}
+  for(const id in dir)if(/^Step\d+$/i.test(id)&&!fin.has(id))top.push({path:id,del:1,tree:1});
+  if(top.length)await commit(top,'Édition via l’éditeur d’album');
+  busy=0;await init();$('#st').textContent='Enregistré. L’album se met à jour dans 1 à 3 minutes.'}
+ catch(e){busy=0;upd();$('#st').textContent='Échec : '+e.message}};
 async function commit(E,msg,abs){let k=0;const tree=[],pre=abs?'':P;
  for(const e of E){$('#st').textContent=`Envoi ${++k}/${E.length}…`;const T0=e.tree?{mode:'040000',type:'tree'}:{mode:'100644',type:'blob'};
   if(e.del){tree.push({path:pre+e.path,...T0,sha:null});continue}
