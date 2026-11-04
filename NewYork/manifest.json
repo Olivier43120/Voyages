@@ -131,45 +131,15 @@
   },
   {
    "id": "Step4",
-   "name": "kjnkjnk",
-   "desc": "nkjjknkjkjnkjnkjnkjnkjn",
-   "mode": null,
-   "photos": [
-    {
-     "src": "Step4/img003.jpeg?v=5de4d89c",
-     "type": "image",
-     "thumb": "thumbs/Step4/img003.jpg?v=5de4d89c",
-     "med": "medium/Step4/img003.jpg?v=5de4d89c",
-     "text": "sss",
-     "mode": null,
-     "lat": 40.754108333333335,
-     "lng": -73.98406111111112,
-     "date": "2026-10-21T14:22:13.000Z"
-    },
-    {
-     "src": "Step4/img005.jpeg?v=aa3e7dcd",
-     "type": "image",
-     "thumb": "thumbs/Step4/img005.jpg?v=aa3e7dcd",
-     "med": "medium/Step4/img005.jpg?v=aa3e7dcd",
-     "text": "s",
-     "mode": null,
-     "lat": 40.700833333333335,
-     "lng": -73.99687222222222,
-     "date": "2026-10-23T11:40:42.000Z"
-    }
-   ]
-  },
-  {
-   "id": "Step5",
    "name": "Après 8 heures de vol, tout le monde est fatigué !",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step5/img001.jpeg?v=a9280f7a",
+     "src": "Step4/img001.jpeg?v=a9280f7a",
      "type": "image",
-     "thumb": "thumbs/Step5/img001.jpg?v=a9280f7a",
-     "med": "medium/Step5/img001.jpg?v=a9280f7a",
+     "thumb": "thumbs/Step4/img001.jpg?v=a9280f7a",
+     "med": "medium/Step4/img001.jpg?v=a9280f7a",
      "text": "",
      "mode": null,
      "lat": 40.648041666666664,
@@ -177,9 +147,9 @@
      "date": "2026-10-20T21:31:34.000Z"
     },
     {
-     "src": "Step5/img002.jpeg?v=7559fc9b",
+     "src": "Step4/img002.jpeg?v=7559fc9b",
      "type": "image",
-     "thumb": "thumbs/Step5/img002.jpg?v=7559fc9b",
+     "thumb": "thumbs/Step4/img002.jpg?v=7559fc9b",
      "med": null,
      "text": "",
      "mode": null,
@@ -188,9 +158,9 @@
      "date": "2026-10-21T06:37:10.000Z"
     },
     {
-     "src": "Step5/img003.jpeg?v=1e020b3f",
+     "src": "Step4/img003.jpeg?v=1e020b3f",
      "type": "image",
-     "thumb": "thumbs/Step5/img003.jpg?v=1e020b3f",
+     "thumb": "thumbs/Step4/img003.jpg?v=1e020b3f",
      "med": null,
      "text": "",
      "mode": null,
@@ -199,10 +169,10 @@
      "date": "2026-10-21T06:37:10.000Z"
     },
     {
-     "src": "Step5/img004.jpeg?v=76ab7a77",
+     "src": "Step4/img004.jpeg?v=76ab7a77",
      "type": "image",
-     "thumb": "thumbs/Step5/img004.jpg?v=76ab7a77",
-     "med": "medium/Step5/img004.jpg?v=76ab7a77",
+     "thumb": "thumbs/Step4/img004.jpg?v=76ab7a77",
+     "med": "medium/Step4/img004.jpg?v=76ab7a77",
      "text": "",
      "mode": null,
      "lat": 40.73012222222222,
@@ -210,9 +180,9 @@
      "date": "2026-10-20T22:28:25.000Z"
     },
     {
-     "src": "Step5/img005.jpeg?v=3dae08ab",
+     "src": "Step4/img005.jpeg?v=3dae08ab",
      "type": "image",
-     "thumb": "thumbs/Step5/img005.jpg?v=3dae08ab",
+     "thumb": "thumbs/Step4/img005.jpg?v=3dae08ab",
      "med": null,
      "text": "",
      "mode": null,
@@ -221,10 +191,10 @@
      "date": "2026-10-21T06:37:10.000Z"
     },
     {
-     "src": "Step5/img006.jpeg?v=22ee441b",
+     "src": "Step4/img006.jpeg?v=22ee441b",
      "type": "image",
-     "thumb": "thumbs/Step5/img006.jpg?v=22ee441b",
-     "med": "medium/Step5/img006.jpg?v=22ee441b",
+     "thumb": "thumbs/Step4/img006.jpg?v=22ee441b",
+     "med": "medium/Step4/img006.jpg?v=22ee441b",
      "text": "A la sortie de métro, c'est le majestueux Empire State Building qui nous accueille !",
      "mode": null,
      "lat": 40.749805555555554,
@@ -232,10 +202,10 @@
      "date": "2026-10-20T22:49:24.000Z"
     },
     {
-     "src": "Step5/img007.jpeg?v=01936084",
+     "src": "Step4/img007.jpeg?v=01936084",
      "type": "image",
-     "thumb": "thumbs/Step5/img007.jpg?v=01936084",
-     "med": "medium/Step5/img007.jpg?v=01936084",
+     "thumb": "thumbs/Step4/img007.jpg?v=01936084",
+     "med": "medium/Step4/img007.jpg?v=01936084",
      "text": "",
      "mode": null,
      "lat": 40.749858333333336,
@@ -243,10 +213,10 @@
      "date": "2026-10-20T22:50:38.000Z"
     },
     {
-     "src": "Step5/img008.jpeg?v=6bfb1669",
+     "src": "Step4/img008.jpeg?v=6bfb1669",
      "type": "image",
-     "thumb": "thumbs/Step5/img008.jpg?v=6bfb1669",
-     "med": "medium/Step5/img008.jpg?v=6bfb1669",
+     "thumb": "thumbs/Step4/img008.jpg?v=6bfb1669",
+     "med": "medium/Step4/img008.jpg?v=6bfb1669",
      "text": "",
      "mode": null,
      "lat": 40.74862777777778,
@@ -254,10 +224,10 @@
      "date": "2026-10-20T22:58:02.000Z"
     },
     {
-     "src": "Step5/img009.jpeg?v=25145d68",
+     "src": "Step4/img009.jpeg?v=25145d68",
      "type": "image",
-     "thumb": "thumbs/Step5/img009.jpg?v=25145d68",
-     "med": "medium/Step5/img009.jpg?v=25145d68",
+     "thumb": "thumbs/Step4/img009.jpg?v=25145d68",
+     "med": "medium/Step4/img009.jpg?v=25145d68",
      "text": "",
      "mode": null,
      "lat": 40.749877777777776,
@@ -267,16 +237,16 @@
    ]
   },
   {
-   "id": "Step6",
+   "id": "Step5",
    "name": "Premier jour : balade à travers New York, vers le Chrysler Building.",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step6/img001.jpeg?v=f473b7ae",
+     "src": "Step5/img001.jpeg?v=f473b7ae",
      "type": "image",
-     "thumb": "thumbs/Step6/img001.jpg?v=f473b7ae",
-     "med": "medium/Step6/img001.jpg?v=f473b7ae",
+     "thumb": "thumbs/Step5/img001.jpg?v=f473b7ae",
+     "med": "medium/Step5/img001.jpg?v=f473b7ae",
      "text": "",
      "mode": null,
      "lat": 40.74876666666667,
@@ -284,10 +254,10 @@
      "date": "2026-10-21T10:40:32.000Z"
     },
     {
-     "src": "Step6/img002.jpeg?v=cb4a4911",
+     "src": "Step5/img002.jpeg?v=cb4a4911",
      "type": "image",
-     "thumb": "thumbs/Step6/img002.jpg?v=cb4a4911",
-     "med": "medium/Step6/img002.jpg?v=cb4a4911",
+     "thumb": "thumbs/Step5/img002.jpg?v=cb4a4911",
+     "med": "medium/Step5/img002.jpg?v=cb4a4911",
      "text": "",
      "mode": null,
      "lat": 40.747825,
@@ -295,10 +265,10 @@
      "date": "2026-10-21T10:43:33.000Z"
     },
     {
-     "src": "Step6/img003.jpeg?v=a18680c2",
+     "src": "Step5/img003.jpeg?v=a18680c2",
      "type": "image",
-     "thumb": "thumbs/Step6/img003.jpg?v=a18680c2",
-     "med": "medium/Step6/img003.jpg?v=a18680c2",
+     "thumb": "thumbs/Step5/img003.jpg?v=a18680c2",
+     "med": "medium/Step5/img003.jpg?v=a18680c2",
      "text": "Avec ses 319 mètres de haut, le Chrysler Building est l'un des plus hauts gratte-ciel de New York.",
      "mode": null,
      "lat": 40.75108055555555,
@@ -306,10 +276,10 @@
      "date": "2026-10-21T10:54:57.000Z"
     },
     {
-     "src": "Step6/img004.jpeg?v=717739c8",
+     "src": "Step5/img004.jpeg?v=717739c8",
      "type": "image",
-     "thumb": "thumbs/Step6/img004.jpg?v=717739c8",
-     "med": "medium/Step6/img004.jpg?v=717739c8",
+     "thumb": "thumbs/Step5/img004.jpg?v=717739c8",
+     "med": "medium/Step5/img004.jpg?v=717739c8",
      "text": "",
      "mode": null,
      "lat": 40.75128888888889,
@@ -317,10 +287,10 @@
      "date": "2026-10-21T10:56:39.000Z"
     },
     {
-     "src": "Step6/img005.jpeg?v=f1c3559e",
+     "src": "Step5/img005.jpeg?v=f1c3559e",
      "type": "image",
-     "thumb": "thumbs/Step6/img005.jpg?v=f1c3559e",
-     "med": "medium/Step6/img005.jpg?v=f1c3559e",
+     "thumb": "thumbs/Step5/img005.jpg?v=f1c3559e",
+     "med": "medium/Step5/img005.jpg?v=f1c3559e",
      "text": "Il fut officiellement inauguré le 27 mai 1930.",
      "mode": null,
      "lat": 40.75178611111111,
@@ -328,10 +298,10 @@
      "date": "2026-10-21T11:07:32.000Z"
     },
     {
-     "src": "Step6/img006.jpeg?v=af69a5a1",
+     "src": "Step5/img006.jpeg?v=af69a5a1",
      "type": "image",
-     "thumb": "thumbs/Step6/img006.jpg?v=af69a5a1",
-     "med": "medium/Step6/img006.jpg?v=af69a5a1",
+     "thumb": "thumbs/Step5/img006.jpg?v=af69a5a1",
+     "med": "medium/Step5/img006.jpg?v=af69a5a1",
      "text": "Le building était le plus haut bâtiment du monde (si l'on excepte la Tour Eiffel)",
      "mode": null,
      "lat": 40.75191944444445,
@@ -339,10 +309,10 @@
      "date": "2026-10-21T11:09:18.000Z"
     },
     {
-     "src": "Step6/img007.jpeg?v=9143f0a5",
+     "src": "Step5/img007.jpeg?v=9143f0a5",
      "type": "image",
-     "thumb": "thumbs/Step6/img007.jpg?v=9143f0a5",
-     "med": "medium/Step6/img007.jpg?v=9143f0a5",
+     "thumb": "thumbs/Step5/img007.jpg?v=9143f0a5",
+     "med": "medium/Step5/img007.jpg?v=9143f0a5",
      "text": "Un an plus tard, lors de l'inauguration de l'Empire State Building (et ses 381 mètres), le Chrysler perdit son titre.",
      "mode": null,
      "lat": 40.751736111111114,
@@ -352,16 +322,16 @@
    ]
   },
   {
-   "id": "Step7",
+   "id": "Step6",
    "name": "Premier jour : suite de la balade, direction Grand Central Station",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step7/img001.jpeg?v=8b9e64c4",
+     "src": "Step6/img001.jpeg?v=8b9e64c4",
      "type": "image",
-     "thumb": "thumbs/Step7/img001.jpg?v=8b9e64c4",
-     "med": "medium/Step7/img001.jpg?v=8b9e64c4",
+     "thumb": "thumbs/Step6/img001.jpg?v=8b9e64c4",
+     "med": "medium/Step6/img001.jpg?v=8b9e64c4",
      "text": "La gare compte aujourd’hui 44 quais et 67 voies. Selon des estimations, plus de 750 000 personnes passent par la gare chaque jour !",
      "mode": null,
      "lat": 40.752005555555556,
@@ -369,10 +339,10 @@
      "date": "2026-10-21T11:58:00.000Z"
     },
     {
-     "src": "Step7/img002.jpeg?v=dd267d84",
+     "src": "Step6/img002.jpeg?v=dd267d84",
      "type": "image",
-     "thumb": "thumbs/Step7/img002.jpg?v=dd267d84",
-     "med": "medium/Step7/img002.jpg?v=dd267d84",
+     "thumb": "thumbs/Step6/img002.jpg?v=dd267d84",
+     "med": "medium/Step6/img002.jpg?v=dd267d84",
      "text": "Cela en fait la plus grande gare au monde !",
      "mode": null,
      "lat": 40.752,
@@ -380,10 +350,10 @@
      "date": "2026-10-21T11:51:58.000Z"
     },
     {
-     "src": "Step7/img003.jpeg?v=0ed2eb86",
+     "src": "Step6/img003.jpeg?v=0ed2eb86",
      "type": "image",
-     "thumb": "thumbs/Step7/img003.jpg?v=0ed2eb86",
-     "med": "medium/Step7/img003.jpg?v=0ed2eb86",
+     "thumb": "thumbs/Step6/img003.jpg?v=0ed2eb86",
+     "med": "medium/Step6/img003.jpg?v=0ed2eb86",
      "text": "Au centre du hall, un petit kiosque d’informations est surmonté de l’horloge à 4 cadrans emblématique de Grand Central.",
      "mode": null,
      "lat": 40.752316666666665,
@@ -391,10 +361,10 @@
      "date": "2026-10-21T11:30:55.000Z"
     },
     {
-     "src": "Step7/img004.jpeg?v=f195365e",
+     "src": "Step6/img004.jpeg?v=f195365e",
      "type": "image",
-     "thumb": "thumbs/Step7/img004.jpg?v=f195365e",
-     "med": "medium/Step7/img004.jpg?v=f195365e",
+     "thumb": "thumbs/Step6/img004.jpg?v=f195365e",
+     "med": "medium/Step6/img004.jpg?v=f195365e",
      "text": "Réalisée à partir d’opale, elle est estimée à 10 millions de dollars.",
      "mode": null,
      "lat": 40.752338888888886,
@@ -402,10 +372,10 @@
      "date": "2026-10-21T11:30:07.000Z"
     },
     {
-     "src": "Step7/img005.jpeg?v=430fb709",
+     "src": "Step6/img005.jpeg?v=430fb709",
      "type": "image",
-     "thumb": "thumbs/Step7/img005.jpg?v=430fb709",
-     "med": "medium/Step7/img005.jpg?v=430fb709",
+     "thumb": "thumbs/Step6/img005.jpg?v=430fb709",
+     "med": "medium/Step6/img005.jpg?v=430fb709",
      "text": "Le plafond offre la représentation du ciel étoilé tel qu'il est vu au bord de la Méditerranée en hiver, avec 2500 étoiles.",
      "mode": null,
      "lat": null,
@@ -413,10 +383,10 @@
      "date": "2026-10-21T11:20:32.000Z"
     },
     {
-     "src": "Step7/img006.jpeg?v=3a57d6f8",
+     "src": "Step6/img006.jpeg?v=3a57d6f8",
      "type": "image",
-     "thumb": "thumbs/Step7/img006.jpg?v=3a57d6f8",
-     "med": "medium/Step7/img006.jpg?v=3a57d6f8",
+     "thumb": "thumbs/Step6/img006.jpg?v=3a57d6f8",
+     "med": "medium/Step6/img006.jpg?v=3a57d6f8",
      "text": "Une œuvre monumentale réalisée en 1912 par l’artiste français Paul Helleu.",
      "mode": null,
      "lat": null,
@@ -426,16 +396,16 @@
    ]
   },
   {
-   "id": "Step8",
+   "id": "Step7",
    "name": "Premier jour : suite de la balade à la New York Public Library",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step8/img001.jpeg?v=824088fb",
+     "src": "Step7/img001.jpeg?v=824088fb",
      "type": "image",
-     "thumb": "thumbs/Step8/img001.jpg?v=824088fb",
-     "med": "medium/Step8/img001.jpg?v=824088fb",
+     "thumb": "thumbs/Step7/img001.jpg?v=824088fb",
+     "med": "medium/Step7/img001.jpg?v=824088fb",
      "text": "",
      "mode": null,
      "lat": 40.75293333333333,
@@ -443,10 +413,10 @@
      "date": "2026-10-21T14:10:03.000Z"
     },
     {
-     "src": "Step8/img002.jpeg?v=b0443cef",
+     "src": "Step7/img002.jpeg?v=b0443cef",
      "type": "image",
-     "thumb": "thumbs/Step8/img002.jpg?v=b0443cef",
-     "med": "medium/Step8/img002.jpg?v=b0443cef",
+     "thumb": "thumbs/Step7/img002.jpg?v=b0443cef",
+     "med": "medium/Step7/img002.jpg?v=b0443cef",
      "text": "Il s'agit de la deuxième plus grande bibliothèque des États-Unis juste derrière celle du Congrès à Washington D.C.",
      "mode": null,
      "lat": 40.753277777777775,
@@ -454,10 +424,10 @@
      "date": "2026-10-21T12:09:34.000Z"
     },
     {
-     "src": "Step8/img003.jpeg?v=906594b8",
+     "src": "Step7/img003.jpeg?v=906594b8",
      "type": "image",
-     "thumb": "thumbs/Step8/img003.jpg?v=906594b8",
-     "med": "medium/Step8/img003.jpg?v=906594b8",
+     "thumb": "thumbs/Step7/img003.jpg?v=906594b8",
+     "med": "medium/Step7/img003.jpg?v=906594b8",
      "text": "L’**Astor Hall**, le hall d’entrée principal de la New York Library : immense salle, aux hauts plafonds voutés et aux arches finement sculptées, entièrement couverte de marbre blanc.",
      "mode": null,
      "lat": 40.75287222222222,
@@ -465,10 +435,10 @@
      "date": "2026-10-21T12:26:06.000Z"
     },
     {
-     "src": "Step8/img004.jpeg?v=42fccaca",
+     "src": "Step7/img004.jpeg?v=42fccaca",
      "type": "image",
-     "thumb": "thumbs/Step8/img004.jpg?v=42fccaca",
-     "med": "medium/Step8/img004.jpg?v=42fccaca",
+     "thumb": "thumbs/Step7/img004.jpg?v=42fccaca",
+     "med": "medium/Step7/img004.jpg?v=42fccaca",
      "text": "",
      "mode": null,
      "lat": 40.75295277777778,
@@ -476,10 +446,10 @@
      "date": "2026-10-21T13:12:17.000Z"
     },
     {
-     "src": "Step8/img005.jpeg?v=6912be40",
+     "src": "Step7/img005.jpeg?v=6912be40",
      "type": "image",
-     "thumb": "thumbs/Step8/img005.jpg?v=6912be40",
-     "med": "medium/Step8/img005.jpg?v=6912be40",
+     "thumb": "thumbs/Step7/img005.jpg?v=6912be40",
+     "med": "medium/Step7/img005.jpg?v=6912be40",
      "text": "",
      "mode": null,
      "lat": 40.753169444444445,
@@ -487,10 +457,10 @@
      "date": "2026-10-21T12:27:38.000Z"
     },
     {
-     "src": "Step8/img006.jpeg?v=361530e2",
+     "src": "Step7/img006.jpeg?v=361530e2",
      "type": "image",
-     "thumb": "thumbs/Step8/img006.jpg?v=361530e2",
-     "med": "medium/Step8/img006.jpg?v=361530e2",
+     "thumb": "thumbs/Step7/img006.jpg?v=361530e2",
+     "med": "medium/Step7/img006.jpg?v=361530e2",
      "text": "",
      "mode": null,
      "lat": 40.75340277777778,
@@ -498,10 +468,10 @@
      "date": "2026-10-21T12:33:01.000Z"
     },
     {
-     "src": "Step8/img007.jpeg?v=a0485d56",
+     "src": "Step7/img007.jpeg?v=a0485d56",
      "type": "image",
-     "thumb": "thumbs/Step8/img007.jpg?v=a0485d56",
-     "med": "medium/Step8/img007.jpg?v=a0485d56",
+     "thumb": "thumbs/Step7/img007.jpg?v=a0485d56",
+     "med": "medium/Step7/img007.jpg?v=a0485d56",
      "text": "La **Rose Main Reading Room** est la salle de lecture principale : située au 3ème étage, ses murs sont couverts d’étagères remplies de livres.",
      "mode": null,
      "lat": null,
@@ -509,10 +479,10 @@
      "date": "2026-10-21T13:41:08.000Z"
     },
     {
-     "src": "Step8/img008.jpeg?v=9ac631ca",
+     "src": "Step7/img008.jpeg?v=9ac631ca",
      "type": "image",
-     "thumb": "thumbs/Step8/img008.jpg?v=9ac631ca",
-     "med": "medium/Step8/img008.jpg?v=9ac631ca",
+     "thumb": "thumbs/Step7/img008.jpg?v=9ac631ca",
+     "med": "medium/Step7/img008.jpg?v=9ac631ca",
      "text": "Longue de près de 100 mètres et richement décorées avec des moulures, des lustres et des peintures au plafond, cet un endroit étonnant où les New-Yorkais viennent régulièrement étudier et travailler dans le calme.",
      "mode": null,
      "lat": null,
@@ -520,10 +490,10 @@
      "date": "2026-10-21T13:41:56.000Z"
     },
     {
-     "src": "Step8/img009.jpeg?v=b8538e73",
+     "src": "Step7/img009.jpeg?v=b8538e73",
      "type": "image",
-     "thumb": "thumbs/Step8/img009.jpg?v=b8538e73",
-     "med": "medium/Step8/img009.jpg?v=b8538e73",
+     "thumb": "thumbs/Step7/img009.jpg?v=b8538e73",
+     "med": "medium/Step7/img009.jpg?v=b8538e73",
      "text": "",
      "mode": null,
      "lat": 40.75311666666666,
@@ -533,15 +503,15 @@
    ]
   },
   {
-   "id": "Step9",
+   "id": "Step8",
    "name": "Premier jour : Cathédrale St Patrick",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step9/img001.jpeg?v=ef9d07e1",
+     "src": "Step8/img001.jpeg?v=ef9d07e1",
      "type": "image",
-     "thumb": "thumbs/Step9/img001.jpg?v=ef9d07e1",
+     "thumb": "thumbs/Step8/img001.jpg?v=ef9d07e1",
      "med": null,
      "text": "",
      "mode": null,
@@ -550,10 +520,10 @@
      "date": "2026-10-21T08:52:00.000Z"
     },
     {
-     "src": "Step9/img002.jpeg?v=28de3d58",
+     "src": "Step8/img002.jpeg?v=28de3d58",
      "type": "image",
-     "thumb": "thumbs/Step9/img002.jpg?v=28de3d58",
-     "med": "medium/Step9/img002.jpg?v=28de3d58",
+     "thumb": "thumbs/Step8/img002.jpg?v=28de3d58",
+     "med": "medium/Step8/img002.jpg?v=28de3d58",
      "text": "",
      "mode": null,
      "lat": 40.758525,
@@ -561,10 +531,10 @@
      "date": "2026-10-21T15:15:53.000Z"
     },
     {
-     "src": "Step9/img003.jpeg?v=338f1837",
+     "src": "Step8/img003.jpeg?v=338f1837",
      "type": "image",
-     "thumb": "thumbs/Step9/img003.jpg?v=338f1837",
-     "med": "medium/Step9/img003.jpg?v=338f1837",
+     "thumb": "thumbs/Step8/img003.jpg?v=338f1837",
+     "med": "medium/Step8/img003.jpg?v=338f1837",
      "text": "",
      "mode": null,
      "lat": 40.759055555555555,
@@ -572,9 +542,9 @@
      "date": "2026-10-21T15:43:55.000Z"
     },
     {
-     "src": "Step9/img004.jpeg?v=e8f6ece3",
+     "src": "Step8/img004.jpeg?v=e8f6ece3",
      "type": "image",
-     "thumb": "thumbs/Step9/img004.jpg?v=e8f6ece3",
+     "thumb": "thumbs/Step8/img004.jpg?v=e8f6ece3",
      "med": null,
      "text": "",
      "mode": null,
@@ -583,10 +553,10 @@
      "date": "2026-10-22T08:51:59.000Z"
     },
     {
-     "src": "Step9/img005.jpeg?v=a8cf7521",
+     "src": "Step8/img005.jpeg?v=a8cf7521",
      "type": "image",
-     "thumb": "thumbs/Step9/img005.jpg?v=a8cf7521",
-     "med": "medium/Step9/img005.jpg?v=a8cf7521",
+     "thumb": "thumbs/Step8/img005.jpg?v=a8cf7521",
+     "med": "medium/Step8/img005.jpg?v=a8cf7521",
      "text": "",
      "mode": null,
      "lat": 40.75921666666667,
@@ -594,10 +564,10 @@
      "date": "2026-10-21T15:38:02.000Z"
     },
     {
-     "src": "Step9/img006.jpeg?v=cafd13ac",
+     "src": "Step8/img006.jpeg?v=cafd13ac",
      "type": "image",
-     "thumb": "thumbs/Step9/img006.jpg?v=cafd13ac",
-     "med": "medium/Step9/img006.jpg?v=cafd13ac",
+     "thumb": "thumbs/Step8/img006.jpg?v=cafd13ac",
+     "med": "medium/Step8/img006.jpg?v=cafd13ac",
      "text": "",
      "mode": null,
      "lat": 40.758963888888886,
@@ -605,10 +575,10 @@
      "date": "2026-10-21T15:20:29.000Z"
     },
     {
-     "src": "Step9/img007.jpeg?v=3d73b4ac",
+     "src": "Step8/img007.jpeg?v=3d73b4ac",
      "type": "image",
-     "thumb": "thumbs/Step9/img007.jpg?v=3d73b4ac",
-     "med": "medium/Step9/img007.jpg?v=3d73b4ac",
+     "thumb": "thumbs/Step8/img007.jpg?v=3d73b4ac",
+     "med": "medium/Step8/img007.jpg?v=3d73b4ac",
      "text": "",
      "mode": null,
      "lat": 40.75870833333333,
@@ -618,16 +588,16 @@
    ]
   },
   {
-   "id": "Step10",
+   "id": "Step9",
    "name": "Première journée : tombée de la nuit depuis l'observatoire du Top of the Rock",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step10/img001.jpeg?v=193995b8",
+     "src": "Step9/img001.jpeg?v=193995b8",
      "type": "image",
-     "thumb": "thumbs/Step10/img001.jpg?v=193995b8",
-     "med": "medium/Step10/img001.jpg?v=193995b8",
+     "thumb": "thumbs/Step9/img001.jpg?v=193995b8",
+     "med": "medium/Step9/img001.jpg?v=193995b8",
      "text": "",
      "mode": null,
      "lat": 40.75828888888889,
@@ -635,10 +605,10 @@
      "date": "2026-10-21T15:11:45.000Z"
     },
     {
-     "src": "Step10/img002.jpeg?v=dcd7be30",
+     "src": "Step9/img002.jpeg?v=dcd7be30",
      "type": "image",
-     "thumb": "thumbs/Step10/img002.jpg?v=dcd7be30",
-     "med": "medium/Step10/img002.jpg?v=dcd7be30",
+     "thumb": "thumbs/Step9/img002.jpg?v=dcd7be30",
+     "med": "medium/Step9/img002.jpg?v=dcd7be30",
      "text": "",
      "mode": null,
      "lat": 40.758744444444446,
@@ -646,9 +616,9 @@
      "date": "2026-10-21T15:17:05.000Z"
     },
     {
-     "src": "Step10/img003.jpeg?v=2a0df742",
+     "src": "Step9/img003.jpeg?v=2a0df742",
      "type": "image",
-     "thumb": "thumbs/Step10/img003.jpg?v=2a0df742",
+     "thumb": "thumbs/Step9/img003.jpg?v=2a0df742",
      "med": null,
      "text": "",
      "mode": null,
@@ -657,10 +627,10 @@
      "date": "2026-10-22T05:44:14.000Z"
     },
     {
-     "src": "Step10/img004.jpeg?v=a9ed8682",
+     "src": "Step9/img004.jpeg?v=a9ed8682",
      "type": "image",
-     "thumb": "thumbs/Step10/img004.jpg?v=a9ed8682",
-     "med": "medium/Step10/img004.jpg?v=a9ed8682",
+     "thumb": "thumbs/Step9/img004.jpg?v=a9ed8682",
+     "med": "medium/Step9/img004.jpg?v=a9ed8682",
      "text": "",
      "mode": null,
      "lat": 40.75901666666667,
@@ -668,10 +638,10 @@
      "date": "2026-10-21T16:00:23.000Z"
     },
     {
-     "src": "Step10/img005.jpeg?v=f6f2c861",
+     "src": "Step9/img005.jpeg?v=f6f2c861",
      "type": "image",
-     "thumb": "thumbs/Step10/img005.jpg?v=f6f2c861",
-     "med": "medium/Step10/img005.jpg?v=f6f2c861",
+     "thumb": "thumbs/Step9/img005.jpg?v=f6f2c861",
+     "med": "medium/Step9/img005.jpg?v=f6f2c861",
      "text": "",
      "mode": null,
      "lat": 40.758586111111114,
@@ -679,10 +649,10 @@
      "date": "2026-10-21T17:03:38.000Z"
     },
     {
-     "src": "Step10/img006.jpeg?v=ca5972ae",
+     "src": "Step9/img006.jpeg?v=ca5972ae",
      "type": "image",
-     "thumb": "thumbs/Step10/img006.jpg?v=ca5972ae",
-     "med": "medium/Step10/img006.jpg?v=ca5972ae",
+     "thumb": "thumbs/Step9/img006.jpg?v=ca5972ae",
+     "med": "medium/Step9/img006.jpg?v=ca5972ae",
      "text": "",
      "mode": null,
      "lat": 40.75803055555556,
@@ -690,10 +660,10 @@
      "date": "2026-10-21T17:06:20.000Z"
     },
     {
-     "src": "Step10/img007.jpeg?v=4560f4b6",
+     "src": "Step9/img007.jpeg?v=4560f4b6",
      "type": "image",
-     "thumb": "thumbs/Step10/img007.jpg?v=4560f4b6",
-     "med": "medium/Step10/img007.jpg?v=4560f4b6",
+     "thumb": "thumbs/Step9/img007.jpg?v=4560f4b6",
+     "med": "medium/Step9/img007.jpg?v=4560f4b6",
      "text": "",
      "mode": null,
      "lat": 40.75898055555555,
@@ -701,10 +671,10 @@
      "date": "2026-10-21T17:19:16.000Z"
     },
     {
-     "src": "Step10/img008.jpeg?v=2dcbbd28",
+     "src": "Step9/img008.jpeg?v=2dcbbd28",
      "type": "image",
-     "thumb": "thumbs/Step10/img008.jpg?v=2dcbbd28",
-     "med": "medium/Step10/img008.jpg?v=2dcbbd28",
+     "thumb": "thumbs/Step9/img008.jpg?v=2dcbbd28",
+     "med": "medium/Step9/img008.jpg?v=2dcbbd28",
      "text": "",
      "mode": null,
      "lat": 40.758919444444444,
@@ -712,9 +682,9 @@
      "date": "2026-10-21T17:34:37.000Z"
     },
     {
-     "src": "Step10/img009.jpeg?v=40c3deb0",
+     "src": "Step9/img009.jpeg?v=40c3deb0",
      "type": "image",
-     "thumb": "thumbs/Step10/img009.jpg?v=40c3deb0",
+     "thumb": "thumbs/Step9/img009.jpg?v=40c3deb0",
      "med": null,
      "text": "",
      "mode": null,
@@ -723,10 +693,10 @@
      "date": "2026-10-22T08:52:01.000Z"
     },
     {
-     "src": "Step10/img010.jpeg?v=ef6d7fb7",
+     "src": "Step9/img010.jpeg?v=ef6d7fb7",
      "type": "image",
-     "thumb": "thumbs/Step10/img010.jpg?v=ef6d7fb7",
-     "med": "medium/Step10/img010.jpg?v=ef6d7fb7",
+     "thumb": "thumbs/Step9/img010.jpg?v=ef6d7fb7",
+     "med": "medium/Step9/img010.jpg?v=ef6d7fb7",
      "text": "",
      "mode": null,
      "lat": 40.75890833333333,
@@ -734,10 +704,10 @@
      "date": "2026-10-21T17:37:51.000Z"
     },
     {
-     "src": "Step10/img011.jpeg?v=2f851d15",
+     "src": "Step9/img011.jpeg?v=2f851d15",
      "type": "image",
-     "thumb": "thumbs/Step10/img011.jpg?v=2f851d15",
-     "med": "medium/Step10/img011.jpg?v=2f851d15",
+     "thumb": "thumbs/Step9/img011.jpg?v=2f851d15",
+     "med": "medium/Step9/img011.jpg?v=2f851d15",
      "text": "",
      "mode": null,
      "lat": 40.758963888888886,
@@ -745,10 +715,10 @@
      "date": "2026-10-21T17:10:19.000Z"
     },
     {
-     "src": "Step10/img012.jpeg?v=05a2dfd5",
+     "src": "Step9/img012.jpeg?v=05a2dfd5",
      "type": "image",
-     "thumb": "thumbs/Step10/img012.jpg?v=05a2dfd5",
-     "med": "medium/Step10/img012.jpg?v=05a2dfd5",
+     "thumb": "thumbs/Step9/img012.jpg?v=05a2dfd5",
+     "med": "medium/Step9/img012.jpg?v=05a2dfd5",
      "text": "",
      "mode": null,
      "lat": 40.758897222222224,
@@ -756,10 +726,10 @@
      "date": "2026-10-21T17:48:30.000Z"
     },
     {
-     "src": "Step10/img013.jpeg?v=e323d977",
+     "src": "Step9/img013.jpeg?v=e323d977",
      "type": "image",
-     "thumb": "thumbs/Step10/img013.jpg?v=e323d977",
-     "med": "medium/Step10/img013.jpg?v=e323d977",
+     "thumb": "thumbs/Step9/img013.jpg?v=e323d977",
+     "med": "medium/Step9/img013.jpg?v=e323d977",
      "text": "",
      "mode": null,
      "lat": 40.75886944444444,
@@ -767,9 +737,9 @@
      "date": "2026-10-21T17:27:16.000Z"
     },
     {
-     "src": "Step10/img014.jpeg?v=7a0b6dd7",
+     "src": "Step9/img014.jpeg?v=7a0b6dd7",
      "type": "image",
-     "thumb": "thumbs/Step10/img014.jpg?v=7a0b6dd7",
+     "thumb": "thumbs/Step9/img014.jpg?v=7a0b6dd7",
      "med": null,
      "text": "",
      "mode": null,
@@ -778,9 +748,9 @@
      "date": "2026-10-22T08:52:01.000Z"
     },
     {
-     "src": "Step10/img015.jpeg?v=f338d57a",
+     "src": "Step9/img015.jpeg?v=f338d57a",
      "type": "image",
-     "thumb": "thumbs/Step10/img015.jpg?v=f338d57a",
+     "thumb": "thumbs/Step9/img015.jpg?v=f338d57a",
      "med": null,
      "text": "",
      "mode": null,
@@ -789,9 +759,9 @@
      "date": "2026-10-22T05:40:06.000Z"
     },
     {
-     "src": "Step10/img016.jpeg?v=062a949e",
+     "src": "Step9/img016.jpeg?v=062a949e",
      "type": "image",
-     "thumb": "thumbs/Step10/img016.jpg?v=062a949e",
+     "thumb": "thumbs/Step9/img016.jpg?v=062a949e",
      "med": null,
      "text": "",
      "mode": null,
@@ -800,9 +770,9 @@
      "date": "2026-10-22T08:52:01.000Z"
     },
     {
-     "src": "Step10/img017.jpeg?v=7a64977d",
+     "src": "Step9/img017.jpeg?v=7a64977d",
      "type": "image",
-     "thumb": "thumbs/Step10/img017.jpg?v=7a64977d",
+     "thumb": "thumbs/Step9/img017.jpg?v=7a64977d",
      "med": null,
      "text": "",
      "mode": null,
@@ -811,9 +781,9 @@
      "date": "2026-10-22T08:52:02.000Z"
     },
     {
-     "src": "Step10/img018.jpeg?v=baf5854c",
+     "src": "Step9/img018.jpeg?v=baf5854c",
      "type": "image",
-     "thumb": "thumbs/Step10/img018.jpg?v=baf5854c",
+     "thumb": "thumbs/Step9/img018.jpg?v=baf5854c",
      "med": null,
      "text": "",
      "mode": null,
@@ -822,9 +792,9 @@
      "date": "2026-10-22T05:41:04.000Z"
     },
     {
-     "src": "Step10/img019.jpeg?v=94caadd6",
+     "src": "Step9/img019.jpeg?v=94caadd6",
      "type": "image",
-     "thumb": "thumbs/Step10/img019.jpg?v=94caadd6",
+     "thumb": "thumbs/Step9/img019.jpg?v=94caadd6",
      "med": null,
      "text": "",
      "mode": null,
@@ -833,9 +803,9 @@
      "date": "2026-10-22T08:52:01.000Z"
     },
     {
-     "src": "Step10/img020.jpeg?v=8b0a32f4",
+     "src": "Step9/img020.jpeg?v=8b0a32f4",
      "type": "image",
-     "thumb": "thumbs/Step10/img020.jpg?v=8b0a32f4",
+     "thumb": "thumbs/Step9/img020.jpg?v=8b0a32f4",
      "med": null,
      "text": "",
      "mode": null,
@@ -844,9 +814,9 @@
      "date": "2026-10-22T08:52:02.000Z"
     },
     {
-     "src": "Step10/img021.jpeg?v=c7c816b5",
+     "src": "Step9/img021.jpeg?v=c7c816b5",
      "type": "image",
-     "thumb": "thumbs/Step10/img021.jpg?v=c7c816b5",
+     "thumb": "thumbs/Step9/img021.jpg?v=c7c816b5",
      "med": null,
      "text": "",
      "mode": null,
@@ -855,10 +825,10 @@
      "date": "2026-10-22T08:52:01.000Z"
     },
     {
-     "src": "Step10/img022.jpeg?v=9d6d2dde",
+     "src": "Step9/img022.jpeg?v=9d6d2dde",
      "type": "image",
-     "thumb": "thumbs/Step10/img022.jpg?v=9d6d2dde",
-     "med": "medium/Step10/img022.jpg?v=9d6d2dde",
+     "thumb": "thumbs/Step9/img022.jpg?v=9d6d2dde",
+     "med": "medium/Step9/img022.jpg?v=9d6d2dde",
      "text": "",
      "mode": null,
      "lat": 40.758941666666665,
@@ -866,10 +836,10 @@
      "date": "2026-10-21T17:55:11.000Z"
     },
     {
-     "src": "Step10/img023.jpeg?v=715baf5c",
+     "src": "Step9/img023.jpeg?v=715baf5c",
      "type": "image",
-     "thumb": "thumbs/Step10/img023.jpg?v=715baf5c",
-     "med": "medium/Step10/img023.jpg?v=715baf5c",
+     "thumb": "thumbs/Step9/img023.jpg?v=715baf5c",
+     "med": "medium/Step9/img023.jpg?v=715baf5c",
      "text": "",
      "mode": null,
      "lat": 40.75887222222222,
@@ -877,10 +847,10 @@
      "date": "2026-10-21T18:18:11.000Z"
     },
     {
-     "src": "Step10/img024.jpeg?v=93d62c7c",
+     "src": "Step9/img024.jpeg?v=93d62c7c",
      "type": "image",
-     "thumb": "thumbs/Step10/img024.jpg?v=93d62c7c",
-     "med": "medium/Step10/img024.jpg?v=93d62c7c",
+     "thumb": "thumbs/Step9/img024.jpg?v=93d62c7c",
+     "med": "medium/Step9/img024.jpg?v=93d62c7c",
      "text": "",
      "mode": null,
      "lat": 40.758897222222224,
@@ -888,10 +858,10 @@
      "date": "2026-10-21T18:26:02.000Z"
     },
     {
-     "src": "Step10/img025.jpeg?v=27f57c50",
+     "src": "Step9/img025.jpeg?v=27f57c50",
      "type": "image",
-     "thumb": "thumbs/Step10/img025.jpg?v=27f57c50",
-     "med": "medium/Step10/img025.jpg?v=27f57c50",
+     "thumb": "thumbs/Step9/img025.jpg?v=27f57c50",
+     "med": "medium/Step9/img025.jpg?v=27f57c50",
      "text": "",
      "mode": null,
      "lat": 40.75889166666666,
@@ -899,10 +869,10 @@
      "date": "2026-10-21T18:27:38.000Z"
     },
     {
-     "src": "Step10/img026.jpeg?v=f9b2c95f",
+     "src": "Step9/img026.jpeg?v=f9b2c95f",
      "type": "image",
-     "thumb": "thumbs/Step10/img026.jpg?v=f9b2c95f",
-     "med": "medium/Step10/img026.jpg?v=f9b2c95f",
+     "thumb": "thumbs/Step9/img026.jpg?v=f9b2c95f",
+     "med": "medium/Step9/img026.jpg?v=f9b2c95f",
      "text": "",
      "mode": null,
      "lat": 40.75888055555556,
@@ -910,9 +880,9 @@
      "date": "2026-10-21T18:00:00.000Z"
     },
     {
-     "src": "Step10/img027.jpeg?v=548e23f5",
+     "src": "Step9/img027.jpeg?v=548e23f5",
      "type": "image",
-     "thumb": "thumbs/Step10/img027.jpg?v=548e23f5",
+     "thumb": "thumbs/Step9/img027.jpg?v=548e23f5",
      "med": null,
      "text": "",
      "mode": null,
@@ -921,9 +891,9 @@
      "date": "2026-10-22T08:52:02.000Z"
     },
     {
-     "src": "Step10/img028.jpeg?v=b9616c9a",
+     "src": "Step9/img028.jpeg?v=b9616c9a",
      "type": "image",
-     "thumb": "thumbs/Step10/img028.jpg?v=b9616c9a",
+     "thumb": "thumbs/Step9/img028.jpg?v=b9616c9a",
      "med": null,
      "text": "",
      "mode": null,
@@ -932,9 +902,9 @@
      "date": "2026-10-22T05:39:38.000Z"
     },
     {
-     "src": "Step10/img029.jpeg?v=9b71a736",
+     "src": "Step9/img029.jpeg?v=9b71a736",
      "type": "image",
-     "thumb": "thumbs/Step10/img029.jpg?v=9b71a736",
+     "thumb": "thumbs/Step9/img029.jpg?v=9b71a736",
      "med": null,
      "text": "",
      "mode": null,
@@ -943,10 +913,10 @@
      "date": "2026-10-22T05:38:07.000Z"
     },
     {
-     "src": "Step10/img030.jpeg?v=96b5e7b4",
+     "src": "Step9/img030.jpeg?v=96b5e7b4",
      "type": "image",
-     "thumb": "thumbs/Step10/img030.jpg?v=96b5e7b4",
-     "med": "medium/Step10/img030.jpg?v=96b5e7b4",
+     "thumb": "thumbs/Step9/img030.jpg?v=96b5e7b4",
+     "med": "medium/Step9/img030.jpg?v=96b5e7b4",
      "text": "",
      "mode": null,
      "lat": 40.7589,
@@ -954,9 +924,9 @@
      "date": "2026-10-21T18:38:42.000Z"
     },
     {
-     "src": "Step10/img031.jpeg?v=c9f8f769",
+     "src": "Step9/img031.jpeg?v=c9f8f769",
      "type": "image",
-     "thumb": "thumbs/Step10/img031.jpg?v=c9f8f769",
+     "thumb": "thumbs/Step9/img031.jpg?v=c9f8f769",
      "med": null,
      "text": "",
      "mode": null,
@@ -965,9 +935,9 @@
      "date": "2026-10-22T08:52:02.000Z"
     },
     {
-     "src": "Step10/img032.jpeg?v=c7801714",
+     "src": "Step9/img032.jpeg?v=c7801714",
      "type": "image",
-     "thumb": "thumbs/Step10/img032.jpg?v=c7801714",
+     "thumb": "thumbs/Step9/img032.jpg?v=c7801714",
      "med": null,
      "text": "",
      "mode": null,
@@ -976,9 +946,9 @@
      "date": "2026-10-22T08:52:02.000Z"
     },
     {
-     "src": "Step10/img033.jpeg?v=347d918c",
+     "src": "Step9/img033.jpeg?v=347d918c",
      "type": "image",
-     "thumb": "thumbs/Step10/img033.jpg?v=347d918c",
+     "thumb": "thumbs/Step9/img033.jpg?v=347d918c",
      "med": null,
      "text": "",
      "mode": null,
@@ -987,10 +957,10 @@
      "date": "2026-10-22T08:52:02.000Z"
     },
     {
-     "src": "Step10/img034.jpeg?v=29c05fad",
+     "src": "Step9/img034.jpeg?v=29c05fad",
      "type": "image",
-     "thumb": "thumbs/Step10/img034.jpg?v=29c05fad",
-     "med": "medium/Step10/img034.jpg?v=29c05fad",
+     "thumb": "thumbs/Step9/img034.jpg?v=29c05fad",
+     "med": "medium/Step9/img034.jpg?v=29c05fad",
      "text": "",
      "mode": null,
      "lat": 40.75888888888889,
@@ -998,9 +968,9 @@
      "date": "2026-10-21T18:39:55.000Z"
     },
     {
-     "src": "Step10/img035.jpeg?v=f715ecee",
+     "src": "Step9/img035.jpeg?v=f715ecee",
      "type": "image",
-     "thumb": "thumbs/Step10/img035.jpg?v=f715ecee",
+     "thumb": "thumbs/Step9/img035.jpg?v=f715ecee",
      "med": null,
      "text": "",
      "mode": null,
@@ -1009,10 +979,10 @@
      "date": "2026-10-22T08:52:02.000Z"
     },
     {
-     "src": "Step10/img036.jpeg?v=e9cda5c9",
+     "src": "Step9/img036.jpeg?v=e9cda5c9",
      "type": "image",
-     "thumb": "thumbs/Step10/img036.jpg?v=e9cda5c9",
-     "med": "medium/Step10/img036.jpg?v=e9cda5c9",
+     "thumb": "thumbs/Step9/img036.jpg?v=e9cda5c9",
+     "med": "medium/Step9/img036.jpg?v=e9cda5c9",
      "text": "",
      "mode": null,
      "lat": 40.75891388888889,
@@ -1020,10 +990,10 @@
      "date": "2026-10-21T18:45:22.000Z"
     },
     {
-     "src": "Step10/img037.jpeg?v=11632946",
+     "src": "Step9/img037.jpeg?v=11632946",
      "type": "image",
-     "thumb": "thumbs/Step10/img037.jpg?v=11632946",
-     "med": "medium/Step10/img037.jpg?v=11632946",
+     "thumb": "thumbs/Step9/img037.jpg?v=11632946",
+     "med": "medium/Step9/img037.jpg?v=11632946",
      "text": "",
      "mode": null,
      "lat": 40.75888333333333,
@@ -1031,10 +1001,10 @@
      "date": "2026-10-21T18:39:44.000Z"
     },
     {
-     "src": "Step10/img038.jpeg?v=056e969e",
+     "src": "Step9/img038.jpeg?v=056e969e",
      "type": "image",
-     "thumb": "thumbs/Step10/img038.jpg?v=056e969e",
-     "med": "medium/Step10/img038.jpg?v=056e969e",
+     "thumb": "thumbs/Step9/img038.jpg?v=056e969e",
+     "med": "medium/Step9/img038.jpg?v=056e969e",
      "text": "",
      "mode": null,
      "lat": 40.75882222222222,
@@ -1042,10 +1012,10 @@
      "date": "2026-10-21T18:51:14.000Z"
     },
     {
-     "src": "Step10/img039.jpeg?v=4352c9fa",
+     "src": "Step9/img039.jpeg?v=4352c9fa",
      "type": "image",
-     "thumb": "thumbs/Step10/img039.jpg?v=4352c9fa",
-     "med": "medium/Step10/img039.jpg?v=4352c9fa",
+     "thumb": "thumbs/Step9/img039.jpg?v=4352c9fa",
+     "med": "medium/Step9/img039.jpg?v=4352c9fa",
      "text": "",
      "mode": null,
      "lat": 40.75893055555556,
@@ -1055,16 +1025,16 @@
    ]
   },
   {
-   "id": "Step11",
+   "id": "Step10",
    "name": "Deuxième jour : la Statue de la Liberté",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step11/img001.jpeg?v=e8e9434e",
+     "src": "Step10/img001.jpeg?v=e8e9434e",
      "type": "image",
-     "thumb": "thumbs/Step11/img001.jpg?v=e8e9434e",
-     "med": "medium/Step11/img001.jpg?v=e8e9434e",
+     "thumb": "thumbs/Step10/img001.jpg?v=e8e9434e",
+     "med": "medium/Step10/img001.jpg?v=e8e9434e",
      "text": "",
      "mode": null,
      "lat": 40.688541666666666,
@@ -1072,10 +1042,10 @@
      "date": "2026-10-22T11:49:05.000Z"
     },
     {
-     "src": "Step11/img002.jpeg?v=4b7f81cb",
+     "src": "Step10/img002.jpeg?v=4b7f81cb",
      "type": "image",
-     "thumb": "thumbs/Step11/img002.jpg?v=4b7f81cb",
-     "med": "medium/Step11/img002.jpg?v=4b7f81cb",
+     "thumb": "thumbs/Step10/img002.jpg?v=4b7f81cb",
+     "med": "medium/Step10/img002.jpg?v=4b7f81cb",
      "text": "Depuis 1886, la statue se trouve sur Liberty Island, une petite île au beau milieu du port de New York, face à Manhattan.",
      "mode": null,
      "lat": 40.687061111111106,
@@ -1083,10 +1053,10 @@
      "date": "2026-10-22T11:48:28.000Z"
     },
     {
-     "src": "Step11/img003.jpeg?v=6d1cf0ab",
+     "src": "Step10/img003.jpeg?v=6d1cf0ab",
      "type": "image",
-     "thumb": "thumbs/Step11/img003.jpg?v=6d1cf0ab",
-     "med": "medium/Step11/img003.jpg?v=6d1cf0ab",
+     "thumb": "thumbs/Step10/img003.jpg?v=6d1cf0ab",
+     "med": "medium/Step10/img003.jpg?v=6d1cf0ab",
      "text": "La statue de la Liberté mesure 93 mètres de haut, du sol à la torche, en comprenant le socle.",
      "mode": null,
      "lat": 40.68575555555555,
@@ -1094,10 +1064,10 @@
      "date": "2026-10-22T11:47:47.000Z"
     },
     {
-     "src": "Step11/img004.jpeg?v=7bfa2cf1",
+     "src": "Step10/img004.jpeg?v=7bfa2cf1",
      "type": "image",
-     "thumb": "thumbs/Step11/img004.jpg?v=7bfa2cf1",
-     "med": "medium/Step11/img004.jpg?v=7bfa2cf1",
+     "thumb": "thumbs/Step10/img004.jpg?v=7bfa2cf1",
+     "med": "medium/Step10/img004.jpg?v=7bfa2cf1",
      "text": "Et si on s’en tient à la statue elle-même, sans le socle, elle mesure uniquement 46,5 mètres de haut.",
      "mode": null,
      "lat": 40.68530277777777,
@@ -1105,10 +1075,10 @@
      "date": "2026-10-22T11:47:10.000Z"
     },
     {
-     "src": "Step11/img005.jpeg?v=b67d1d5c",
+     "src": "Step10/img005.jpeg?v=b67d1d5c",
      "type": "image",
-     "thumb": "thumbs/Step11/img005.jpg?v=b67d1d5c",
-     "med": "medium/Step11/img005.jpg?v=b67d1d5c",
+     "thumb": "thumbs/Step10/img005.jpg?v=b67d1d5c",
+     "med": "medium/Step10/img005.jpg?v=b67d1d5c",
      "text": "Sa portée symbolique n’en demeure pas moins immense. La statue fut le monument qui accueillait les immigrants venus d’Europe à la fin du 19ème et au début du 20ème siècle.",
      "mode": null,
      "lat": 40.686141666666664,
@@ -1116,10 +1086,10 @@
      "date": "2026-10-22T09:40:02.000Z"
     },
     {
-     "src": "Step11/img006.jpeg?v=43654a4a",
+     "src": "Step10/img006.jpeg?v=43654a4a",
      "type": "image",
-     "thumb": "thumbs/Step11/img006.jpg?v=43654a4a",
-     "med": "medium/Step11/img006.jpg?v=43654a4a",
+     "thumb": "thumbs/Step10/img006.jpg?v=43654a4a",
+     "med": "medium/Step10/img006.jpg?v=43654a4a",
      "text": "",
      "mode": null,
      "lat": 40.68912222222222,
@@ -1127,10 +1097,10 @@
      "date": "2026-10-22T09:58:51.000Z"
     },
     {
-     "src": "Step11/img007.jpeg?v=9bdd1ada",
+     "src": "Step10/img007.jpeg?v=9bdd1ada",
      "type": "image",
-     "thumb": "thumbs/Step11/img007.jpg?v=9bdd1ada",
-     "med": "medium/Step11/img007.jpg?v=9bdd1ada",
+     "thumb": "thumbs/Step10/img007.jpg?v=9bdd1ada",
+     "med": "medium/Step10/img007.jpg?v=9bdd1ada",
      "text": "",
      "mode": null,
      "lat": 40.689227777777774,
@@ -1138,10 +1108,10 @@
      "date": "2026-10-22T10:37:32.000Z"
     },
     {
-     "src": "Step11/img008.jpeg?v=5b2b339f",
+     "src": "Step10/img008.jpeg?v=5b2b339f",
      "type": "image",
-     "thumb": "thumbs/Step11/img008.jpg?v=5b2b339f",
-     "med": "medium/Step11/img008.jpg?v=5b2b339f",
+     "thumb": "thumbs/Step10/img008.jpg?v=5b2b339f",
+     "med": "medium/Step10/img008.jpg?v=5b2b339f",
      "text": "",
      "mode": null,
      "lat": 40.689280555555555,
@@ -1149,10 +1119,10 @@
      "date": "2026-10-22T10:26:33.000Z"
     },
     {
-     "src": "Step11/img009.jpeg?v=ce49ecdf",
+     "src": "Step10/img009.jpeg?v=ce49ecdf",
      "type": "image",
-     "thumb": "thumbs/Step11/img009.jpg?v=ce49ecdf",
-     "med": "medium/Step11/img009.jpg?v=ce49ecdf",
+     "thumb": "thumbs/Step10/img009.jpg?v=ce49ecdf",
+     "med": "medium/Step10/img009.jpg?v=ce49ecdf",
      "text": "",
      "mode": null,
      "lat": 40.689144444444445,
@@ -1160,10 +1130,10 @@
      "date": "2026-10-22T10:20:35.000Z"
     },
     {
-     "src": "Step11/img010.jpeg?v=2f0aabc9",
+     "src": "Step10/img010.jpeg?v=2f0aabc9",
      "type": "image",
-     "thumb": "thumbs/Step11/img010.jpg?v=2f0aabc9",
-     "med": "medium/Step11/img010.jpg?v=2f0aabc9",
+     "thumb": "thumbs/Step10/img010.jpg?v=2f0aabc9",
+     "med": "medium/Step10/img010.jpg?v=2f0aabc9",
      "text": "",
      "mode": null,
      "lat": 40.68915277777777,
@@ -1171,10 +1141,10 @@
      "date": "2026-10-22T10:28:45.000Z"
     },
     {
-     "src": "Step11/img011.jpeg?v=326a69cf",
+     "src": "Step10/img011.jpeg?v=326a69cf",
      "type": "image",
-     "thumb": "thumbs/Step11/img011.jpg?v=326a69cf",
-     "med": "medium/Step11/img011.jpg?v=326a69cf",
+     "thumb": "thumbs/Step10/img011.jpg?v=326a69cf",
+     "med": "medium/Step10/img011.jpg?v=326a69cf",
      "text": "",
      "mode": null,
      "lat": 40.690715,
@@ -1184,16 +1154,16 @@
    ]
   },
   {
-   "id": "Step12",
+   "id": "Step11",
    "name": "Deuxième jour : suite dans le secteur du World Trade Center",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step12/img001.jpeg?v=f60c7d55",
+     "src": "Step11/img001.jpeg?v=f60c7d55",
      "type": "image",
-     "thumb": "thumbs/Step12/img001.jpg?v=f60c7d55",
-     "med": "medium/Step12/img001.jpg?v=f60c7d55",
+     "thumb": "thumbs/Step11/img001.jpg?v=f60c7d55",
+     "med": "medium/Step11/img001.jpg?v=f60c7d55",
      "text": "La tour **One World Trade Center** est la plus haute tour de New York, avec 541 mètres de haut.",
      "mode": null,
      "lat": 40.70536666666667,
@@ -1201,10 +1171,10 @@
      "date": "2026-10-22T13:58:50.000Z"
     },
     {
-     "src": "Step12/img002.jpeg?v=9e83ce06",
+     "src": "Step11/img002.jpeg?v=9e83ce06",
      "type": "image",
-     "thumb": "thumbs/Step12/img002.jpg?v=9e83ce06",
-     "med": "medium/Step12/img002.jpg?v=9e83ce06",
+     "thumb": "thumbs/Step11/img002.jpg?v=9e83ce06",
+     "med": "medium/Step11/img002.jpg?v=9e83ce06",
      "text": "La hauteur de la tour ne doit rien au hasard : ses 1776 pieds de haut font référence à l'année de l’indépendance américaine, le 4 juillet 1776.",
      "mode": null,
      "lat": 40.71360833333333,
@@ -1212,10 +1182,10 @@
      "date": "2026-10-22T14:16:24.000Z"
     },
     {
-     "src": "Step12/img003.jpeg?v=6e159010",
+     "src": "Step11/img003.jpeg?v=6e159010",
      "type": "image",
-     "thumb": "thumbs/Step12/img003.jpg?v=6e159010",
-     "med": "medium/Step12/img003.jpg?v=6e159010",
+     "thumb": "thumbs/Step11/img003.jpg?v=6e159010",
+     "med": "medium/Step11/img003.jpg?v=6e159010",
      "text": "La tour, sans son antenne, atteint 417 mètres de haut : exactement la hauteur de l’ancienne tour Nord du World Trade Center.",
      "mode": null,
      "lat": 40.71255,
@@ -1223,10 +1193,10 @@
      "date": "2026-10-22T14:11:59.000Z"
     },
     {
-     "src": "Step12/img004.jpeg?v=6ac7cf69",
+     "src": "Step11/img004.jpeg?v=6ac7cf69",
      "type": "image",
-     "thumb": "thumbs/Step12/img004.jpg?v=6ac7cf69",
-     "med": "medium/Step12/img004.jpg?v=6ac7cf69",
+     "thumb": "thumbs/Step11/img004.jpg?v=6ac7cf69",
+     "med": "medium/Step11/img004.jpg?v=6ac7cf69",
      "text": "Il aura fallu plus de 10 ans pour que ce projet pharaonique voit le jour.",
      "mode": null,
      "lat": 40.712588888888895,
@@ -1234,10 +1204,10 @@
      "date": "2026-10-22T14:11:50.000Z"
     },
     {
-     "src": "Step12/img005.jpeg?v=f704163b",
+     "src": "Step11/img005.jpeg?v=f704163b",
      "type": "image",
-     "thumb": "thumbs/Step12/img005.jpg?v=f704163b",
-     "med": "medium/Step12/img005.jpg?v=f704163b",
+     "thumb": "thumbs/Step11/img005.jpg?v=f704163b",
+     "med": "medium/Step11/img005.jpg?v=f704163b",
      "text": "",
      "mode": null,
      "lat": 40.71208611111111,
@@ -1245,10 +1215,10 @@
      "date": "2026-10-22T18:46:22.000Z"
     },
     {
-     "src": "Step12/img006.jpeg?v=7eb255ba",
+     "src": "Step11/img006.jpeg?v=7eb255ba",
      "type": "image",
-     "thumb": "thumbs/Step12/img006.jpg?v=7eb255ba",
-     "med": "medium/Step12/img006.jpg?v=7eb255ba",
+     "thumb": "thumbs/Step11/img006.jpg?v=7eb255ba",
+     "med": "medium/Step11/img006.jpg?v=7eb255ba",
      "text": "La tour vue de nuit depuis l'Oculus.",
      "mode": null,
      "lat": 40.71073888888889,
@@ -1256,10 +1226,10 @@
      "date": "2026-10-23T16:57:14.000Z"
     },
     {
-     "src": "Step12/img007.jpeg?v=19a6e24e",
+     "src": "Step11/img007.jpeg?v=19a6e24e",
      "type": "image",
-     "thumb": "thumbs/Step12/img007.jpg?v=19a6e24e",
-     "med": "medium/Step12/img007.jpg?v=19a6e24e",
+     "thumb": "thumbs/Step11/img007.jpg?v=19a6e24e",
+     "med": "medium/Step11/img007.jpg?v=19a6e24e",
      "text": "",
      "mode": null,
      "lat": 40.71138333333334,
@@ -1267,10 +1237,10 @@
      "date": "2026-10-22T18:57:41.000Z"
     },
     {
-     "src": "Step12/img008.jpeg?v=601392d0",
+     "src": "Step11/img008.jpeg?v=601392d0",
      "type": "image",
-     "thumb": "thumbs/Step12/img008.jpg?v=601392d0",
-     "med": "medium/Step12/img008.jpg?v=601392d0",
+     "thumb": "thumbs/Step11/img008.jpg?v=601392d0",
+     "med": "medium/Step11/img008.jpg?v=601392d0",
      "text": "",
      "mode": null,
      "lat": 40.712494444444445,
@@ -1278,10 +1248,10 @@
      "date": "2026-10-22T14:57:13.000Z"
     },
     {
-     "src": "Step12/img009.jpeg?v=55cf4670",
+     "src": "Step11/img009.jpeg?v=55cf4670",
      "type": "image",
-     "thumb": "thumbs/Step12/img009.jpg?v=55cf4670",
-     "med": "medium/Step12/img009.jpg?v=55cf4670",
+     "thumb": "thumbs/Step11/img009.jpg?v=55cf4670",
+     "med": "medium/Step11/img009.jpg?v=55cf4670",
      "text": "",
      "mode": null,
      "lat": 40.71114722222222,
@@ -1289,10 +1259,10 @@
      "date": "2026-10-22T18:28:50.000Z"
     },
     {
-     "src": "Step12/img010.jpeg?v=02a89c0c",
+     "src": "Step11/img010.jpeg?v=02a89c0c",
      "type": "image",
-     "thumb": "thumbs/Step12/img010.jpg?v=02a89c0c",
-     "med": "medium/Step12/img010.jpg?v=02a89c0c",
+     "thumb": "thumbs/Step11/img010.jpg?v=02a89c0c",
+     "med": "medium/Step11/img010.jpg?v=02a89c0c",
      "text": "",
      "mode": null,
      "lat": 40.71259722222222,
@@ -1300,10 +1270,10 @@
      "date": "2026-10-22T14:57:38.000Z"
     },
     {
-     "src": "Step12/img011.jpeg?v=4e3f8945",
+     "src": "Step11/img011.jpeg?v=4e3f8945",
      "type": "image",
-     "thumb": "thumbs/Step12/img011.jpg?v=4e3f8945",
-     "med": "medium/Step12/img011.jpg?v=4e3f8945",
+     "thumb": "thumbs/Step11/img011.jpg?v=4e3f8945",
+     "med": "medium/Step11/img011.jpg?v=4e3f8945",
      "text": "",
      "mode": null,
      "lat": 40.71100277777778,
@@ -1311,10 +1281,10 @@
      "date": "2026-10-22T18:29:07.000Z"
     },
     {
-     "src": "Step12/img012.jpeg?v=58336dce",
+     "src": "Step11/img012.jpeg?v=58336dce",
      "type": "image",
-     "thumb": "thumbs/Step12/img012.jpg?v=58336dce",
-     "med": "medium/Step12/img012.jpg?v=58336dce",
+     "thumb": "thumbs/Step11/img012.jpg?v=58336dce",
+     "med": "medium/Step11/img012.jpg?v=58336dce",
      "text": "",
      "mode": null,
      "lat": 40.711400000000005,
@@ -1322,10 +1292,10 @@
      "date": "2026-10-22T18:30:08.000Z"
     },
     {
-     "src": "Step12/img013.jpeg?v=e0b6b5bb",
+     "src": "Step11/img013.jpeg?v=e0b6b5bb",
      "type": "image",
-     "thumb": "thumbs/Step12/img013.jpg?v=e0b6b5bb",
-     "med": "medium/Step12/img013.jpg?v=e0b6b5bb",
+     "thumb": "thumbs/Step11/img013.jpg?v=e0b6b5bb",
+     "med": "medium/Step11/img013.jpg?v=e0b6b5bb",
      "text": "",
      "mode": null,
      "lat": 40.711394444444444,
@@ -1333,10 +1303,10 @@
      "date": "2026-10-22T18:30:38.000Z"
     },
     {
-     "src": "Step12/img014.jpeg?v=5fea073e",
+     "src": "Step11/img014.jpeg?v=5fea073e",
      "type": "image",
-     "thumb": "thumbs/Step12/img014.jpg?v=5fea073e",
-     "med": "medium/Step12/img014.jpg?v=5fea073e",
+     "thumb": "thumbs/Step11/img014.jpg?v=5fea073e",
+     "med": "medium/Step11/img014.jpg?v=5fea073e",
      "text": "",
      "mode": null,
      "lat": 40.711330555555556,
@@ -1344,10 +1314,10 @@
      "date": "2026-10-22T18:34:48.000Z"
     },
     {
-     "src": "Step12/img015.jpeg?v=b50506bf",
+     "src": "Step11/img015.jpeg?v=b50506bf",
      "type": "image",
-     "thumb": "thumbs/Step12/img015.jpg?v=b50506bf",
-     "med": "medium/Step12/img015.jpg?v=b50506bf",
+     "thumb": "thumbs/Step11/img015.jpg?v=b50506bf",
+     "med": "medium/Step11/img015.jpg?v=b50506bf",
      "text": "L’Oculus abrite le WTC Transportation Hub, la gare du World Trade Center et remplace l’ancienne gare PATH, détruite lors des attentats du 11 septembre 2001.",
      "mode": null,
      "lat": 40.711647222222226,
@@ -1355,10 +1325,10 @@
      "date": "2026-10-22T18:38:06.000Z"
     },
     {
-     "src": "Step12/img016.jpeg?v=3c6bfc78",
+     "src": "Step11/img016.jpeg?v=3c6bfc78",
      "type": "image",
-     "thumb": "thumbs/Step12/img016.jpg?v=3c6bfc78",
-     "med": "medium/Step12/img016.jpg?v=3c6bfc78",
+     "thumb": "thumbs/Step11/img016.jpg?v=3c6bfc78",
+     "med": "medium/Step11/img016.jpg?v=3c6bfc78",
      "text": "",
      "mode": null,
      "lat": 40.711911111111114,
@@ -1366,10 +1336,10 @@
      "date": "2026-10-22T18:40:07.000Z"
     },
     {
-     "src": "Step12/img017.jpeg?v=f78ea30f",
+     "src": "Step11/img017.jpeg?v=f78ea30f",
      "type": "image",
-     "thumb": "thumbs/Step12/img017.jpg?v=f78ea30f",
-     "med": "medium/Step12/img017.jpg?v=f78ea30f",
+     "thumb": "thumbs/Step11/img017.jpg?v=f78ea30f",
+     "med": "medium/Step11/img017.jpg?v=f78ea30f",
      "text": "",
      "mode": null,
      "lat": 40.71146666666667,
@@ -1377,10 +1347,10 @@
      "date": "2026-10-22T18:42:46.000Z"
     },
     {
-     "src": "Step12/img018.jpeg?v=f3ea5750",
+     "src": "Step11/img018.jpeg?v=f3ea5750",
      "type": "image",
-     "thumb": "thumbs/Step12/img018.jpg?v=f3ea5750",
-     "med": "medium/Step12/img018.jpg?v=f3ea5750",
+     "thumb": "thumbs/Step11/img018.jpg?v=f3ea5750",
+     "med": "medium/Step11/img018.jpg?v=f3ea5750",
      "text": "*Trying to Remember the Color of the Sky on That September Morning*, oeuvre artistique composée de 2 983 carrés (autant que de victimes des attentats), tous d'une nuance de bleu différente. Derrière ce mur : un lieu particulièrement symbolique (et décrié), un dépôt où sont conservés les restes non identifiés des victimes du 11 septembre 2001.",
      "mode": null,
      "lat": 40.71242777777778,
@@ -1388,10 +1358,10 @@
      "date": "2026-10-22T15:40:26.000Z"
     },
     {
-     "src": "Step12/img019.jpeg?v=d31d8cfe",
+     "src": "Step11/img019.jpeg?v=d31d8cfe",
      "type": "image",
-     "thumb": "thumbs/Step12/img019.jpg?v=d31d8cfe",
-     "med": "medium/Step12/img019.jpg?v=d31d8cfe",
+     "thumb": "thumbs/Step11/img019.jpg?v=d31d8cfe",
+     "med": "medium/Step11/img019.jpg?v=d31d8cfe",
      "text": "**Slurry Wall** (mur de soutènement du World Trade Center) : construit dans les années 1960, il servait à empêcher l'eau de l'Hudson River de pénétrer dans les fondations du World Trade Center.\nLe 11 septembre 2001, alors que les tours se sont effondrées, ce mur a résisté.",
      "mode": null,
      "lat": 40.711825000000005,
@@ -1399,10 +1369,10 @@
      "date": "2026-10-22T15:57:51.000Z"
     },
     {
-     "src": "Step12/img020.jpeg?v=9413bd22",
+     "src": "Step11/img020.jpeg?v=9413bd22",
      "type": "image",
-     "thumb": "thumbs/Step12/img020.jpg?v=9413bd22",
-     "med": "medium/Step12/img020.jpg?v=9413bd22",
+     "thumb": "thumbs/Step11/img020.jpg?v=9413bd22",
+     "med": "medium/Step11/img020.jpg?v=9413bd22",
      "text": "",
      "mode": null,
      "lat": 40.71181111111111,
@@ -1412,16 +1382,16 @@
    ]
   },
   {
-   "id": "Step13",
+   "id": "Step12",
    "name": "Troisième journée : visite du borought de Brooklyn",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step13/img001.jpeg?v=3cd346ab",
+     "src": "Step12/img001.jpeg?v=3cd346ab",
      "type": "image",
-     "thumb": "thumbs/Step13/img001.jpg?v=3cd346ab",
-     "med": "medium/Step13/img001.jpg?v=3cd346ab",
+     "thumb": "thumbs/Step12/img001.jpg?v=3cd346ab",
+     "med": "medium/Step12/img001.jpg?v=3cd346ab",
      "text": "",
      "mode": null,
      "lat": 40.70295277777778,
@@ -1429,10 +1399,10 @@
      "date": "2026-10-23T10:09:00.000Z"
     },
     {
-     "src": "Step13/img002.jpeg?v=09ff445c",
+     "src": "Step12/img002.jpeg?v=09ff445c",
      "type": "image",
-     "thumb": "thumbs/Step13/img002.jpg?v=09ff445c",
-     "med": "medium/Step13/img002.jpg?v=09ff445c",
+     "thumb": "thumbs/Step12/img002.jpg?v=09ff445c",
+     "med": "medium/Step12/img002.jpg?v=09ff445c",
      "text": "",
      "mode": null,
      "lat": 40.70351666666667,
@@ -1440,10 +1410,10 @@
      "date": "2026-10-23T10:13:44.000Z"
     },
     {
-     "src": "Step13/img003.jpeg?v=e0b8899f",
+     "src": "Step12/img003.jpeg?v=e0b8899f",
      "type": "image",
-     "thumb": "thumbs/Step13/img003.jpg?v=e0b8899f",
-     "med": "medium/Step13/img003.jpg?v=e0b8899f",
+     "thumb": "thumbs/Step12/img003.jpg?v=e0b8899f",
+     "med": "medium/Step12/img003.jpg?v=e0b8899f",
      "text": "",
      "mode": null,
      "lat": 40.703808333333335,
@@ -1451,10 +1421,10 @@
      "date": "2026-10-23T10:28:17.000Z"
     },
     {
-     "src": "Step13/img004.jpeg?v=c886fc6a",
+     "src": "Step12/img004.jpeg?v=c886fc6a",
      "type": "image",
-     "thumb": "thumbs/Step13/img004.jpg?v=c886fc6a",
-     "med": "medium/Step13/img004.jpg?v=c886fc6a",
+     "thumb": "thumbs/Step12/img004.jpg?v=c886fc6a",
+     "med": "medium/Step12/img004.jpg?v=c886fc6a",
      "text": "",
      "mode": null,
      "lat": 40.70393333333334,
@@ -1462,10 +1432,10 @@
      "date": "2026-10-23T10:49:26.000Z"
     },
     {
-     "src": "Step13/img005.jpeg?v=58199379",
+     "src": "Step12/img005.jpeg?v=58199379",
      "type": "image",
-     "thumb": "thumbs/Step13/img005.jpg?v=58199379",
-     "med": "medium/Step13/img005.jpg?v=58199379",
+     "thumb": "thumbs/Step12/img005.jpg?v=58199379",
+     "med": "medium/Step12/img005.jpg?v=58199379",
      "text": "",
      "mode": null,
      "lat": 40.70312222222223,
@@ -1473,10 +1443,10 @@
      "date": "2026-10-23T10:12:36.000Z"
     },
     {
-     "src": "Step13/img006.jpeg?v=c84d54de",
+     "src": "Step12/img006.jpeg?v=c84d54de",
      "type": "image",
-     "thumb": "thumbs/Step13/img006.jpg?v=c84d54de",
-     "med": "medium/Step13/img006.jpg?v=c84d54de",
+     "thumb": "thumbs/Step12/img006.jpg?v=c84d54de",
+     "med": "medium/Step12/img006.jpg?v=c84d54de",
      "text": "",
      "mode": null,
      "lat": 40.70365555555556,
@@ -1484,10 +1454,10 @@
      "date": "2026-10-23T10:23:02.000Z"
     },
     {
-     "src": "Step13/img007.jpeg?v=7a8a5b70",
+     "src": "Step12/img007.jpeg?v=7a8a5b70",
      "type": "image",
-     "thumb": "thumbs/Step13/img007.jpg?v=7a8a5b70",
-     "med": "medium/Step13/img007.jpg?v=7a8a5b70",
+     "thumb": "thumbs/Step12/img007.jpg?v=7a8a5b70",
+     "med": "medium/Step12/img007.jpg?v=7a8a5b70",
      "text": "",
      "mode": null,
      "lat": 40.70382222222222,
@@ -1495,10 +1465,10 @@
      "date": "2026-10-23T11:08:50.000Z"
     },
     {
-     "src": "Step13/img008.jpeg?v=0cb72686",
+     "src": "Step12/img008.jpeg?v=0cb72686",
      "type": "image",
-     "thumb": "thumbs/Step13/img008.jpg?v=0cb72686",
-     "med": "medium/Step13/img008.jpg?v=0cb72686",
+     "thumb": "thumbs/Step12/img008.jpg?v=0cb72686",
+     "med": "medium/Step12/img008.jpg?v=0cb72686",
      "text": "",
      "mode": null,
      "lat": 40.70438055555556,
@@ -1506,10 +1476,10 @@
      "date": "2026-10-23T10:46:10.000Z"
     },
     {
-     "src": "Step13/img009.jpeg?v=580b0fe0",
+     "src": "Step12/img009.jpeg?v=580b0fe0",
      "type": "image",
-     "thumb": "thumbs/Step13/img009.jpg?v=580b0fe0",
-     "med": "medium/Step13/img009.jpg?v=580b0fe0",
+     "thumb": "thumbs/Step12/img009.jpg?v=580b0fe0",
+     "med": "medium/Step12/img009.jpg?v=580b0fe0",
      "text": "",
      "mode": null,
      "lat": 40.70426666666667,
@@ -1517,10 +1487,10 @@
      "date": "2026-10-23T10:41:41.000Z"
     },
     {
-     "src": "Step13/img010.jpeg?v=1f1a0cc1",
+     "src": "Step12/img010.jpeg?v=1f1a0cc1",
      "type": "image",
-     "thumb": "thumbs/Step13/img010.jpg?v=1f1a0cc1",
-     "med": "medium/Step13/img010.jpg?v=1f1a0cc1",
+     "thumb": "thumbs/Step12/img010.jpg?v=1f1a0cc1",
+     "med": "medium/Step12/img010.jpg?v=1f1a0cc1",
      "text": "",
      "mode": null,
      "lat": 40.70432777777778,
@@ -1528,10 +1498,10 @@
      "date": "2026-10-23T10:45:59.000Z"
     },
     {
-     "src": "Step13/img011.jpeg?v=41ecd287",
+     "src": "Step12/img011.jpeg?v=41ecd287",
      "type": "image",
-     "thumb": "thumbs/Step13/img011.jpg?v=41ecd287",
-     "med": "medium/Step13/img011.jpg?v=41ecd287",
+     "thumb": "thumbs/Step12/img011.jpg?v=41ecd287",
+     "med": "medium/Step12/img011.jpg?v=41ecd287",
      "text": "",
      "mode": null,
      "lat": 40.70433888888889,
@@ -1539,10 +1509,10 @@
      "date": "2026-10-23T10:46:50.000Z"
     },
     {
-     "src": "Step13/img012.jpeg?v=c2319d86",
+     "src": "Step12/img012.jpeg?v=c2319d86",
      "type": "image",
-     "thumb": "thumbs/Step13/img012.jpg?v=c2319d86",
-     "med": "medium/Step13/img012.jpg?v=c2319d86",
+     "thumb": "thumbs/Step12/img012.jpg?v=c2319d86",
+     "med": "medium/Step12/img012.jpg?v=c2319d86",
      "text": "",
      "mode": null,
      "lat": 40.703833333333336,
@@ -1550,10 +1520,10 @@
      "date": "2026-10-23T11:09:01.000Z"
     },
     {
-     "src": "Step13/img013.jpeg?v=deac4ff0",
+     "src": "Step12/img013.jpeg?v=deac4ff0",
      "type": "image",
-     "thumb": "thumbs/Step13/img013.jpg?v=deac4ff0",
-     "med": "medium/Step13/img013.jpg?v=deac4ff0",
+     "thumb": "thumbs/Step12/img013.jpg?v=deac4ff0",
+     "med": "medium/Step12/img013.jpg?v=deac4ff0",
      "text": "",
      "mode": null,
      "lat": 40.70338055555556,
@@ -1561,10 +1531,10 @@
      "date": "2026-10-23T11:27:34.000Z"
     },
     {
-     "src": "Step13/img014.jpeg?v=76bcaab8",
+     "src": "Step12/img014.jpeg?v=76bcaab8",
      "type": "image",
-     "thumb": "thumbs/Step13/img014.jpg?v=76bcaab8",
-     "med": "medium/Step13/img014.jpg?v=76bcaab8",
+     "thumb": "thumbs/Step12/img014.jpg?v=76bcaab8",
+     "med": "medium/Step12/img014.jpg?v=76bcaab8",
      "text": "",
      "mode": null,
      "lat": 40.703966666666666,
@@ -1572,10 +1542,10 @@
      "date": "2026-10-23T11:25:42.000Z"
     },
     {
-     "src": "Step13/img016.jpeg?v=7e006f0c",
+     "src": "Step12/img016.jpeg?v=7e006f0c",
      "type": "image",
-     "thumb": "thumbs/Step13/img016.jpg?v=7e006f0c",
-     "med": "medium/Step13/img016.jpg?v=7e006f0c",
+     "thumb": "thumbs/Step12/img016.jpg?v=7e006f0c",
+     "med": "medium/Step12/img016.jpg?v=7e006f0c",
      "text": "",
      "mode": null,
      "lat": 40.702336111111116,
@@ -1583,10 +1553,10 @@
      "date": "2026-10-23T12:15:38.000Z"
     },
     {
-     "src": "Step13/img017.jpeg?v=0b1acd8e",
+     "src": "Step12/img017.jpeg?v=0b1acd8e",
      "type": "image",
-     "thumb": "thumbs/Step13/img017.jpg?v=0b1acd8e",
-     "med": "medium/Step13/img017.jpg?v=0b1acd8e",
+     "thumb": "thumbs/Step12/img017.jpg?v=0b1acd8e",
+     "med": "medium/Step12/img017.jpg?v=0b1acd8e",
      "text": "",
      "mode": null,
      "lat": 40.70332777777778,
@@ -1594,10 +1564,10 @@
      "date": "2026-10-23T12:23:16.000Z"
     },
     {
-     "src": "Step13/img018.jpeg?v=97185903",
+     "src": "Step12/img018.jpeg?v=97185903",
      "type": "image",
-     "thumb": "thumbs/Step13/img018.jpg?v=97185903",
-     "med": "medium/Step13/img018.jpg?v=97185903",
+     "thumb": "thumbs/Step12/img018.jpg?v=97185903",
+     "med": "medium/Step12/img018.jpg?v=97185903",
      "text": "",
      "mode": null,
      "lat": 40.700947222222226,
@@ -1605,10 +1575,10 @@
      "date": "2026-10-23T11:37:09.000Z"
     },
     {
-     "src": "Step13/img019.jpeg?v=577e9e49",
+     "src": "Step12/img019.jpeg?v=577e9e49",
      "type": "image",
-     "thumb": "thumbs/Step13/img019.jpg?v=577e9e49",
-     "med": "medium/Step13/img019.jpg?v=577e9e49",
+     "thumb": "thumbs/Step12/img019.jpg?v=577e9e49",
+     "med": "medium/Step12/img019.jpg?v=577e9e49",
      "text": "",
      "mode": null,
      "lat": 40.700694444444444,
@@ -1616,10 +1586,10 @@
      "date": "2026-10-23T11:58:24.000Z"
     },
     {
-     "src": "Step13/img020.jpeg?v=480fa574",
+     "src": "Step12/img020.jpeg?v=480fa574",
      "type": "image",
-     "thumb": "thumbs/Step13/img020.jpg?v=480fa574",
-     "med": "medium/Step13/img020.jpg?v=480fa574",
+     "thumb": "thumbs/Step12/img020.jpg?v=480fa574",
+     "med": "medium/Step12/img020.jpg?v=480fa574",
      "text": "",
      "mode": null,
      "lat": 40.70066111111112,
@@ -1627,10 +1597,10 @@
      "date": "2026-10-23T11:58:58.000Z"
     },
     {
-     "src": "Step13/img021.jpeg?v=a0620585",
+     "src": "Step12/img021.jpeg?v=a0620585",
      "type": "image",
-     "thumb": "thumbs/Step13/img021.jpg?v=a0620585",
-     "med": "medium/Step13/img021.jpg?v=a0620585",
+     "thumb": "thumbs/Step12/img021.jpg?v=a0620585",
+     "med": "medium/Step12/img021.jpg?v=a0620585",
      "text": "",
      "mode": null,
      "lat": 40.70028611111111,
@@ -1638,10 +1608,10 @@
      "date": "2026-10-23T12:03:39.000Z"
     },
     {
-     "src": "Step13/img022.jpeg?v=9377cb0c",
+     "src": "Step12/img022.jpeg?v=9377cb0c",
      "type": "image",
-     "thumb": "thumbs/Step13/img022.jpg?v=9377cb0c",
-     "med": "medium/Step13/img022.jpg?v=9377cb0c",
+     "thumb": "thumbs/Step12/img022.jpg?v=9377cb0c",
+     "med": "medium/Step12/img022.jpg?v=9377cb0c",
      "text": "",
      "mode": null,
      "lat": 40.703975,
@@ -1651,16 +1621,16 @@
    ]
   },
   {
-   "id": "Step14",
+   "id": "Step13",
    "name": "Troisième jour : à la sortie du Pont de Brooklyn, nous nous baladons dans le Sud de Manhattan pour rejoindre Wall Street",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step14/img001.jpeg?v=3ce7cb1a",
+     "src": "Step13/img001.jpeg?v=3ce7cb1a",
      "type": "image",
-     "thumb": "thumbs/Step14/img001.jpg?v=3ce7cb1a",
-     "med": "medium/Step14/img001.jpg?v=3ce7cb1a",
+     "thumb": "thumbs/Step13/img001.jpg?v=3ce7cb1a",
+     "med": "medium/Step13/img001.jpg?v=3ce7cb1a",
      "text": "",
      "mode": null,
      "lat": 40.705850000000005,
@@ -1668,10 +1638,10 @@
      "date": "2026-10-23T13:42:30.000Z"
     },
     {
-     "src": "Step14/img002.jpeg?v=c2fa1f17",
+     "src": "Step13/img002.jpeg?v=c2fa1f17",
      "type": "image",
-     "thumb": "thumbs/Step14/img002.jpg?v=c2fa1f17",
-     "med": "medium/Step14/img002.jpg?v=c2fa1f17",
+     "thumb": "thumbs/Step13/img002.jpg?v=c2fa1f17",
+     "med": "medium/Step13/img002.jpg?v=c2fa1f17",
      "text": "",
      "mode": null,
      "lat": null,
@@ -1679,10 +1649,10 @@
      "date": "2026-10-23T14:24:23.000Z"
     },
     {
-     "src": "Step14/img003.jpeg?v=736f9d91",
+     "src": "Step13/img003.jpeg?v=736f9d91",
      "type": "image",
-     "thumb": "thumbs/Step14/img003.jpg?v=736f9d91",
-     "med": "medium/Step14/img003.jpg?v=736f9d91",
+     "thumb": "thumbs/Step13/img003.jpg?v=736f9d91",
+     "med": "medium/Step13/img003.jpg?v=736f9d91",
      "text": "",
      "mode": null,
      "lat": 40.7049,
@@ -1690,10 +1660,10 @@
      "date": "2026-10-23T14:26:06.000Z"
     },
     {
-     "src": "Step14/img004.jpeg?v=6a919fd8",
+     "src": "Step13/img004.jpeg?v=6a919fd8",
      "type": "image",
-     "thumb": "thumbs/Step14/img004.jpg?v=6a919fd8",
-     "med": "medium/Step14/img004.jpg?v=6a919fd8",
+     "thumb": "thumbs/Step13/img004.jpg?v=6a919fd8",
+     "med": "medium/Step13/img004.jpg?v=6a919fd8",
      "text": "",
      "mode": null,
      "lat": 40.70668333333334,
@@ -1701,10 +1671,10 @@
      "date": "2026-10-23T14:32:29.000Z"
     },
     {
-     "src": "Step14/img005.jpeg?v=53c725a4",
+     "src": "Step13/img005.jpeg?v=53c725a4",
      "type": "image",
-     "thumb": "thumbs/Step14/img005.jpg?v=53c725a4",
-     "med": "medium/Step14/img005.jpg?v=53c725a4",
+     "thumb": "thumbs/Step13/img005.jpg?v=53c725a4",
+     "med": "medium/Step13/img005.jpg?v=53c725a4",
      "text": "",
      "mode": null,
      "lat": 40.70673055555556,
@@ -1712,10 +1682,10 @@
      "date": "2026-10-23T14:36:41.000Z"
     },
     {
-     "src": "Step14/img006.jpeg?v=2e9a37a4",
+     "src": "Step13/img006.jpeg?v=2e9a37a4",
      "type": "image",
-     "thumb": "thumbs/Step14/img006.jpg?v=2e9a37a4",
-     "med": "medium/Step14/img006.jpg?v=2e9a37a4",
+     "thumb": "thumbs/Step13/img006.jpg?v=2e9a37a4",
+     "med": "medium/Step13/img006.jpg?v=2e9a37a4",
      "text": "",
      "mode": null,
      "lat": 40.70677222222223,
@@ -1723,9 +1693,9 @@
      "date": "2026-10-23T14:45:21.000Z"
     },
     {
-     "src": "Step14/img007.jpeg?v=189c4a88",
+     "src": "Step13/img007.jpeg?v=189c4a88",
      "type": "image",
-     "thumb": "thumbs/Step14/img007.jpg?v=189c4a88",
+     "thumb": "thumbs/Step13/img007.jpg?v=189c4a88",
      "med": null,
      "text": "",
      "mode": null,
@@ -1736,15 +1706,15 @@
    ]
   },
   {
-   "id": "Step15",
+   "id": "Step14",
    "name": "Soir du troisième jour : la comédie musicale **Le Roi Lion** à Broadway, à côté du quartier de Time Square.",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step15/img001.jpeg?v=4f747b2b",
+     "src": "Step14/img001.jpeg?v=4f747b2b",
      "type": "image",
-     "thumb": "thumbs/Step15/img001.jpg?v=4f747b2b",
+     "thumb": "thumbs/Step14/img001.jpg?v=4f747b2b",
      "med": null,
      "text": "",
      "mode": null,
@@ -1753,9 +1723,9 @@
      "date": "2026-10-24T11:25:25.000Z"
     },
     {
-     "src": "Step15/img002.jpeg?v=2e8932ac",
+     "src": "Step14/img002.jpeg?v=2e8932ac",
      "type": "image",
-     "thumb": "thumbs/Step15/img002.jpg?v=2e8932ac",
+     "thumb": "thumbs/Step14/img002.jpg?v=2e8932ac",
      "med": null,
      "text": "",
      "mode": null,
@@ -1764,9 +1734,9 @@
      "date": "2026-10-24T11:25:25.000Z"
     },
     {
-     "src": "Step15/img003.jpeg?v=8ab17f29",
+     "src": "Step14/img003.jpeg?v=8ab17f29",
      "type": "image",
-     "thumb": "thumbs/Step15/img003.jpg?v=8ab17f29",
+     "thumb": "thumbs/Step14/img003.jpg?v=8ab17f29",
      "med": null,
      "text": "",
      "mode": null,
@@ -1775,10 +1745,10 @@
      "date": "2026-10-24T11:25:25.000Z"
     },
     {
-     "src": "Step15/img004.jpeg?v=f6b018ac",
+     "src": "Step14/img004.jpeg?v=f6b018ac",
      "type": "image",
-     "thumb": "thumbs/Step15/img004.jpg?v=f6b018ac",
-     "med": "medium/Step15/img004.jpg?v=f6b018ac",
+     "thumb": "thumbs/Step14/img004.jpg?v=f6b018ac",
+     "med": "medium/Step14/img004.jpg?v=f6b018ac",
      "text": "",
      "mode": null,
      "lat": null,
@@ -1786,10 +1756,10 @@
      "date": "2026-10-23T18:30:01.000Z"
     },
     {
-     "src": "Step15/img005.jpeg?v=052a29a1",
+     "src": "Step14/img005.jpeg?v=052a29a1",
      "type": "image",
-     "thumb": "thumbs/Step15/img005.jpg?v=052a29a1",
-     "med": "medium/Step15/img005.jpg?v=052a29a1",
+     "thumb": "thumbs/Step14/img005.jpg?v=052a29a1",
+     "med": "medium/Step14/img005.jpg?v=052a29a1",
      "text": "",
      "mode": null,
      "lat": null,
@@ -1797,10 +1767,10 @@
      "date": "2026-10-23T18:31:24.000Z"
     },
     {
-     "src": "Step15/img006.jpeg?v=1117e595",
+     "src": "Step14/img006.jpeg?v=1117e595",
      "type": "image",
-     "thumb": "thumbs/Step15/img006.jpg?v=1117e595",
-     "med": "medium/Step15/img006.jpg?v=1117e595",
+     "thumb": "thumbs/Step14/img006.jpg?v=1117e595",
+     "med": "medium/Step14/img006.jpg?v=1117e595",
      "text": "",
      "mode": null,
      "lat": null,
@@ -1810,16 +1780,16 @@
    ]
   },
   {
-   "id": "Step16",
+   "id": "Step15",
    "name": "Quatrième jour : nous flânons à Central Park avant une balade vers Roosevelt Island.",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step16/img001.jpeg?v=248fe3fe",
+     "src": "Step15/img001.jpeg?v=248fe3fe",
      "type": "image",
-     "thumb": "thumbs/Step16/img001.jpg?v=248fe3fe",
-     "med": "medium/Step16/img001.jpg?v=248fe3fe",
+     "thumb": "thumbs/Step15/img001.jpg?v=248fe3fe",
+     "med": "medium/Step15/img001.jpg?v=248fe3fe",
      "text": "",
      "mode": null,
      "lat": 40.76649444444445,
@@ -1827,10 +1797,10 @@
      "date": "2026-10-24T13:21:26.000Z"
     },
     {
-     "src": "Step16/img002.jpeg?v=f7ab8b40",
+     "src": "Step15/img002.jpeg?v=f7ab8b40",
      "type": "image",
-     "thumb": "thumbs/Step16/img002.jpg?v=f7ab8b40",
-     "med": "medium/Step16/img002.jpg?v=f7ab8b40",
+     "thumb": "thumbs/Step15/img002.jpg?v=f7ab8b40",
+     "med": "medium/Step15/img002.jpg?v=f7ab8b40",
      "text": "",
      "mode": null,
      "lat": 40.77226944444444,
@@ -1838,10 +1808,10 @@
      "date": "2026-10-24T14:45:43.000Z"
     },
     {
-     "src": "Step16/img003.jpeg?v=3b9e9cf2",
+     "src": "Step15/img003.jpeg?v=3b9e9cf2",
      "type": "image",
-     "thumb": "thumbs/Step16/img003.jpg?v=3b9e9cf2",
-     "med": "medium/Step16/img003.jpg?v=3b9e9cf2",
+     "thumb": "thumbs/Step15/img003.jpg?v=3b9e9cf2",
+     "med": "medium/Step15/img003.jpg?v=3b9e9cf2",
      "text": "",
      "mode": null,
      "lat": 40.77236944444444,
@@ -1849,10 +1819,10 @@
      "date": "2026-10-24T14:46:27.000Z"
     },
     {
-     "src": "Step16/img004.jpeg?v=9c2756ae",
+     "src": "Step15/img004.jpeg?v=9c2756ae",
      "type": "image",
-     "thumb": "thumbs/Step16/img004.jpg?v=9c2756ae",
-     "med": "medium/Step16/img004.jpg?v=9c2756ae",
+     "thumb": "thumbs/Step15/img004.jpg?v=9c2756ae",
+     "med": "medium/Step15/img004.jpg?v=9c2756ae",
      "text": "",
      "mode": null,
      "lat": 40.771902777777775,
@@ -1860,10 +1830,10 @@
      "date": "2026-10-24T14:49:00.000Z"
     },
     {
-     "src": "Step16/img005.jpeg?v=2e77c36a",
+     "src": "Step15/img005.jpeg?v=2e77c36a",
      "type": "image",
-     "thumb": "thumbs/Step16/img005.jpg?v=2e77c36a",
-     "med": "medium/Step16/img005.jpg?v=2e77c36a",
+     "thumb": "thumbs/Step15/img005.jpg?v=2e77c36a",
+     "med": "medium/Step15/img005.jpg?v=2e77c36a",
      "text": "",
      "mode": null,
      "lat": 40.778733333333335,
@@ -1871,10 +1841,10 @@
      "date": "2026-10-24T16:10:08.000Z"
     },
     {
-     "src": "Step16/img006.jpeg?v=8bfb1dba",
+     "src": "Step15/img006.jpeg?v=8bfb1dba",
      "type": "image",
-     "thumb": "thumbs/Step16/img006.jpg?v=8bfb1dba",
-     "med": "medium/Step16/img006.jpg?v=8bfb1dba",
+     "thumb": "thumbs/Step15/img006.jpg?v=8bfb1dba",
+     "med": "medium/Step15/img006.jpg?v=8bfb1dba",
      "text": "",
      "mode": null,
      "lat": 40.77555833333333,
@@ -1882,10 +1852,10 @@
      "date": "2026-10-24T16:21:57.000Z"
     },
     {
-     "src": "Step16/img007.jpeg?v=c1d34c6a",
+     "src": "Step15/img007.jpeg?v=c1d34c6a",
      "type": "image",
-     "thumb": "thumbs/Step16/img007.jpg?v=c1d34c6a",
-     "med": "medium/Step16/img007.jpg?v=c1d34c6a",
+     "thumb": "thumbs/Step15/img007.jpg?v=c1d34c6a",
+     "med": "medium/Step15/img007.jpg?v=c1d34c6a",
      "text": "",
      "mode": null,
      "lat": 40.775725,
@@ -1893,10 +1863,10 @@
      "date": "2026-10-24T16:32:19.000Z"
     },
     {
-     "src": "Step16/img008.jpeg?v=99c9cc97",
+     "src": "Step15/img008.jpeg?v=99c9cc97",
      "type": "image",
-     "thumb": "thumbs/Step16/img008.jpg?v=99c9cc97",
-     "med": "medium/Step16/img008.jpg?v=99c9cc97",
+     "thumb": "thumbs/Step15/img008.jpg?v=99c9cc97",
+     "med": "medium/Step15/img008.jpg?v=99c9cc97",
      "text": "",
      "mode": null,
      "lat": 40.76680833333333,
@@ -1904,10 +1874,10 @@
      "date": "2026-10-24T13:17:13.000Z"
     },
     {
-     "src": "Step16/img009.jpeg?v=20c52cf9",
+     "src": "Step15/img009.jpeg?v=20c52cf9",
      "type": "image",
-     "thumb": "thumbs/Step16/img009.jpg?v=20c52cf9",
-     "med": "medium/Step16/img009.jpg?v=20c52cf9",
+     "thumb": "thumbs/Step15/img009.jpg?v=20c52cf9",
+     "med": "medium/Step15/img009.jpg?v=20c52cf9",
      "text": "",
      "mode": null,
      "lat": 40.76651388888889,
@@ -1915,10 +1885,10 @@
      "date": "2026-10-24T13:24:00.000Z"
     },
     {
-     "src": "Step16/img010.jpeg?v=26bef83f",
+     "src": "Step15/img010.jpeg?v=26bef83f",
      "type": "image",
-     "thumb": "thumbs/Step16/img010.jpg?v=26bef83f",
-     "med": "medium/Step16/img010.jpg?v=26bef83f",
+     "thumb": "thumbs/Step15/img010.jpg?v=26bef83f",
+     "med": "medium/Step15/img010.jpg?v=26bef83f",
      "text": "",
      "mode": null,
      "lat": 40.766486111111114,
@@ -1926,10 +1896,10 @@
      "date": "2026-10-24T13:25:44.000Z"
     },
     {
-     "src": "Step16/img011.jpeg?v=636097ed",
+     "src": "Step15/img011.jpeg?v=636097ed",
      "type": "image",
-     "thumb": "thumbs/Step16/img011.jpg?v=636097ed",
-     "med": "medium/Step16/img011.jpg?v=636097ed",
+     "thumb": "thumbs/Step15/img011.jpg?v=636097ed",
+     "med": "medium/Step15/img011.jpg?v=636097ed",
      "text": "",
      "mode": null,
      "lat": 40.76683888888889,
@@ -1937,10 +1907,10 @@
      "date": "2026-10-24T13:33:40.000Z"
     },
     {
-     "src": "Step16/img012.jpeg?v=fc1f6aa1",
+     "src": "Step15/img012.jpeg?v=fc1f6aa1",
      "type": "image",
-     "thumb": "thumbs/Step16/img012.jpg?v=fc1f6aa1",
-     "med": "medium/Step16/img012.jpg?v=fc1f6aa1",
+     "thumb": "thumbs/Step15/img012.jpg?v=fc1f6aa1",
+     "med": "medium/Step15/img012.jpg?v=fc1f6aa1",
      "text": "",
      "mode": null,
      "lat": 40.77341944444444,
@@ -1948,10 +1918,10 @@
      "date": "2026-10-24T15:28:45.000Z"
     },
     {
-     "src": "Step16/img013.jpeg?v=58a63120",
+     "src": "Step15/img013.jpeg?v=58a63120",
      "type": "image",
-     "thumb": "thumbs/Step16/img013.jpg?v=58a63120",
-     "med": "medium/Step16/img013.jpg?v=58a63120",
+     "thumb": "thumbs/Step15/img013.jpg?v=58a63120",
+     "med": "medium/Step15/img013.jpg?v=58a63120",
      "text": "",
      "mode": null,
      "lat": 40.77352222222222,
@@ -1959,10 +1929,10 @@
      "date": "2026-10-24T15:31:34.000Z"
     },
     {
-     "src": "Step16/img014.jpeg?v=45ee9cfd",
+     "src": "Step15/img014.jpeg?v=45ee9cfd",
      "type": "image",
-     "thumb": "thumbs/Step16/img014.jpg?v=45ee9cfd",
-     "med": "medium/Step16/img014.jpg?v=45ee9cfd",
+     "thumb": "thumbs/Step15/img014.jpg?v=45ee9cfd",
+     "med": "medium/Step15/img014.jpg?v=45ee9cfd",
      "text": "",
      "mode": null,
      "lat": 40.778663888888886,
@@ -1970,10 +1940,10 @@
      "date": "2026-10-24T16:09:06.000Z"
     },
     {
-     "src": "Step16/img016.jpeg?v=b4594cf8",
+     "src": "Step15/img016.jpeg?v=b4594cf8",
      "type": "image",
-     "thumb": "thumbs/Step16/img016.jpg?v=b4594cf8",
-     "med": "medium/Step16/img016.jpg?v=b4594cf8",
+     "thumb": "thumbs/Step15/img016.jpg?v=b4594cf8",
+     "med": "medium/Step15/img016.jpg?v=b4594cf8",
      "text": "",
      "mode": null,
      "lat": 40.77475,
@@ -1983,16 +1953,16 @@
    ]
   },
   {
-   "id": "Step17",
+   "id": "Step16",
    "name": "Fin de la quatrième journée :  balade vers Roosevelt Island, retour en ferry pour profiter du coucher de soleil.",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step17/img001.jpeg?v=1197b4da",
+     "src": "Step16/img001.jpeg?v=1197b4da",
      "type": "image",
-     "thumb": "thumbs/Step17/img001.jpg?v=1197b4da",
-     "med": "medium/Step17/img001.jpg?v=1197b4da",
+     "thumb": "thumbs/Step16/img001.jpg?v=1197b4da",
+     "med": "medium/Step16/img001.jpg?v=1197b4da",
      "text": "",
      "mode": null,
      "lat": 40.71455,
@@ -2000,10 +1970,10 @@
      "date": "2026-10-24T19:28:58.000Z"
     },
     {
-     "src": "Step17/img002.jpeg?v=5514c830",
+     "src": "Step16/img002.jpeg?v=5514c830",
      "type": "image",
-     "thumb": "thumbs/Step17/img002.jpg?v=5514c830",
-     "med": "medium/Step17/img002.jpg?v=5514c830",
+     "thumb": "thumbs/Step16/img002.jpg?v=5514c830",
+     "med": "medium/Step16/img002.jpg?v=5514c830",
      "text": "",
      "mode": null,
      "lat": 40.740769444444446,
@@ -2011,10 +1981,10 @@
      "date": "2026-10-24T19:23:20.000Z"
     },
     {
-     "src": "Step17/img003.jpeg?v=6aadcc0b",
+     "src": "Step16/img003.jpeg?v=6aadcc0b",
      "type": "image",
-     "thumb": "thumbs/Step17/img003.jpg?v=6aadcc0b",
-     "med": "medium/Step17/img003.jpg?v=6aadcc0b",
+     "thumb": "thumbs/Step16/img003.jpg?v=6aadcc0b",
+     "med": "medium/Step16/img003.jpg?v=6aadcc0b",
      "text": "",
      "mode": null,
      "lat": 40.74590277777778,
@@ -2022,10 +1992,10 @@
      "date": "2026-10-24T19:18:08.000Z"
     },
     {
-     "src": "Step17/img004.jpeg?v=58c56f41",
+     "src": "Step16/img004.jpeg?v=58c56f41",
      "type": "image",
-     "thumb": "thumbs/Step17/img004.jpg?v=58c56f41",
-     "med": "medium/Step17/img004.jpg?v=58c56f41",
+     "thumb": "thumbs/Step16/img004.jpg?v=58c56f41",
+     "med": "medium/Step16/img004.jpg?v=58c56f41",
      "text": "",
      "mode": null,
      "lat": 40.74877222222222,
@@ -2033,10 +2003,10 @@
      "date": "2026-10-24T19:14:32.000Z"
     },
     {
-     "src": "Step17/img005.jpeg?v=6960ef41",
+     "src": "Step16/img005.jpeg?v=6960ef41",
      "type": "image",
-     "thumb": "thumbs/Step17/img005.jpg?v=6960ef41",
-     "med": "medium/Step17/img005.jpg?v=6960ef41",
+     "thumb": "thumbs/Step16/img005.jpg?v=6960ef41",
+     "med": "medium/Step16/img005.jpg?v=6960ef41",
      "text": "",
      "mode": null,
      "lat": 40.755177777777774,
@@ -2046,16 +2016,16 @@
    ]
   },
   {
-   "id": "Step18",
+   "id": "Step17",
    "name": "Cinquième journée : match de NBA en soirée à Brooklyn, nous y passons donc l'après midi !",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step18/img001.jpeg?v=a37116ab",
+     "src": "Step17/img001.jpeg?v=a37116ab",
      "type": "image",
-     "thumb": "thumbs/Step18/img001.jpg?v=a37116ab",
-     "med": "medium/Step18/img001.jpg?v=a37116ab",
+     "thumb": "thumbs/Step17/img001.jpg?v=a37116ab",
+     "med": "medium/Step17/img001.jpg?v=a37116ab",
      "text": "",
      "mode": null,
      "lat": 40.673288888888884,
@@ -2063,10 +2033,10 @@
      "date": "2026-10-25T12:14:48.000Z"
     },
     {
-     "src": "Step18/img002.jpeg?v=736e1fcb",
+     "src": "Step17/img002.jpeg?v=736e1fcb",
      "type": "image",
-     "thumb": "thumbs/Step18/img002.jpg?v=736e1fcb",
-     "med": "medium/Step18/img002.jpg?v=736e1fcb",
+     "thumb": "thumbs/Step17/img002.jpg?v=736e1fcb",
+     "med": "medium/Step17/img002.jpg?v=736e1fcb",
      "text": "",
      "mode": null,
      "lat": 40.673630555555555,
@@ -2074,10 +2044,10 @@
      "date": "2026-10-25T12:19:32.000Z"
     },
     {
-     "src": "Step18/img003.jpeg?v=fc1f41ab",
+     "src": "Step17/img003.jpeg?v=fc1f41ab",
      "type": "image",
-     "thumb": "thumbs/Step18/img003.jpg?v=fc1f41ab",
-     "med": "medium/Step18/img003.jpg?v=fc1f41ab",
+     "thumb": "thumbs/Step17/img003.jpg?v=fc1f41ab",
+     "med": "medium/Step17/img003.jpg?v=fc1f41ab",
      "text": "",
      "mode": null,
      "lat": 40.674277777777775,
@@ -2085,10 +2055,10 @@
      "date": "2026-10-25T12:24:36.000Z"
     },
     {
-     "src": "Step18/img004.jpeg?v=f5117d5e",
+     "src": "Step17/img004.jpeg?v=f5117d5e",
      "type": "image",
-     "thumb": "thumbs/Step18/img004.jpg?v=f5117d5e",
-     "med": "medium/Step18/img004.jpg?v=f5117d5e",
+     "thumb": "thumbs/Step17/img004.jpg?v=f5117d5e",
+     "med": "medium/Step17/img004.jpg?v=f5117d5e",
      "text": "",
      "mode": null,
      "lat": null,
@@ -2096,10 +2066,10 @@
      "date": "2026-10-25T15:35:52.000Z"
     },
     {
-     "src": "Step18/img005.jpeg?v=f5a959c5",
+     "src": "Step17/img005.jpeg?v=f5a959c5",
      "type": "image",
-     "thumb": "thumbs/Step18/img005.jpg?v=f5a959c5",
-     "med": "medium/Step18/img005.jpg?v=f5a959c5",
+     "thumb": "thumbs/Step17/img005.jpg?v=f5a959c5",
+     "med": "medium/Step17/img005.jpg?v=f5a959c5",
      "text": "",
      "mode": null,
      "lat": 40.67208055555555,
@@ -2107,10 +2077,10 @@
      "date": "2026-10-25T15:36:25.000Z"
     },
     {
-     "src": "Step18/img006.jpeg?v=223684f7",
+     "src": "Step17/img006.jpeg?v=223684f7",
      "type": "image",
-     "thumb": "thumbs/Step18/img006.jpg?v=223684f7",
-     "med": "medium/Step18/img006.jpg?v=223684f7",
+     "thumb": "thumbs/Step17/img006.jpg?v=223684f7",
+     "med": "medium/Step17/img006.jpg?v=223684f7",
      "text": "",
      "mode": null,
      "lat": 40.67199722222222,
@@ -2118,10 +2088,10 @@
      "date": "2026-10-25T15:36:30.000Z"
     },
     {
-     "src": "Step18/img007.jpeg?v=49ba6963",
+     "src": "Step17/img007.jpeg?v=49ba6963",
      "type": "image",
-     "thumb": "thumbs/Step18/img007.jpg?v=49ba6963",
-     "med": "medium/Step18/img007.jpg?v=49ba6963",
+     "thumb": "thumbs/Step17/img007.jpg?v=49ba6963",
+     "med": "medium/Step17/img007.jpg?v=49ba6963",
      "text": "",
      "mode": null,
      "lat": null,
@@ -2129,10 +2099,10 @@
      "date": "2026-10-25T15:39:39.000Z"
     },
     {
-     "src": "Step18/img008.jpeg?v=4497a073",
+     "src": "Step17/img008.jpeg?v=4497a073",
      "type": "image",
-     "thumb": "thumbs/Step18/img008.jpg?v=4497a073",
-     "med": "medium/Step18/img008.jpg?v=4497a073",
+     "thumb": "thumbs/Step17/img008.jpg?v=4497a073",
+     "med": "medium/Step17/img008.jpg?v=4497a073",
      "text": "",
      "mode": null,
      "lat": 40.67156666666666,
@@ -2140,10 +2110,10 @@
      "date": "2026-10-25T15:39:47.000Z"
     },
     {
-     "src": "Step18/img009.jpeg?v=7aabcdc1",
+     "src": "Step17/img009.jpeg?v=7aabcdc1",
      "type": "image",
-     "thumb": "thumbs/Step18/img009.jpg?v=7aabcdc1",
-     "med": "medium/Step18/img009.jpg?v=7aabcdc1",
+     "thumb": "thumbs/Step17/img009.jpg?v=7aabcdc1",
+     "med": "medium/Step17/img009.jpg?v=7aabcdc1",
      "text": "",
      "mode": null,
      "lat": 40.67369166666666,
@@ -2151,10 +2121,10 @@
      "date": "2026-10-25T12:19:08.000Z"
     },
     {
-     "src": "Step18/img010.jpeg?v=9d7baf29",
+     "src": "Step17/img010.jpeg?v=9d7baf29",
      "type": "image",
-     "thumb": "thumbs/Step18/img010.jpg?v=9d7baf29",
-     "med": "medium/Step18/img010.jpg?v=9d7baf29",
+     "thumb": "thumbs/Step17/img010.jpg?v=9d7baf29",
+     "med": "medium/Step17/img010.jpg?v=9d7baf29",
      "text": "",
      "mode": null,
      "lat": 40.674677777777774,
@@ -2162,10 +2132,10 @@
      "date": "2026-10-25T12:34:57.000Z"
     },
     {
-     "src": "Step18/img011.jpeg?v=a6f9711a",
+     "src": "Step17/img011.jpeg?v=a6f9711a",
      "type": "image",
-     "thumb": "thumbs/Step18/img011.jpg?v=a6f9711a",
-     "med": "medium/Step18/img011.jpg?v=a6f9711a",
+     "thumb": "thumbs/Step17/img011.jpg?v=a6f9711a",
+     "med": "medium/Step17/img011.jpg?v=a6f9711a",
      "text": "",
      "mode": null,
      "lat": 40.67573055555555,
@@ -2173,10 +2143,10 @@
      "date": "2026-10-25T12:40:34.000Z"
     },
     {
-     "src": "Step18/img012.jpeg?v=00fbef39",
+     "src": "Step17/img012.jpeg?v=00fbef39",
      "type": "image",
-     "thumb": "thumbs/Step18/img012.jpg?v=00fbef39",
-     "med": "medium/Step18/img012.jpg?v=00fbef39",
+     "thumb": "thumbs/Step17/img012.jpg?v=00fbef39",
+     "med": "medium/Step17/img012.jpg?v=00fbef39",
      "text": "",
      "mode": null,
      "lat": 40.67523055555555,
@@ -2184,10 +2154,10 @@
      "date": "2026-10-25T13:06:18.000Z"
     },
     {
-     "src": "Step18/img013.jpeg?v=021cd5c2",
+     "src": "Step17/img013.jpeg?v=021cd5c2",
      "type": "image",
-     "thumb": "thumbs/Step18/img013.jpg?v=021cd5c2",
-     "med": "medium/Step18/img013.jpg?v=021cd5c2",
+     "thumb": "thumbs/Step17/img013.jpg?v=021cd5c2",
+     "med": "medium/Step17/img013.jpg?v=021cd5c2",
      "text": "",
      "mode": null,
      "lat": 40.672669444444445,
@@ -2197,16 +2167,16 @@
    ]
   },
   {
-   "id": "Step19",
+   "id": "Step18",
    "name": "Soirée du cinquième jour : match des Brooklyn Nets au Barclay Center",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step19/img001.jpeg?v=377c9fbc",
+     "src": "Step18/img001.jpeg?v=377c9fbc",
      "type": "image",
-     "thumb": "thumbs/Step19/img001.jpg?v=377c9fbc",
-     "med": "medium/Step19/img001.jpg?v=377c9fbc",
+     "thumb": "thumbs/Step18/img001.jpg?v=377c9fbc",
+     "med": "medium/Step18/img001.jpg?v=377c9fbc",
      "text": "",
      "mode": null,
      "lat": null,
@@ -2214,10 +2184,10 @@
      "date": "2026-10-25T16:56:56.000Z"
     },
     {
-     "src": "Step19/img002.jpeg?v=a23113a0",
+     "src": "Step18/img002.jpeg?v=a23113a0",
      "type": "image",
-     "thumb": "thumbs/Step19/img002.jpg?v=a23113a0",
-     "med": "medium/Step19/img002.jpg?v=a23113a0",
+     "thumb": "thumbs/Step18/img002.jpg?v=a23113a0",
+     "med": "medium/Step18/img002.jpg?v=a23113a0",
      "text": "",
      "mode": null,
      "lat": 40.683363888888884,
@@ -2225,10 +2195,10 @@
      "date": "2026-10-25T17:27:30.000Z"
     },
     {
-     "src": "Step19/img003.jpeg?v=85c3edfd",
+     "src": "Step18/img003.jpeg?v=85c3edfd",
      "type": "image",
-     "thumb": "thumbs/Step19/img003.jpg?v=85c3edfd",
-     "med": "medium/Step19/img003.jpg?v=85c3edfd",
+     "thumb": "thumbs/Step18/img003.jpg?v=85c3edfd",
+     "med": "medium/Step18/img003.jpg?v=85c3edfd",
      "text": "",
      "mode": null,
      "lat": 40.68364722222222,
@@ -2238,16 +2208,16 @@
    ]
   },
   {
-   "id": "Step20",
+   "id": "Step19",
    "name": "Matin du sixième jour : observatoire du Summit.",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step20/img001.jpeg?v=04a98307",
+     "src": "Step19/img001.jpeg?v=04a98307",
      "type": "image",
-     "thumb": "thumbs/Step20/img001.jpg?v=04a98307",
-     "med": "medium/Step20/img001.jpg?v=04a98307",
+     "thumb": "thumbs/Step19/img001.jpg?v=04a98307",
+     "med": "medium/Step19/img001.jpg?v=04a98307",
      "text": "**SUMMIT One Vanderbilt** se trouve au sommet du bâtiment One Vanderbilt, qui fait plus de 427 mètres de haut, quatrième plus haut building de New York.",
      "mode": null,
      "lat": 40.751263888888886,
@@ -2255,10 +2225,10 @@
      "date": "2026-10-26T08:49:06.000Z"
     },
     {
-     "src": "Step20/img002.jpeg?v=4f23fad5",
+     "src": "Step19/img002.jpeg?v=4f23fad5",
      "type": "image",
-     "thumb": "thumbs/Step20/img002.jpg?v=4f23fad5",
-     "med": "medium/Step20/img002.jpg?v=4f23fad5",
+     "thumb": "thumbs/Step19/img002.jpg?v=4f23fad5",
+     "med": "medium/Step19/img002.jpg?v=4f23fad5",
      "text": "",
      "mode": null,
      "lat": 40.752627777777775,
@@ -2266,10 +2236,10 @@
      "date": "2026-10-26T08:56:35.000Z"
     },
     {
-     "src": "Step20/img003.jpeg?v=5d3aac7d",
+     "src": "Step19/img003.jpeg?v=5d3aac7d",
      "type": "image",
-     "thumb": "thumbs/Step20/img003.jpg?v=5d3aac7d",
-     "med": "medium/Step20/img003.jpg?v=5d3aac7d",
+     "thumb": "thumbs/Step19/img003.jpg?v=5d3aac7d",
+     "med": "medium/Step19/img003.jpg?v=5d3aac7d",
      "text": "",
      "mode": null,
      "lat": 40.753613888888886,
@@ -2277,10 +2247,10 @@
      "date": "2026-10-26T09:17:01.000Z"
     },
     {
-     "src": "Step20/img004.jpeg?v=232da43e",
+     "src": "Step19/img004.jpeg?v=232da43e",
      "type": "image",
-     "thumb": "thumbs/Step20/img004.jpg?v=232da43e",
-     "med": "medium/Step20/img004.jpg?v=232da43e",
+     "thumb": "thumbs/Step19/img004.jpg?v=232da43e",
+     "med": "medium/Step19/img004.jpg?v=232da43e",
      "text": "",
      "mode": null,
      "lat": 40.753625,
@@ -2288,10 +2258,10 @@
      "date": "2026-10-26T09:18:14.000Z"
     },
     {
-     "src": "Step20/img005.jpeg?v=ac6c9565",
+     "src": "Step19/img005.jpeg?v=ac6c9565",
      "type": "image",
-     "thumb": "thumbs/Step20/img005.jpg?v=ac6c9565",
-     "med": "medium/Step20/img005.jpg?v=ac6c9565",
+     "thumb": "thumbs/Step19/img005.jpg?v=ac6c9565",
+     "med": "medium/Step19/img005.jpg?v=ac6c9565",
      "text": "**Transcendance 1** est la première partie des plates-formes d’observation de SUMMIT.",
      "mode": null,
      "lat": 40.75371666666667,
@@ -2299,10 +2269,10 @@
      "date": "2026-10-26T09:18:45.000Z"
     },
     {
-     "src": "Step20/img006.jpeg?v=5187c962",
+     "src": "Step19/img006.jpeg?v=5187c962",
      "type": "image",
-     "thumb": "thumbs/Step20/img006.jpg?v=5187c962",
-     "med": "medium/Step20/img006.jpg?v=5187c962",
+     "thumb": "thumbs/Step19/img006.jpg?v=5187c962",
+     "med": "medium/Step19/img006.jpg?v=5187c962",
      "text": "C’est ici que l’on peut trouver le sol, les murs et les plafonds en miroir pour la première fois.",
      "mode": null,
      "lat": 40.75360277777778,
@@ -2310,10 +2280,10 @@
      "date": "2026-10-26T09:22:16.000Z"
     },
     {
-     "src": "Step20/img007.jpeg?v=7d5e7214",
+     "src": "Step19/img007.jpeg?v=7d5e7214",
      "type": "image",
-     "thumb": "thumbs/Step20/img007.jpg?v=7d5e7214",
-     "med": "medium/Step20/img007.jpg?v=7d5e7214",
+     "thumb": "thumbs/Step19/img007.jpg?v=7d5e7214",
+     "med": "medium/Step19/img007.jpg?v=7d5e7214",
      "text": "",
      "mode": null,
      "lat": 40.75293611111111,
@@ -2321,10 +2291,10 @@
      "date": "2026-10-26T09:36:13.000Z"
     },
     {
-     "src": "Step20/img008.jpeg?v=5b5e28a7",
+     "src": "Step19/img008.jpeg?v=5b5e28a7",
      "type": "image",
-     "thumb": "thumbs/Step20/img008.jpg?v=5b5e28a7",
-     "med": "medium/Step20/img008.jpg?v=5b5e28a7",
+     "thumb": "thumbs/Step19/img008.jpg?v=5b5e28a7",
+     "med": "medium/Step19/img008.jpg?v=5b5e28a7",
      "text": "",
      "mode": null,
      "lat": 40.75316111111111,
@@ -2332,10 +2302,10 @@
      "date": "2026-10-26T09:14:45.000Z"
     },
     {
-     "src": "Step20/img009.jpeg?v=91a7f47b",
+     "src": "Step19/img009.jpeg?v=91a7f47b",
      "type": "image",
-     "thumb": "thumbs/Step20/img009.jpg?v=91a7f47b",
-     "med": "medium/Step20/img009.jpg?v=91a7f47b",
+     "thumb": "thumbs/Step19/img009.jpg?v=91a7f47b",
+     "med": "medium/Step19/img009.jpg?v=91a7f47b",
      "text": "",
      "mode": null,
      "lat": 40.752827777777775,
@@ -2343,10 +2313,10 @@
      "date": "2026-10-26T09:19:57.000Z"
     },
     {
-     "src": "Step20/img010.jpeg?v=318ae151",
+     "src": "Step19/img010.jpeg?v=318ae151",
      "type": "image",
-     "thumb": "thumbs/Step20/img010.jpg?v=318ae151",
-     "med": "medium/Step20/img010.jpg?v=318ae151",
+     "thumb": "thumbs/Step19/img010.jpg?v=318ae151",
+     "med": "medium/Step19/img010.jpg?v=318ae151",
      "text": "",
      "mode": null,
      "lat": 40.752786111111114,
@@ -2354,10 +2324,10 @@
      "date": "2026-10-26T09:36:42.000Z"
     },
     {
-     "src": "Step20/img011.jpeg?v=68153689",
+     "src": "Step19/img011.jpeg?v=68153689",
      "type": "image",
-     "thumb": "thumbs/Step20/img011.jpg?v=68153689",
-     "med": "medium/Step20/img011.jpg?v=68153689",
+     "thumb": "thumbs/Step19/img011.jpg?v=68153689",
+     "med": "medium/Step19/img011.jpg?v=68153689",
      "text": "Installation artistique intitulée « Clouds » sur le sol, créée par l’artiste japonaise Yayoi Kusama.",
      "mode": null,
      "lat": 40.75311666666666,
@@ -2365,10 +2335,10 @@
      "date": "2026-10-26T09:42:35.000Z"
     },
     {
-     "src": "Step20/img012.jpeg?v=7cae917f",
+     "src": "Step19/img012.jpeg?v=7cae917f",
      "type": "image",
-     "thumb": "thumbs/Step20/img012.jpg?v=7cae917f",
-     "med": "medium/Step20/img012.jpg?v=7cae917f",
+     "thumb": "thumbs/Step19/img012.jpg?v=7cae917f",
+     "med": "medium/Step19/img012.jpg?v=7cae917f",
      "text": "**Affinity**, la salle aux ballons argentés",
      "mode": null,
      "lat": 40.753055555555555,
@@ -2376,10 +2346,10 @@
      "date": "2026-10-26T09:45:37.000Z"
     },
     {
-     "src": "Step20/img013.jpeg?v=e9072875",
+     "src": "Step19/img013.jpeg?v=e9072875",
      "type": "image",
-     "thumb": "thumbs/Step20/img013.jpg?v=e9072875",
-     "med": "medium/Step20/img013.jpg?v=e9072875",
+     "thumb": "thumbs/Step19/img013.jpg?v=e9072875",
+     "med": "medium/Step19/img013.jpg?v=e9072875",
      "text": "",
      "mode": null,
      "lat": 40.753322222222224,
@@ -2387,10 +2357,10 @@
      "date": "2026-10-26T09:52:08.000Z"
     },
     {
-     "src": "Step20/img014.jpeg?v=bbecb19e",
+     "src": "Step19/img014.jpeg?v=bbecb19e",
      "type": "image",
-     "thumb": "thumbs/Step20/img014.jpg?v=bbecb19e",
-     "med": "medium/Step20/img014.jpg?v=bbecb19e",
+     "thumb": "thumbs/Step19/img014.jpg?v=bbecb19e",
+     "med": "medium/Step19/img014.jpg?v=bbecb19e",
      "text": "",
      "mode": null,
      "lat": 40.75325,
@@ -2398,10 +2368,10 @@
      "date": "2026-10-26T09:56:36.000Z"
     },
     {
-     "src": "Step20/img015.jpeg?v=9ffe71c9",
+     "src": "Step19/img015.jpeg?v=9ffe71c9",
      "type": "image",
-     "thumb": "thumbs/Step20/img015.jpg?v=9ffe71c9",
-     "med": "medium/Step20/img015.jpg?v=9ffe71c9",
+     "thumb": "thumbs/Step19/img015.jpg?v=9ffe71c9",
+     "med": "medium/Step19/img015.jpg?v=9ffe71c9",
      "text": "",
      "mode": null,
      "lat": 40.75321666666667,
@@ -2409,10 +2379,10 @@
      "date": "2026-10-26T09:46:45.000Z"
     },
     {
-     "src": "Step20/img016.jpeg?v=f9f0a508",
+     "src": "Step19/img016.jpeg?v=f9f0a508",
      "type": "image",
-     "thumb": "thumbs/Step20/img016.jpg?v=f9f0a508",
-     "med": "medium/Step20/img016.jpg?v=f9f0a508",
+     "thumb": "thumbs/Step19/img016.jpg?v=f9f0a508",
+     "med": "medium/Step19/img016.jpg?v=f9f0a508",
      "text": "",
      "mode": null,
      "lat": 40.752830555555555,
@@ -2420,10 +2390,10 @@
      "date": "2026-10-26T09:56:49.000Z"
     },
     {
-     "src": "Step20/img017.jpeg?v=87f72838",
+     "src": "Step19/img017.jpeg?v=87f72838",
      "type": "image",
-     "thumb": "thumbs/Step20/img017.jpg?v=87f72838",
-     "med": "medium/Step20/img017.jpg?v=87f72838",
+     "thumb": "thumbs/Step19/img017.jpg?v=87f72838",
+     "med": "medium/Step19/img017.jpg?v=87f72838",
      "text": "",
      "mode": null,
      "lat": null,
@@ -2431,10 +2401,10 @@
      "date": "2026-10-26T10:28:26.000Z"
     },
     {
-     "src": "Step20/img018.jpeg?v=6ec0d301",
+     "src": "Step19/img018.jpeg?v=6ec0d301",
      "type": "image",
-     "thumb": "thumbs/Step20/img018.jpg?v=6ec0d301",
-     "med": "medium/Step20/img018.jpg?v=6ec0d301",
+     "thumb": "thumbs/Step19/img018.jpg?v=6ec0d301",
+     "med": "medium/Step19/img018.jpg?v=6ec0d301",
      "text": "Situé au deuxième étage, **Transcendance 2** offre une vue incroyable et inédite sur la skyline de New York.",
      "mode": null,
      "lat": 40.75313611111111,
@@ -2442,10 +2412,10 @@
      "date": "2026-10-26T10:23:51.000Z"
     },
     {
-     "src": "Step20/img019.jpeg?v=79710949",
+     "src": "Step19/img019.jpeg?v=79710949",
      "type": "image",
-     "thumb": "thumbs/Step20/img019.jpg?v=79710949",
-     "med": "medium/Step20/img019.jpg?v=79710949",
+     "thumb": "thumbs/Step19/img019.jpg?v=79710949",
+     "med": "medium/Step19/img019.jpg?v=79710949",
      "text": "",
      "mode": null,
      "lat": 40.75315555555556,
@@ -2455,16 +2425,16 @@
    ]
   },
   {
-   "id": "Step21",
+   "id": "Step20",
    "name": "Après midi du sixième jour : Time Square, Flatiron Building, Greenwich Village.",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step21/img001.jpeg?v=27944534",
+     "src": "Step20/img001.jpeg?v=27944534",
      "type": "image",
-     "thumb": "thumbs/Step21/img001.jpg?v=27944534",
-     "med": "medium/Step21/img001.jpg?v=27944534",
+     "thumb": "thumbs/Step20/img001.jpg?v=27944534",
+     "med": "medium/Step20/img001.jpg?v=27944534",
      "text": "",
      "mode": null,
      "lat": null,
@@ -2472,10 +2442,10 @@
      "date": "2026-10-26T11:55:57.000Z"
     },
     {
-     "src": "Step21/img002.jpeg?v=564cbc94",
+     "src": "Step20/img002.jpeg?v=564cbc94",
      "type": "image",
-     "thumb": "thumbs/Step21/img002.jpg?v=564cbc94",
-     "med": "medium/Step21/img002.jpg?v=564cbc94",
+     "thumb": "thumbs/Step20/img002.jpg?v=564cbc94",
+     "med": "medium/Step20/img002.jpg?v=564cbc94",
      "text": "",
      "mode": null,
      "lat": 40.75753888888889,
@@ -2483,10 +2453,10 @@
      "date": "2026-10-26T11:58:25.000Z"
     },
     {
-     "src": "Step21/img003.jpeg?v=7fc82601",
+     "src": "Step20/img003.jpeg?v=7fc82601",
      "type": "image",
-     "thumb": "thumbs/Step21/img003.jpg?v=7fc82601",
-     "med": "medium/Step21/img003.jpg?v=7fc82601",
+     "thumb": "thumbs/Step20/img003.jpg?v=7fc82601",
+     "med": "medium/Step20/img003.jpg?v=7fc82601",
      "text": "",
      "mode": null,
      "lat": 40.7574,
@@ -2494,10 +2464,10 @@
      "date": "2026-10-26T12:02:24.000Z"
     },
     {
-     "src": "Step21/img004.jpeg?v=be7ea7f5",
+     "src": "Step20/img004.jpeg?v=be7ea7f5",
      "type": "image",
-     "thumb": "thumbs/Step21/img004.jpg?v=be7ea7f5",
-     "med": "medium/Step21/img004.jpg?v=be7ea7f5",
+     "thumb": "thumbs/Step20/img004.jpg?v=be7ea7f5",
+     "med": "medium/Step20/img004.jpg?v=be7ea7f5",
      "text": "",
      "mode": null,
      "lat": 40.75816388888889,
@@ -2505,10 +2475,10 @@
      "date": "2026-10-26T12:04:57.000Z"
     },
     {
-     "src": "Step21/img005.jpeg?v=09a28565",
+     "src": "Step20/img005.jpeg?v=09a28565",
      "type": "image",
-     "thumb": "thumbs/Step21/img005.jpg?v=09a28565",
-     "med": "medium/Step21/img005.jpg?v=09a28565",
+     "thumb": "thumbs/Step20/img005.jpg?v=09a28565",
+     "med": "medium/Step20/img005.jpg?v=09a28565",
      "text": "",
      "mode": null,
      "lat": 40.75819444444444,
@@ -2516,10 +2486,10 @@
      "date": "2026-10-26T12:05:05.000Z"
     },
     {
-     "src": "Step21/img006.jpeg?v=76c2e386",
+     "src": "Step20/img006.jpeg?v=76c2e386",
      "type": "image",
-     "thumb": "thumbs/Step21/img006.jpg?v=76c2e386",
-     "med": "medium/Step21/img006.jpg?v=76c2e386",
+     "thumb": "thumbs/Step20/img006.jpg?v=76c2e386",
+     "med": "medium/Step20/img006.jpg?v=76c2e386",
      "text": "",
      "mode": null,
      "lat": 40.75819444444444,
@@ -2527,10 +2497,10 @@
      "date": "2026-10-26T12:05:08.000Z"
     },
     {
-     "src": "Step21/img007.jpeg?v=66effcdf",
+     "src": "Step20/img007.jpeg?v=66effcdf",
      "type": "image",
-     "thumb": "thumbs/Step21/img007.jpg?v=66effcdf",
-     "med": "medium/Step21/img007.jpg?v=66effcdf",
+     "thumb": "thumbs/Step20/img007.jpg?v=66effcdf",
+     "med": "medium/Step20/img007.jpg?v=66effcdf",
      "text": "",
      "mode": null,
      "lat": 40.75818611111111,
@@ -2538,10 +2508,10 @@
      "date": "2026-10-26T12:05:10.000Z"
     },
     {
-     "src": "Step21/img008.jpeg?v=2b9dcbaf",
+     "src": "Step20/img008.jpeg?v=2b9dcbaf",
      "type": "image",
-     "thumb": "thumbs/Step21/img008.jpg?v=2b9dcbaf",
-     "med": "medium/Step21/img008.jpg?v=2b9dcbaf",
+     "thumb": "thumbs/Step20/img008.jpg?v=2b9dcbaf",
+     "med": "medium/Step20/img008.jpg?v=2b9dcbaf",
      "text": "",
      "mode": null,
      "lat": 40.75883611111111,
@@ -2549,10 +2519,10 @@
      "date": "2026-10-26T12:11:44.000Z"
     },
     {
-     "src": "Step21/img009.jpeg?v=e30c09d4",
+     "src": "Step20/img009.jpeg?v=e30c09d4",
      "type": "image",
-     "thumb": "thumbs/Step21/img009.jpg?v=e30c09d4",
-     "med": "medium/Step21/img009.jpg?v=e30c09d4",
+     "thumb": "thumbs/Step20/img009.jpg?v=e30c09d4",
+     "med": "medium/Step20/img009.jpg?v=e30c09d4",
      "text": "",
      "mode": null,
      "lat": null,
@@ -2560,10 +2530,10 @@
      "date": "2026-10-26T12:52:50.000Z"
     },
     {
-     "src": "Step21/img010.jpeg?v=79919272",
+     "src": "Step20/img010.jpeg?v=79919272",
      "type": "image",
-     "thumb": "thumbs/Step21/img010.jpg?v=79919272",
-     "med": "medium/Step21/img010.jpg?v=79919272",
+     "thumb": "thumbs/Step20/img010.jpg?v=79919272",
+     "med": "medium/Step20/img010.jpg?v=79919272",
      "text": "",
      "mode": null,
      "lat": 40.741730555555556,
@@ -2571,10 +2541,10 @@
      "date": "2026-10-26T13:15:13.000Z"
     },
     {
-     "src": "Step21/img011.jpeg?v=bef76070",
+     "src": "Step20/img011.jpeg?v=bef76070",
      "type": "image",
-     "thumb": "thumbs/Step21/img011.jpg?v=bef76070",
-     "med": "medium/Step21/img011.jpg?v=bef76070",
+     "thumb": "thumbs/Step20/img011.jpg?v=bef76070",
+     "med": "medium/Step20/img011.jpg?v=bef76070",
      "text": "",
      "mode": null,
      "lat": 40.741619444444446,
@@ -2582,10 +2552,10 @@
      "date": "2026-10-26T13:32:16.000Z"
     },
     {
-     "src": "Step21/img012.jpeg?v=cc4cbcef",
+     "src": "Step20/img012.jpeg?v=cc4cbcef",
      "type": "image",
-     "thumb": "thumbs/Step21/img012.jpg?v=cc4cbcef",
-     "med": "medium/Step21/img012.jpg?v=cc4cbcef",
+     "thumb": "thumbs/Step20/img012.jpg?v=cc4cbcef",
+     "med": "medium/Step20/img012.jpg?v=cc4cbcef",
      "text": "",
      "mode": null,
      "lat": 40.74176111111111,
@@ -2593,10 +2563,10 @@
      "date": "2026-10-26T13:15:28.000Z"
     },
     {
-     "src": "Step21/img013.jpeg?v=2ed71ada",
+     "src": "Step20/img013.jpeg?v=2ed71ada",
      "type": "image",
-     "thumb": "thumbs/Step21/img013.jpg?v=2ed71ada",
-     "med": "medium/Step21/img013.jpg?v=2ed71ada",
+     "thumb": "thumbs/Step20/img013.jpg?v=2ed71ada",
+     "med": "medium/Step20/img013.jpg?v=2ed71ada",
      "text": "",
      "mode": null,
      "lat": 40.74203611111111,
@@ -2606,16 +2576,16 @@
    ]
   },
   {
-   "id": "Step22",
+   "id": "Step21",
    "name": "Fin du sixième jour : balade le long de la High Line, balade en ferry au tomber du jour",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step22/img001.jpeg?v=1fb0c951",
+     "src": "Step21/img001.jpeg?v=1fb0c951",
      "type": "image",
-     "thumb": "thumbs/Step22/img001.jpg?v=1fb0c951",
-     "med": "medium/Step22/img001.jpg?v=1fb0c951",
+     "thumb": "thumbs/Step21/img001.jpg?v=1fb0c951",
+     "med": "medium/Step21/img001.jpg?v=1fb0c951",
      "text": "",
      "mode": null,
      "lat": 40.740969444444445,
@@ -2623,10 +2593,10 @@
      "date": "2026-10-26T16:26:10.000Z"
     },
     {
-     "src": "Step22/img002.jpeg?v=9a766671",
+     "src": "Step21/img002.jpeg?v=9a766671",
      "type": "image",
-     "thumb": "thumbs/Step22/img002.jpg?v=9a766671",
-     "med": "medium/Step22/img002.jpg?v=9a766671",
+     "thumb": "thumbs/Step21/img002.jpg?v=9a766671",
+     "med": "medium/Step21/img002.jpg?v=9a766671",
      "text": "",
      "mode": null,
      "lat": 40.74248055555556,
@@ -2634,10 +2604,10 @@
      "date": "2026-10-26T16:30:42.000Z"
     },
     {
-     "src": "Step22/img003.jpeg?v=8b1e7714",
+     "src": "Step21/img003.jpeg?v=8b1e7714",
      "type": "image",
-     "thumb": "thumbs/Step22/img003.jpg?v=8b1e7714",
-     "med": "medium/Step22/img003.jpg?v=8b1e7714",
+     "thumb": "thumbs/Step21/img003.jpg?v=8b1e7714",
+     "med": "medium/Step21/img003.jpg?v=8b1e7714",
      "text": "",
      "mode": null,
      "lat": 40.744236111111114,
@@ -2645,10 +2615,10 @@
      "date": "2026-10-26T16:47:48.000Z"
     },
     {
-     "src": "Step22/img004.jpeg?v=6bb96382",
+     "src": "Step21/img004.jpeg?v=6bb96382",
      "type": "image",
-     "thumb": "thumbs/Step22/img004.jpg?v=6bb96382",
-     "med": "medium/Step22/img004.jpg?v=6bb96382",
+     "thumb": "thumbs/Step21/img004.jpg?v=6bb96382",
+     "med": "medium/Step21/img004.jpg?v=6bb96382",
      "text": "",
      "mode": null,
      "lat": 40.74258888888889,
@@ -2656,10 +2626,10 @@
      "date": "2026-10-26T16:32:09.000Z"
     },
     {
-     "src": "Step22/img005.jpeg?v=8ea7c36f",
+     "src": "Step21/img005.jpeg?v=8ea7c36f",
      "type": "image",
-     "thumb": "thumbs/Step22/img005.jpg?v=8ea7c36f",
-     "med": "medium/Step22/img005.jpg?v=8ea7c36f",
+     "thumb": "thumbs/Step21/img005.jpg?v=8ea7c36f",
+     "med": "medium/Step21/img005.jpg?v=8ea7c36f",
      "text": "",
      "mode": null,
      "lat": 40.742533333333334,
@@ -2667,10 +2637,10 @@
      "date": "2026-10-26T16:32:09.000Z"
     },
     {
-     "src": "Step22/img006.jpeg?v=31ea18fc",
+     "src": "Step21/img006.jpeg?v=31ea18fc",
      "type": "image",
-     "thumb": "thumbs/Step22/img006.jpg?v=31ea18fc",
-     "med": "medium/Step22/img006.jpg?v=31ea18fc",
+     "thumb": "thumbs/Step21/img006.jpg?v=31ea18fc",
+     "med": "medium/Step21/img006.jpg?v=31ea18fc",
      "text": "",
      "mode": null,
      "lat": 40.74931388888889,
@@ -2678,10 +2648,10 @@
      "date": "2026-10-26T17:01:23.000Z"
     },
     {
-     "src": "Step22/img007.jpeg?v=c9d06eeb",
+     "src": "Step21/img007.jpeg?v=c9d06eeb",
      "type": "image",
-     "thumb": "thumbs/Step22/img007.jpg?v=c9d06eeb",
-     "med": "medium/Step22/img007.jpg?v=c9d06eeb",
+     "thumb": "thumbs/Step21/img007.jpg?v=c9d06eeb",
+     "med": "medium/Step21/img007.jpg?v=c9d06eeb",
      "text": "",
      "mode": null,
      "lat": 40.744933333333336,
@@ -2689,10 +2659,10 @@
      "date": "2026-10-26T16:48:59.000Z"
     },
     {
-     "src": "Step22/img008.jpeg?v=f8714950",
+     "src": "Step21/img008.jpeg?v=f8714950",
      "type": "image",
-     "thumb": "thumbs/Step22/img008.jpg?v=f8714950",
-     "med": "medium/Step22/img008.jpg?v=f8714950",
+     "thumb": "thumbs/Step21/img008.jpg?v=f8714950",
+     "med": "medium/Step21/img008.jpg?v=f8714950",
      "text": "",
      "mode": null,
      "lat": 40.74491944444445,
@@ -2700,10 +2670,10 @@
      "date": "2026-10-26T16:49:03.000Z"
     },
     {
-     "src": "Step22/img009.jpeg?v=bf027bdf",
+     "src": "Step21/img009.jpeg?v=bf027bdf",
      "type": "image",
-     "thumb": "thumbs/Step22/img009.jpg?v=bf027bdf",
-     "med": "medium/Step22/img009.jpg?v=bf027bdf",
+     "thumb": "thumbs/Step21/img009.jpg?v=bf027bdf",
+     "med": "medium/Step21/img009.jpg?v=bf027bdf",
      "text": "",
      "mode": null,
      "lat": 40.74622222222222,
@@ -2711,10 +2681,10 @@
      "date": "2026-10-26T16:52:10.000Z"
     },
     {
-     "src": "Step22/img010.jpeg?v=0631d755",
+     "src": "Step21/img010.jpeg?v=0631d755",
      "type": "image",
-     "thumb": "thumbs/Step22/img010.jpg?v=0631d755",
-     "med": "medium/Step22/img010.jpg?v=0631d755",
+     "thumb": "thumbs/Step21/img010.jpg?v=0631d755",
+     "med": "medium/Step21/img010.jpg?v=0631d755",
      "text": "",
      "mode": null,
      "lat": 40.74796388888889,
@@ -2722,10 +2692,10 @@
      "date": "2026-10-26T16:57:29.000Z"
     },
     {
-     "src": "Step22/img011.jpeg?v=ac598d9e",
+     "src": "Step21/img011.jpeg?v=ac598d9e",
      "type": "image",
-     "thumb": "thumbs/Step22/img011.jpg?v=ac598d9e",
-     "med": "medium/Step22/img011.jpg?v=ac598d9e",
+     "thumb": "thumbs/Step21/img011.jpg?v=ac598d9e",
+     "med": "medium/Step21/img011.jpg?v=ac598d9e",
      "text": "",
      "mode": null,
      "lat": 40.75328888888889,
@@ -2735,16 +2705,16 @@
    ]
   },
   {
-   "id": "Step23",
+   "id": "Step22",
    "name": "Sixième jour : coucher de soleil sur l'Hudson River, retour par le Manhattan Bridge",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step23/img001.jpeg?v=402d50af",
+     "src": "Step22/img001.jpeg?v=402d50af",
      "type": "image",
-     "thumb": "thumbs/Step23/img001.jpg?v=402d50af",
-     "med": "medium/Step23/img001.jpg?v=402d50af",
+     "thumb": "thumbs/Step22/img001.jpg?v=402d50af",
+     "med": "medium/Step22/img001.jpg?v=402d50af",
      "text": "",
      "mode": null,
      "lat": 40.72184722222222,
@@ -2752,10 +2722,10 @@
      "date": "2026-10-26T18:14:36.000Z"
     },
     {
-     "src": "Step23/img002.jpeg?v=edc42850",
+     "src": "Step22/img002.jpeg?v=edc42850",
      "type": "image",
-     "thumb": "thumbs/Step23/img002.jpg?v=edc42850",
-     "med": "medium/Step23/img002.jpg?v=edc42850",
+     "thumb": "thumbs/Step22/img002.jpg?v=edc42850",
+     "med": "medium/Step22/img002.jpg?v=edc42850",
      "text": "",
      "mode": null,
      "lat": 40.727916666666665,
@@ -2763,10 +2733,10 @@
      "date": "2026-10-26T18:13:30.000Z"
     },
     {
-     "src": "Step23/img003.jpeg?v=ddb2c744",
+     "src": "Step22/img003.jpeg?v=ddb2c744",
      "type": "image",
-     "thumb": "thumbs/Step23/img003.jpg?v=ddb2c744",
-     "med": "medium/Step23/img003.jpg?v=ddb2c744",
+     "thumb": "thumbs/Step22/img003.jpg?v=ddb2c744",
+     "med": "medium/Step22/img003.jpg?v=ddb2c744",
      "text": "",
      "mode": null,
      "lat": 40.71819166666667,
@@ -2774,10 +2744,10 @@
      "date": "2026-10-26T18:15:30.000Z"
     },
     {
-     "src": "Step23/img004.jpeg?v=c7601ccb",
+     "src": "Step22/img004.jpeg?v=c7601ccb",
      "type": "image",
-     "thumb": "thumbs/Step23/img004.jpg?v=c7601ccb",
-     "med": "medium/Step23/img004.jpg?v=c7601ccb",
+     "thumb": "thumbs/Step22/img004.jpg?v=c7601ccb",
+     "med": "medium/Step22/img004.jpg?v=c7601ccb",
      "text": "",
      "mode": null,
      "lat": 40.71707222222222,
@@ -2785,10 +2755,10 @@
      "date": "2026-10-26T18:15:55.000Z"
     },
     {
-     "src": "Step23/img005.jpeg?v=b196e73b",
+     "src": "Step22/img005.jpeg?v=b196e73b",
      "type": "image",
-     "thumb": "thumbs/Step23/img005.jpg?v=b196e73b",
-     "med": "medium/Step23/img005.jpg?v=b196e73b",
+     "thumb": "thumbs/Step22/img005.jpg?v=b196e73b",
+     "med": "medium/Step22/img005.jpg?v=b196e73b",
      "text": "",
      "mode": null,
      "lat": 40.70807222222223,
@@ -2796,10 +2766,10 @@
      "date": "2026-10-26T18:25:28.000Z"
     },
     {
-     "src": "Step23/img006.jpeg?v=5c9f3ba9",
+     "src": "Step22/img006.jpeg?v=5c9f3ba9",
      "type": "image",
-     "thumb": "thumbs/Step23/img006.jpg?v=5c9f3ba9",
-     "med": "medium/Step23/img006.jpg?v=5c9f3ba9",
+     "thumb": "thumbs/Step22/img006.jpg?v=5c9f3ba9",
+     "med": "medium/Step22/img006.jpg?v=5c9f3ba9",
      "text": "",
      "mode": null,
      "lat": 40.724247222222225,
@@ -2807,10 +2777,10 @@
      "date": "2026-10-26T18:14:09.000Z"
     },
     {
-     "src": "Step23/img007.jpeg?v=f37f90e8",
+     "src": "Step22/img007.jpeg?v=f37f90e8",
      "type": "image",
-     "thumb": "thumbs/Step23/img007.jpg?v=f37f90e8",
-     "med": "medium/Step23/img007.jpg?v=f37f90e8",
+     "thumb": "thumbs/Step22/img007.jpg?v=f37f90e8",
+     "med": "medium/Step22/img007.jpg?v=f37f90e8",
      "text": "",
      "mode": null,
      "lat": 40.699755555555555,
@@ -2818,10 +2788,10 @@
      "date": "2026-10-26T18:27:10.000Z"
     },
     {
-     "src": "Step23/img008.jpeg?v=dcd46ebd",
+     "src": "Step22/img008.jpeg?v=dcd46ebd",
      "type": "image",
-     "thumb": "thumbs/Step23/img008.jpg?v=dcd46ebd",
-     "med": "medium/Step23/img008.jpg?v=dcd46ebd",
+     "thumb": "thumbs/Step22/img008.jpg?v=dcd46ebd",
+     "med": "medium/Step22/img008.jpg?v=dcd46ebd",
      "text": "",
      "mode": null,
      "lat": 40.67487777777777,
@@ -2829,10 +2799,10 @@
      "date": "2026-10-26T18:32:37.000Z"
     },
     {
-     "src": "Step23/img009.jpeg?v=1c8ead5a",
+     "src": "Step22/img009.jpeg?v=1c8ead5a",
      "type": "image",
-     "thumb": "thumbs/Step23/img009.jpg?v=1c8ead5a",
-     "med": "medium/Step23/img009.jpg?v=1c8ead5a",
+     "thumb": "thumbs/Step22/img009.jpg?v=1c8ead5a",
+     "med": "medium/Step22/img009.jpg?v=1c8ead5a",
      "text": "",
      "mode": null,
      "lat": 40.68369722222222,
@@ -2840,10 +2810,10 @@
      "date": "2026-10-26T18:30:35.000Z"
     },
     {
-     "src": "Step23/img010.jpeg?v=a4b25724",
+     "src": "Step22/img010.jpeg?v=a4b25724",
      "type": "image",
-     "thumb": "thumbs/Step23/img010.jpg?v=a4b25724",
-     "med": "medium/Step23/img010.jpg?v=a4b25724",
+     "thumb": "thumbs/Step22/img010.jpg?v=a4b25724",
+     "med": "medium/Step22/img010.jpg?v=a4b25724",
      "text": "",
      "mode": null,
      "lat": 40.68769722222222,
@@ -2851,10 +2821,10 @@
      "date": "2026-10-26T18:29:43.000Z"
     },
     {
-     "src": "Step23/img011.jpeg?v=123d89e6",
+     "src": "Step22/img011.jpeg?v=123d89e6",
      "type": "image",
-     "thumb": "thumbs/Step23/img011.jpg?v=123d89e6",
-     "med": "medium/Step23/img011.jpg?v=123d89e6",
+     "thumb": "thumbs/Step22/img011.jpg?v=123d89e6",
+     "med": "medium/Step22/img011.jpg?v=123d89e6",
      "text": "",
      "mode": null,
      "lat": 40.703925000000005,
@@ -2862,10 +2832,10 @@
      "date": "2026-10-26T19:35:09.000Z"
     },
     {
-     "src": "Step23/img012.jpeg?v=cc536a44",
+     "src": "Step22/img012.jpeg?v=cc536a44",
      "type": "image",
-     "thumb": "thumbs/Step23/img012.jpg?v=cc536a44",
-     "med": "medium/Step23/img012.jpg?v=cc536a44",
+     "thumb": "thumbs/Step22/img012.jpg?v=cc536a44",
+     "med": "medium/Step22/img012.jpg?v=cc536a44",
      "text": "",
      "mode": null,
      "lat": 40.709605555555555,
@@ -2873,10 +2843,10 @@
      "date": "2026-10-26T20:05:34.000Z"
     },
     {
-     "src": "Step23/img013.jpeg?v=5e9e5681",
+     "src": "Step22/img013.jpeg?v=5e9e5681",
      "type": "image",
-     "thumb": "thumbs/Step23/img013.jpg?v=5e9e5681",
-     "med": "medium/Step23/img013.jpg?v=5e9e5681",
+     "thumb": "thumbs/Step22/img013.jpg?v=5e9e5681",
+     "med": "medium/Step22/img013.jpg?v=5e9e5681",
      "text": "",
      "mode": null,
      "lat": 40.709586111111115,
@@ -2884,10 +2854,10 @@
      "date": "2026-10-26T20:06:55.000Z"
     },
     {
-     "src": "Step23/img014.jpeg?v=48be9b89",
+     "src": "Step22/img014.jpeg?v=48be9b89",
      "type": "image",
-     "thumb": "thumbs/Step23/img014.jpg?v=48be9b89",
-     "med": "medium/Step23/img014.jpg?v=48be9b89",
+     "thumb": "thumbs/Step22/img014.jpg?v=48be9b89",
+     "med": "medium/Step22/img014.jpg?v=48be9b89",
      "text": "",
      "mode": null,
      "lat": 40.70966666666667,
@@ -2897,16 +2867,16 @@
    ]
   },
   {
-   "id": "Step24",
+   "id": "Step23",
    "name": "Dernière journée : visite du musée de l'Intrepid.",
    "desc": "",
    "mode": null,
    "photos": [
     {
-     "src": "Step24/img001.jpeg?v=59dc6fc7",
+     "src": "Step23/img001.jpeg?v=59dc6fc7",
      "type": "image",
-     "thumb": "thumbs/Step24/img001.jpg?v=59dc6fc7",
-     "med": "medium/Step24/img001.jpg?v=59dc6fc7",
+     "thumb": "thumbs/Step23/img001.jpg?v=59dc6fc7",
+     "med": "medium/Step23/img001.jpg?v=59dc6fc7",
      "text": "",
      "mode": null,
      "lat": 40.764247222222224,
@@ -2914,10 +2884,10 @@
      "date": "2026-10-27T15:23:30.000Z"
     },
     {
-     "src": "Step24/img002.jpeg?v=7e65c505",
+     "src": "Step23/img002.jpeg?v=7e65c505",
      "type": "image",
-     "thumb": "thumbs/Step24/img002.jpg?v=7e65c505",
-     "med": "medium/Step24/img002.jpg?v=7e65c505",
+     "thumb": "thumbs/Step23/img002.jpg?v=7e65c505",
+     "med": "medium/Step23/img002.jpg?v=7e65c505",
      "text": "Photo 2",
      "mode": null,
      "lat": 40.764244444444444,
@@ -2925,10 +2895,10 @@
      "date": "2026-10-27T15:21:58.000Z"
     },
     {
-     "src": "Step24/img003.jpeg?v=8aac407c",
+     "src": "Step23/img003.jpeg?v=8aac407c",
      "type": "image",
-     "thumb": "thumbs/Step24/img003.jpg?v=8aac407c",
-     "med": "medium/Step24/img003.jpg?v=8aac407c",
+     "thumb": "thumbs/Step23/img003.jpg?v=8aac407c",
+     "med": "medium/Step23/img003.jpg?v=8aac407c",
      "text": "",
      "mode": null,
      "lat": 40.76478888888889,
@@ -2936,10 +2906,10 @@
      "date": "2026-10-27T11:40:25.000Z"
     },
     {
-     "src": "Step24/img004.jpeg?v=e50dd7d2",
+     "src": "Step23/img004.jpeg?v=e50dd7d2",
      "type": "image",
-     "thumb": "thumbs/Step24/img004.jpg?v=e50dd7d2",
-     "med": "medium/Step24/img004.jpg?v=e50dd7d2",
+     "thumb": "thumbs/Step23/img004.jpg?v=e50dd7d2",
+     "med": "medium/Step23/img004.jpg?v=e50dd7d2",
      "text": "",
      "mode": null,
      "lat": 40.764491666666665,
@@ -2947,10 +2917,10 @@
      "date": "2026-10-27T11:59:20.000Z"
     },
     {
-     "src": "Step24/img005.jpeg?v=6a5be885",
+     "src": "Step23/img005.jpeg?v=6a5be885",
      "type": "image",
-     "thumb": "thumbs/Step24/img005.jpg?v=6a5be885",
-     "med": "medium/Step24/img005.jpg?v=6a5be885",
+     "thumb": "thumbs/Step23/img005.jpg?v=6a5be885",
+     "med": "medium/Step23/img005.jpg?v=6a5be885",
      "text": "",
      "mode": null,
      "lat": 40.76487222222222,
@@ -2958,10 +2928,10 @@
      "date": "2026-10-27T13:45:49.000Z"
     },
     {
-     "src": "Step24/img006.jpeg?v=aa4145c5",
+     "src": "Step23/img006.jpeg?v=aa4145c5",
      "type": "image",
-     "thumb": "thumbs/Step24/img006.jpg?v=aa4145c5",
-     "med": "medium/Step24/img006.jpg?v=aa4145c5",
+     "thumb": "thumbs/Step23/img006.jpg?v=aa4145c5",
+     "med": "medium/Step23/img006.jpg?v=aa4145c5",
      "text": "",
      "mode": null,
      "lat": 40.76448888888889,
@@ -2969,10 +2939,10 @@
      "date": "2026-10-27T13:48:37.000Z"
     },
     {
-     "src": "Step24/img007.jpeg?v=74942f6e",
+     "src": "Step23/img007.jpeg?v=74942f6e",
      "type": "image",
-     "thumb": "thumbs/Step24/img007.jpg?v=74942f6e",
-     "med": "medium/Step24/img007.jpg?v=74942f6e",
+     "thumb": "thumbs/Step23/img007.jpg?v=74942f6e",
+     "med": "medium/Step23/img007.jpg?v=74942f6e",
      "text": "",
      "mode": null,
      "lat": 40.764361111111114,
@@ -2980,10 +2950,10 @@
      "date": "2026-10-27T13:49:55.000Z"
     },
     {
-     "src": "Step24/img008.jpeg?v=853811e3",
+     "src": "Step23/img008.jpeg?v=853811e3",
      "type": "image",
-     "thumb": "thumbs/Step24/img008.jpg?v=853811e3",
-     "med": "medium/Step24/img008.jpg?v=853811e3",
+     "thumb": "thumbs/Step23/img008.jpg?v=853811e3",
+     "med": "medium/Step23/img008.jpg?v=853811e3",
      "text": "",
      "mode": null,
      "lat": 40.764294444444445,
