@@ -27,8 +27,9 @@ html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,s
 #bar button{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer}#bar button:disabled{opacity:.45}
 #splash{position:fixed;inset:0;z-index:3000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;background:#030710;transition:opacity .7s;overflow:hidden}
 #splash.out{opacity:0;pointer-events:none}
-#globe{width:min(85vw,340px);aspect-ratio:1;margin-bottom:18px;animation:up 1s both;position:relative}#gc{width:100%;height:100%;display:block}
-#splash h1{font-size:30px;font-weight:600;letter-spacing:.01em;animation:up .9s .2s both;z-index:2}
+#globe{width:min(55vw,220px);aspect-ratio:1;margin-bottom:14px;animation:up 1s both;position:relative}
+#gc{width:100%;height:100%;display:block;outline:none}
+#splash h1{font-size:28px;font-weight:600;letter-spacing:.01em;animation:up .9s .2s both;z-index:2}
 #splash p{color:var(--m);font-size:15px;animation:up .9s .5s both;z-index:2}
 #sperr{color:#f2b8b8;font-size:14px;min-height:20px;max-width:340px;z-index:2}
 #splash button,#tk button{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer;z-index:2}
@@ -289,18 +290,19 @@ $('#al').onchange=async e=>{if(e.target.value==='+'){e.target.value=P;return new
  if(dirty()&&!confirm('Abandonner les modifications non enregistrées ?')){e.target.value=P;return}P=e.target.value;S=[];await init()};
 
 // ---------- GLOBE 3D REALISTE (Three.js, NASA Earth Texture & Atmosphere) ----------
-let scene, camera, renderer, globeMesh, atmosphereMesh, gAnim=0;
+let scene, camera, renderer, globeMesh, gAnim=0;
 
 function init3DGlobe(){
- const container=$('#splash');
- const width=window.innerWidth, height=window.innerHeight;
+ const globeContainer=$('#globe');
+ const width=globeContainer.clientWidth;
+ const height=globeContainer.clientHeight;
  
  scene = new THREE.Scene();
  camera = new THREE.PerspectiveCamera(45, width/height, 0.1, 1000);
  camera.position.z = 2.7;
 
  renderer = new THREE.WebGLRenderer({canvas:$('#gc'), antialias:true, alpha:true});
- renderer.setSize(container.clientWidth, container.clientHeight);
+ renderer.setSize(width, height);
  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
  // 1. Fond étoilé de l'espace
@@ -351,16 +353,26 @@ function init3DGlobe(){
   side: THREE.BackSide,
   transparent: true
  });
- atmosphereMesh = new THREE.Mesh(atmosGeo, atmosMat);
+ const atmosphereMesh = new THREE.Mesh(atmosGeo, atmosMat);
  scene.add(atmosphereMesh);
 
- // 4. Éclairage solaire (Lumière directionnelle + ambiante)
+ // 4. Éclairage solaire
  const ambientLight = new THREE.AmbientLight(0xddeeff, 0.4);
  scene.add(ambientLight);
 
  const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
  dirLight.position.set(5, 3, 4);
  scene.add(dirLight);
+
+ // Gestion du redimensionnement de l'écran
+ window.addEventListener('resize', () => {
+  if (!renderer || !camera || !globeContainer) return;
+  const w = globeContainer.clientWidth;
+  const h = globeContainer.clientHeight;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+ });
 }
 
 function spin(){
