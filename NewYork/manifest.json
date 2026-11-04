@@ -2961,6 +2961,25 @@
      "date": "2026-10-27T14:01:13.000Z"
     }
    ]
+  },
+  {
+   "id": "Step24",
+   "name": "xxx",
+   "desc": "qqq",
+   "mode": null,
+   "photos": [
+    {
+     "src": "Step24/img001.png?v=13e7b35f",
+     "type": "image",
+     "thumb": "thumbs/Step24/img001.jpg?v=13e7b35f",
+     "med": null,
+     "text": "",
+     "mode": null,
+     "lat": null,
+     "lng": null,
+     "date": null
+    }
+   ]
   }
  ]
 }
