@@ -48,6 +48,36 @@
    ]
   },
   {
+   "id": "Step2",
+   "name": "Essai",
+   "desc": "",
+   "mode": null,
+   "photos": [
+    {
+     "src": "Step2/img001.jpeg?v=21c3bbe2",
+     "type": "image",
+     "thumb": "thumbs/Step2/img001.jpg?v=21c3bbe2",
+     "med": "medium/Step2/img001.jpg?v=21c3bbe2",
+     "text": "Jefjfh",
+     "mode": null,
+     "lat": 45.292049999999996,
+     "lng": 4.172297222222222,
+     "date": "2026-11-02T16:33:36.000Z"
+    },
+    {
+     "src": "Step2/img002.png?v=924039ae",
+     "type": "image",
+     "thumb": "thumbs/Step2/img002.jpg?v=924039ae",
+     "med": "medium/Step2/img002.jpg?v=924039ae",
+     "text": "Essai2",
+     "mode": null,
+     "lat": null,
+     "lng": null,
+     "date": "2026-11-02T14:56:24.000Z"
+    }
+   ]
+  },
+  {
    "id": "Step3",
    "name": "Escale à Londres Heathrow",
    "desc": "",
