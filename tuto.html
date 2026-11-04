@@ -195,15 +195,23 @@ Japon2027/ index.html  album.json  ...</code></pre>
 <li>Le menu « Carnet » permet de passer d’un voyage à l’autre. Les miniatures et versions allégées de chaque carnet sont créées dans son dossier.</li>
 </ul>
 <div class="note"><b>Mises à jour de la visionneuse :</b> chaque carnet contient sa propre copie de <code>index.html</code>. Quand je vous donne une nouvelle version, envoyez-la à la racine sous le nom <code>viewer.html</code>, puis, dans l’éditeur, cliquez sur « Mettre à jour la visionneuse de tous les carnets » (cadre « Album ») : chaque carnet reçoit la nouvelle version en une fois.</div>
+<h3>Ouverture de l’éditeur</h3>
+<p>L’éditeur s’ouvre sur un écran animé et se connecte tout seul : le compte et le dépôt sont déduits de l’adresse de la page, il n’y a rien à saisir. Une fois la connexion faite, l’écran s’efface et la carte apparaît.</p>
+<ul>
+<li><b>Premier lancement</b> (ou jeton oublié) : une petite fenêtre demande le jeton, avec le lien pour le créer.</li>
+<li><b>Jeton refusé ou expiré</b> : la même fenêtre s’ouvre toute seule avec un message.</li>
+<li><b>Renouveler le jeton quand tout fonctionne</b> : roue dentée ⚙ (en haut à droite) puis le lien discret « Jeton d’accès… » tout en bas. Si la connexion échoue, touchez <b>cinq fois le titre</b> « Mes carnets de voyage » sur l’écran animé : la fenêtre du jeton s’ouvre aussi.</li>
+<li>« Oublier le jeton » (dans cette fenêtre) l’efface de l’appareil, par exemple sur un ordinateur partagé.</li>
+</ul>
 <h3>Première connexion : créer un jeton</h3>
 <ol>
 <li>Sur GitHub, cliquez sur votre photo de profil (en haut à droite) puis <i>Settings</i> : c’est le menu du compte, pas l’onglet <i>Settings</i> du dépôt. Tout en bas du menu de gauche : <i>Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</i>. Un seul jeton sert pour tous les carnets du dépôt.</li>
 <li><i>Repository access</i> : <b>Only select repositories</b>, puis votre dépôt d’album uniquement.</li>
 <li><i>Permissions → Repository permissions → Contents</i> : <b>Read and write</b>. Choisissez une durée de validité (par exemple 90 jours).</li>
-<li>Copiez le jeton (il ne s’affiche qu’une fois) et collez-le dans l’éditeur, puis <i>Se connecter</i>.</li>
+<li>Copiez le jeton (il ne s’affiche qu’une fois) et collez-le dans la fenêtre de l’éditeur, puis <i>Enregistrer</i>.</li>
 </ol>
-<div class="note"><b>Sécurité :</b> le jeton est conservé uniquement dans votre navigateur et n’est envoyé qu’à GitHub. Il ne donne accès qu’à ce dépôt. Ne le partagez pas. Si vous le perdez, supprimez-le sur GitHub et recréez-en un. Décochez « Mémoriser sur cet appareil » sur un ordinateur partagé.</div>
-<div class="note"><b>Avant de partir en vacances :</b> le jeton ne se crée qu’une seule fois, et c’est plus confortable sur un ordinateur. Faites-le chez vous : sur la page de connexion de l’éditeur, le lien « Créer mon jeton » ouvre le formulaire GitHub déjà en grande partie rempli (nom, durée d’un an, permission <i>Contents</i>) ; il reste à choisir « Only select repositories » puis votre dépôt. Connectez ensuite l’éditeur <b>sur votre téléphone</b> en laissant « Mémoriser sur cet appareil » coché. Conservez aussi le jeton dans une note ou un gestionnaire de mots de passe : si le navigateur l’oublie, vous le recollerez en quelques secondes. Sur iPhone, Safari peut effacer les données d’un site resté longtemps sans visite ; l’ajouter à l’écran d’accueil (Partager → Sur l’écran d’accueil) limite ce risque.</div>
+<div class="note"><b>Sécurité :</b> le jeton est conservé uniquement dans votre navigateur et n’est envoyé qu’à GitHub. Il ne donne accès qu’à ce dépôt. Ne le partagez pas. Si vous le perdez, supprimez-le sur GitHub et recréez-en un. Sur un ordinateur partagé, utilisez « Oublier le jeton » après usage.</div>
+<div class="note"><b>Avant de partir en vacances :</b> le jeton ne se crée qu’une seule fois, et c’est plus confortable sur un ordinateur. Faites-le chez vous : sur la page de connexion de l’éditeur, le lien « Créer mon jeton » ouvre le formulaire GitHub déjà en grande partie rempli (nom, durée d’un an, permission <i>Contents</i>) ; il reste à choisir « Only select repositories » puis votre dépôt. Connectez ensuite l’éditeur <b>sur votre téléphone</b> : le jeton y est mémorisé automatiquement. Conservez aussi le jeton dans une note ou un gestionnaire de mots de passe : si le navigateur l’oublie, vous le recollerez en quelques secondes. Sur iPhone, Safari peut effacer les données d’un site resté longtemps sans visite ; l’ajouter à l’écran d’accueil (Partager → Sur l’écran d’accueil) limite ce risque.</div>
 <h3>Utilisation (même principe que la visionneuse)</h3>
 <p>L’écran principal ressemble à l’album : la carte avec les pastilles de vos steps, et en bas le carrousel des steps. Faites défiler le carrousel : la carte suit.</p>
 <ul>

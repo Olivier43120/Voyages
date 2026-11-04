@@ -24,10 +24,25 @@ html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,s
 .plus{flex:none;align-self:center;width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:#0a1a2b;font-size:26px;line-height:1;cursor:pointer;box-shadow:0 2px 8px #0006;scroll-snap-align:center}
 #bar{position:fixed;left:0;right:0;bottom:0;background:#06121f;border-top:1px solid var(--l);padding:12px 14px calc(12px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center;justify-content:center;z-index:600}
 #st{color:var(--m);font-size:14px}
-#bar button,#cx button{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer}#bar button:disabled{opacity:.45}
-#cx{position:fixed;inset:0;z-index:3000;background:var(--bg);overflow:auto;padding:24px 18px}#cx>div{max-width:480px;margin:auto}
-#cx label{display:block;color:var(--m);font-size:13px;margin:12px 0 3px}#cx input:not([type=checkbox]){width:100%;background:#12293d;color:#fff;border:1px solid var(--l);border-radius:10px;padding:10px;font:inherit}
-#cx a{color:var(--blue)}.m{color:var(--m);font-size:14px}
+#bar button{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer}#bar button:disabled{opacity:.45}
+#splash{position:fixed;inset:0;z-index:3000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;background:radial-gradient(circle at 50% 38%,#14406a 0%,#0a1a2b 68%);transition:opacity .7s}
+#splash.out{opacity:0;pointer-events:none}
+#spsvg{width:min(86vw,360px);overflow:visible}
+#spsvg .arc{fill:none;stroke:rgba(255,255,255,.6);stroke-width:2.5;stroke-dasharray:6 8;animation:dash 1.4s linear infinite}
+#spsvg .pin{fill:#fff;stroke:#3d95e6;stroke-width:3}
+#spsvg .ring{fill:none;stroke:#3d95e6;stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ring 2.2s ease-out infinite}#spsvg .r2{animation-delay:1.1s}
+#splash h1{font-size:30px;font-weight:600;letter-spacing:.01em;animation:up .9s .2s both}
+#splash p{color:var(--m);font-size:15px;animation:up .9s .5s both}
+#sperr{color:#f2b8b8;font-size:14px;min-height:20px;max-width:340px}
+#splash button,#tk button{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer}
+#splash .tw{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.2;animation:tw 3s ease-in-out infinite}
+@keyframes dash{to{stroke-dashoffset:-14}}@keyframes ring{from{transform:scale(1);opacity:.9}to{transform:scale(3.4);opacity:0}}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}@keyframes tw{50%{opacity:.85}}
+@media(prefers-reduced-motion:reduce){#splash *{animation:none!important}}
+#tk{position:fixed;inset:0;z-index:4000;background:rgba(5,12,20,.72);backdrop-filter:blur(6px);display:grid;place-items:center;padding:20px}
+.tkc{width:100%;max-width:420px;background:#0e2438;border:1px solid var(--l);border-radius:20px;padding:20px}
+#tk label{display:block;color:var(--m);font-size:13px;margin:12px 0 3px}#tk input{width:100%;background:#12293d;color:#fff;border:1px solid var(--l);border-radius:10px;padding:10px;font:inherit}
+#tk a{color:var(--blue)}.m{color:var(--m);font-size:14px}#tk .g,#tk .tl{background:none;color:var(--m);font-weight:400}
 .sheet{position:fixed;inset:0;z-index:2000;background:#fff;color:#0a1a2b;overflow:auto;transform:translateY(102%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}.sheet.on{transform:none}
 .sh-head{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top)) 18px 14px;background:#fff;border-bottom:1px solid #e3e8ee;font-size:18px}
 .sh-head button{background:none;border:0;color:var(--blue);font-family:inherit;font-weight:600;font-size:18px;cursor:pointer}
@@ -52,16 +67,22 @@ html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,s
 .plane{filter:drop-shadow(0 1px 3px #000c)}.plane div{width:26px;height:26px}.plane svg{display:block}
 .hint{color:#6b7a89;margin:12px 0;font-size:14px}
 </style></head><body>
-<div id="cx"><div>
- <h2>Éditeur d’album</h2>
- <p class="m">Créez vos steps, commentaires et page de garde sans passer par GitHub. <a href="tuto.html#editeur">Mode d’emploi</a></p>
- <form id="cxf" autocomplete="on">
- <label>Compte</label><input id="o" name="username" autocomplete="username"><label>Dépôt</label><input id="r"><label>Jeton d’accès</label><input id="t" name="password" type="password" autocomplete="current-password">
- <p class="m" style="margin-top:10px">Première fois ? <a id="mk" target="_blank" rel="noopener">Créer mon jeton (formulaire prérempli)</a> : à faire <b>une seule fois</b>, de préférence chez vous avant de partir. Le jeton reste ensuite mémorisé sur cet appareil ; vous pouvez aussi le faire enregistrer par votre gestionnaire de mots de passe.</p>
- <label><input type="checkbox" id="keep" checked style="width:auto"> Mémoriser sur cet appareil</label>
- <p style="margin-top:14px"><button id="go" type="submit">Se connecter</button> <span id="err" class="m"></span></p>
- </form>
-</div></div>
+<div id="splash"><i class="tw" style="left:12%;top:18%;animation-delay:0s"></i><i class="tw" style="left:80%;top:12%;animation-delay:1s"></i><i class="tw" style="left:30%;top:70%;animation-delay:2s"></i><i class="tw" style="left:88%;top:64%;animation-delay:0.5s"></i><i class="tw" style="left:55%;top:8%;animation-delay:1.5s"></i><i class="tw" style="left:8%;top:52%;animation-delay:2.4s"></i><i class="tw" style="left:70%;top:82%;animation-delay:0.8s"></i>
+ <svg id="spsvg" viewBox="0 0 320 170" aria-hidden="true">
+  <path id="arc" class="arc" d="M40 130 Q160 -20 280 110"/>
+  <circle class="ring" cx="40" cy="130" r="7"/><circle class="pin" cx="40" cy="130" r="7"/>
+  <circle class="ring r2" cx="280" cy="110" r="7"/><circle class="pin" cx="280" cy="110" r="7"/>
+  <g><path d="M12 2c.8 0 1.5.7 1.5 1.5V9l8 5v2l-8-2.5V19l2 1.5V22l-3.5-1L8.5 22v-1.5l2-1.5v-5.5L2.5 16v-2l8-5V3.5C10.5 2.7 11.2 2 12 2z" fill="#fff" transform="translate(-12,-12) rotate(90 12 12)"/><animateMotion dur="3.4s" repeatCount="indefinite" rotate="auto"><mpath href="#arc" xlink:href="#arc"/></animateMotion></g>
+ </svg>
+ <h1 id="sptitle">Mes carnets de voyage</h1><p>Chargement de vos souvenirs…</p><div id="sperr"></div><button id="retry" hidden>Réessayer</button>
+</div>
+<div id="tk" hidden><form class="tkc" id="cxf" autocomplete="on">
+ <b>Jeton d’accès GitHub</b><p class="m" id="tkm" style="margin-top:6px"></p>
+ <div id="tkx" hidden><label>Compte</label><input id="o" name="username" autocomplete="username"><label>Dépôt</label><input id="r"></div>
+ <label>Jeton</label><input id="t" name="password" type="password" autocomplete="current-password">
+ <p class="m" style="margin-top:10px"><a id="mk" target="_blank" rel="noopener">Créer un jeton (formulaire prérempli)</a> : à faire une seule fois, de préférence chez vous.</p>
+ <p style="margin-top:14px;display:flex;gap:10px;align-items:center"><button type="submit" id="tkgo">Enregistrer</button><button type="button" class="g" id="tkno">Annuler</button><button type="button" class="tl" id="tkforget" style="margin-left:auto;font-size:13px">Oublier le jeton</button></p>
+</form></div>
 <div id="app" hidden>
  <div id="map"></div>
  <header id="top"><select id="al" aria-label="Carnet"></select><button class="rb" id="gear" aria-label="Réglages du carnet">&#9881;</button></header>
@@ -77,6 +98,7 @@ html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,s
  <label>Page de garde (image) <span id="cvn"></span></label><input type="file" id="cv" accept="image/*">
  <button class="btnl" id="upv" hidden style="margin-top:22px">Mettre à jour la visionneuse de tous les carnets</button>
  <button class="btnl" id="mig" hidden>Déplacer ce carnet dans un dossier…</button>
+ <p style="text-align:center;margin-top:34px"><a id="tkopen" style="color:#9aa8b6;font-size:13px;cursor:pointer">Jeton d’accès…</a></p>
 </div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
@@ -85,19 +107,17 @@ const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const mdi=t=>esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*(?!\s)(.+?)\*/g,'<i>$1</i>');
 const bn=f=>f.replace(/\.[^.]+$/,'').toLowerCase(),isM=f=>/\.(jpe?g|png|webp|heic|mp4|m4v|mov|webm|ogv)$/i.test(f),isV=f=>/\.(mp4|m4v|mov|webm|ogv)$/i.test(f);
 let C={},T=new Map,LM=new Map,P='',AL=[],S=[],A={},man=null,cover=null,adirty=0,busy=0,cur=0,cs=null,sel=-1,snap=null,isNewSheet=0,map,layer,fitted=0;
-const u=location.host.endsWith('.github.io')?[location.host.split('.')[0],location.pathname.split('/')[1]||'']:['',''];
+const seg=location.pathname.split('/')[1]||'',u=location.host.endsWith('.github.io')?[location.host.split('.')[0],(!seg||/\.html?$/.test(seg))?location.host.split('.')[0]+'.github.io':seg]:['',''];
 try{C=JSON.parse(localStorage.ed||sessionStorage.ed||'{}')}catch{}
-$('#o').value=C.o||u[0];$('#r').value=C.r||u[1];$('#t').value=C.t||'';$('#cxf').onsubmit=e=>e.preventDefault();
-const mk=()=>{$('#mk').href='https://github.com/settings/personal-access-tokens/new?'+new URLSearchParams({name:'Éditeur album',description:'Éditeur de carnets de voyage',target_name:$('#o').value.trim()||u[0],expires_in:'365',contents:'write'})};$('#o').addEventListener('input',mk);mk();
+C.o=u[0]||C.o||'';C.r=u[1]||C.r||'';
 async function api(p,o={}){const r=await fetch(`https://api.github.com/repos/${C.o}/${C.r}${p}`,{method:o.method,headers:{Authorization:'Bearer '+C.t,Accept:'application/vnd.github+json'},body:o.body&&JSON.stringify(o.body)}).catch(e=>{throw new Error('réseau sur '+p.split('?')[0]+' – '+e.message)});
  if(!r.ok)throw new Error(r.status+' '+((await r.json().catch(()=>({}))).message||''));return r.json()}
 async function txt(p){const s=LM.get(p);if(!s)return'';const b=await api('/git/blobs/'+s);return new TextDecoder().decode(Uint8Array.from(atob(b.content.replace(/\n/g,'')),c=>c.charCodeAt(0)))}
 function parse(raw){let mode='',gps='';const k=raw.split(/\r?\n/).filter(l=>{const g=l.match(/^\s*(?:gps|position)\s*:\s*(.+)/i);if(g){gps=g[1].trim();return 0}
  const m=l.match(/^\s*(trajet|vol)\s*:\s*(\S+)/i);if(!m)return 1;const v=m[2].toLowerCase();mode=/^(droit|rectiligne|direct|route|non)/.test(v)?'droit':/^(vol|avion|courbe|oui)/.test(v)?'vol':mode;return 0});return{mode,gps,text:k.join('\n').trim()}}
 const ser=(mode,gps)=>(mode?'trajet: '+mode+'\n':'')+(gps?'gps: '+gps+'\n':'');
-$('#go').onclick=async()=>{C={o:$('#o').value.trim(),r:$('#r').value.trim(),t:$('#t').value.trim()};
- (($('#keep').checked?localStorage:sessionStorage).ed=JSON.stringify(C));await init()};
-async function init(){$('#err').textContent='Connexion…';
+let lastErr=null;
+async function init(){
  try{const ref=await api('/git/ref/heads/'+B),c=await api('/git/commits/'+ref.object.sha),t=await api('/git/trees/'+c.tree.sha+'?recursive=1');
   T=new Map(t.tree.filter(x=>x.type==='blob').map(x=>[x.path,x.sha]));
   AL=[...new Set([...T.keys()].filter(p=>/^([^/]+\/)?album\.json$/.test(p)).map(p=>p.slice(0,-10)))].sort(nat);if(!AL.includes(P))P=AL[0]??'';
@@ -115,13 +135,13 @@ async function init(){$('#err').textContent='Connexion…';
   S.forEach(s=>{if(!s.ms){const e=ents.find(x=>!used.has(x)&&x.name===s.title&&x.photos.length===s.media.length);stale=1;if(e){used.add(e);s.ms=e}}
    const e=s.ms;if(e){const lp=e.photos.find(p=>p.lat!=null);s.loc=lp?[lp.lat,lp.lng]:null;s.date=e.photos[0]?.date;s.media.forEach((m,j)=>m.th=e.photos[j]?.thumb||'')}});
   $('#stale').hidden=!stale;
-  cover=null;adirty=0;cur=0;fitted=0;$('#cx').hidden=1;$('#app').hidden=0;
+  cover=null;adirty=0;cur=0;fitted=0;$('#app').hidden=0;
   document.querySelectorAll('[data-a]').forEach(i=>i.value=A[i.dataset.a]||'');
   const cp=[...LM.keys()].find(p=>/^(cover|couverture|garde)\.\w+$/i.test(p));$('#cvn').textContent=cp?'(actuelle : '+cp+')':'(aucune)';
   $('#al').innerHTML=AL.map(p=>`<option value="${esc(p)}"${p===P?' selected':''}>${esc(p?p.slice(0,-1):'(racine)')}</option>`).join('')+'<option value="+">＋ Nouveau carnet…</option>';
   $('#mig').hidden=P!==''||!T.has('album.json');$('#upv').hidden=!(T.has('viewer.html')&&AL.some(Boolean));
-  initMap();renderRail();upd();setTimeout(()=>map.invalidateSize(),60)}
- catch(e){$('#err').textContent='Échec : '+e.message;$('#st').textContent='Échec : '+e.message}}
+  initMap();renderRail();upd();setTimeout(()=>map.invalidateSize(),60);return true}
+ catch(e){lastErr=e;$('#st').textContent='Échec : '+e.message;return false}}
 async function loadStep(s){const[a,...b]=await Promise.all([s.stxt?txt(s.id+'/'+s.stxt):'',...s.media.map(m=>m.txt?txt(s.id+'/'+m.txt):'')]);
  const p=parse(a),ln=p.text.split('\n'),i=ln.findIndex(x=>x.trim());if(i>=0){s.title=ln[i].trim();s.desc=ln.slice(i+1).join('\n').trim()}s.mode=p.mode;
  s.media.forEach((m,j)=>Object.assign(m,parse(b[j])));s.loaded=1}
@@ -279,5 +299,23 @@ $('#upv').onclick=async()=>{if(!confirm('Remplacer l’index.html de chaque carn
 $('#al').onchange=async e=>{if(e.target.value==='+'){e.target.value=P;return newCarnet()}
  if(dirty()&&!confirm('Abandonner les modifications non enregistrées ?')){e.target.value=P;return}P=e.target.value;S=[];await init()};
 
-if(C.t&&C.o&&C.r)init();
+// ---------- démarrage : écran animé, connexion automatique ; le jeton se renouvelle via 5 touches sur le titre (ou « Jeton d'accès… » dans les réglages)
+const saveCfg=()=>{const v=JSON.stringify({o:C.o,r:C.r,t:C.t});try{localStorage.ed=v}catch{sessionStorage.ed=v}};
+const mk=()=>{$('#mk').href='https://github.com/settings/personal-access-tokens/new?'+new URLSearchParams({name:'Éditeur album',description:'Éditeur de carnets de voyage',target_name:C.o||'',expires_in:'365',contents:'write'})};
+function openTk(msg){$('#tkm').textContent=msg||'';$('#tkx').hidden=!!(u[0]&&u[1]);$('#o').value=C.o||'';$('#r').value=C.r||'';$('#t').value='';mk();$('#tk').hidden=false;setTimeout(()=>$('#t').focus(),50)}
+async function boot(){const t0=Date.now();$('#retry').hidden=true;$('#sperr').textContent='';
+ if(!(C.o&&C.r)||!C.t){openTk(C.t?'Indiquez le compte et le dépôt GitHub.':'Première connexion : collez votre jeton d’accès.');return}
+ const ok=await init();await sleep(Math.max(0,1600-(Date.now()-t0)));
+ if(ok){$('#splash').classList.add('out');setTimeout(()=>$('#splash').hidden=true,750)}
+ else{const m=(lastErr&&lastErr.message)||'';$('#sperr').textContent='Connexion impossible : '+m;
+  if(/401|403|credentials|not accessible|Not Found/i.test(m))openTk('Jeton refusé ou expiré : collez un nouveau jeton.');else $('#retry').hidden=false}}
+$('#cxf').onsubmit=async e=>{e.preventDefault();if(!$('#tkx').hidden){C.o=$('#o').value.trim();C.r=$('#r').value.trim()}
+ const t=$('#t').value.trim();if(!t)return;C.t=t;saveCfg();$('#tk').hidden=true;
+ if($('#splash').hidden){const ok=await init();$('#st').textContent=ok?'Jeton enregistré.':'Échec : '+((lastErr&&lastErr.message)||'')}else boot()};
+$('#tkno').onclick=()=>{$('#tk').hidden=true};
+$('#tkforget').onclick=()=>{if(confirm('Oublier le jeton sur cet appareil ?')){try{localStorage.removeItem('ed')}catch{}try{sessionStorage.removeItem('ed')}catch{}C.t='';location.reload()}};
+$('#tkopen').onclick=()=>{$('#asheet').classList.remove('on');openTk('Collez un nouveau jeton pour renouveler la connexion.')};
+$('#retry').onclick=boot;
+let taps=[];$('#sptitle').addEventListener('click',()=>{const n=Date.now();taps=taps.filter(x=>n-x<4000);taps.push(n);if(taps.length>=5){taps=[];openTk('Collez un nouveau jeton pour renouveler la connexion.')}});
+boot();
 </script></body></html>
