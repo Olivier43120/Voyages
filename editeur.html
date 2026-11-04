@@ -25,15 +25,14 @@ html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,s
 #bar{position:fixed;left:0;right:0;bottom:0;background:#06121f;border-top:1px solid var(--l);padding:12px 14px calc(12px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center;justify-content:center;z-index:600}
 #st{color:var(--m);font-size:14px}
 #bar button{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer}#bar button:disabled{opacity:.45}
-#splash{position:fixed;inset:0;z-index:3000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;background:radial-gradient(circle at 50% 38%,#14406a 0%,#0a1a2b 68%);transition:opacity .7s}
+#splash{position:fixed;inset:0;z-index:3000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;background:#030710;transition:opacity .7s;overflow:hidden}
 #splash.out{opacity:0;pointer-events:none}
-#globe{width:min(68vw,280px);aspect-ratio:1;border-radius:50%;box-shadow:0 0 50px rgba(70,160,255,.38),0 0 130px rgba(70,160,255,.2);margin-bottom:18px;animation:up 1s both}#gc{width:100%;height:100%;display:block}
-#splash h1{font-size:30px;font-weight:600;letter-spacing:.01em;animation:up .9s .2s both}
-#splash p{color:var(--m);font-size:15px;animation:up .9s .5s both}
-#sperr{color:#f2b8b8;font-size:14px;min-height:20px;max-width:340px}
-#splash button,#tk button{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer}
-#splash .tw{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.2;animation:tw 3s ease-in-out infinite}
-@keyframes up{from{opacity:0;transform:translateY(12px)}}@keyframes tw{50%{opacity:.85}}
+#globe{width:min(85vw,340px);aspect-ratio:1;margin-bottom:18px;animation:up 1s both;position:relative}#gc{width:100%;height:100%;display:block}
+#splash h1{font-size:30px;font-weight:600;letter-spacing:.01em;animation:up .9s .2s both;z-index:2}
+#splash p{color:var(--m);font-size:15px;animation:up .9s .5s both;z-index:2}
+#sperr{color:#f2b8b8;font-size:14px;min-height:20px;max-width:340px;z-index:2}
+#splash button,#tk button{background:var(--blue);color:#fff;border:0;border-radius:12px;padding:10px 18px;font-family:inherit;font-weight:600;font-size:16px;cursor:pointer;z-index:2}
+@keyframes up{from{opacity:0;transform:translateY(12px)}}
 @media(prefers-reduced-motion:reduce){#splash *{animation:none!important}}
 #tk{position:fixed;inset:0;z-index:4000;background:rgba(5,12,20,.72);backdrop-filter:blur(6px);display:grid;place-items:center;padding:20px}
 .tkc{width:100%;max-width:420px;background:#0e2438;border:1px solid var(--l);border-radius:20px;padding:20px}
@@ -63,7 +62,7 @@ html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,s
 .plane{filter:drop-shadow(0 1px 3px #000c)}.plane div{width:26px;height:26px}.plane svg{display:block}
 .hint{color:#6b7a89;margin:12px 0;font-size:14px}
 </style></head><body>
-<div id="splash"><i class="tw" style="left:12%;top:18%;animation-delay:0s"></i><i class="tw" style="left:80%;top:12%;animation-delay:1s"></i><i class="tw" style="left:30%;top:70%;animation-delay:2s"></i><i class="tw" style="left:88%;top:64%;animation-delay:0.5s"></i><i class="tw" style="left:55%;top:8%;animation-delay:1.5s"></i><i class="tw" style="left:8%;top:52%;animation-delay:2.4s"></i><i class="tw" style="left:70%;top:82%;animation-delay:0.8s"></i>
+<div id="splash">
  <div id="globe"><canvas id="gc"></canvas></div>
  <h1 id="sptitle">Mes carnets de voyage</h1><p>Chargement de vos souvenirs…</p><div id="sperr"></div><button id="retry" hidden>Réessayer</button>
 </div>
@@ -92,6 +91,7 @@ html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,s
  <p style="text-align:center;margin-top:34px"><a id="tkopen" style="color:#9aa8b6;font-size:13px;cursor:pointer">Jeton d’accès…</a></p>
 </div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const $=s=>document.querySelector(s),B='main',nat=(a,b)=>a.localeCompare(b,0,{numeric:true});
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -118,8 +118,6 @@ async function init(){
   S=ids.map(id=>{const f=[...LM.keys()].filter(p=>p.startsWith(id+'/')).map(p=>p.slice(id.length+1)).sort(nat),mb=new Set(f.filter(isM).map(bn));
    return{id,loaded:0,mode0:'',title:id,date:null,loc:null,desc:'',mode:'',stxt:f.find(x=>/\.txt$/i.test(x)&&!mb.has(bn(x))),
     media:f.filter(isM).map(n=>({name:n,txt:f.find(x=>/\.txt$/i.test(x)&&bn(x)===bn(n)),text:'',mode:'',gps:''}))}});
-  // Titres lus dans les fichiers ; chaque step est rattaché à son entrée du manifeste (même id et même nom, sinon même nom et même nombre de médias)
-  // pour retrouver images, dates et positions même si les dossiers viennent d'être renumérotés (le manifeste est alors en retard de 1 à 3 minutes)
   await Promise.all(S.map(async s=>{if(s.stxt){const p=parse(await txt(s.id+'/'+s.stxt)),ln=p.text.split('\n'),i=ln.findIndex(x=>x.trim());if(i>=0)s.title=ln[i].trim();s.mode0=p.mode}}));
   const ents=man?.steps||[],used=new Set();let stale=0;
   S.forEach(s=>{const e=ents.find(x=>x.id===s.id&&x.name===s.title&&x.photos.length===s.media.length);if(e){used.add(e);s.ms=e}});
@@ -136,7 +134,7 @@ async function init(){
 async function loadStep(s){const[a,...b]=await Promise.all([s.stxt?txt(s.id+'/'+s.stxt):'',...s.media.map(m=>m.txt?txt(s.id+'/'+m.txt):'')]);
  const p=parse(a),ln=p.text.split('\n'),i=ln.findIndex(x=>x.trim());if(i>=0){s.title=ln[i].trim();s.desc=ln.slice(i+1).join('\n').trim()}s.mode=p.mode;
  s.media.forEach((m,j)=>Object.assign(m,parse(b[j])));s.loaded=1}
-// ---------- affichage : carte + carrousel de steps
+
 const md=v=>[['','Trajet : automatique'],['droit','Trajet : droit'],['vol','Trajet : vol (avion)']].map(([a,b])=>`<option value="${a}"${a==v?' selected':''}>${b}</option>`).join('');
 const fmt=d=>d?new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}):'';
 const timg=(s,m)=>m.url||(m.th?encodeURI(P)+m.th:'');
@@ -145,7 +143,7 @@ const live=s=>s.media.filter(m=>!m.del),cardImg=s=>{if(s.nothumb)return '';const
 const cnt=s=>{const n=live(s).length;return(s.date?fmt(s.date)+' · ':'')+(s.isNew&&!n?'nouveau':n+' photo'+(n>1?'s':''))};
 function initMap(){if(map)return;map=L.map('map',{zoomControl:false}).setView([30,0],2);map.attributionControl.setPrefix(false);
  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxZoom:19,attribution:'Imagery © Esri'}).addTo(map);layer=L.layerGroup().addTo(map)}
-// Trajets : trait droit en dessous de 500 km, sinon arc courbe avec avions (comme dans l'album)
+
 const FLIGHT_KM=500,PM=L.Projection.SphericalMercator,DASH={color:'#fff',weight:2.5,dashArray:'7 8',opacity:.9};
 const kmd=(a,b)=>{const r=x=>x*Math.PI/180,h=Math.sin(r(b[0]-a[0])/2)**2+Math.cos(r(a[0]))*Math.cos(r(b[0]))*Math.sin(r(b[1]-a[1])/2)**2;return 12742*Math.asin(Math.sqrt(h))};
 const PLANE='<svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2c.8 0 1.5.7 1.5 1.5V9l8 5v2l-8-2.5V19l2 1.5V22l-3.5-1L8.5 22v-1.5l2-1.5v-5.5L2.5 16v-2l8-5V3.5C10.5 2.7 11.2 2 12 2z"/></svg>';
@@ -158,7 +156,7 @@ function route(act){for(let i=1;i<act.length;i++){const a=act[i-1].loc,b=[act[i]
   const n=Math.max(1,Math.round(d/1800));
   for(let k=0;k<n;k++){const t=(k+.5)/n,A0=at(Math.max(0,t-.01)),B0=at(Math.min(1,t+.01)),rot=90-Math.atan2(B0.y-A0.y,B0.x-A0.x)*180/Math.PI;
    L.marker(PM.unproject(at(t)),{interactive:false,keyboard:false,zIndexOffset:-500,icon:L.divIcon({className:'plane',iconSize:[26,26],iconAnchor:[13,13],html:`<div style="transform:rotate(${rot}deg)">${PLANE}</div>`})}).addTo(layer)}}}
-// Barre « Jour N » (comme dans l'album) : jour calculé d'après la date de la 1re photo de chaque step
+
 let tot=1;
 const WALK='<path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z"/>',FLY='<path d="M12 2c.8 0 1.5.7 1.5 1.5V9l8 5v2l-8-2.5V19l2 1.5V22l-3.5-1L8.5 22v-1.5l2-1.5v-5.5L2.5 16v-2l8-5V3.5C10.5 2.7 11.2 2 12 2z"/>';
 function showDay(){const B=$('#daybar'),act=S.filter(s=>!s.del);if(!S[cur]||S[cur].del)cur=Math.max(0,S.findIndex(s=>!s.del));const s=S[cur];
@@ -179,7 +177,7 @@ let tm;$('#rail').onscroll=()=>{clearTimeout(tm);tm=setTimeout(()=>{const R=$('#
  document.querySelectorAll('.card').forEach(c=>{const q=c.getBoundingClientRect(),d=Math.abs(q.left+q.width/2-mid);if(d<bd){bd=d;best=c}});
  if(best&&+best.dataset.i!==cur){cur=+best.dataset.i;const l=S[cur]&&S[cur].loc;drawMap();showDay();if(l)map.flyToBounds(L.latLngBounds([l,l]),{maxZoom:10,paddingBottomRight:[0,370],duration:.8})}},100)};
 $('#gear').onclick=()=>$('#asheet').classList.add('on');$('#aclose').onclick=()=>{$('#asheet').classList.remove('on');upd()};
-// ---------- feuille d'édition d'un step
+
 function addStep(at){const n=Math.max(0,...S.map(s=>+s.id.slice(4)))+1;S.prevOrd=S.ord;
  const s={id:'Step'+n,isNew:1,loaded:1,title:'',desc:'',mode:'',media:[],loc:null};S.splice(at,0,s);if(at<S.length-1)S.ord=1;openSheet(at,1)}
 async function openSheet(i,isNew){cs=S[i];if(!cs.loaded){$('#sheet').innerHTML='<div class="sh-body"><p class="hint">Chargement…</p></div>';$('#sheet').classList.add('on');await loadStep(cs)}
@@ -218,7 +216,7 @@ $('#cv').onchange=e=>{cover=e.target.files[0]||null;upd()};
 const dirty=()=>(adirty?1:0)+(cover?1:0)+(S.ord?1:0)+S.filter(s=>s.reord).length+S.filter(s=>s.del||s.dirty||s.isNew).length+S.reduce((n,s)=>n+s.media.filter(m=>m.del||m.dirty||m.file).length,0);
 function upd(){const n=dirty();$('#sv').disabled=busy||!n;$('#sv').textContent=n?`Enregistrer (${n})`:'Enregistrer';if(!busy)$('#st').textContent=n?'Modifications non enregistrées':''}
 onbeforeunload=e=>dirty()&&!busy?(e.preventDefault(),''):undefined;
-// ---------- enregistrement, carnets
+
 const b64=f=>new Promise(r=>{const x=new FileReader;x.onload=()=>r(x.result.split(',')[1]);x.readAsDataURL(f)});
 let HEAD=null;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
@@ -226,7 +224,7 @@ async function getHead(){if(HEAD&&Date.now()-HEAD.t<30000)return HEAD;const ref=
 const blobEntries=async E=>{const r=[];for(const e of E){if(e.del){r.push({path:e.path,mode:'100644',type:'blob',sha:null});continue}
  let sha=e.sha;if(!sha){const c=e.file?await b64(e.file):btoa(String.fromCharCode(...new TextEncoder().encode(e.text)));sha=(await api('/git/blobs',{method:'POST',body:{content:c,encoding:'base64'}})).sha}
  r.push({path:e.path,mode:'100644',type:'blob',sha})}return r};
-// Enregistrement en un seul commit : chaque step est reconstruit dans son dossier définitif (Step1…StepN dans l'ordre affiché)
+
 $('#sv').onclick=async()=>{busy=1;upd();const ttl=s=>(s.title||s.id)+'\n'+ser(s.mode)+s.desc,top=[];
  try{const h=await getHead();let rt=await api('/git/trees/'+h.tree);
   if(P){const d=rt.tree.find(x=>x.path===P.slice(0,-1));rt=d?await api('/git/trees/'+d.sha):{tree:[]}}
@@ -265,7 +263,7 @@ async function commit(E,msg,abs){let k=0;const tree=[],pre=abs?'':P;
    const nc=await api('/git/commits',{method:'POST',body:{message:msg,tree:nt.sha,parents:[h.sha]}});
    await api('/git/refs/heads/'+B,{method:'PATCH',body:{sha:nc.sha}});HEAD={sha:nc.sha,tree:nt.sha,t:Date.now()};return}
   catch(e){HEAD=null;if(a>=4||!/fast.?forward/i.test(e.message))throw e;await sleep(1200*(a+1))}}}
-// ---- carnets (un dossier par voyage)
+
 const HOME=`<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mes carnets</title><style>body{margin:0;background:#0a1a2b;color:#fff;font:17px system-ui,sans-serif;padding:28px 18px}main{max-width:720px;margin:auto}a{display:flex;gap:14px;align-items:center;background:#12293d;border:1px solid #24465f;border-radius:18px;padding:12px;margin:12px 0;color:inherit;text-decoration:none}img{width:72px;height:72px;border-radius:50%;object-fit:cover;background:#234}small{color:#aebccb}</style></head><body><main><h1>Mes carnets de voyage</h1><div id="l"></div></main><script>const e=t=>String(t||'').replace(/</g,'&lt;');fetch('albums.json',{cache:'no-cache'}).then(r=>r.json()).then(a=>{l.innerHTML=a.map(x=>'<a href="'+encodeURI(x.dir)+'/"><img src="'+encodeURI(x.dir)+'/'+encodeURI(x.cover||'')+'" onerror="this.remove()"><div><b>'+e(x.title||x.dir)+'</b><br><small>'+e(x.subtitle||x.author)+'</small></div></a>').join('')||'Aucun carnet.'}).catch(()=>l.textContent='Aucun carnet.')<\/script></body></html>`;
 const dirName=m=>(prompt(m)||'').trim().replace(/[\\/:*?"<>|]/g,'');
 const viewerSha=()=>T.get('viewer.html')||AL.map(p=>T.get(p+'index.html')).find(Boolean);
@@ -290,23 +288,94 @@ $('#upv').onclick=async()=>{if(!confirm('Remplacer l’index.html de chaque carn
 $('#al').onchange=async e=>{if(e.target.value==='+'){e.target.value=P;return newCarnet()}
  if(dirty()&&!confirm('Abandonner les modifications non enregistrées ?')){e.target.value=P;return}P=e.target.value;S=[];await init()};
 
-// ---------- planète Terre qui tourne (contours des continents : Natural Earth 110 m, domaine public)
-const LAND='-136,-108,3,-1,3,0,-1,-1,-2,0,-1,0,-1,-1,-1,0,-2,0,-2,1,-2,0,-3,1,-2,1,-2,2,1,0,3,-1,3,-1,1,1,0,1,2,1,2,0,0,-1,1,-2;-117,-102,2,-1,-1,-1,-3,0,-1,0,-1,-1,-1,1,2,1,2,0,1,1;141,-99,-4,-1,0,2,1,0,0,1,1,-1,2,0,0,-1;291,-82,2,0,1,0,1,0,2,0,0,-2,-1,-1,0,-1,-1,0,-1,-1,-1,0,-1,0,-1,2,0,1,-2,2,0,1,2,-1;346,-82,0,-1,2,1,0,-1,0,-1,-2,-2,-1,-1,1,-1,-1,0,-2,0,-1,-2,-1,-2,-1,-1,-1,0,-2,0,-1,0,-3,1,1,2,3,2,1,0,1,1,2,1,1,1,1,1,1,1,0,1,2,1,0,-1;349,-72,2,-2,0,1,1,-1,0,-1,2,-1,1,0,1,1,1,0,0,-2,-1,-1,-2,0,0,-1,0,-1,-1,-1,-1,-2,-2,0,-1,0,1,2,0,1,-2,1,0,1,1,0,0,2,0,1,0,2,-1,1,-2,2,-1,1,1,0,1,-1,2,-1,0,-1;334,-44,-1,-1,-1,1,-1,1,-1,1,-2,1,0,1,1,0,1,-1,1,-1,1,0,1,-1,1,-1;357,-35,0,-1,-1,-1,-1,1,0,1,1,0,1,0;-360,-33,719,-1,-2,0,0,1,1,0,1,0,-719,1,0,-1;336,-33,-1,0,-1,1,2,-1;334,-30,1,-1,-1,0,-1,0,0,2,1,-1;100,-27,0,-3,1,0,0,-1,-1,-1,0,1,-1,0,1,-2,0,-1,-1,0,0,-2,-1,-2,-1,-3,-1,-4,-1,-3,-1,-2,-1,0,-2,-1,-1,0,-2,1,0,1,-1,2,0,1,0,2,0,1,1,1,1,2,0,1,-1,1,0,1,0,2,1,1,0,2,1,0,1,0,1,0,1,0,1,2,1,1,1,1,0,1,1,-1,1,2,0,1,0,1,1,-1,1,-1,0,-1;287,-28,1,-1,1,1,1,-1,1,-1,0,-1,0,-2,0,-1,1,0,0,-2,0,-1,1,-1,2,-1,1,-1,2,-1,-1,0,2,-2,0,-2,1,1,1,-1,1,-2,1,-1,1,-1,2,-2,0,-1,0,-1,0,-2,1,-1,0,-2,0,-1,-1,-2,0,-1,0,-1,-1,-2,-2,-1,0,-2,-1,-1,-1,-1,0,-1,-1,-2,0,-1,0,-1,-1,-1,-2,0,-2,0,-1,-1,-1,-1,-2,1,-1,0,0,1,-1,0,-2,-2,-2,1,-1,0,-1,0,-2,1,-1,1,0,2,-1,1,-1,1,-2,0,1,1,-1,1,-1,-1,-1,-1,1,2,0,1,1,1,0,1,-2,-2,-1,0,-1,-2,-2,1,0,1,-1,2,-1,0,1,1,-3,1,-1,0,-2,1,-4,0,-3,-1,-2,-1,-2,1,-2,-1,-2,-1,0,-1,-1,-1,-1,0,-2,0,-1,0,-2,0,-1,0,-1,-1,-1,0,-1,0,-1,-1,-1,0,-2,0,-2,1,-1,1,0,1,1,0,0,1,1,2,-1,1,-1,2,0,1,0,1,-1,1,0,1,-1,1,0,1,-1,2,0,1,1,-1,-1,2,1,-1,0,-1,0,1,-1,2,0,1,0,1,0,1,1,1,-1,1,1,1,0,-1,1,1,2,1,1,1,1,1,1,0,1,0,1,0,2,0,0,1,1,0,1,0,2,1,1,1,0,1,1,1,1,0,0,1,1,2,1,-2,1,1,-1,1,1,1,1,-1,0,2,1,1,0,1,1,0,0,1,1,-1,0,1,1,0,1,0,2,-1,1,-1,1,0,1,0,0,1,1,2,1,0,-1,1,1,1,1,1,1,-1,2,1,0,1,-1,0,1,1,1,-1,1,-1,2,0,2,0,1,0,1,0,1,-1,-1,-1,0,-1,-1,0,0,-1,-1,-1,0,-1,2,-1,1,-1,1,0,2,-2,1,0,1,-1,1,0,2,0,0,1,1,1,0,1,0,2,0,1,0,2,0,1,1,1,-1,0,1,1,0,1,0,1,1,1,1,-1,0,-2,0,-1,1,-1,0,-1,0,-1;324,-21,1,-1,-2,0,0,2,1,-1;241,-20,0,-1,-3,2,2,0,1,0,1,-1,-1,0;322,-20,-1,0,-1,0,-1,1,0,1,2,-1,1,-1;323,-19,0,-1,-1,2,-1,1,1,0,1,-1,0,-1;249,-20,-2,-1,0,1,1,1,2,1,0,1,2,0,1,0,1,0,1,0,-1,0,-2,-1,-2,-1,-1,-1;236,-16,1,-1,1,0,-2,-1,-1,0,-2,0,1,1,1,0,1,1;246,-16,0,-1,-3,-1,-3,0,0,1,1,1,2,-1,1,0,2,1;320,-17,-2,1,-1,0,-1,1,1,0,1,0,1,-1,1,-1;315,-15,-1,1,-1,0,0,1,1,-1,1,-1;217,-14,4,0,1,1,3,-1,1,-1,3,-1,2,-1,-2,-1,-2,1,-2,0,-2,0,-2,1,-2,1,-2,0,0,-1,-4,1,0,1,-2,0,1,2,3,0,1,-1,1,0,0,-1;269,-12,-1,-2,0,2,1,0,0,1,0,-1;312,-14,-1,0,-1,1,-1,1,0,2,1,-1,1,-1,1,-1,0,-1;304,-11,-1,0,0,-1,-1,0,-2,-1,-1,0,-1,1,-1,1,2,0,1,0,0,1,0,-1,2,0,0,1,1,0,0,2,1,0,1,-1,0,-1,-1,-1;254,-7,0,-1,-2,1,0,1,2,0,0,-1;261,-6,1,-2,-2,1,-2,0,-1,0,-1,0,0,1,3,0,2,0;306,-9,0,-1,-1,2,-1,1,-1,1,-2,1,1,0,1,-1,1,0,1,-1,1,-1,0,-1;268,-2,1,-4,2,-1,2,2,2,2,2,0,1,-1,2,-1,2,0,3,-2,4,-1,2,-1,1,-1,0,-1,3,-1,1,-1,-2,0,0,-2,2,-1,1,-2,2,0,0,-1,1,0,-1,-1,3,-1,-1,0,-1,0,-2,0,-2,1,-2,1,-1,1,-1,2,-3,1,-1,-1,-1,0,0,-2,-2,-1,-1,1,-2,0,-2,1,-2,1,0,-1,-3,0,1,2,1,0,0,3,-1,1,-4,2,-2,0,-3,2,0,-1,-1,0,0,1,-2,1,2,1,2,0,-1,1,-3,0,0,1,-2,0,-1,1,3,1,1,0,3,-1;250,3,-1,-2,-2,-1,-2,1,-3,0,-2,-1,0,-1,2,-2,1,1,4,1,0,-1,-1,0,-1,-1,-2,-1,2,-2,0,-1,1,-2,0,-2,-1,0,-1,0,1,2,-2,-1,0,1,0,1,-1,1,0,2,-1,-1,0,-2,0,-3,-1,0,-1,0,0,2,0,2,-1,0,0,1,0,2,1,1,1,3,0,1,2,2,1,-1,3,0,2,0,2,1;257,2,0,-1,-1,0,0,-2,1,-1,-1,0,-1,1,0,3,0,2,1,0,0,-1,1,0,0,-1;212,-12,-3,0,-1,2,-3,2,-1,1,-1,1,-1,2,-2,3,-1,1,-1,2,-1,2,-2,1,-1,2,-1,1,-2,2,0,1,1,0,3,-1,2,-1,1,-2,1,-1,2,-2,2,0,2,-1,1,-2,2,-1,-1,-1,1,-1,1,0,0,-2,1,-1,1,0,1,-1,0,-3,0,-3;236,4,2,-2,-2,0,-1,-2,0,-2,-2,-1,0,-2,-1,-3,0,1,-2,-1,-1,1,-1,0,-1,1,-3,-1,-1,1,-1,0,-2,0,0,3,-1,0,-1,2,0,2,0,2,1,1,2,-1,1,1,1,1,1,1,2,0,1,2,1,1,1,1,2,1,1,1,1,2,1,0,1,-1,0,-1,2,-1,1,0,0,-1,-1,0,0,-1,-1,-1,-1,-2,1,-1,0,-1;253,17,0,-1,0,-2,-1,-1,0,2,-1,-1,0,-2,0,-1,-3,1,0,2,0,1,-1,1,0,-1,-1,0,-2,-1,1,2,1,1,1,0,1,-1,1,1,1,1,1,0,0,2,1,-1,1,-1,0,-1;162,12,-1,0,-1,2,-1,2,1,4,2,-1,1,-2,1,-2,-1,-2,-1,-1;-122,20,-2,0,1,1,0,1,1,0,0,-2;248,21,-1,-1,0,-1,-1,-1,-1,1,0,1,1,1,0,1,1,0,0,-1,1,1,0,-1;237,19,-3,-2,1,1,2,1,1,2,1,2,0,-2,-1,-1,-1,-1;244,24,1,-1,1,0,0,-1,-1,-1,-1,0,0,1,0,1,0,1;251,24,1,-2,-2,1,0,-1,1,-1,-1,-1,0,2,-1,0,0,1,1,0,0,1,-1,1,1,0,1,-1;243,26,0,-2,-1,1,-1,2,1,0,1,-1;243,37,1,-1,0,1,1,-1,-1,0,1,-2,0,-1,-2,-1,0,-2,0,-1,2,-1,0,1,3,-1,0,-2,0,-1,-1,1,-1,1,-1,-1,-1,2,-2,-1,-1,1,0,1,1,0,-1,1,0,-1,-1,1,0,1,0,2,1,-1,0,3,0,2,2,0;-131,36,-1,0,-1,0,-1,0,0,1,1,0,1,0,1,-1;-154,36,0,-1,-2,1,-1,0,1,1,1,0,1,0,1,-1,1,0,-2,0;-145,40,2,-1,0,1,1,0,2,-1,2,0,-1,-1,1,0,1,-1,0,-1,-1,1,-1,0,-1,0,0,-1,-1,0,0,1,-1,0,-1,-2,0,1,-2,0,-1,0,-1,0,-1,0,-1,1,2,0,2,0,-1,1,0,1,-1,0,1,1,1,0;221,37,-2,-1,-2,1,0,2,1,1,2,0,2,0,0,-1,-1,0,0,-2;-311,38,-1,0,0,1,0,1,0,1,0,-1,1,0,1,0,0,-1,0,-1,-1,0;-312,41,-1,0,0,1,1,0,0,-1;-314,42,-1,0,1,0;-315,43,-1,0,-1,0,1,0,1,0;-319,44,-1,0,1,0;-159,46,0,-1,2,0,1,0,2,-2,1,-1,1,0,1,0,0,-1,1,0,2,0,-1,-1,-1,0,-1,0,-2,0,-3,0,2,1,-1,0,-1,0,-1,1,0,1,-2,0,-1,1,-1,0,-3,0,0,1,-2,0,-1,-1,-1,0,-1,0,-1,0,1,0,1,1,0,1,1,0,2,0,2,0,2,0,2,0;-155,48,-1,-1,0,2,-1,0,1,1,1,-1,0,-1;242,46,-1,-2,-1,2,0,1,1,2,2,2,1,-1,0,-1,-2,-3;-156,53,-2,0,0,1,1,0,1,0,0,-1;-154,53,0,-1,-1,0,0,1,-1,1,2,-1;269,68,1,0,-2,-2,0,1,-1,0,-1,-2,-1,1,0,1,1,1,1,0,1,1,1,-1;69,71,-1,-1,-2,-1,-1,0,0,1,1,0,0,1,1,0,2,0;47,71,1,0,2,0,2,0,-1,-1,2,1,-1,-1,-3,0,-2,1;31,76,-1,-1,1,-1,-1,-1,-1,1,-1,0,-3,1,0,1,2,0,3,0,1,0;18,82,2,-1,-1,-3,-1,0,-1,0,0,3,-1,1,1,0,1,0;282,74,-1,-1,1,-1,-1,-2,-3,-1,-4,0,-2,-2,-2,1,0,1,-3,0,-3,-1,-2,0,2,-2,-1,-3,-2,-1,-1,1,1,2,-1,0,-1,2,2,0,1,1,2,2,1,1,4,0,2,0,2,4,2,-1,3,2,1,0,1,3,0,2,1,1,2,1,1,-3,0,-2,-2,-2,0,-2;19,84,-1,-1,-1,2,2,1,0,-2;288,88,1,0,2,1,0,-2,-3,-1,-2,-2,-3,1,-1,-2,-2,0,0,2,1,2,2,0,0,3,1,1,2,-2,2,-1;-127,93,1,0,2,0,-1,-1,-1,0,-2,1,-1,0,1,1,1,-1;-124,98,-1,0,-2,1,-2,1,1,0,2,-1,2,0,0,-1;-247,97,-1,0,-3,1,-1,0,-2,1,0,1,-2,0,-1,1,0,1,2,-1,2,0,1,0,1,-1,1,-1,2,-1,1,-1;-112,101,-2,-1,2,0,1,0,-1,-1,2,0,1,0,2,-1,-1,-1,2,0,0,-1,1,-1,-1,-2,-1,0,-1,1,0,1,0,1,-3,-2,-1,0,1,1,-2,0,-2,0,-4,0,0,1,1,1,1,1,2,3,2,2,1,0,1,0,-1,-2;-265,108,2,0,-1,-2,2,-2,-1,0,-1,1,-1,1,-1,1,0,1,1,0;287,101,2,-3,-3,1,-1,-3,2,-2,0,-2,-2,1,-1,-1,0,2,0,2,0,2,0,1,0,3,-1,2,0,3,2,1,-1,0,1,1,1,-2,1,-2,-1,-1,1,-3;-14,105,-3,-2,-3,1,2,2,-1,2,2,1,2,1,2,0,2,-1,-1,-1,0,-2,-2,-1;25,111,-1,-1,-2,1,0,1,3,0,0,-1;-306,114,-2,-1,-1,1,0,1,1,1,2,0,1,0,1,-1,-2,-1;-6,117,-2,-2,2,0,2,0,0,-1,-2,-2,2,0,2,-3,1,0,1,-2,1,-1,2,-1,0,-1,-1,0,1,-1,-2,-1,-3,0,-3,-1,-1,0,-1,-1,-2,1,-1,-1,-2,0,3,2,2,1,-3,0,-1,1,3,1,-2,1,1,1,3,0,0,1,-1,1,-3,1,1,1,-1,1,-1,-1,0,2,-1,1,0,2,2,1,2,0,2,0;-331,120,-1,0,-2,0,-1,0,2,1,2,0,0,-1;-159,124,0,-1,-1,0,-1,1,1,1,1,0,0,-1;-164,125,-2,-1,-2,0,0,1,2,1,2,0,0,-1;-343,128,1,-1,1,0,2,0,2,0,-1,-1,-1,0,-2,0,0,1,-2,0,-1,0,1,1;-170,131,0,-1,1,1,1,-1,2,0,3,-1,0,-1,1,0,2,-1,-2,0,-3,0,-1,1,-2,-1,-3,-1,-1,1,-2,0,1,1,1,2,0,1,2,0;-29,133,0,-1,2,-2,-3,-1,-6,-2,-1,0,-3,0,-6,1,2,1,-4,1,4,0,0,1,-5,0,2,2,3,0,3,-2,3,2,2,-1,4,1,3,0;-152,134,-2,0,0,1,0,1,2,1,2,-1,0,-1,-2,-1;-360,138,5,-2,5,-2,0,-1,1,0,0,1,5,0,4,-2,-2,-1,-3,0,0,-2,-1,0,-2,0,-1,0,-3,1,0,1,-2,0,-3,0,-1,0,1,1,-3,0,1,-1,-1,-1,720,0,-3,-1,-2,0,2,-1,1,-1,1,-1,0,-1,-1,0,-3,0,-6,-1,-2,-1,-3,-1,-3,-1,0,-1,-3,1,-5,-1,-1,0,-2,-1,-3,1,-1,-2,-2,-2,2,-1,0,-3,-2,0,-1,-1,1,-1,-3,-1,-1,-3,-3,0,-1,-2,-2,-2,-1,1,-1,3,-1,5,1,3,2,1,0,1,3,0,3,3,4,2,3,1,2,3,-2,0,-2,-2,-5,-2,-1,3,-6,-1,-5,-3,2,-2,-4,0,-3,0,0,1,-3,0,-3,-1,-6,1,-7,-1,-6,-4,-8,-5,3,0,1,-1,2,0,2,1,2,-1,3,-2,0,-2,-2,-2,0,-2,-1,-3,-3,-3,-1,-1,-2,-3,-3,-2,-1,-1,-3,-1,-1,0,-1,1,-3,-2,0,-1,-1,1,-1,-1,-1,-1,0,-1,-1,-1,-1,-1,-1,0,-1,0,0,-1,0,-1,1,0,1,-1,1,-2,1,-1,0,-3,-1,-1,-2,0,-1,-1,-2,0,0,1,0,1,-1,2,2,1,-2,1,-1,1,0,-1,-1,1,-1,0,1,1,0,1,1,1,-2,0,0,1,-3,-1,-2,-1,-2,0,1,1,0,1,1,1,-1,1,-1,-1,-3,-1,-1,-1,-2,-1,-1,-1,1,-1,2,0,0,-1,1,-1,3,2,1,-1,2,0,0,-1,-3,-1,-1,-1,-2,-1,-1,-1,2,-1,1,-2,1,-2,2,-2,0,-1,-1,-1,0,-1,1,0,0,-2,-1,-2,-1,0,-1,-2,-2,-3,-2,-2,-2,-2,-3,-1,-2,-1,-2,-1,0,1,-2,-1,-2,-1,-2,0,-1,-2,-1,0,-1,1,1,1,-3,0,-1,0,-3,-2,-1,-1,-1,-2,2,-2,2,-3,2,-1,1,-1,1,-4,-1,-4,-1,-1,-3,-1,-1,-2,-3,-2,0,1,0,2,-1,1,-2,0,-1,1,-1,2,-2,1,-1,0,0,2,-2,0,0,-2,-1,-3,-1,-2,0,-2,2,0,1,-1,0,-2,1,-1,1,-1,1,-1,1,0,1,-1,1,-1,0,-2,0,-1,0,-1,1,-1,0,-2,-1,-1,-2,2,-2,2,0,1,-2,1,0,2,-1,1,1,1,-1,1,-1,1,0,1,-1,1,-1,1,0,-1,-1,1,1,1,0,2,0,1,1,2,-1,1,0,2,-1,1,0,3,-1,2,-1,2,-1,-1,-2,-2,-1,1,-2,0,1,3,0,1,-2,3,-1,1,-1,1,-1,1,0,1,0,1,-1,2,-2,0,0,-1,0,-1,-1,0,-1,0,-1,0,0,-1,-2,0,-2,0,0,-2,-1,-1,-3,-1,-2,-2,-2,-2,-2,-1,0,-1,-1,0,-1,-1,-1,0,-1,-2,0,-2,1,-2,-1,-2,0,-3,-1,0,-1,-2,0,-1,-1,0,-1,-1,-1,-1,-2,2,-1,3,-1,2,0,1,-1,1,-1,3,0,1,-2,3,-1,4,0,2,0,3,-1,2,-3,-1,-1,0,-3,2,1,1,0,1,-3,1,-1,1,-1,1,-1,2,-4,-1,-3,0,-3,0,-4,1,-2,0,-2,0,-1,3,-1,0,-2,0,-2,-1,-2,1,-2,1,-2,1,-1,2,-2,2,-1,0,-1,1,-1,-1,-1,0,0,-1,1,-2,1,-2,1,0,0,-1,1,-1,0,-1,0,-1,1,0,0,-1,1,0,-1,1,1,1,1,0,0,-2,0,-1,0,-1,1,1,0,-1,1,0,2,0,1,0,1,2,2,1,1,1,1,1,0,-1,0,-1,0,-1,1,-2,1,0,1,-1,1,0,1,-1,1,-1,1,0,-1,-2,-1,-1,-1,-1,-1,0,0,-1,-1,-1,1,-1,-1,0,-1,0,-1,-1,0,-1,-2,0,0,-1,0,-1,-1,0,-2,0,-1,-1,-1,0,-1,0,-1,-1,0,-1,-2,-1,-3,-1,-2,-1,-1,0,-1,-1,-2,0,-1,0,-1,0,0,-1,-1,0,0,-1,-1,0,-1,0,-1,0,-1,1,1,2,-1,0,0,2,-1,0,1,1,-1,0,1,1,0,1,-1,1,0,1,-1,1,-2,1,0,2,-2,1,0,1,-2,2,0,1,0,1,-1,2,-1,1,-1,1,-1,1,0,1,-1,1,0,1,-2,2,-1,1,-1,0,1,1,0,1,0,1,-1,-1,0,-1,-1,-1,0,-1,-1,1,-1,1,-1,3,0,-3,2,-2,1,-3,1,-1,1,-1,1,-2,0,-2,2,-2,1,0,0,-2,0,-2,1,-3,1,0,1,-1,1,-2,1,-2,1,-1,2,-2,1,-1,2,-1,0,-1,1,-1,1,0,0,-1,-2,-1,1,0,1,0,0,-1,1,-1,1,0,2,0,2,1,2,0,1,0,1,1,1,0,1,0,2,0,0,1,1,0,0,-1,0,-1,0,-1,-1,-3,-1,-2,-1,-2,-2,-3,-2,-3,-2,-2,-2,-2,-3,-2,-2,-1,-2,-3,0,-1,-1,0,-1,-1,-1,-1,-1,-2,-1,-2,-1,0,-1,-3,1,-1,1,-1,-1,-1,1,-1,-1,-1,1,-1,1,-2,1,-1,0,-1,0,-2,0,-1,0,-3,1,-1,-1,-2,-1,-1,-1,-1,-2,-1,-2,-1,-2,-2,-1,-1,-2,-1,0,-1,-1,-1,1,-2,1,-1,0,-2,0,-1,0,-1,-1,-1,-2,-1,-2,-1,-1,0,0,-1,1,0,0,-1,-1,-2,0,-2,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-2,-2,-2,-2,-1,0,-2,-1,-1,0,0,-1,-2,0,-1,0,-2,0,-1,0,-1,0,-2,-1,-2,0,-1,-1,-1,0,-1,1,-1,1,-1,0,1,1,-1,2,0,2,-1,2,-1,1,-1,3,-2,1,-1,2,0,2,-1,1,0,3,0,3,0,1,-1,1,-1,1,-1,3,-1,1,-1,2,-1,1,0,2,1,1,0,2,0,1,1,2,0,1,2,1,0,1,0,1,0,2,-1,1,0,2,0,1,0,2,-1,1,-1,1,1,1,-1,0,0,2,-2,2,-2,2,-1,2,-1,2,0,1,1,2,0,1,0,3,1,1,-1,1,-1,1,-1,1,0,1,-2,-1,-1,0,-1,-1,-1,1,-1,1,-1,1,-1,2,-2,0,-2,0,-1,-1,-2,0,-3,-1,-1,-1,-2,-1,-2,1,-1,0,-1,0,-1,0,-3,0,-1,-1,-2,0,-1,0,-2,1,-2,1,-2,1,-1,2,-2,1,-1,1,0,2,-1,1,-1,1,-1,0,0,1,-1,1,-1,1,-1,0,-1,1,0,1,-1,1,1,1,-1,2,-1,0,1,1,1,1,0,1,0,1,0,1,1,2,-1,2,0,1,0,1,0,1,-1,1,0,1,0,1,1,0,0,1,0,1,1,1,1,2,1,0,0,1,0,1,1,2,1,0,2,2,1,1,2,0,1,2,1,0,2,2,-1,2,1,2,0,1,2,1,2,1,1,1,2,2,0,2,2,0,1,-1,2,0,2,-1,1,0,2,1,2,1,1,1,2,0,3,1,4,0,1,-1,2,1,2,0,2,0,2,1,1,-1,0,-1,2,1,-1,-1,0,-1,1,-1,0,-1,-2,-1,1,-1,1,0,0,-1,1,-1,2,0,1,0,2,-1,2,0,1,-2,2,-1,3,0,2,-1,1,0,1,1,0,2,2,1,1,1,3,-1,0,-1,1,0,1,0,2,0,0,-1,3,0,2,0,2,-1,1,0,1,0,1,1,2,0,1,0,1,-1,0,1,2,-1,2,0,1,0,0,1,1,1,0,2,1,2,1,1,0,2,0,1,0,1,-1,0,-2,1,-1,-2,-3,0,-2,1,-2,0,-2,-1,-2,1,-2,0,-1,2,-1,1,1,2,-2,1,3,2,3,0,0,1,4,0,3,1,2,1,3,0,4,-1,3,-1,2,0,2,0,2,1,0,1,0,1,-1,1,-1,0,-1,1,-3,2,-2,0,-2,1,2,1,1,1,-1,1,3,1,0,1,-2,-1,-1,0,-1,-1,-2,0,-2,0,0,-2,1,0,2,0,0,-1,-3,0,-2,-1,-1,0,0,1,-2,1,2,1,-4,1,-2,0,0,-1,-2,-1,0,-1,-1,0,-1,-3,-1,0,-1,-2,1,-1,0,-1,2,0,0,-1,-3,0,-1,-1,-1,-1,-1,1,0,1,-1,0,-1,0,-3,-1,2,-1,-1,0,-1,0,-1,1,-1,0,1,-2,1,-1,-1,0,1,-1,1,-1,0,-1,-2,1,1,-1,-1,0,0,-2,-1,0,-2,1,0,1,-1,2,-1,1,-1,1,0,1,-1,1,0,2,0,1,-1,0,0,1,-1,0,-2,1,-1,0,-2,1,-2,1,1,1,-1,0,0,1,-1,0,-1,0,-1,0,0,1,1,0,-2,0,-1,0,0,-1,0,-1,0,-1,2,-1,1,-1,2,-2,2,0,0,-1,2,-1,1,0,2,-1,0,-1,-2,1,-1,0,-1,-1,1,-1,0,-1,-1,0,-1,-2,-1,0,1,2,-1,1,0,1,-1,0,-1,1,-1,1,-1,0,-1,1,-2,0,-2,2,-1,1,-1,2,-1,0,-1,1,-1,-1,-1,0,-1,-1,-2,-1,-4,1,-3,-1,0,-1,0,-1,-2,-2,-2,0,-1,-1,-1,-1,-1,-1,1,-2,-1,0,0,-2,-2,0,-1,-2,-3,0,-2,0,-1,0,-1,-1,-1,0,0,1,-1,1,-2,0,-1,0,-1,0,-1,0,1,1,-1,2,-1,0,0,2,1,1,0,2,0,1,0,1,0,1,-1,1,3,1,2,0,3,0,2,0,2,0,3,0,1,1,1,4,-2,2,-2,1,-3,1,0,1,2,1,4,-1,-1,3,2,-1,5,1,0,2,2,0,2,1,1,0,1,3,3,1,2,0,2,0,2,1,-1,1,0,1,-1,1,0,2,1,1,2,0,1,1,1,0,0,-1,0,-1,1,0,-1,-1,-2,-1,1,-1,0,-1,2,0,0,-1,2,0,1,1,2,-1,1,0,2,0,3,1,2,1,2,-1,2,0,1,1,3,0,-1,2,0,2,1,1,2,1,2,-2,1,0,1,2,0,1,-1,0,-1,0,0,1,2,1,3,0,2,0,2,0,2,1,-2,1,-3,0,-4,-1,-3,0,-1,1,-2,0,0,2,-1,2,1,1,2,2,4,2,2,0,0,1,-3,1,-4,-1,-2,-1,1,-1,-3,-2,-4,-2,-2,-2,2,-2,2,-1,-2,-2,-2,-1,-1,-3,-1,-2,-3,0,-1,-1,-2,0,-1,2,-1,2,-2,3,-1,1,-4,-2,-3,-1,-3,1,0,2,-1,5,2,1,5,2,4,2,4,3,5,4,3,1,5,3,5,1,3,-1,3,2,4,0,3,0,7,-1,-3,-1,2,-1,2,1,4,-1,5,-1,8,-2,1,-1,0,-1,-2,-1,-3,-1,-9,2,-2,-1,4,-1,0,-3,2,-1,2,0,0,1,-1,1,1,0,5,-1,2,1,-1,1,4,2,2,0,2,-1,1,2,-2,1,1,1,-1,1,6,-1,1,-1,-3,0,0,-1,2,-1,3,1,0,1,4,1,7,2,2,0,-2,-2,2,0,2,1,4,0,3,1,2,-1,2,1,-2,1,1,1,6,-1,3,-1,7,-2,1,1,-2,1,0,1,-2,0,1,1,-2,1,0,1,4,2,1,2,2,0,5,0,1,-2,-2,-1,1,-1,1,-1,-1,-3,2,-1,-1,-2,-3,-2,2,-1,1,1,2,1,0,1,2,1,-1,1,1,1,-2,0,-1,1,2,2,-3,2,4,1,-1,2,1,0,1,-1,0,-2,2,-1,-1,2,3,1,4,0,4,-2,-2,2,0,2,4,1,4,0,5,0,-2,1,2,1,3,0,4,1,5,1,6,0,1,0,5,1,4,0,0,1,2,1,5,0,3,0,-3,-1,5,0,0,-1,2,0,6,0,5,-1,1,0,0,-1,-2,-1,-6,-1,-1,-1,2,0,3,0,2,0,1,-1,1,0,3,1,7,-1,0,-1,8,0,1,1,4,0,3,0,3,-1,1,-1,-1,-1,2,-2,4,0,2,2,3,-1,3,0,4,0,1,0,4,0,-2,2,3,1,18,-2,2,-1,5,-1,8,0,4,0,2,-1,-1,-2,3,0,3,0,3,0,4,0,4,0,3,-2,3,1,-2,1,1,1,6,0,4,0,6,-1,-717,-1;98,83,1,-2,1,0,1,0,-2,-1,0,-1,-1,-1,0,-1,0,-2,2,0,2,-1,3,-1,3,1,-1,2,1,2,-2,1,1,1,-2,0,1,2,2,-1,1,1,-1,1,-1,1,-1,0,0,-2,-1,2,0,1,0,1,-2,0,-1,2,-1,1,2,0,0,1,1,1,2,0,0,1,0,2,-2,0,-2,0,-2,-1,-2,0,-1,-1,-2,-1,-2,-2,2,-2,0,-1,2,-2,1,-1;-191,138,-2,0,-2,0,-2,0,-3,1,2,0,2,1,2,0,1,-1,2,-1;-360,143,720,-1,-2,0,-1,0,-717,1;-360,143,2,0,3,0,0,-1,-2,0,-3,0,0,1;-181,139,0,-2,3,2,2,-2,-1,-1,2,-2,2,2,2,2,0,2,3,0,3,-1,2,-1,1,-1,-2,-1,1,-1,0,-1,-4,-1,-2,0,-3,0,0,-1,-2,-2,-1,0,-2,-2,-3,0,-1,-1,-1,-1,-2,0,-2,-2,-2,-2,-1,-2,0,-2,3,0,0,-2,1,-2,3,1,4,-1,2,-1,1,-1,3,-1,2,0,3,-1,2,0,0,-1,1,-2,1,-3,3,-2,2,1,1,2,-1,3,-2,1,4,1,2,2,1,1,0,1,-2,2,-2,2,2,2,-1,2,0,3,1,0,4,0,2,-1,1,1,2,-1,3,-1,0,-1,4,0,0,-2,0,-2,2,0,2,-2,3,2,2,2,1,1,1,-2,3,-3,2,-2,-1,-1,3,-1,2,-2,3,0,1,-1,1,-1,2,-1,1,-3,-2,0,-1,-1,-4,-1,-2,-2,-3,0,-5,1,-3,0,-2,-1,-1,-1,-3,-1,-3,-3,-2,-1,1,0,4,3,4,1,3,0,2,-1,-2,-1,0,-2,1,-2,3,-1,3,1,2,2,0,-1,1,-1,-2,-1,-5,-2,-1,0,-3,-2,-1,0,0,2,3,2,-3,0,-2,-1,-2,-1,-2,-1,-2,-1,-1,-1,-1,0,0,-1,1,-1,1,0,0,-1,-1,0,-1,0,-2,0,-1,0,-1,-1,-1,0,3,0,-3,-1,-1,0,0,1,-1,-1,1,0,0,-2,-2,-1,-1,1,0,-1,1,0,0,-1,-1,-1,-1,-2,0,1,1,1,-1,1,-1,1,0,-1,0,-1,-1,0,1,0,0,-2,1,0,0,-1,1,-2,-2,-1,-2,-1,-1,-1,-1,0,-1,-1,0,-1,-3,-1,-1,-1,-1,-1,0,-2,0,-1,1,-2,1,-1,0,-1,1,-2,0,-2,-1,-2,-1,0,-1,1,0,1,-1,1,-1,2,-1,1,1,1,-1,1,-1,2,-1,0,-2,-1,-1,0,-1,1,-1,1,-2,0,-2,0,-1,0,-1,-1,0,-1,1,0,-1,-1,-1,1,0,-1,-2,0,-1,1,-2,0,-1,1,-2,-1,-1,0,-2,-2,-2,0,-1,-1,-1,-1,0,-2,0,-1,1,0,-1,-2,0,-1,-1,-3,0,-1,1,-1,0,-1,1,-2,1,-1,0,-1,1,-1,2,-1,1,-1,2,1,1,0,2,0,1,1,1,1,1,1,0,1,0,1,2,1,2,0,2,0,1,0,0,-1,-1,-1,0,-2,0,-1,-1,-1,-1,0,1,0,0,-1,-1,-1,1,0,-1,-1,1,0,-1,-1,0,-1,-1,0,1,-1,0,1,1,-1,0,1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,-1,1,0,1,-1,-1,-1,1,0,-1,-1,0,-1,0,-1,0,-1,0,-1,0,-1,-1,0,0,-1,1,0,0,-1,1,-1,1,-1,1,-1,1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,-1,1,0,0,-1,1,0,2,2,1,0,0,1,0,1,1,1,1,0,1,1,1,-1,2,1,1,1,0,1,1,0,1,-1,-1,0,0,-1,-1,0,1,-1,0,-1,-1,-1,1,-2,1,2,-1,0,0,2,3,1,-1,1,1,0,1,-1,1,0,2,-1,0,-1,1,0,3,0,1,-1,1,0,1,1,3,0,2,0,-1,0,0,-1,2,0,1,-1,1,-2,1,0,2,-1,1,-1,0,-1,1,0,1,-1,1,-1,2,0,2,0,2,0,1,-1,1,0,2,-2,1,-1,1,-1,1,-3,1,-1,0,-1,-1,-2,4,0,0,-2,1,1,3,-1,3,-1,1,-1,0,-1,2,0,4,-1,3,0,3,-1,3,-3,1,0,2,0,1,-1,0,-2,1,-2,-1,-3,-1,-1,-3,-3,-1,-2,-2,-2,-1,-2,0,-3,0,-3,-1,-2,0,-1,-1,-2,-2,-3,0,-2,-2,-1,0,-1,-2,0,-3,-1,-2,-1,-2,0,-2,-2,-2,-2,0,-1,0,-1,0,-2,-1,-1,-1,-1,-2,-4,-2,-2,-2,0,0,-2,-2,-2,-1,-1,-2,-1,-1,0,-1,0,-2,1,-2,0,-1,1,0,-1,3,-2,-1,-1,2,-1,-1,-1,-1,-2,-3,-1,-4,-1,-3,0,1,-1,-1,-1,1,-1,-1,-1,-3,0,-1,0,-1,0,0,-2,1,-1,1,1,1,-1,-2,-1,-1,-1,-1,-2,0,-1,-2,0,-2,-1,0,-2,2,-1,2,0,-1,-2,-2,-1,-2,-3,-1,-1,-1,0,0,-3,2,-1,-1,0,-2,0,-1,0,-2,-1,0,-2,-1,0,-2,1,-2,1,-3,1,-1,2,1,1,-1,1,0,4,1,2,2,1,-3,1,2,1,0,4,3,-1,1,4,-2,1,0,-3,-2,1,1,2,1,4,1,1,-1,2,0,3,1,0,1,3,1,3,1,3,0,3,0,2,0,2,1,3,1,4,0,4,1,4,0,3,-1,3,-2,1,0,1,-4,2,-3,2,-2,2,-1,1,0,1,-1,3,-2,3,-2,4,-1,1,-1,2,-1,1,-2,1,1,1,-1,2,1,1,1,1,1,2,0,1,-1,-1,-1,1,0,2,1,0,0,1,1,2,0,1,1,0,1,1,1,1,0,1,1,0,1,2,1,1,-1,0,0,1,0,2,0,1,0,1,-1,1,0,1,-1,1,1,1,-1,0,-1,1,-1,0,-1,-1,-1,0,0,-1,1,-1,-1,0,-1,-1,0,2,0,-1,-1,0,0,1,-1,0,-1,1,-1,0,0,-1,-1,1,0,1,-1,1,-1,0,0,1,-1,0,0,-1,-1,1,-1,0,0,1,1,1,-1,0,1,0,-1,1,-1,1,-1,1,-1,1,0,1,-1,0,0,-1,-1,0,-1,1,-1,0,-1,0,-1,1,-1,0,-1,0,-1,1,-3,2,-1,1,-1,0,-2,0,-1,0,-1,-1,-2,1,-1,0,-2,1,-1,0,-3,1,-1,1,-1,1,-1,0,-2,1,-1,0,-2,2,-1,1,0,1,0,1,0,1,0,1,0,1,-1,1,-2,2,-2,1,-1,1,-2,1,0,1,0,1,-1,0,-1,1,0,2,-1,0,-2,1,0,1,-1,1,-1,1,0,2,-2,1,-2,1,0,-1,0,-1,1,-2,2,-2,1,-1,0,-1,1,-1,1,-1,1,-1,0,-2,1,0,1,-1,0,-1,1,0,0,-1,1,-1,0,-1,-1,0,-1,1,-1,1,-1,1,-1,0,0,2,-1,1,-1,1,-1,1,0,-1,-1,1,-1,0,-1,1,0,1,1,-1,1,1,0,1,-2,2,-1,0,-1,1,-1,2,0,1,-1,2,-1,1,-1,1,-1,0,0,1,-1,0,-1,1,-2,0,0,1,-2,2,-2,3,0,1,-1,0,-1,2,-1,2,-1,1,1,1,0,2,-1,2,1,1,0,4,0,3,-1,1,0,1,0,1,3,-1,1,-2,0,1,0,1,-1,2,-4,2,-1,1,-4,1,-1,1,0,2,-2,1,-1,1,-2,2,0,1,-1,0,-2,1,0,2,-3,1,-1,2,-2,0,-3,0,-3,1,-4,2,-2,0,-3,1,-3,0,-4,1,-2,1,-2,-1,0,-1,-1,0,-2,-1,-2,0,-2,-1,-1,1,1,2,2,1,0,1,-3,-2,-1,-1,-3,-1,1,-1,-1,-2,-3,-1,-2,0,0,-1,-3,-1,-1,-1,-2,-1,-2,0,-1,0,-2,-1,-2,-1,-4,0,2,1,2,1,2,1,3,0,1,1,3,1,2,1,0,2,1,1,-2,-1,-1,1,-1,-1,-1,1,-1,-1,-1,1,-2,-1,-1,0,0,2,-1,1,-3,0,-1,1,-2,0,0,1,-1,1,1,1,1,1,1,1,1,0,2,0,1,1,2,0,1,1,-1,1,1,1,-1,0,-2,-1,-1,0,-1,0,-3,0,-3,0,-1,1,-2,1,3,1,4,1,2,0,-1,-1,5,0,-2,1,-2,1,-2,1,-2,1,-3,1,2,1,3,0,3,1,0,1,2,1,2,0,4,1,2,0,3,1,3,-1,1,-1,1,1,4,0,-1,-1,4,0,2,0,4,-1,4,0,1,0,3,0,3,0,2,-1,4,0,3,-1,2,0,2,1,2,0,3,0,3,1,3,0,2,0,1,0,1,1,1,0,3,-2,3,1,0,-1,3,0,1,1,2,0,3,-1,5,-1,3,0,2,0,2,-1,-3,-1,4,-1,5,1,2,0,2,-1,2,1,-2,1,2,0,2,0,2,1,1,-1,2,-1,3,0,3,-1,3,1,3,0,0,1,2,0,3,-1,0,-1,1,1,2,0,1,2,-3,1,-2,1,0,2,3,2,2,0,2,-1,3,-3,-2,-1,4,0;-228,146,-1,-1,4,1,3,-1,2,1,2,-1,2,-2,1,1,-2,2,2,0,2,0,2,-1,1,-2,1,-1,3,-1,4,-1,0,-1,-3,0,1,-1,-1,0,-3,0,-4,0,-2,0,-4,0,-6,-1,-3,0,-1,1,-2,1,-2,-1,-3,2,2,0,3,0,3,0,2,1,-4,0,-4,0,-3,0,-1,1,5,1,-3,0,-4,0,2,2,1,0,6,2,2,-1;-209,147,-2,-1,-3,1,1,0,2,0,2,0;-153,146,-2,0,-2,0,-2,-1,-1,1,-2,1,1,1,5,-1,3,-1;-173,146,1,-1,2,2,5,1,4,-3,-1,-1,4,1,2,1,5,-2,3,0,0,-1,4,0,2,-1,4,-1,2,-1,2,-2,-4,-1,5,-1,3,0,3,-2,3,0,0,-2,-4,-2,-2,1,-3,2,-3,0,0,-2,2,-1,3,-1,2,-2,-1,-2,-3,1,-5,1,3,-1,2,-1,1,-1,-6,1,-4,1,-2,1,-3,1,-3,1,-5,-1,-2,1,1,2,4,0,4,0,-1,1,1,1,3,2,-1,0,-1,1,-3,1,-4,1,2,0,-3,2,-1,0,-2,0,-1,0,-4,-1,-7,1,-4,1,-3,0,-2,1,2,0,-3,0,0,2,1,2,2,1,5,1,-1,-2;-201,148,3,-1,3,1,1,-1,-2,-1,3,-1,0,-2,-4,0,-2,0,-1,0,-5,2,0,1,4,-1,-2,2,2,1;287,146,-3,0,-4,1,2,1,2,0,3,-1,0,-1;-186,146,-3,-2,-2,0,-1,2,0,1,1,1,2,0,4,0,4,0,-3,-2,-2,0;-241,143,-5,-1,-1,1,-5,1,1,0,1,2,2,1,-2,2,7,0,3,-1,5,0,2,0,2,-1,-3,-1,-4,-1,-3,-1,0,-1;301,150,-2,-1,-3,1,-4,0,1,1,3,0,5,-1;-187,150,-1,-1,-3,0,-3,1,1,1,3,0,2,0,1,-1;290,151,-1,-1,-8,0,-3,-1,-4,2,1,1,3,0,5,0,7,-1;-197,153,2,0,0,-2,-1,-1,-4,0,-2,0,0,1,-3,0,0,2,2,0,3,0,3,0;-216,152,2,0,2,0,1,-1,-2,-1,-6,0,-5,-1,-3,0,-1,0,4,1,-9,0,-2,0,2,2,2,1,6,-1,3,-1,4,0,-3,2,2,1,2,-1,1,-1;115,141,-1,0,-7,1,-4,1,0,1,2,0,0,2,4,1,-2,1,5,1,-1,1,5,1,6,2,7,0,3,1,4,0,2,-1,-2,-1,-7,-1,-6,0,-6,-2,-3,-2,-3,-2,0,-2,4,-2;-189,154,2,0,4,0,2,-1,-1,-1,2,0,2,-1,2,0,3,0,3,0,4,1,4,-1,2,0,0,-1,-1,-1,-3,0,-2,0,-6,0,-4,0,-4,0,-5,1,-1,1,0,1,-2,1,-4,0,-2,1,1,0,4,0;-232,155,-1,-1,-1,-1,-2,0,-4,-1,-3,0,-3,0,4,2,4,1,3,0,3,0;-188,155,-1,0,-3,0,-1,1,4,0,2,-1,-1,0;-220,155,-4,0,-3,0,2,1,2,0,3,0,0,-1;49,156,-4,-1,-4,0,2,1,-1,1,4,0,1,-1,2,0;-219,157,-3,0,-3,0,2,1,1,0,3,-1;-192,156,-3,0,-1,0,-1,1,0,1,2,0,1,0,3,-1,-1,-1;-200,157,1,-1,-4,0,-3,1,-4,0,2,0,-3,1,0,1,4,-1,5,0,2,-1;210,157,-11,-1,4,2,1,1,2,0,5,-2,-1,0;37,159,6,-1,-5,-1,-1,-1,-2,-1,-1,-1,-2,0,-4,1,1,0,-3,1,-4,2,-1,1,5,1,1,-1,3,0,1,1,3,0,3,-1;51,161,4,-1,-3,-1,-6,0,-6,0,0,1,-3,0,-2,1,6,0,3,0,2,0,5,0;102,161,-2,0,-2,0,0,-1,-3,0,-2,0,1,1,-4,0,4,1,3,0,0,-1,1,1,2,0,3,-1,-1,0;200,158,-4,0,-6,0,-3,1,-2,1,-3,1,6,1,4,1,4,-2,4,-1,0,-2;-174,159,2,0,-2,-1,-4,-1,-4,-1,-4,1,-2,1,2,1,-4,0,-2,0,-1,1,1,1,1,1,2,0,4,1,3,-2,3,0,3,0,2,-2;-137,166,5,0,5,0,3,-1,-5,-1,-5,-1,-1,0,4,0,-5,-1,-3,-1,-3,-1,-4,-1,-2,0,-6,0,3,-1,-1,0,1,-1,-2,-1,-3,0,-1,-1,-3,-1,1,0,3,0,-5,-2,-5,1,-6,0,-3,0,-4,0,0,1,3,0,-1,2,2,0,5,-1,-3,1,-3,1,2,1,3,0,1,1,-3,0,-1,2,6,-1,1,0,3,1,-4,0,-7,0,-4,1,-1,1,-3,0,0,1,3,0,2,0,4,1,3,0,2,0,3,0,1,1,3,0,3,0,6,0,2,0,5,0,5,0,4,0;-54,167,12,-2,-3,0,-8,0,-11,-1,1,0,7,0,6,0,4,0,2,-1,-2,-1,5,1,9,1,6,-1,2,0,-9,-2,-1,0,-6,-1,5,0,-3,-1,-1,-1,0,-3,2,-1,-3,0,-3,-1,3,-1,1,-2,-2,0,2,-1,-4,-1,2,0,-1,-1,-2,0,-3,0,2,-2,0,-1,-4,1,-1,0,3,-1,3,-1,0,-2,-3,0,-2,1,-2,1,1,-1,-3,-2,6,0,2,0,-5,-1,-5,-2,-6,-1,-3,0,-2,-1,-2,-2,-5,-1,-1,0,-3,-1,-3,0,-1,-1,0,-2,-1,-1,-4,-2,1,-1,-1,-2,-1,-2,-3,0,-3,2,-4,0,-1,1,-2,2,-3,2,-1,2,-1,1,-2,2,0,2,-1,0,2,3,3,0,1,1,0,2,-2,-1,-1,0,-2,0,-2,0,-1,2,1,1,2,0,4,-1,-3,1,-2,1,-2,0,-2,0,3,2,-2,1,-1,1,-3,2,-2,1,0,1,-6,1,-4,0,-5,0,-5,0,-2,1,-4,1,5,1,4,0,-8,0,-5,1,1,1,7,1,8,1,0,1,-5,0,2,1,7,1,3,1,-1,1,4,0,7,0,6,0,2,0,5,1,5,-1,3,0,4,-1,-5,1,0,1,7,1,7,0,3,1,7,0,16,0';
-const RINGS=LAND.split(';').map(q=>{const n=q.split(',').map(Number);let lo=0,la=0;const r=[];for(let i=0;i<n.length;i+=2){lo+=n[i];la+=n[i+1];const a=lo/2*Math.PI/180,b=la/2*Math.PI/180;r.push([Math.cos(b)*Math.sin(a),Math.sin(b),Math.cos(b)*Math.cos(a)])}return r});
-function globe(cv,lon0){const D=devicePixelRatio||1,S=cv.clientWidth||280,ctx=cv.getContext('2d');if(cv.width!==Math.round(S*D)){cv.width=cv.height=Math.round(S*D)}
- ctx.setTransform(D,0,0,D,0,0);ctx.clearRect(0,0,S,S);const R=S/2-5,c=S/2,tl=.4,ct=Math.cos(tl),st=Math.sin(tl),cl=Math.cos(lon0),sl=Math.sin(lon0);
- ctx.save();ctx.beginPath();ctx.arc(c,c,R,0,7);ctx.clip();
- let g=ctx.createRadialGradient(c-R*.35,c-R*.4,R*.1,c,c,R);g.addColorStop(0,'#3f93e4');g.addColorStop(.6,'#1456a8');g.addColorStop(1,'#082a55');ctx.fillStyle=g;ctx.fillRect(0,0,S,S);
- ctx.fillStyle='#55b573';ctx.beginPath();
- for(const r of RINGS){const pts=r.map(([x,y,z])=>{const x1=x*cl-z*sl,z1=x*sl+z*cl;return[x1,y*ct-z1*st,y*st+z1*ct]});if(!pts.some(p=>p[2]>0))continue;
-  pts.forEach(([x,y,z],i)=>{let X=x,Y=y;if(z<=0){const l=Math.hypot(x,y)||1;X=x/l;Y=y/l}i?ctx.lineTo(c+R*X,c-R*Y):ctx.moveTo(c+R*X,c-R*Y)});ctx.closePath()}
- ctx.fill();
- g=ctx.createRadialGradient(c-R*.4,c-R*.45,R*.05,c,c,R*1.05);g.addColorStop(0,'rgba(255,255,255,.24)');g.addColorStop(.45,'rgba(255,255,255,0)');g.addColorStop(1,'rgba(0,6,22,.64)');ctx.fillStyle=g;ctx.fillRect(0,0,S,S);ctx.restore();
- ctx.strokeStyle='rgba(140,200,255,.55)';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(c,c,R,0,7);ctx.stroke()}
-let gAnim=0;
-function spin(){const cv=$('#gc'),t0=performance.now(),rad=Math.PI/180;
- if(matchMedia('(prefers-reduced-motion:reduce)').matches){globe(cv,-20*rad);return}
- const f=now=>{globe(cv,(40-28*Math.max(0,now-t0)/1000)*rad);gAnim=requestAnimationFrame(f)};gAnim=requestAnimationFrame(f)}
+// ---------- GLOBE 3D REALISTE (Three.js, NASA Earth Texture & Atmosphere) ----------
+let scene, camera, renderer, globeMesh, atmosphereMesh, gAnim=0;
+
+function init3DGlobe(){
+ const container=$('#splash');
+ const width=window.innerWidth, height=window.innerHeight;
+ 
+ scene = new THREE.Scene();
+ camera = new THREE.PerspectiveCamera(45, width/height, 0.1, 1000);
+ camera.position.z = 2.7;
+
+ renderer = new THREE.WebGLRenderer({canvas:$('#gc'), antialias:true, alpha:true});
+ renderer.setSize(container.clientWidth, container.clientHeight);
+ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+ // 1. Fond étoilé de l'espace
+ const starsGeo = new THREE.BufferGeometry();
+ const starsCount = 1200;
+ const starPositions = new Float32Array(starsCount * 3);
+ for(let i=0; i<starsCount*3; i+=3){
+  starPositions[i] = (Math.random() - 0.5) * 150;
+  starPositions[i+1] = (Math.random() - 0.5) * 150;
+  starPositions[i+2] = (Math.random() - 0.5) * 150;
+ }
+ starsGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+ const starsMat = new THREE.PointsMaterial({color:0xffffff, size:0.4, transparent:true, opacity:0.8});
+ const starField = new THREE.Points(starsGeo, starsMat);
+ scene.add(starField);
+
+ // 2. Globe terrestre Realistic Texture
+ const geometry = new THREE.SphereGeometry(1, 64, 64);
+ const textureLoader = new THREE.TextureLoader();
+ const mapTex = textureLoader.load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg');
+
+ const material = new THREE.MeshPhongMaterial({
+  map: mapTex,
+  shininess: 15,
+  bumpScale: 0.05
+ });
+ globeMesh = new THREE.Mesh(geometry, material);
+ scene.add(globeMesh);
+
+ // 3. Halo Atmosphérique Bleu (Style Polarsteps / Google Maps)
+ const atmosGeo = new THREE.SphereGeometry(1.04, 64, 64);
+ const atmosMat = new THREE.ShaderMaterial({
+  vertexShader: `
+   varying vec3 vNormal;
+   void main() {
+    vNormal = normalize(normalMatrix * normal);
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+   }
+  `,
+  fragmentShader: `
+   varying vec3 vNormal;
+   void main() {
+    float intensity = pow(0.65 - dot(vNormal, vec3(0, 0, 1.0)), 2.2);
+    gl_FragColor = vec4(0.2, 0.65, 1.0, 1.0) * intensity;
+   }
+  `,
+  blending: THREE.AdditiveBlending,
+  side: THREE.BackSide,
+  transparent: true
+ });
+ atmosphereMesh = new THREE.Mesh(atmosGeo, atmosMat);
+ scene.add(atmosphereMesh);
+
+ // 4. Éclairage solaire (Lumière directionnelle + ambiante)
+ const ambientLight = new THREE.AmbientLight(0xddeeff, 0.4);
+ scene.add(ambientLight);
+
+ const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
+ dirLight.position.set(5, 3, 4);
+ scene.add(dirLight);
+}
+
+function spin(){
+ init3DGlobe();
+ const t0 = performance.now();
+ const animate = (now) => {
+  if (globeMesh) {
+   globeMesh.rotation.y = (now - t0) * 0.00035;
+  }
+  renderer.render(scene, camera);
+  gAnim = requestAnimationFrame(animate);
+ };
+ gAnim = requestAnimationFrame(animate);
+}
+
 // ---------- démarrage : écran animé, connexion automatique ; le jeton se renouvelle via 5 touches sur le titre (ou « Jeton d'accès… » dans les réglages)
 const saveCfg=()=>{const v=JSON.stringify({o:C.o,r:C.r,t:C.t});try{localStorage.ed=v}catch{sessionStorage.ed=v}};
 const mk=()=>{$('#mk').href='https://github.com/settings/personal-access-tokens/new?'+new URLSearchParams({name:'Éditeur album',description:'Éditeur de carnets de voyage',target_name:C.o||'',expires_in:'365',contents:'write'})};
