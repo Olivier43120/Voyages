@@ -92,6 +92,7 @@ html,body{height:100%;background:var(--bg);color:#f2f6fa;font:16px/1.45 Outfit,s
  <label>Page de garde (image) <span id="cvn"></span></label><input type="file" id="cv" accept="image/*">
  <button class="btnl" id="upv" hidden style="margin-top:22px">Mettre à jour la visionneuse de tous les carnets</button>
  <button class="btnl" id="mig" hidden>Déplacer ce carnet dans un dossier…</button>
+ <button class="btnl" id="delal" hidden style="margin-top:26px;color:#c0392b">Supprimer ce carnet…</button>
  <p style="text-align:center;margin-top:34px"><a id="tkopen" style="color:#9aa8b6;font-size:13px;cursor:pointer">Jeton d’accès…</a></p>
 </div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -132,7 +133,7 @@ async function init(){
   document.querySelectorAll('[data-a]').forEach(i=>i.value=A[i.dataset.a]||'');
   const cp=[...LM.keys()].find(p=>/^(cover|couverture|garde)\.\w+$/i.test(p));$('#cvn').textContent=cp?'(actuelle : '+cp+')':'(aucune)';
   $('#al').innerHTML=AL.map(p=>`<option value="${esc(p)}"${p===P?' selected':''}>${esc(p?p.slice(0,-1):'(racine)')}</option>`).join('')+'<option value="+">＋ Nouveau carnet…</option>';
-  $('#mig').hidden=P!==''||!T.has('album.json');$('#upv').hidden=!(T.has('viewer.html')&&AL.some(Boolean));
+  $('#mig').hidden=P!==''||!T.has('album.json');$('#delal').hidden=!(P&&AL.length>1);$('#upv').hidden=!(T.has('viewer.html')&&AL.some(Boolean));
   initMap();renderRail();upd();setTimeout(()=>map.invalidateSize(),60);return true}
  catch(e){lastErr=e;$('#st').textContent='Échec : '+e.message;return false}}
 async function loadStep(s){const[a,...b]=await Promise.all([s.stxt?txt(s.id+'/'+s.stxt):'',...s.media.map(m=>m.txt?txt(s.id+'/'+m.txt):'')]);
@@ -287,6 +288,12 @@ async function migrate(){const n=dirName('Dossier de destination pour ce carnet 
   await commit(E,'Déplacement du carnet dans '+n,1);P=n+'/';S=[];await init();$('#st').textContent='Carnet déplacé. Patientez 1 à 3 minutes.'}
  catch(e){$('#st').textContent='Échec : '+e.message}}
 $('#mig').onclick=migrate;
+// Suppression d'un carnet (dossier entier) : confirmation par saisie du nom ; au moins un carnet doit rester
+$('#delal').onclick=async()=>{const n=P.slice(0,-1);if(!n||AL.length<2)return;
+ if((prompt('Suppression DÉFINITIVE du carnet « '+n+' » et de toutes ses photos.\nPour confirmer, tapez son nom exact :')||'').trim()!==n)return;
+ try{$('#asheet').classList.remove('on');$('#st').textContent='Suppression…';
+  await commit([{path:n,del:1,tree:1}],'Suppression du carnet '+n,1);P='';S=[];await init();$('#st').textContent='Carnet « '+n+' » supprimé. Le site se met à jour dans 1 à 3 minutes.'}
+ catch(e){$('#st').textContent='Échec : '+e.message}};
 $('#upv').onclick=async()=>{if(!confirm('Remplacer l’index.html de chaque carnet par viewer.html ?'))return;
  try{await commit(AL.filter(Boolean).map(p=>({path:p+'index.html',sha:T.get('viewer.html')})),'Mise à jour de la visionneuse',1);$('#st').textContent='Visionneuse mise à jour. Patientez 1 à 3 minutes.'}catch(e){$('#st').textContent='Échec : '+e.message}};
 $('#al').onchange=async e=>{if(e.target.value==='+'){e.target.value=P;return newCarnet()}
