@@ -2,7 +2,9 @@
  "title": "monistrol",
  "author": "Olivier SOLEILLANT",
  "subtitle": "",
- "cover": null,
+ "cover": {
+  "src": "cover.png?v=c2d72350"
+ },
  "steps": [
   {
    "id": "Step1",
